@@ -1,0 +1,22 @@
+{
+  "comments": false,
+  "ignore": [
+    "interface.js"
+  ],
+
+  "env": {
+    "production": {
+      "presets": [
+        "@babel/preset-flow",
+        ["@babel/preset-env", {"modules": false}]
+      ]
+    },
+    "test": {
+      "presets": [
+        "@babel/preset-flow",
+        "@babel/preset-env"
+      ]
+    }
+  }
+}
+

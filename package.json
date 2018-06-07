@@ -1,0 +1,130 @@
+{
+  "name": "@qiwi/uniconfig",
+  "version": "0.0.1",
+  "description": "Yet another one config processor. Weird. Slow. Our own.",
+  "main": "dist/index.js",
+  "scripts": {
+    "flow": "flow",
+    "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 90",
+    "lint": "standard src/**/*.js test/**/*.js",
+    "test": "npm run flow && npm run flow_coverage && npm run lint && npm run build && npm run jest",
+    "docs": "docma -c ./docma.json",
+    "show_docs": "node scripts/docsapp.js",
+    "jest": "BABEL_ENV=test jest -w 1 --detectOpenHandles",
+    "test_with_report": "npm test && npm run codeclimate_push && npm run coveralls_push",
+    "codeclimate_push": "codeclimate-test-reporter < ./coverage/lcov.info",
+    "coveralls_push": "cat ./coverage/lcov.info | coveralls",
+    "remove_flowtypes": "flow-remove-types src/ --out-dir dist/",
+    "build": "npm run remove_flowtypes",
+    "build_with_babel": "BABEL_ENV=production babel src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiwi/uniconfig.git"
+  },
+  "keywords": [
+    "universal config",
+    "unified config"
+  ],
+  "author": "Qiwi <opensource@qiwi.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qiwi/uniconfig/issues"
+  },
+  "homepage": "https://github.com/qiwi/uniconfig#readme",
+  "@std/esm": {
+    "mode": "all",
+    "cjs": true
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/plugin-external-helpers": "^7.0.0-beta.49",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
+    "@babel/plugin-transform-flow-strip-types": "^7.0.0-beta.49",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.49",
+    "@babel/polyfill": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "@babel/preset-flow": "^7.0.0-beta.49",
+    "@semantic-release/changelog": "^2.0.2",
+    "@semantic-release/git": "^5.0.0",
+    "@semantic-release/github": "^4.2.17",
+    "@semantic-release/npm": "^3.3.1",
+    "@std/esm": "^0.26.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-minify": "^0.4.3",
+    "codeclimate-test-reporter": "^0.5.0",
+    "coveralls": "^3.0.1",
+    "docma": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.48.0",
+    "flow-bin": "^0.73.0",
+    "flow-coverage-report": "^0.5.0",
+    "flow-remove-types": "^1.2.3",
+    "jest": "^23.1.0",
+    "semantic-release": "^15.5.0",
+    "standard": "^11.0.1"
+  },
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "dist/"
+  ],
+  "release": {
+    "branch": "master",
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "publish": [
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/interface.js"
+    ],
+    "collectCoverageFrom": [
+      "<rootDir>/dist/**/*.js"
+    ],
+    "testMatch": [
+      "<rootDir>/test/**/*.js"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ],
+    "globals": [
+      "jest",
+      "it",
+      "expect",
+      "describe",
+      "before",
+      "beforeAll",
+      "beforeEach",
+      "afterAll",
+      "after",
+      "afterEach"
+    ],
+    "rules": {
+      "use-flow-type": 1
+    },
+    "ignore": [],
+    "settings": {
+      "flowtype": {
+        "onlyFilesWithFlowAnnotation": true
+      }
+    }
+  }
+}

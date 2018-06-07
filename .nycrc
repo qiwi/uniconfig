@@ -1,0 +1,16 @@
+{
+  "reporter": [
+    "html",
+    "text",
+    "text-summary"
+  ],
+  "include": [
+    "src/**/*.js"
+  ],
+  "require": [
+    "@std/esm",
+    "./script/require-all"
+  ],
+  "check-coverage": false,
+  "cache": true
+}

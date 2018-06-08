@@ -3,20 +3,25 @@
   "ignore": [
     "interface.js"
   ],
-
   "env": {
     "production": {
       "presets": [
-        "@babel/preset-flow",
-        ["@babel/preset-env", {"modules": false}]
+        "flow",
+        ["env", {"modules": false}]
+      ],
+      "plugins": [
+        "transform-class-properties"
       ]
     },
     "test": {
       "presets": [
-        "@babel/preset-flow",
-        "@babel/preset-env"
+        "flow",
+        "env"
+      ],
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        "transform-class-properties"
       ]
     }
   }
 }
-

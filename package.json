@@ -6,11 +6,12 @@
   "scripts": {
     "flow": "flow",
     "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 90",
+    "flow_fetch_libdefs": "flow-typed install lodash@4.17.10",
     "lint": "standard src/**/*.js test/**/*.js",
     "test": "npm run flow && npm run flow_coverage && npm run lint && npm run build && npm run jest",
     "docs": "docma -c ./docma.json",
     "show_docs": "node scripts/docsapp.js",
-    "jest": "BABEL_ENV=test jest -w 1 --detectOpenHandles",
+    "jest": "BABEL_ENV=test NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
     "test_with_report": "npm test && npm run codeclimate_push && npm run coveralls_push",
     "codeclimate_push": "codeclimate-test-reporter < ./coverage/lcov.info",
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
@@ -36,33 +37,34 @@
     "mode": "all",
     "cjs": true
   },
+  "dependencies": {
+    "js-yaml": "^3.12.0",
+    "lodash-es": "^4.17.10"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.49",
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/plugin-external-helpers": "^7.0.0-beta.49",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
-    "@babel/plugin-transform-flow-strip-types": "^7.0.0-beta.49",
-    "@babel/plugin-transform-runtime": "^7.0.0-beta.49",
-    "@babel/polyfill": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "@babel/preset-flow": "^7.0.0-beta.49",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
     "@semantic-release/changelog": "^2.0.2",
     "@semantic-release/git": "^5.0.0",
     "@semantic-release/github": "^4.2.17",
     "@semantic-release/npm": "^3.3.1",
     "@std/esm": "^0.26.0",
-    "babel-core": "^7.0.0-bridge.0",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-minify": "^0.4.3",
     "codeclimate-test-reporter": "^0.5.0",
     "coveralls": "^3.0.1",
     "docma": "^2.1.0",
-    "eslint-plugin-flowtype": "^2.48.0",
-    "flow-bin": "^0.73.0",
+    "eslint-plugin-flowtype": "^2.49.3",
+    "flow-bin": "^0.74.0",
     "flow-coverage-report": "^0.5.0",
     "flow-remove-types": "^1.2.3",
     "jest": "^23.1.0",
-    "semantic-release": "^15.5.0",
+    "semantic-release": "^15.5.1",
     "standard": "^11.0.1"
   },
   "files": [
@@ -85,19 +87,6 @@
     "publish": [
       "@semantic-release/npm",
       "@semantic-release/github"
-    ]
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/src/interface.js"
-    ],
-    "collectCoverageFrom": [
-      "<rootDir>/dist/**/*.js"
-    ],
-    "testMatch": [
-      "<rootDir>/test/**/*.js"
     ]
   },
   "standard": {

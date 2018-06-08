@@ -1,0 +1,17 @@
+{
+  "testEnvironment": "node",
+  "collectCoverage": true,
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/src/interface.js"
+  ],
+  "collectCoverageFrom": [
+    "<rootDir>/src/**/*.js"
+  ],
+  "testMatch": [
+    "<rootDir>/test/**/*.js"
+  ],
+  "transformIgnorePatterns": [
+    "/!node_modules\\/lodash-es/",
+    "<roodDir>/node_modules/(?!lodash-es)"
+  ]
+}

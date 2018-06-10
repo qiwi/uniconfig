@@ -1,7 +1,8 @@
 // @flow
 
 import type {IConfig, IConfigOpts, IAny} from './interface'
-import {get} from './base'
+import {get, has} from './base'
+import {ConfigError, MISSED_VALUE_PATH} from './error'
 
 export const DEFAULT_OPTS: IConfigOpts = {
   tolerateMissed: true
@@ -19,7 +20,15 @@ export default class Config {
   }
 
   get (path: string): IAny {
+    if (!this.opts.tolerateMissed && !this.has(path)) {
+      throw new ConfigError(MISSED_VALUE_PATH)
+    }
+
     return get(this.data, path)
+  }
+
+  has (path: string): boolean {
+    return has(this.data, path)
   }
 
   static load (source: string) {

@@ -9,5 +9,6 @@ export interface IConfig {
   constructor (path: string, opts: IConfigOpts): IConfig,
   opts: IConfigOpts,
   data: IAny,
-  get (path: string): IAny
+  get (path: string): IAny,
+  has (path: string): boolean
 }

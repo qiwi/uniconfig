@@ -1,3 +1,3 @@
 // @flow
 
-export {get} from 'lodash-es'
+export {get, has} from 'lodash-es'

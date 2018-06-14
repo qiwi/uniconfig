@@ -1,8 +1,16 @@
 // @flow
 
-import type {IConfig, IConfigOpts, IAny} from './interface'
+import type {
+  IConfig,
+  IConfigOpts,
+  IAny,
+  IEventEmitter,
+  IEventListener
+} from './interface'
+
 import {get, has} from './base'
 import {ConfigError, MISSED_VALUE_PATH} from './error'
+import {eventEmitterFactory, READY} from './event'
 
 export const DEFAULT_OPTS: IConfigOpts = {
   tolerateMissed: true
@@ -11,10 +19,16 @@ export const DEFAULT_OPTS: IConfigOpts = {
 export default class Config {
   data: IAny
   opts: IConfigOpts
+  id: string
+  emitter: IEventEmitter
 
   constructor (source: string, opts: IConfigOpts = {}): IConfig {
     this.opts = {...DEFAULT_OPTS, ...opts}
-    this.data = this.constructor.load(source)
+    this.data = this.constructor.parse(this.constructor.load(source))
+    this.id = '' + Math.random()
+    this.emitter = this.opts.emitter || eventEmitterFactory()
+
+    this.emit(READY)
 
     return this
   }
@@ -31,7 +45,21 @@ export default class Config {
     return has(this.data, path)
   }
 
-  static load (source: string) {
-
+  on (event: string, listener: IEventListener): IConfig {
+    this.emitter.on(event + this.id, listener)
+    return this
   }
+
+  off (event: string, listener: IEventListener): IConfig {
+    this.emitter.removeListener(event + this.id, listener)
+    return this
+  }
+
+  emit (event: string, data?: IAny): boolean {
+    return this.emitter.emit(event + this.id, {type: event, data})
+  }
+
+  static load (source: string): IAny {}
+
+  static parse (data: IAny): IAny {}
 }

@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/qiwi/uniconfig/compare/v1.1.0...v1.2.0) (2018-06-25)
+
+
+### Features
+
+* add initial loader structure ([4da333e](https://github.com/qiwi/uniconfig/commit/4da333e))
+
 # [1.1.0](https://github.com/qiwi/uniconfig/compare/v1.0.0...v1.1.0) (2018-06-14)
 
 

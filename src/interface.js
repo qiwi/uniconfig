@@ -33,3 +33,11 @@ export interface IConfig {
   off (event: string, listener: IEventListener): IConfig,
   emit (event: string, data?: IAny): boolean
 }
+
+export interface ILoader {
+  sync(target: string, opts?: IAny): IAny,
+  async(target: string, opts?: IAny): Promise<IAny>
+}
+
+export type IResolve = (value: IAny) => void
+export type IReject = (value: IAny) => void

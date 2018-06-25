@@ -2,6 +2,11 @@ language: node_js
 node_js:
   - '10'
 
+before_install:
+  - npm install -g greenkeeper-lockfile
+before_script: greenkeeper-lockfile-update
+after_script: greenkeeper-lockfile-upload
+
 install:
   - npm install
   - npm run fetch_libdefs

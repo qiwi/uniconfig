@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/qiwi/uniconfig/compare/v1.2.0...v1.3.0) (2018-06-26)
+
+
+### Features
+
+* add `ISource` iface contract ([7b55f3a](https://github.com/qiwi/uniconfig/commit/7b55f3a))
+
 # [1.2.0](https://github.com/qiwi/uniconfig/compare/v1.1.0...v1.2.0) (2018-06-25)
 
 

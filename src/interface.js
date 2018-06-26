@@ -24,6 +24,7 @@ export type IConfigOpts = {
 export interface IConfig {
   constructor (path: string, opts: IConfigOpts): IConfig,
   id: string,
+  type: string,
   opts: IConfigOpts,
   data: IAny,
   emitter: IEventEmitter,
@@ -34,6 +35,7 @@ export interface IConfig {
   emit (event: string, data?: IAny): boolean
 }
 
+export type ILoaderOpts = IAny
 export interface ILoader {
   sync(target: string, opts?: IAny): IAny,
   async(target: string, opts?: IAny): Promise<IAny>
@@ -41,3 +43,35 @@ export interface ILoader {
 
 export type IResolve = (value: IAny) => void
 export type IReject = (value: IAny) => void
+export interface IApi {}
+
+export type ISourceStatus = 'initial' | 'processing' | 'ready' | 'failure'
+export type IMode = 'sync' | 'async'
+export type ISourceOpts = {
+  mode: IMode,
+  emitter: IEventEmitter,
+  target: string,
+  api?: ?IAny
+}
+export interface IParser {
+  (...args: Array<IAny>): IAny
+}
+export interface ISource {
+  constructor(opts: ISourceOpts): ISource,
+  type: string,
+  id: string,
+  status: ISourceStatus,
+  mode: IMode,
+  opts: IAny,
+  parser: IParser,
+  api: IAny,
+  emitter: IEventEmitter,
+  data?: IAny,
+
+  setStatus(status: ISourceStatus, data?: ?IAny): ISource,
+  connect(): ISource,
+  on(event: string, listener: IEventListener): ISource,
+  emit(event: string, data?: IAny): boolean,
+  get(path: string): IAny,
+  has(path: string): boolean,
+}

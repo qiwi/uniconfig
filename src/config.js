@@ -20,11 +20,13 @@ export default class Config {
   data: IAny
   opts: IConfigOpts
   id: string
+  type: string
   emitter: IEventEmitter
 
   constructor (source: string, opts: IConfigOpts = {}): IConfig {
     this.opts = {...DEFAULT_OPTS, ...opts}
     this.data = this.constructor.parse(this.constructor.load(source))
+    this.type = 'config'
     this.id = '' + Math.random()
     this.emitter = this.opts.emitter || eventEmitterFactory()
 

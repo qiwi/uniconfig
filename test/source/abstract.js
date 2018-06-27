@@ -1,4 +1,4 @@
-import AbstractSource, {INITIAL} from '../../src/source/abstractSource'
+import AbstractSource, {INITIAL, READY, FAILURE} from '../../src/source/abstractSource'
 import EventEmitter from 'events'
 
 describe('source/abstract', () => {
@@ -67,6 +67,50 @@ describe('source/abstract', () => {
     cases.forEach(method => {
       it('`' + method + '` is not implemented', () => expect(() => source[method]())
         .toThrow('Abstract source: not implemented'))
+    })
+  })
+
+  describe('static', () => {
+    describe('finalize', () => {
+      const emitter = new EventEmitter()
+      const cases = [
+        ['fn succeeds', () => {}, READY],
+        ['fn fails', () => { throw new Error }, FAILURE],
+        ['promise resolved', new Promise(res => res()), READY],
+        ['promise rejected', new Promise((res, rej) => rej()), FAILURE]
+      ]
+
+      cases.forEach(([descr, expression, status]) => {
+        it(descr, done => {
+          const source = new Source({emitter})
+          const res = AbstractSource.finalize(source, expression)
+          const check = () => {
+            expect(source.status).toBe(status)
+            done()
+          }
+
+          if (typeof expression === 'function') {
+            check()
+          } else {
+            res.then(check)
+          }
+        })
+      })
+    })
+
+    describe('assertReady', () => {
+      const emitter = new EventEmitter()
+      const source = new Source({emitter})
+
+      it('does nothing if `ready`', () => {
+        source.status = READY
+        expect(AbstractSource.assertReady(source)).toBeUndefined()
+      })
+
+      it('throws error otherwise', () => {
+        source.status = FAILURE
+        expect(() => AbstractSource.assertReady(source)).toThrow('Invalid source status: ' + FAILURE)
+      })
     })
   })
 })

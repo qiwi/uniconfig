@@ -94,10 +94,28 @@ export default class AbstractSource implements ISource {
     return !!notImplemented()
   }
 
-  static assertReady (status: string): void {
-    if (status !== READY) {
-      throw new Error('Invalid source status: ' + status)
+  static assertReady (source: ISource): void {
+    if (source.status !== READY) {
+      throw new Error('Invalid source status: ' + source.status)
     }
+  }
+
+  static finalize(source: ISource, expression: Function | Promise): IAny {
+    let res
+    if (typeof expression === 'function') {
+      try {
+        res = expression()
+        source.setStatus(READY)
+      } catch (err) {
+        source.setStatus(FAILURE, err)
+      }
+    } else {
+      res = expression
+        .then((): ISource => source.setStatus(READY))
+        .catch((err: IAny): ISource => source.setStatus(FAILURE, err))
+    }
+
+    return res
   }
 }
 

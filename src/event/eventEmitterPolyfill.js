@@ -4,7 +4,7 @@
  * Adapted from https://gist.github.com/mudge/5830382
  */
 
-import type {IAny, IEventEmitter, IEventListener} from './interface'
+import type {IAny, IEventEmitter, IEventListener} from '../interface'
 
 type IListenersMap = {
   [key: string]: Array<IEventListener>

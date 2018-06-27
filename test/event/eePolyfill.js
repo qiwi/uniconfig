@@ -1,4 +1,4 @@
-import Emitter from '../src/eventEmitterPolyfill'
+import Emitter from '../../src/event/eventEmitterPolyfill'
 
 describe('eventEmitterPolyfill', () => {
   describe('constructor', () => {

@@ -17,7 +17,7 @@
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
     "remove_flowtypes": "flow-remove-types src/ --out-dir dist/",
     "build": "npm run remove_flowtypes",
-    "build_with_babel": "BABEL_ENV=production babel src --out-dir dist"
+    "build_with_babel": "rm -rf dist && BABEL_ENV=production babel src --out-dir dist"
   },
   "repository": {
     "type": "git",

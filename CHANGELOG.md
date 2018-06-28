@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/qiwi/uniconfig/compare/v1.3.0...v1.4.0) (2018-06-28)
+
+
+### Features
+
+* add `FileSource` to process file data ([a78eb44](https://github.com/qiwi/uniconfig/commit/a78eb44))
+
 # [1.3.0](https://github.com/qiwi/uniconfig/compare/v1.2.0...v1.3.0) (2018-06-26)
 
 

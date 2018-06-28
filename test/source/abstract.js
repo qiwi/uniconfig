@@ -1,4 +1,4 @@
-import AbstractSource, {INITIAL, READY, FAILURE} from '../../src/source/abstractSource'
+import AbstractSource, {INITIAL, READY, FAILURE} from '../../src/source/abstract'
 import EventEmitter from 'events'
 
 describe('source/abstract', () => {
@@ -75,9 +75,9 @@ describe('source/abstract', () => {
       const emitter = new EventEmitter()
       const cases = [
         ['fn succeeds', () => {}, READY],
-        ['fn fails', () => { throw new Error }, FAILURE],
-        ['promise resolved', new Promise(res => res()), READY],
-        ['promise rejected', new Promise((res, rej) => rej()), FAILURE]
+        ['fn fails', () => { throw new Error() }, FAILURE],
+        ['promise resolved', new Promise((resolve) => resolve()), READY],
+        ['promise rejected', new Promise((resolve, reject) => reject(new Error())), FAILURE]
       ]
 
       cases.forEach(([descr, expression, status]) => {

@@ -100,7 +100,7 @@ export default class AbstractSource implements ISource {
     }
   }
 
-  static finalize(source: ISource, expression: Function | Promise): IAny {
+  static finalize (source: ISource, expression: Function | Promise<IAny>): IAny {
     let res
     if (typeof expression === 'function') {
       try {

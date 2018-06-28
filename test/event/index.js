@@ -1,5 +1,5 @@
 import EventEmitter from 'events'
-import EventEmitterPolyfill from '../../src/event/eventEmitterPolyfill'
+import EventEmitterPolyfill from '../../src/event/polyfill'
 import {eventEmitterFactory} from '../../src/event'
 
 describe('event', () => {

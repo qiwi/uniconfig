@@ -2,7 +2,7 @@
 
 import {isBrowser} from '../base'
 import type {IEventEmitter} from '../interface'
-import eventEmitterPolyfill from './eventEmitterPolyfill'
+import eventEmitterPolyfill from './polyfill'
 
 export function eventEmitterFactory (): IEventEmitter {
   const Constructor = isBrowser()

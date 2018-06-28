@@ -1,6 +1,6 @@
 import Config, {DEFAULT_OPTS} from '../src/config'
 import {MISSED_VALUE_PATH} from '../src/error'
-import EventEmitterPolyfill from '../src/event/eventEmitterPolyfill'
+import EventEmitterPolyfill from '../src/event/polyfill'
 
 describe('Config', () => {
   describe('constructor', () => {

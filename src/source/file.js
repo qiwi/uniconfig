@@ -1,8 +1,9 @@
 // @flow
 
-import {get, has, echo} from '../base'
+import {get, has} from '../base'
+import {json} from '../parser'
 import {file as fileApi} from '../api'
-import AbstractSource, {SYNC, PROCESSING, FAILURE, READY} from './abstractSource'
+import AbstractSource, {SYNC, PROCESSING} from './abstract'
 import type {
   ISource,
   ISourceStatus,
@@ -27,7 +28,7 @@ export default class FileSource extends AbstractSource implements ISource {
     super(opts)
     this.type = 'file'
     this.api = fileApi
-    this.parser = echo
+    this.parser = json
 
     return this
   }
@@ -36,9 +37,7 @@ export default class FileSource extends AbstractSource implements ISource {
     this.setStatus(PROCESSING)
 
     const expression = mode === SYNC
-      ? () => {
-          this.data = this.parser(this.api.readSync(target, api))
-        }
+      ? () => { this.data = this.parser(this.api.readSync(target, api)) }
       : this.api.read(target, api)
         .then(this.parser)
         .then((data: IAny): void => { this.data = data })

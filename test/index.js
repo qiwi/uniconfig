@@ -1,4 +1,4 @@
-import uniconfig from '../dist'
+import uniconfig from '../dist/es6'
 
 describe('index', () => {
   it('exposes `uniconfig` api', () => {

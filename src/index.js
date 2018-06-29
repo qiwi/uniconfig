@@ -10,6 +10,4 @@ type Foo = {}
  * @param {Foo} foo
  * @return {undefined}
  */
-export default function (foo: Foo) {
-  new FileSource()
-}
+export default function (foo: Foo) {}

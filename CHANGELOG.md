@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/qiwi/uniconfig/compare/v1.4.0...v1.5.0) (2018-06-29)
+
+
+### Bug Fixes
+
+* **flow:** broken flowconfig scope & up dev deps ([9974651](https://github.com/qiwi/uniconfig/commit/9974651))
+
+
+### Features
+
+* add `yaml` parser ([b836bbd](https://github.com/qiwi/uniconfig/commit/b836bbd))
+
 # [1.4.0](https://github.com/qiwi/uniconfig/compare/v1.3.0...v1.4.0) (2018-06-28)
 
 

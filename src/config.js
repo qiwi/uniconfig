@@ -5,12 +5,14 @@ import type {
   IConfigOpts,
   IAny,
   IEventEmitter,
-  IEventListener
+  IEventListener,
+  ISchemaRegistry
 } from './interface'
 
 import {get, has} from './base'
 import {ConfigError, MISSED_VALUE_PATH} from './error'
 import {eventEmitterFactory, READY} from './event'
+import {SchemaRegistry} from './schema'
 
 export const DEFAULT_OPTS: IConfigOpts = {
   tolerateMissed: true
@@ -22,6 +24,7 @@ export default class Config {
   id: string
   type: string
   emitter: IEventEmitter
+  registry: ISchemaRegistry
 
   constructor (source: string, opts: IConfigOpts = {}): IConfig {
     this.opts = {...DEFAULT_OPTS, ...opts}
@@ -29,6 +32,7 @@ export default class Config {
     this.type = 'config'
     this.id = '' + Math.random()
     this.emitter = this.opts.emitter || eventEmitterFactory()
+    this.registry = new SchemaRegistry()
 
     this.emit(READY)
 
@@ -64,4 +68,8 @@ export default class Config {
   static load (source: string): IAny {}
 
   static parse (data: IAny): IAny {}
+
+  static getSourceType(source: string) {
+
+  }
 }

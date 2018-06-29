@@ -1,6 +1,7 @@
 import Config, {DEFAULT_OPTS} from '../src/config'
 import {MISSED_VALUE_PATH} from '../src/error'
 import EventEmitterPolyfill from '../src/event/polyfill'
+import {SchemaRegistry} from '../src/schema'
 
 describe('Config', () => {
   describe('constructor', () => {
@@ -12,6 +13,7 @@ describe('Config', () => {
       expect(cfg.opts).toEqual({...opts, ...DEFAULT_OPTS})
       expect(cfg.id).toEqual(expect.stringMatching(/^\d\.\d+$/))
       expect(cfg.emitter).not.toBeUndefined()
+      expect(cfg.registry).toBeInstanceOf(SchemaRegistry)
     })
 
     it('uses default preset if `opt` param is empty', () => {

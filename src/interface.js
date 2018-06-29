@@ -28,6 +28,7 @@ export interface IConfig {
   opts: IConfigOpts,
   data: IAny,
   emitter: IEventEmitter,
+  registry: ISchemaRegistry,
   get (path: string): IAny,
   has (path: string): boolean,
   on (event: string, listener: IEventListener): IConfig,
@@ -74,4 +75,18 @@ export interface ISource {
   emit(event: string, data?: IAny): boolean,
   get(path: string): IAny,
   has(path: string): boolean,
+}
+
+export type ISchemaStoreItem = {
+  type: string,
+  schema: IAny,
+  range: string
+}
+export type ISchemaStore = ISchemaStoreItem[]
+export interface ISchemaRegistry {
+  constructor(): ISchemaRegistry,
+  register(type: string, range: string, schema: IAny): ISchemaRegistry,
+  get(type: string, version: string): IAny,
+  has(type: string, version: string): boolean,
+  flush(): ISchemaRegistry
 }

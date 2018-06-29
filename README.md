@@ -1,4 +1,7 @@
 # uniconfig
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/qiwi/uniconfig.svg)](https://greenkeeper.io/)
+
 Yet another one config processor. Weird. Slow. Our own.
 
 ## Install

@@ -1,13 +1,17 @@
 // @flow
 
-import {FileSource} from './source'
-
-type Foo = {}
+import Config from './config'
+import type {IConfig, IConfigOpts} from './interface'
 
 /**
  * uniconfig
  *
- * @param {Foo} foo
- * @return {undefined}
+ * @param {string} source
+ * @param {Object} opts
+ * @returns {Config}
  */
-export default function (foo: Foo) {}
+export function factory(source: string, opts: IConfigOpts): IConfig {
+  return new Config(source, opts)
+}
+
+export default factory

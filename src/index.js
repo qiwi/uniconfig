@@ -1,5 +1,7 @@
 // @flow
 
+import {FileSource} from './source'
+
 type Foo = {}
 
 /**
@@ -8,4 +10,6 @@ type Foo = {}
  * @param {Foo} foo
  * @return {undefined}
  */
-export default function (foo: Foo) {}
+export default function (foo: Foo) {
+  new FileSource()
+}

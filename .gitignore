@@ -34,6 +34,7 @@ flow-typed/npm/
 .eslintcache
 .node_repl_history
 .env
+.cache/
 
 .idea
 *.iml

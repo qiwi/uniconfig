@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/qiwi/uniconfig/compare/v1.6.0...v1.7.0) (2018-06-29)
+
+
+### Features
+
+* implement schema registry ([e2ab10d](https://github.com/qiwi/uniconfig/commit/e2ab10d))
+
 # [1.6.0](https://github.com/qiwi/uniconfig/compare/v1.5.0...v1.6.0) (2018-06-29)
 
 

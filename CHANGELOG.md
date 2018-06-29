@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/qiwi/uniconfig/compare/v1.5.0...v1.6.0) (2018-06-29)
+
+
+### Features
+
+* expose config factory as default facade ([75369d1](https://github.com/qiwi/uniconfig/commit/75369d1))
+
 # [1.5.0](https://github.com/qiwi/uniconfig/compare/v1.4.0...v1.5.0) (2018-06-29)
 
 

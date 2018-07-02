@@ -54,9 +54,8 @@ export type ISourceOpts = {
   target: string,
   api?: ?IAny
 }
-export interface IParser {
-  (...args: Array<IAny>): IAny
-}
+export type IParser = (raw: IAny, opts?: ?IAny) => IAny
+
 export interface ISource {
   constructor(opts: ISourceOpts): ISource,
   type: string,
@@ -90,3 +89,4 @@ export interface ISchemaRegistry {
   has(type: string, version: string): boolean,
   flush(): ISchemaRegistry
 }
+

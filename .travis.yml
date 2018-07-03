@@ -20,4 +20,4 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-    - npx semantic-release
+    - lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo

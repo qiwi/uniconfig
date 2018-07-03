@@ -1,7 +1,7 @@
 // @flow
 
 import {get, has} from '../core/util'
-import {json} from '../parser'
+import parser from '../parser'
 import {file as fileApi} from '../api'
 import AbstractSource, {SYNC, PROCESSING} from './abstract'
 import type {
@@ -28,7 +28,7 @@ export default class FileSource extends AbstractSource implements ISource {
     super(opts)
     this.type = 'file'
     this.api = fileApi
-    this.parser = json
+    this.parser = parser
 
     return this
   }

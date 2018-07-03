@@ -2,6 +2,7 @@
   "workspaces": [
     "packages/*"
   ],
+  "version": "1.7.0",
   "private": true,
   "scripts": {
     "test": "npm run flow && npm run flow_coverage && npm run lint && lerna run build && npm run jest",
@@ -48,6 +49,7 @@
   },
   "release": {
     "branch": "master",
+    "tagFormat": "v${version}",
     "verifyConditions": [
       "@semantic-release/changelog",
       "@semantic-release/npm",

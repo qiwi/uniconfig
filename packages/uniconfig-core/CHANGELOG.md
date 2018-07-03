@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.8.0](https://github.com/qiwi/uniconfig/compare/v1.7.0...v1.8.0) (2018-07-03)
+
+
+### Features
+
+* add `smart` parser to `fileSource` ([4d63912](https://github.com/qiwi/uniconfig/commit/4d63912))
+
 # [1.7.0](https://github.com/qiwi/uniconfig/compare/v1.6.0...v1.7.0) (2018-06-29)
 
 

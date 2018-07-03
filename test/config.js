@@ -1,5 +1,5 @@
 import Config, {DEFAULT_OPTS} from '../src/config'
-import {MISSED_VALUE_PATH} from '../src/error'
+import {MISSED_VALUE_PATH} from '../src/core/error'
 import EventEmitterPolyfill from '../src/event/polyfill'
 import {SchemaRegistry} from '../src/schema'
 

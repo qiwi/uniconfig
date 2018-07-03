@@ -10,7 +10,7 @@ import type {
   IParser,
   ISourceStatus
 } from '../interface'
-import {echo} from '../base'
+import {echo} from '../core/util'
 
 export const INITIAL = 'initial'
 export const PROCESSING = 'processing'

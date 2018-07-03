@@ -90,3 +90,18 @@ export interface ISchemaRegistry {
   flush(): ISchemaRegistry
 }
 
+export type IRegistryStore = IAny[]
+export type IRegistryIndex = {
+  [key: string]: IAny
+}
+export interface IRegistry {
+  type: string,
+  store: IRegistryStore,
+  index: IRegistryIndex,
+
+  constructor(): IRegistry,
+  register(name: string, ...args: IAny[]): void,
+  get(name: string, ...args: IAny[]): IAny,
+  has(name: string, version: string): boolean,
+  flush(): void
+}

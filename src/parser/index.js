@@ -1,6 +1,8 @@
 // @flow
 
-import {echo} from '../base'
+import type {IAny} from '../interface'
+
+import {echo} from '../core/util'
 import json from './json'
 import yaml from './yaml'
 import uniconfig from './uniconfig'
@@ -13,3 +15,5 @@ export {
   uniconfig,
   detector
 }
+
+export default function (data: IAny, type: string): void {}

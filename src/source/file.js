@@ -1,6 +1,6 @@
 // @flow
 
-import {get, has} from '../base'
+import {get, has} from '../core/util'
 import {json} from '../parser'
 import {file as fileApi} from '../api'
 import AbstractSource, {SYNC, PROCESSING} from './abstract'

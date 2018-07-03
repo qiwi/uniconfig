@@ -1,6 +1,6 @@
 // @flow
 
-import type {IAny, IWindow} from './interface'
+import type {IAny, IWindow} from '../interface'
 
 declare var window: IWindow
 
@@ -16,4 +16,4 @@ export function isBrowser (): boolean {
   }
 }
 
-export function echo(data: IAny): IAny { return data }
+export function echo (data: IAny): IAny { return data }

@@ -9,8 +9,8 @@ import type {
   ISchemaRegistry
 } from './interface'
 
-import {get, has} from './base'
-import {ConfigError, MISSED_VALUE_PATH} from './error'
+import {get, has} from './core/util'
+import {ConfigError, MISSED_VALUE_PATH} from './core/error'
 import {eventEmitterFactory, READY} from './event'
 import {SchemaRegistry} from './schema'
 

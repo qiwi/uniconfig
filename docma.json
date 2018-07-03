@@ -1,6 +1,6 @@
 {
   "src": [
-    "./dist/**/*.js",
+    "./packages/**/es6/dist/**/*.js",
     "./README.md"
   ],
   "dest": "./docs"

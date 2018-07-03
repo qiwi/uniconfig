@@ -2,13 +2,13 @@
   "testEnvironment": "node",
   "collectCoverage": true,
   "coveragePathIgnorePatterns": [
-    "<rootDir>/src/interface.js"
+    "interface.js"
   ],
   "collectCoverageFrom": [
-    "<rootDir>/src/**/*.js"
+    "<rootDir>/packages/**/src/**/*.js"
   ],
   "testMatch": [
-    "<rootDir>/test/**/*.js"
+    "<rootDir>/packages/**/test/**/*.js"
   ],
   "transformIgnorePatterns": [
     "/!node_modules\\/lodash-es/",

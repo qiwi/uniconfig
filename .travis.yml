@@ -3,14 +3,15 @@ node_js:
   - '10'
 
 before_install:
+  - npm install -g lerna
   - npm install -g greenkeeper-lockfile
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
 
 install:
-  - npm install
+  - lerna bootstrap
   - npm run fetch_libdefs
-  - npm run build
+  - lerna run build
 
 script:
   - npm run test_with_report

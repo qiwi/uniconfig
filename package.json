@@ -5,6 +5,9 @@
   "version": "1.7.0",
   "private": true,
   "scripts": {
+    "clean": "lerna clean --yes && lerna run clean",
+    "build": "yarn clean && lerna run --stream build",
+    "bootstrap": "lerna bootstrap",
     "test": "npm run flow && npm run flow_coverage && npm run lint && lerna run build && npm run jest",
     "test_with_report": "npm test && npm run codeclimate_push && npm run coveralls_push",
     "codeclimate_push": "codeclimate-test-reporter < ./coverage/lcov.info",

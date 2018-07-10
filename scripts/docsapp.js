@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const ROOT = path.join(__dirname, '../docs');
+const ROOT = path.join(__dirname, '../docs/');
 
 app
   .use('/', express.static(`${ROOT}`))

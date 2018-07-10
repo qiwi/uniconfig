@@ -1,11 +1,14 @@
 // @flow
+/**
+ * Uniconfig core
+ * @module uniconfig-core
+ */
 
 import Config from './config'
 import type {IConfig, IConfigOpts} from './interface'
 
 /**
- * uniconfig
- *
+ * Config factory.
  * @param {string} source
  * @param {Object} opts
  * @returns {Config}

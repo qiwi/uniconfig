@@ -12,7 +12,7 @@ export const load: IParser = (data: string): IAny => {
 
 export default ({
   rollup(context: IContext): void {
-    context.parser.register(type, {})
+    context.parser.register(type, {load})
   },
   rollback(context: IContext): void {},
 }: IPlugin)

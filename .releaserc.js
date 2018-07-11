@@ -14,4 +14,7 @@ module.exports = {
   verifyRelease: ['@semantic-release/npm', '@semantic-release/github']
     .map(require)
     .map(x => x.verifyConditions),
+  scripts: {
+    postpublish: 'git tag -d "$(git describe --tags)"'
+  }
 };

@@ -68,8 +68,4 @@ export default class Config {
   static load (source: string): IAny {}
 
   static parse (data: IAny): IAny {}
-
-  static getSourceType(source: string) {
-
-  }
 }

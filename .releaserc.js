@@ -10,7 +10,7 @@ module.exports = {
     '@semantic-release/github',
     '@semantic-release/npm'
   ],
-  verifyConditions: ['@semantic-release/npm', '@semantic-release/github'],
+  verifyConditions: ['@semantic-release/npm', '@semantic-release/git'],
   /* verifyRelease: ['@semantic-release/npm', '@semantic-release/github']
     .map(require)
     .map(x => x.verifyConditions), */

@@ -1,7 +1,6 @@
 // @flow
 
 import type {IContext, IPlugin, IAny, IParser} from '../../uniconfig-core/src/interface'
-
 import {safeLoad} from 'js-yaml'
 
 const type = 'yaml'

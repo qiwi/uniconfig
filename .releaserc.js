@@ -1,3 +1,5 @@
+console.log('release opts was fetched', new Date())
+
 module.exports = {
   branch: 'master',
   tagFormat: 'v${version}',

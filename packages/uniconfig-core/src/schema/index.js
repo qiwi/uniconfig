@@ -7,3 +7,5 @@ export {
   SchemaRegistry,
   validator
 }
+
+export default {}

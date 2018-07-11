@@ -7,3 +7,5 @@ export {
   AbstractSource,
   FileSource
 }
+
+export default {}

@@ -1,12 +1,11 @@
 // @flow
 
-import type {IPlugin} from '../interface'
-import context from '../context'
+import type {IContext, IPlugin} from '../interface'
 
-export function rollupPlugin (plugin: IPlugin) {
+export function rollupPlugin (plugin: IPlugin, context: IContext) {
   plugin.rollup(context)
 }
 
-export function rollbackPlugin (plugin: IPlugin) {
+export function rollbackPlugin (plugin: IPlugin, context: IContext) {
   plugin.rollback(context)
 }

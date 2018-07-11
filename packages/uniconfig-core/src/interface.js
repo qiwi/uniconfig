@@ -56,6 +56,12 @@ export type ISourceOpts = {
 }
 export type IParser = (raw: IAny, opts?: ?IAny) => IAny
 
+export type IParserEntry = {
+  parser: IParser,
+  type: string,
+  condition: (type: string, raw: IAny) => boolean
+}
+
 export interface ISource {
   constructor(opts: ISourceOpts): ISource,
   type: string,
@@ -109,7 +115,7 @@ export interface IRegistry {
 export interface IContext {
   api: any,
   processor: any,
-  parser: any,
+  parser: IRegistry,
   source: any
 }
 

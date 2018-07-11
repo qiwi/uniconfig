@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.9.0](https://github.com/qiwi/uniconfig/compare/v1.8.0...v1.9.0) (2018-07-11)
+
+
+### Features
+
+* add basic plugin api ([6583c1e](https://github.com/qiwi/uniconfig/commit/6583c1e))
+
 # [@qiwi/uniconfig-v1.8.0](https://github.com/qiwi/uniconfig/compare/v1.7.0...v1.8.0) (2018-07-03)
 
 

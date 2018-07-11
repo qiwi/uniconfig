@@ -1,4 +1,5 @@
-console.log('release opts was fetched', new Date())
+global.foobar = global.foobar ? global.foobar + 1 : 0
+console.log('release opts was fetched', new Date(), global.foobar)
 
 module.exports = {
   branch: 'master',

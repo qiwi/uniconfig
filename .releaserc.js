@@ -7,8 +7,8 @@ module.exports = {
     '@semantic-release/git'
   ],
   publish: [
-    '@semantic-release/npm',
-    '@semantic-release/github'
+    '@semantic-release/github',
+    '@semantic-release/npm'
   ],
   verifyConditions: ['@semantic-release/npm', '@semantic-release/github'],
   /* verifyRelease: ['@semantic-release/npm', '@semantic-release/github']

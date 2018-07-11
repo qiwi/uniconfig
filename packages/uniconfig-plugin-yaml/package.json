@@ -25,10 +25,6 @@
     "url": "https://github.com/qiwi/uniconfig/issues"
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
-  "@std/esm": {
-    "mode": "all",
-    "cjs": true
-  },
   "dependencies": {
     "@qiwi/uniconfig": "^1.9.0",
     "js-yaml": "^3.12.0"

@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.11.0](https://github.com/qiwi/uniconfig/compare/v1.10.0...v1.11.0) (2018-07-11)
+
+
+### Features
+
+* add `parserEntryRegistry` ([3b91699](https://github.com/qiwi/uniconfig/commit/3b91699))
+
 # [@qiwi/uniconfig-v1.9.0](https://github.com/qiwi/uniconfig/compare/v1.8.0...v1.9.0) (2018-07-11)
 
 

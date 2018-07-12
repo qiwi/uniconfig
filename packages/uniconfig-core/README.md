@@ -24,7 +24,6 @@ export interface IContext {
   parser: any,
   source: any
 }
-
 export interface IPlugin {
   rollback(context: IContext): void,
   rollup(context: IContext): void

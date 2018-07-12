@@ -13,10 +13,11 @@ let count = JSON.parse(fs.readFileSync(COUNT))
 console.log('release-hooks: current path is ' + __dirname)
 if (count > 0) {
   if (count !== total) {
+    console.log('release-hooks: drop tag')
+
     exec(`cd ../..`)
     exec(`sh ${DROP_TAG}`)
     exec(`cd ${__dirname}`)
-    console.log('release-hooks: drop tag')
   }
   exec(`sh ${DECREMENT}`)
   count -= 1

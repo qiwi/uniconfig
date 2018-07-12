@@ -2,10 +2,10 @@
 
 tag=$(git describe --abbrev=0 --tags)
 
-echo current $tag
+echo -e current $tag
 
 git tag -d $tag
 git push --delete origin $tag
 git push origin :refs/tags/$tag
 
-echo next $(git describe --abbrev=0 --tags)
+echo -e next $(git describe --abbrev=0 --tags)

@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.12.2](https://github.com/qiwi/uniconfig/compare/v1.12.1...v1.12.2) (2018-07-12)
+
+
+### Performance Improvements
+
+* drop redundant release tag ([3d87b7b](https://github.com/qiwi/uniconfig/commit/3d87b7b))
+
 # [@qiwi/uniconfig-v1.12.1](https://github.com/qiwi/uniconfig/compare/v1.12.0...v1.12.1) (2018-07-12)
 
 

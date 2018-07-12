@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-expr $(cat $(dirname $0)/count.tmp) - 1 > $(dirname $0)/count.tmp
+((rest=$(cat $(dirname $0)/count.tmp) - 1))
+echo $rest > $(dirname $0)/count.tmp

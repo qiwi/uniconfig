@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
 tag=$(git describe --abbrev=0 --tags)
+dst=https://qiwibot:$GITHUB_TOKEN@github.com/qiwi/uniconfig.git
 
 echo -e current $tag
 
-git fetch
+git remote add foobar dst
 git tag -d $tag
-git push origin --delete $tag
-git push origin :refs/tags/$tag
-git fetch
+git push foobar --delete $tag
 
 echo -e next $(git describe --abbrev=0 --tags)

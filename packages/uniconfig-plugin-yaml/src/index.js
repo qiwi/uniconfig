@@ -9,9 +9,11 @@ export const load: IParser = (data: string): IAny => {
   return safeLoad(data)
 }
 
+const parser = {load}
+
 export default ({
   rollup(context: IContext): void {
-    context.parser.register(type, {load})
+    context.parser.register(type, parser)
   },
   rollback(context: IContext): void {},
 }: IPlugin)

@@ -23,3 +23,5 @@ export class ParserEntryRegistry extends AbstractRegistry {
     this.store.push(entry)
   }
 }
+
+export default new ParserEntryRegistry()

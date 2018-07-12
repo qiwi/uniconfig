@@ -1,4 +1,5 @@
 // @flow
+
 /**
  * Uniconfig core
  * @module uniconfig-core

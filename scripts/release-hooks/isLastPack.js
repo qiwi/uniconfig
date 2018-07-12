@@ -10,9 +10,11 @@ const DROP_TAG = path.resolve(__dirname, './drop_last_tag.sh')
 const total = JSON.parse(fs.readFileSync(TOTAL))
 let count = JSON.parse(fs.readFileSync(COUNT))
 
+console.log('release-hooks: current path is ' + __dirname)
 if (count > 0) {
   if (count !== total) {
     exec(`sh ${DROP_TAG}`)
+    console.log('release-hooks: drop tag')
   }
   exec(`sh ${DECREMENT}`)
   count -= 1
@@ -20,6 +22,6 @@ if (count > 0) {
 const isLastPack = count < 1
 
 console.log('release-hooks: packs left: ', count)
-console.log('release-hooks: is the last pack releasing: ', isLastPack)
+console.log('release-hooks: is the last pack releasing: ', !!isLastPack)
 
 module.exports = isLastPack

@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-git tag -d $(git describe --tags)
+tag=$(git describe --abbrev=0 --tags)
+
+echo current $tag
+
+git tag -d $tag
+git push --delete origin $tag
+
+echo next $(git describe --abbrev=0 --tags)

@@ -7,7 +7,6 @@ Uniconfig YAML plugin
     npm i @qiwi/uniconfig-plugin-yaml
     yarn add @qiwi/uniconfig-plugin-yaml
 ```
-
 # Usage
 ```javascript
 import uniconfig, {rollupPlugin} from '@qiwi/uniconfig'

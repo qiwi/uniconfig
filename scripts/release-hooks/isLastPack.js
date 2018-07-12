@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const exec = require('child_process').exec;
+const exec = require('child_process').execSync;
 
 const TOTAL = path.resolve(__dirname, './total.tmp')
 const COUNT = path.resolve(__dirname, './count.tmp')

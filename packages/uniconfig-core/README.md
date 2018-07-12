@@ -14,7 +14,6 @@ Core uniconfig layer: basic ifaces, utils, entry point, plugin API
 import uniconfig, {rollupPlugin} from '@qiwi/uniconfig'
 import uniconfigPluginYaml from '@qiwi/uniconfig-plugin-yaml'    
 rollupPlugin(uniconfigPluginYaml)
-
 const config = uniconfig('./foobar.yml')    
 ```
 Each plugin must expose at least two methods to be registered: `rollup` and `rollback`.

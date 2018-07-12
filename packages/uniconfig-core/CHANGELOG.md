@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.12.0](https://github.com/qiwi/uniconfig/compare/v1.11.5...v1.12.0) (2018-07-12)
+
+
+### Features
+
+* `parserEntryRegistry` becomes a singleton ([e19c1df](https://github.com/qiwi/uniconfig/commit/e19c1df))
+
 # [@qiwi/uniconfig-v1.11.5](https://github.com/qiwi/uniconfig/compare/v1.11.4...v1.11.5) (2018-07-11)
 
 

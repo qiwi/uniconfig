@@ -35,6 +35,7 @@ flow-typed/npm/
 .node_repl_history
 .env
 .cache/
+*.tmp
 
 .idea
 *.iml

@@ -1,5 +1,12 @@
-global.foobar = global.foobar ? global.foobar + 1 : 0
-console.log('release opts was fetched', new Date(), global.foobar)
+const isLastPack = require('./scripts/release-hooks/isLastPack')
+const publish = isLastPack
+  ? [
+    '@semantic-release/github',
+    '@semantic-release/npm'
+  ]
+  : [
+    '@semantic-release/npm'
+  ]
 
 module.exports = {
   branch: 'master',
@@ -9,10 +16,7 @@ module.exports = {
     '@semantic-release/npm',
     '@semantic-release/git'
   ],
-  publish: [
-    '@semantic-release/github',
-    '@semantic-release/npm'
-  ],
+  publish: publish,
   verifyConditions: ['@semantic-release/npm', '@semantic-release/git'],
   /* verifyRelease: ['@semantic-release/npm', '@semantic-release/github']
     .map(require)

@@ -8,8 +8,7 @@
     "build_es6": "flow-remove-types src/ --out-dir dist/es6/",
     "build_es5": "BABEL_ENV=production babel src --out-dir dist/es5/",
     "build_bundle": "parcel build src/index.js --out-dir dist/bundle --experimental-scope-hoisting",
-    "build": "rm -rf dist && npm run build_es5 && npm run build_es6 & npm run build_bundle",
-    "postpublish": "cd ../../ && git tag -d \"$(git describe --tags)\""
+    "build": "rm -rf dist && npm run build_es5 && npm run build_es6 & npm run build_bundle"
   },
   "repository": {
     "type": "git",

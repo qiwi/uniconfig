@@ -3,6 +3,14 @@
 
 ### Performance Improvements
 
+* tech release ([364b5fb](https://github.com/qiwi/uniconfig/commit/364b5fb))
+* tech release ([cd841b4](https://github.com/qiwi/uniconfig/commit/cd841b4))
+
+# [@qiwi/uniconfig-v1.12.8](https://github.com/qiwi/uniconfig/compare/v1.12.7...v1.12.8) (2018-07-12)
+
+
+### Performance Improvements
+
 * tech release ([cd841b4](https://github.com/qiwi/uniconfig/commit/cd841b4))
 
 # [@qiwi/uniconfig-v1.12.7](https://github.com/qiwi/uniconfig/compare/v1.12.6...v1.12.7) (2018-07-12)

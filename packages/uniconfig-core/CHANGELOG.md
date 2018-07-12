@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.12.6](https://github.com/qiwi/uniconfig/compare/v1.12.5...v1.12.6) (2018-07-12)
+
+
+### Performance Improvements
+
+* tech release ([24b4318](https://github.com/qiwi/uniconfig/commit/24b4318))
+
 # [@qiwi/uniconfig-v1.12.5](https://github.com/qiwi/uniconfig/compare/v1.12.4...v1.12.5) (2018-07-12)
 
 

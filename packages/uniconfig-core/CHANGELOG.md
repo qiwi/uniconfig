@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.12.12](https://github.com/qiwi/uniconfig/compare/v1.12.11...v1.12.12) (2018-07-13)
+
+
+### Bug Fixes
+
+* **release-hooks:** prevent env vars drop ([eda1307](https://github.com/qiwi/uniconfig/commit/eda1307))
+
 # [@qiwi/uniconfig-v1.12.11](https://github.com/qiwi/uniconfig/compare/v1.12.10...v1.12.11) (2018-07-13)
 
 

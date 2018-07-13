@@ -14,6 +14,7 @@ Core uniconfig layer: basic ifaces, utils, entry point, plugin API
 
 
 
+
 # Plugin API
 `uniconfig` features may be significantly extended with plugins.
 ```javascript

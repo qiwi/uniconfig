@@ -7,8 +7,8 @@ const COUNT = path.resolve(__dirname, './count.tmp')
 const DECREMENT = path.resolve(__dirname, './decrement.sh')
 const DROP_TAG = path.resolve(__dirname, './drop_last_tag.sh')
 
-const total = JSON.parse(fs.readFileSync(TOTAL))
-let count = JSON.parse(fs.readFileSync(COUNT))
+const total = JSON.parse(fs.readFileSync(TOTAL, 'utf8'))
+let count = JSON.parse(fs.readFileSync(COUNT, 'utf8'))
 
 console.log('release-hooks: current path is ' + __dirname)
 if (count > 0) {

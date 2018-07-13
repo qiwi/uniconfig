@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 ((RH_COUNT=$RH_COUNT - 1))
 

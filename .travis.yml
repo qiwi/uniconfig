@@ -4,7 +4,7 @@ node_js:
 
 before_install:
   - sh $TRAVIS_BUILD_DIR/scripts/release-hooks/changed_files.sh
-  - sh $TRAVIS_BUILD_DIR/scripts/release-hooks/count_modified_packs.sh
+  - source $TRAVIS_BUILD_DIR/scripts/release-hooks/count_modified_packs.sh
   - npm install -g lerna
   - npm install -g greenkeeper-lockfile
 before_script: greenkeeper-lockfile-update

@@ -4,6 +4,8 @@ const exec = require('child_process').execSync;
 const DECREMENT = path.resolve(__dirname, './decrement.sh')
 const DROP_TAG = path.resolve(__dirname, './drop_last_tag.sh')
 
+console.log('release-hooks [process.env]: ', process.env)
+
 const total = +process.env.RH_TOTAL
 let count = +process.env.RH_COUNT
 
@@ -17,7 +19,7 @@ if (count > 0) {
       exec(`sh ${DROP_TAG}`)
       exec(`cd ${__dirname}`)
     }
-    exec(`sh ${DECREMENT}`, {stdio:['inherit','pipe','pipe']})
+    exec(`source ${DECREMENT}`, {stdio:['inherit','pipe','pipe']})
     count -= 1
 
   } catch (err) {

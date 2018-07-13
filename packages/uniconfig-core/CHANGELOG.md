@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.12.13](https://github.com/qiwi/uniconfig/compare/v1.12.12...v1.12.13) (2018-07-13)
+
+
+### Performance Improvements
+
+* **release-hooks:** store counters in process.env ([d757892](https://github.com/qiwi/uniconfig/commit/d757892))
+
 # [@qiwi/uniconfig-v1.12.12](https://github.com/qiwi/uniconfig/compare/v1.12.11...v1.12.12) (2018-07-13)
 
 

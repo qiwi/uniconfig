@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.12.10](https://github.com/qiwi/uniconfig/compare/v1.12.9...v1.12.10) (2018-07-13)
+
+
+### Performance Improvements
+
+* **release-hooks:**  replace `expr` with bash calculations ([e308217](https://github.com/qiwi/uniconfig/commit/e308217))
+
 # [@qiwi/uniconfig-v1.12.9](https://github.com/qiwi/uniconfig/compare/v1.12.8...v1.12.9) (2018-07-12)
 
 

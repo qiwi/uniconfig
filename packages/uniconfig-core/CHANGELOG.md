@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.12.11](https://github.com/qiwi/uniconfig/compare/v1.12.10...v1.12.11) (2018-07-13)
+
+
+### Performance Improvements
+
+* **release-hooks:** replace `fs` store with env vars ([26f793a](https://github.com/qiwi/uniconfig/commit/26f793a))
+
 # [@qiwi/uniconfig-v1.12.10](https://github.com/qiwi/uniconfig/compare/v1.12.9...v1.12.10) (2018-07-13)
 
 

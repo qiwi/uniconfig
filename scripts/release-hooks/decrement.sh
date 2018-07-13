@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
-((rest=$(cat $(dirname $0)/count.tmp) - 1))
-echo $rest > $(dirname $0)/count.tmp
+((RH_COUNT=$RH_COUNT - 1))
+
+export RH_COUNT
+
+echo "RH_COUNT: "$RH_COUNT

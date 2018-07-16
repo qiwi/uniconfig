@@ -7692,6 +7692,10 @@ scoped-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/scoped-regex/-/scoped-regex-1.0.0.tgz#a346bb1acd4207ae70bd7c0c7ca9e566b6baddb8"
 
+semantic-release-monorepo-hooks@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-1.1.2.tgz#dd2d1f394f0716d620e43369b18ec36939d3b98e"
+
 semantic-release-monorepo@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/semantic-release-monorepo/-/semantic-release-monorepo-6.0.3.tgz#4cf66490df4c32bd40ddaa6afa836cf0b2210bb5"

@@ -1,5 +1,9 @@
-const isLastPack = require('./scripts/release-hooks/isLastPack')
-const publish = isLastPack
+const hooks = require('semantic-release-monorepo-hooks')
+const output = hooks()
+
+console.log('release-hooks', output)
+
+const publish = output.isLastRun
   ? [
     '@semantic-release/github',
     '@semantic-release/npm'

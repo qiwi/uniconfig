@@ -8,13 +8,6 @@ Core uniconfig layer: basic ifaces, utils, entry point, plugin API
     yarn add @qiwi/uniconfig-core
 ```
 
-
-
-
-
-
-
-
 # Plugin API
 `uniconfig` features may be significantly extended with plugins.
 ```javascript

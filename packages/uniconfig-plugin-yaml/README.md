@@ -3,9 +3,9 @@
 Uniconfig YAML plugin
 
 ## Install
-```javascript
-    npm i @qiwi/uniconfig-plugin-yaml
-    yarn add @qiwi/uniconfig-plugin-yaml
+```bash
+  npm i @qiwi/uniconfig-plugin-yaml
+  yarn add @qiwi/uniconfig-plugin-yaml
 ```
 
 ## Usage

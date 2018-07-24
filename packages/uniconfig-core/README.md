@@ -3,9 +3,9 @@
 Core uniconfig layer: basic ifaces, utils, entry point, plugin API
 
 ## Install
-```javascript
-    npm i @qiwi/uniconfig-core
-    yarn add @qiwi/uniconfig-core
+```bash
+  npm i @qiwi/uniconfig-core
+  yarn add @qiwi/uniconfig-core
 ```
 
 # Plugin API

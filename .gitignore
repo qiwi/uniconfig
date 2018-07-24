@@ -17,11 +17,10 @@ lib-cov
 coverage
 .nyc_output
 
-# Bundle
-build
-dist
+# Bundles
+/packages/*/dist
 
-#Docs
+# Docs
 docs
 doc
 
@@ -29,6 +28,7 @@ doc
 node_modules/
 jspm_packages/
 flow-typed/npm/
+/packages/*/node_modules
 
 .npm
 .eslintcache

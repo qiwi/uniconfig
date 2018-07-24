@@ -49,7 +49,7 @@
     "parcel-bundler": "^1.9.3",
     "semantic-release": "^15.6.3",
     "semantic-release-monorepo": "^6.0.3",
-    "semantic-release-monorepo-hooks": "^1.1.2",
+    "semantic-release-monorepo-hooks": "^2.1.0",
     "standard": "^11.0.1"
   },
   "standard": {

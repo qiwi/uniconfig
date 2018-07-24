@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.13.0](https://github.com/qiwi/uniconfig/compare/v1.12.17...v1.13.0) (2018-07-24)
+
+
+### Features
+
+* tech release ([528ca48](https://github.com/qiwi/uniconfig/commit/528ca48))
+
 # [@qiwi/uniconfig-v1.12.17](https://github.com/qiwi/uniconfig/compare/v1.12.16...v1.12.17) (2018-07-24)
 
 

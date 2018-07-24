@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-yaml-v1.13.0](https://github.com/qiwi/uniconfig/compare/v1.12.17...v1.13.0) (2018-07-24)
+
+
+### Features
+
+* tech release ([528ca48](https://github.com/qiwi/uniconfig/commit/528ca48))
+
 # [@qiwi/uniconfig-plugin-yaml-v1.12.14](https://github.com/qiwi/uniconfig/compare/v1.12.13...v1.12.14) (2018-07-13)
 
 

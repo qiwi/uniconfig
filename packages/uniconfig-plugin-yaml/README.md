@@ -1,6 +1,6 @@
 # @qiwi/uniconfig-plugin-yaml
 
-Uniconfig YAML plugin
+Uniconfig YAML parser plugin
 
 ## Install
 ```bash

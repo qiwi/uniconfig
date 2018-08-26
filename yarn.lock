@@ -8758,11 +8758,11 @@ scoped-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/scoped-regex/-/scoped-regex-1.0.0.tgz#a346bb1acd4207ae70bd7c0c7ca9e566b6baddb8"
 
-semantic-release-monorepo-hooks@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-2.3.0.tgz#c6e93a96963bebe35a367f1fafa878e041998c30"
+semantic-release-monorepo-hooks@2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-2.4.0.tgz#b254d0a9f36a1efcba08fb0c686fd8e18cfb1bc8"
   dependencies:
-    semver "^5.5.0"
+    semver "^5.5.1"
 
 semantic-release-monorepo@^6.0.3:
   version "6.0.3"
@@ -8821,6 +8821,10 @@ semver-regex@^1.0.0:
 "semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
+
+semver@^5.5.1:
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.1.tgz#7dfdd8814bdb7cabc7be0fb1d734cfb66c940477"
 
 semver@~5.3.0:
   version "5.3.0"

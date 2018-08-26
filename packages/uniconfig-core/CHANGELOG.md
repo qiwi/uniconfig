@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.13.9](https://github.com/qiwi/uniconfig/compare/v1.13.8...v1.13.9) (2018-08-26)
+
+
+### Performance Improvements
+
+* **build:** tech release ([a440d74](https://github.com/qiwi/uniconfig/commit/a440d74))
+
 # [@qiwi/uniconfig-v1.13.8](https://github.com/qiwi/uniconfig/compare/v1.13.7...v1.13.8) (2018-08-26)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig",
-  "version": "1.13.6",
+  "version": "1.13.7",
   "description": "Yet another one config processor. Weird. Slow. Our own.",
   "main": "dist/es6/index.js",
   "scripts": {

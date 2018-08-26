@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.13.2](https://github.com/qiwi/uniconfig/compare/v1.13.1...v1.13.2) (2018-08-26)
+
+
+### Performance Improvements
+
+* migrate to latest `release-hooks` ([16f4817](https://github.com/qiwi/uniconfig/commit/16f4817))
+
 # [@qiwi/uniconfig-v1.13.1](https://github.com/qiwi/uniconfig/compare/v1.13.0...v1.13.1) (2018-07-30)
 
 

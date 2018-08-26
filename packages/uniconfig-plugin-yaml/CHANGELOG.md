@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-yaml-v1.13.5](https://github.com/qiwi/uniconfig/compare/v1.13.4...v1.13.5) (2018-08-26)
+
+
+### Performance Improvements
+
+* tech release ([9a9678b](https://github.com/qiwi/uniconfig/commit/9a9678b))
+
 # [@qiwi/uniconfig-plugin-yaml-v1.13.3](https://github.com/qiwi/uniconfig/compare/v1.13.2...v1.13.3) (2018-08-26)
 
 

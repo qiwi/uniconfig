@@ -18,7 +18,6 @@ rollupPlugin(uniconfigPluginYaml)
 const config = uniconfig('./foobar.yml')    
 ```
 
-
 Each plugin must expose at least two methods to be registered: `rollup` and `rollback`.
 ```javascript
 export interface IContext {

@@ -8,7 +8,6 @@ Uniconfig YAML parser plugin
   yarn add @qiwi/uniconfig-plugin-yaml
 ```
 
-
 ## Usage
 ```javascript
 import uniconfig, {rollupPlugin} from '@qiwi/uniconfig'

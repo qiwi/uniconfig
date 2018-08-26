@@ -13,8 +13,10 @@ module.exports = {
     }
   ],
   publish: [
-    '@semantic-release/github',
     '@semantic-release/npm'
   ],
-  verifyConditions: ['@semantic-release/npm', '@semantic-release/git']
+  verifyConditions: [
+    '@semantic-release/npm',
+    '@semantic-release/git'
+  ]
 };

@@ -8758,9 +8758,9 @@ scoped-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/scoped-regex/-/scoped-regex-1.0.0.tgz#a346bb1acd4207ae70bd7c0c7ca9e566b6baddb8"
 
-semantic-release-monorepo-hooks@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-2.4.1.tgz#f3e9fc49d95781fbc690a4994c1f100e30ebcf76"
+semantic-release-monorepo-hooks@2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-2.4.2.tgz#9f0dfe2e9a3970cdbd49dba6d274112d01f65546"
   dependencies:
     semver "^5.5.1"
 

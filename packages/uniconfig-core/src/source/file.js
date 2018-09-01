@@ -1,9 +1,9 @@
 // @flow
 
-import {get, has} from '../core/util'
+import { get, has } from '../core/util'
 import parser from '../parser'
-import {file as fileApi} from '../api'
-import AbstractSource, {SYNC, PROCESSING} from './abstract'
+import { file as fileApi } from '../api'
+import AbstractSource, { SYNC, PROCESSING } from './abstract'
 import type {
   ISource,
   ISourceStatus,
@@ -13,7 +13,7 @@ import type {
   IMode
 } from '../interface'
 
-import type {IFileApi} from '../api/file'
+import type { IFileApi } from '../api/file'
 
 export default class FileSource extends AbstractSource implements ISource {
   type: string
@@ -33,7 +33,7 @@ export default class FileSource extends AbstractSource implements ISource {
     return this
   }
   connect (): ISource {
-    const {mode, target, opts: {api}} = this
+    const { mode, target, opts: { api } } = this
     this.setStatus(PROCESSING)
 
     const expression = mode === SYNC

@@ -24,7 +24,7 @@ describe('eventEmitterPolyfill', () => {
       emitter.on('baz', foo)
       emitter.on('baz', bar)
 
-      expect(emitter.events).toEqual({baz: [foo, bar]})
+      expect(emitter.events).toEqual({ baz: [foo, bar] })
     })
 
     describe('`removeListener`', () => {
@@ -36,7 +36,7 @@ describe('eventEmitterPolyfill', () => {
         emitter.on('baz', bar)
 
         expect(emitter.removeListener('baz', foo)).toBe(emitter)
-        expect(emitter.events).toEqual({baz: [bar]})
+        expect(emitter.events).toEqual({ baz: [bar] })
       })
 
       it('does nothing if event type is not registered', () => {
@@ -45,7 +45,7 @@ describe('eventEmitterPolyfill', () => {
         emitter.on('foo', foo)
 
         expect(emitter.removeListener('bar')).toBe(emitter)
-        expect(emitter.events).toEqual({foo: [foo]})
+        expect(emitter.events).toEqual({ foo: [foo] })
       })
 
       it('does nothing if handler in not found in chain', () => {
@@ -55,7 +55,7 @@ describe('eventEmitterPolyfill', () => {
         emitter.on('foo', foo)
 
         expect(emitter.removeListener('foo', bar)).toBe(emitter)
-        expect(emitter.events).toEqual({foo: [foo]})
+        expect(emitter.events).toEqual({ foo: [foo] })
       })
     })
 

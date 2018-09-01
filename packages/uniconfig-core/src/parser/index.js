@@ -1,12 +1,12 @@
 // @flow
 
-import type {IAny, IParser} from '../interface'
+import type { IAny, IParser } from '../interface'
 
-import {echo} from '../core/util'
+import { echo } from '../core/util'
 import json from './json'
 import yaml from './yaml'
 import uniconfig from './uniconfig'
-import detector, {JSON, YAML} from './detector'
+import detector, { JSON, YAML } from './detector'
 import registry from './parserEntryRegistry'
 
 export {

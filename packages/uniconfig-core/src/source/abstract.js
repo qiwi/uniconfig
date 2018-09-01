@@ -10,7 +10,7 @@ import type {
   IParser,
   ISourceStatus
 } from '../interface'
-import {echo} from '../core/util'
+import { echo } from '../core/util'
 
 export const INITIAL = 'initial'
 export const PROCESSING = 'processing'
@@ -25,7 +25,7 @@ export const STATUS = {
 
 export const SYNC = 'sync'
 export const ASYNC = 'async'
-export const MODE = {SYNC, ASYNC}
+export const MODE = { SYNC, ASYNC }
 
 export default class AbstractSource implements ISource {
   type: string
@@ -43,7 +43,7 @@ export default class AbstractSource implements ISource {
       throw new Error('Abstract source: cannot be instantiated')
     }
 
-    const {emitter, mode, target} = opts
+    const { emitter, mode, target } = opts
 
     this.type = 'abstract'
     this.id = '' + Math.random()
@@ -66,7 +66,7 @@ export default class AbstractSource implements ISource {
   }
 
   emit (event: string, data?: IAny): boolean {
-    const {type, id} = this
+    const { type, id } = this
 
     return this.emitter.emit(`${type}_${event}_${id}`, {
       type: event,
@@ -75,7 +75,7 @@ export default class AbstractSource implements ISource {
   }
 
   on (event: string, listener: IEventListener) {
-    const {type, id} = this
+    const { type, id } = this
     this.emitter.on(`${type}_${event}_${id}`, listener)
 
     return this

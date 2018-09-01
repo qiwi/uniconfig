@@ -1,10 +1,10 @@
-import {json, echo, yaml, uniconfig, detector} from '../../src/parser'
-import {JSON as Json, YAML} from '../../src/parser/detector'
+import { json, echo, yaml, uniconfig, detector } from '../../src/parser'
+import { JSON as Json, YAML } from '../../src/parser/detector'
 
 describe('parser', () => {
   describe('json', () => {
     it('produces object from json string', () => {
-      const value = {foo: 'bar', baz: 1}
+      const value = { foo: 'bar', baz: 1 }
       const str = JSON.stringify(value)
 
       expect(json(str)).toEqual(value)
@@ -14,7 +14,7 @@ describe('parser', () => {
 
   describe('yaml', () => {
     it('produces object from json string', () => {
-      const value = {foo: 'bar', baz: 1}
+      const value = { foo: 'bar', baz: 1 }
       const str = `
       foo: bar
       baz: 1
@@ -34,7 +34,7 @@ describe('parser', () => {
   })
 
   describe('uniconfig', () => {
-    const value = {foo: 'bar', baz: 1}
+    const value = { foo: 'bar', baz: 1 }
 
     it('parses yaml-formatted meta', () => {
       const str = `
@@ -66,7 +66,7 @@ describe('parser', () => {
     })
 
     it('detect json input', () => {
-      const value = {foo: 'bar'}
+      const value = { foo: 'bar' }
       const str = JSON.stringify(value)
       expect(detector(str)).toBe(Json)
     })

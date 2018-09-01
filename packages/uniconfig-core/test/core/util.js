@@ -1,4 +1,4 @@
-import {echo} from '../../src/core/util'
+import { echo } from '../../src/core/util'
 
 describe('core/util', () => {
   it('`echo` returns input as a result', () => {

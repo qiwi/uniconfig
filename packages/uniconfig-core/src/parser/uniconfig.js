@@ -2,10 +2,10 @@
 
 import yaml from './yaml'
 import json from './json'
-import detector, {JSON, YAML} from './detector'
+import detector, { JSON, YAML } from './detector'
 import processor from '../processor'
 
-import type {IAny, IParser} from '../interface'
+import type { IAny, IParser } from '../interface'
 
 export default (function (data: string): IAny {
   const type: string = detector(data)

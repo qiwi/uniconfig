@@ -1,6 +1,6 @@
 // @flow
 
-import type {IAny, IRegistry, IRegistryIndex, IRegistryStore} from '../interface'
+import type { IAny, IRegistry, IRegistryIndex, IRegistryStore } from '../interface'
 import AbstractComponent from './abstractComponent'
 
 export default class AbstractRegistry extends AbstractComponent implements IRegistry {

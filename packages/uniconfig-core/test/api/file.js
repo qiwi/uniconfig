@@ -6,7 +6,7 @@ describe('loader/file', () => {
 
   describe('#readSync', () => {
     it('gets file data as string', () => {
-      expect(file.readSync(dst)).toEqual(JSON.stringify({foo: 'bar'}))
+      expect(file.readSync(dst)).toEqual(JSON.stringify({ foo: 'bar' }))
     })
 
     it('gets err as result', () => {
@@ -16,7 +16,7 @@ describe('loader/file', () => {
 
   describe('#read', () => {
     it('resolves promise with string', () => {
-      return expect(file.read(dst)).resolves.toEqual(JSON.stringify({foo: 'bar'}))
+      return expect(file.read(dst)).resolves.toEqual(JSON.stringify({ foo: 'bar' }))
     })
 
     it('rejects promise with err', () => {

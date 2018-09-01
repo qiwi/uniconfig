@@ -1,7 +1,7 @@
 import path from 'path'
-import {FileSource, AbstractSource} from '../../src/source'
+import { FileSource, AbstractSource } from '../../src/source'
 import EventEmitter from 'events'
-import {ASYNC, FAILURE, INITIAL, READY, SYNC} from '../../src/source/abstract'
+import { ASYNC, FAILURE, INITIAL, READY, SYNC } from '../../src/source/abstract'
 
 const FOOBAR = path.resolve(__dirname, '../stub/foobar.json')
 
@@ -11,7 +11,7 @@ describe('source/file', () => {
       const target = 'foo'
       const emitter = new EventEmitter()
       const api = { encoding: 'utf' }
-      const opts = {emitter, target, api}
+      const opts = { emitter, target, api }
       const source = new FileSource(opts)
 
       expect(source).toBeInstanceOf(AbstractSource)
@@ -40,26 +40,26 @@ describe('source/file', () => {
 
     describe('connect', () => {
       it('fetches file synchronously', () => {
-        const source = new FileSource({emitter, target, mode: SYNC})
+        const source = new FileSource({ emitter, target, mode: SYNC })
 
         expect(source.connect()).toBe(source)
-        expect(source.data).toEqual({foo: 'bar'})
+        expect(source.data).toEqual({ foo: 'bar' })
         expect(source.status).toBe(READY)
       })
 
       it('fetches file asynchronously', done => {
-        const source = new FileSource({emitter, target, mode: ASYNC})
+        const source = new FileSource({ emitter, target, mode: ASYNC })
         expect(source.connect()).toBe(source)
 
         source.on(READY, () => {
-          expect(source.data).toEqual({foo: 'bar'})
+          expect(source.data).toEqual({ foo: 'bar' })
           expect(source.status).toBe(READY)
           done()
         })
       })
 
       it('switches status to failed on any error', () => {
-        const source = new FileSource({emitter, target: null, mode: SYNC})
+        const source = new FileSource({ emitter, target: null, mode: SYNC })
         source.connect()
 
         expect(source.status).toBe(FAILURE)
@@ -67,8 +67,8 @@ describe('source/file', () => {
     })
 
     describe('getters', () => {
-      const source = new FileSource({emitter, target, mode: SYNC})
-      source.data = {foo: 'bar'}
+      const source = new FileSource({ emitter, target, mode: SYNC })
+      source.data = { foo: 'bar' }
 
       describe('has', () => {
         it('asserts status', () => {

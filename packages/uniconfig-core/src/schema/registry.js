@@ -1,7 +1,7 @@
 // @flow
 
-import {satisfies} from 'semver'
-import type {IAny, ISchemaStore, ISchemaRegistry} from '../interface'
+import { satisfies } from 'semver'
+import type { IAny, ISchemaStore, ISchemaRegistry } from '../interface'
 
 export default class SchemaRegistry implements ISchemaRegistry {
   store: ISchemaStore
@@ -18,7 +18,7 @@ export default class SchemaRegistry implements ISchemaRegistry {
     return this
   }
   get (type: string, version: string): IAny {
-    const found = this.store.find(({range, type: _type}) => {
+    const found = this.store.find(({ range, type: _type }) => {
       return _type === type && satisfies(version, range)
     })
     return found

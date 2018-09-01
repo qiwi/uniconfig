@@ -1,4 +1,4 @@
-import {SchemaRegistry} from '../../src/schema'
+import { SchemaRegistry } from '../../src/schema'
 
 describe('schema/registry', () => {
   const reg = new SchemaRegistry()

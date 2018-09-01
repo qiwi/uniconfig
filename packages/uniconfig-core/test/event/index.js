@@ -1,6 +1,6 @@
 import EventEmitter from 'events'
 import EventEmitterPolyfill from '../../src/event/polyfill'
-import {eventEmitterFactory} from '../../src/event'
+import { eventEmitterFactory } from '../../src/event'
 
 describe('event', () => {
   describe('eventEmitterFactory', () => {
@@ -14,7 +14,7 @@ describe('event', () => {
     })
 
     it('constructs eePolyfill emitter instance in browser', () => {
-      global.window = {document: {}}
+      global.window = { document: {} }
       const emitter = eventEmitterFactory()
       expect(emitter).toBeInstanceOf(EventEmitterPolyfill)
     })

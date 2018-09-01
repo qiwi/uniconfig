@@ -1,4 +1,4 @@
-import AbstractSource, {INITIAL, READY, FAILURE} from '../../src/source/abstract'
+import AbstractSource, { INITIAL, READY, FAILURE } from '../../src/source/abstract'
 import EventEmitter from 'events'
 
 describe('source/abstract', () => {
@@ -46,12 +46,12 @@ describe('source/abstract', () => {
 
     it('`setStatus` updates status field and emits event', () => {
       source.setStatus('FOO')
-      expect(spy).toHaveBeenCalledWith('abstract_FOO_' + source.id, {data: undefined, type: 'FOO'})
+      expect(spy).toHaveBeenCalledWith('abstract_FOO_' + source.id, { data: undefined, type: 'FOO' })
     })
 
     it('`emit` translates event to inner emitter', () => {
       source.emit('BAR')
-      expect(spy).toHaveBeenCalledWith('abstract_BAR_' + source.id, {data: undefined, type: 'BAR'})
+      expect(spy).toHaveBeenCalledWith('abstract_BAR_' + source.id, { data: undefined, type: 'BAR' })
     })
 
     it('`on` subscribes listener to event', () => {
@@ -59,7 +59,7 @@ describe('source/abstract', () => {
       source.on('BAZ', fn)
       source.emit('BAZ')
 
-      expect(fn).toHaveBeenCalledWith({data: undefined, type: 'BAZ'})
+      expect(fn).toHaveBeenCalledWith({ data: undefined, type: 'BAZ' })
     })
 
     const cases = ['connect', 'get', 'has']
@@ -82,7 +82,7 @@ describe('source/abstract', () => {
 
       cases.forEach(([descr, expression, status]) => {
         it(descr, done => {
-          const source = new Source({emitter})
+          const source = new Source({ emitter })
           const res = AbstractSource.finalize(source, expression)
           const check = () => {
             expect(source.status).toBe(status)
@@ -100,7 +100,7 @@ describe('source/abstract', () => {
 
     describe('assertReady', () => {
       const emitter = new EventEmitter()
-      const source = new Source({emitter})
+      const source = new Source({ emitter })
 
       it('does nothing if `ready`', () => {
         source.status = READY

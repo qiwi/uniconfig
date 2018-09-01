@@ -1,6 +1,6 @@
 // @flow
 
-import type {IAny} from '../interface'
+import type { IAny } from '../interface'
 
 export const JSON: string = 'json'
 export const YAML: string = 'yaml'

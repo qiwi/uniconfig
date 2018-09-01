@@ -1,6 +1,6 @@
 // @flow
 
-import type {IApi, IAny, IResolve, IReject} from '../interface'
+import type { IApi, IAny, IResolve, IReject } from '../interface'
 export type IFsOpts = {
   encoding: string,
   flag?: string
@@ -33,5 +33,5 @@ export default ({
 }: IFileApi)
 
 function processOpts (opts?: ?IFsOpts): IFsOpts {
-  return {...DEFAULT_OPTS, ...opts}
+  return { ...DEFAULT_OPTS, ...opts }
 }

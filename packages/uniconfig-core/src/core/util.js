@@ -1,10 +1,10 @@
 // @flow
 
-import type {IAny, IWindow} from '../interface'
+import type { IAny, IWindow } from '../interface'
 
 declare var window: IWindow
 
-export {get, has} from 'lodash-es'
+export { get, has } from 'lodash-es'
 
 export function isBrowser (): boolean {
   try {

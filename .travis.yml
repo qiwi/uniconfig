@@ -9,7 +9,7 @@ before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
 
 install:
-  - yarn install
+  - sh scripts/install.sh
   - yarn run fetch_libdefs
   - yarn run bootstrap
   - yarn run build

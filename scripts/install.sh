@@ -2,19 +2,25 @@
 
 OK="OK"
 ERROR="ERROR"
-yarnRegistry="https://registry.yarnpkg.com"
-npmRegistry="https://registry.npmjs.org"
+yarnRegistry="registry.yarnpkg.com2"
+npmRegistry="registry.npmjs.org"
 
-yarnStatus=`curl $yarnRegistry -k -s -f -o /dev/null && echo $OK || echo $ERROR`
-npmStatus=`curl $npmRegistry -k -s -f -o /dev/null && echo $OK || echo $ERROR`
+npmPingStatus=`ping -c 1 $npmRegistry > /dev/null && echo $OK || echo $ERROR`
+yarnPingStatus=`ping -c 1 $yarnRegistry > /dev/null && echo $OK || echo $ERROR`
 
-echo "yarn registry status: $yarnStatus"
-echo "npm registry status: $yarnStatus"
+yarnHttpStatus=`curl "https://"$yarnRegistry -k -s -f -o /dev/null && echo $OK || echo $ERROR`
+npmHttpStatus=`curl "https://"$npmRegistry -k -s -f -o /dev/null && echo $OK || echo $ERROR`
 
-if [ $yarnStatus = $OK ]; then
+echo "yarn ping status: $yarnPingStatus"
+echo "yarn http status: $yarnHttpStatus"
+
+echo "npm ping status: $npmPingStatus"
+echo "npm http status: $npmHttpStatus"
+
+if [ $yarnHttpStatus = $OK ] ; then
    yarn install --cwd ../
 
-else if [ $npmStatus = $OK ]; then
+else if [ $npmHttpStatus = $OK ] ; then
    npm install
 
 else

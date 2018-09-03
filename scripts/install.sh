@@ -2,7 +2,7 @@
 
 OK="OK"
 ERROR="ERROR"
-yarnRegistry="registry.yarnpkg.com2"
+yarnRegistry="registry.yarnpkg.com"
 npmRegistry="registry.npmjs.org"
 
 npmPingStatus=`ping -c 1 $npmRegistry > /dev/null && echo $OK || echo $ERROR`

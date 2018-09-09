@@ -9033,9 +9033,9 @@ scoped-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/scoped-regex/-/scoped-regex-1.0.0.tgz#a346bb1acd4207ae70bd7c0c7ca9e566b6baddb8"
 
-semantic-release-monorepo-hooks@2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-2.6.0.tgz#0f1f6df8d28c1888be69fb65ec803079fd98a43a"
+semantic-release-monorepo-hooks@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-2.6.1.tgz#760bc5e3b88f26ebdb4f529f1f5a7fbe8c898e19"
   dependencies:
     semver "^5.5.1"
 

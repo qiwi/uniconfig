@@ -10,10 +10,12 @@ import type {
   ISchemaRegistry
 } from './interface'
 
-import {get, has} from './core/util'
+import {get, has, each} from './core/util'
 import {ConfigError, MISSED_VALUE_PATH} from './core/error'
 import {eventEmitterFactory, READY} from './event'
 import {SchemaRegistry} from './schema'
+import Source, {SYNC} from './source/source'
+import createContext from './context'
 
 export const DEFAULT_OPTS: IConfigOpts = {
   tolerateMissed: true
@@ -27,15 +29,34 @@ export default class Config {
   emitter: IEventEmitter
   registry: ISchemaRegistry
 
-  constructor (source: string | IConfigInput, opts: IConfigOpts = {}): IConfig {
+  constructor (input: IConfigInput, opts: IConfigOpts = {}): IConfig {
     this.opts = {...DEFAULT_OPTS, ...opts}
-    this.data = this.constructor.parse(this.constructor.load(source))
     this.type = 'config'
     this.id = '' + Math.random()
     this.emitter = this.opts.emitter || eventEmitterFactory()
     this.registry = new SchemaRegistry()
+    this.context = createContext()
 
-    this.emit(READY)
+    const emitter = this.emitter
+    const mode = this.opts.mode
+    const sources = input.source || {}
+    let sourcesAwaitingCount = Object.keys(sources).length
+
+    each(sources, (sourceDefinition, sourceName) => {
+      const source = new Source({emitter, mode, ...sourceDefinition})
+
+      if (mode !== SYNC) {
+        // TODO once()
+        source.on('ready', () => {
+          sourcesAwaitingCount -= 1
+          if (sourcesAwaitingCount === 0) {
+            this.emit(READY)
+          }
+        })
+      }
+      this.context.source.add(sourceName, source)
+      source.connect()
+    })
 
     return this
   }
@@ -65,8 +86,4 @@ export default class Config {
   emit (event: string, data?: IAny): boolean {
     return this.emitter.emit(event + this.id, {type: event, data})
   }
-
-  static load (source: string): IAny {}
-
-  static parse (data: IAny): IAny {}
 }

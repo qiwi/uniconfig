@@ -41,13 +41,14 @@ export type ISourceDefinition = {
 }
 
 export interface IConfig {
-  constructor (path: string | IConfigInput, opts: IConfigOpts): IConfig,
+  constructor (input: IConfigInput, opts: IConfigOpts): IConfig,
   id: string,
   type: string,
   opts: IConfigOpts,
   data: IAny,
   emitter: IEventEmitter,
   registry: ISchemaRegistry,
+  context: IContext,
   get (path: string): IAny,
   has (path: string): boolean,
   on (event: string, listener: IEventListener): IConfig,

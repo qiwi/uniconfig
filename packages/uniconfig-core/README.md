@@ -33,3 +33,20 @@ export interface IPlugin {
   rollup(context: IContext): void
 }
 ``` 
+
+### Example
+```json
+{
+  "data": {
+    "foo": "bar",
+    "baz": 1,
+    "host": "$remoteConfig.hostname",
+    "port": "$jsonFile.defaultPort"
+  },
+  "source": {
+     "jsonFile": {"api": "file", "parser": "json", "target": "./foo.json"},
+     "yamlFile": {"api": "file", "parser": "yaml", "target": "./bar.yaml"},
+     "remoteConfig": {"api": "http", "parser": "json", "target": "https://reqres.in/api/users/2"}
+  }
+}
+```

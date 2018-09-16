@@ -1,23 +1,38 @@
 import path from 'path'
-import { FileSource, AbstractSource } from '../../src/source'
+import Source from '../../src/source/source'
 import EventEmitter from 'events'
-import { ASYNC, FAILURE, INITIAL, READY, SYNC } from '../../src/source/abstract'
+import AbstractSource, { ASYNC, FAILURE, INITIAL, READY, SYNC } from '../../src/source/abstract'
+import apiRegistry from '../../src/api/apiRegistry'
+import parserRegistry from '../../src/parser/parserRegistry'
+import file from '../../src/api/file'
+import json from '../../src/parser/json'
 
 const FOOBAR = path.resolve(__dirname, '../stub/foobar.json')
 
-describe('source/file', () => {
+describe('source', () => {
+  beforeAll(() => {
+    apiRegistry.add('file', file)
+    parserRegistry.add('json', json)
+  })
+
+  afterAll(() => {
+    apiRegistry.flush()
+    parserRegistry.flush()
+  })
+
   describe('constructor', () => {
     it('returns proper instance', () => {
-      const target = 'foo'
       const emitter = new EventEmitter()
-      const api = { encoding: 'utf' }
-      const opts = { emitter, target, api }
-      const source = new FileSource(opts)
+      const target = 'foo'
+      const api = 'file'
+      const parser = 'json'
+      const opts = { emitter, target, api, parser }
+      const source = new Source(opts)
 
-      expect(source).toBeInstanceOf(AbstractSource)
+      expect(source).toBeInstanceOf(Source)
       expect(source.status).toBe(INITIAL)
-      expect(source.type).toBe('file')
       expect(source.id).toEqual(expect.any(String))
+      expect(source.type).toBe(api + '-' + parser)
       expect(source.target).toBe(target)
       expect(source.opts).toBe(opts)
       expect(source.emitter).toBe(emitter)
@@ -25,22 +40,14 @@ describe('source/file', () => {
   })
 
   describe('proto', () => {
-    describe('inherited from AbstractSource', () => {
-      const cases = ['open', 'emit', 'on', 'setStatus']
-
-      cases.forEach(method => {
-        it(method, () => {
-          expect(FileSource.prototype[method]).toBe(AbstractSource.prototype[method])
-        })
-      })
-    })
-
     const emitter = new EventEmitter()
     const target = FOOBAR
+    const parser = 'json'
+    const api = 'file'
 
     describe('connect', () => {
       it('fetches file synchronously', () => {
-        const source = new FileSource({ emitter, target, mode: SYNC })
+        const source = new Source({ emitter, target, parser, api, mode: SYNC })
 
         expect(source.connect()).toBe(source)
         expect(source.data).toEqual({ foo: 'bar' })
@@ -48,7 +55,7 @@ describe('source/file', () => {
       })
 
       it('fetches file asynchronously', done => {
-        const source = new FileSource({ emitter, target, mode: ASYNC })
+        const source = new Source({ emitter, target, parser, api, mode: ASYNC })
         expect(source.connect()).toBe(source)
 
         source.on(READY, () => {
@@ -59,7 +66,7 @@ describe('source/file', () => {
       })
 
       it('switches status to failed on any error', () => {
-        const source = new FileSource({ emitter, target: null, mode: SYNC })
+        const source = new Source({ emitter, target: null, mode: SYNC, parser, api })
         source.connect()
 
         expect(source.status).toBe(FAILURE)
@@ -67,8 +74,12 @@ describe('source/file', () => {
     })
 
     describe('getters', () => {
-      const source = new FileSource({ emitter, target, mode: SYNC })
-      source.data = { foo: 'bar' }
+      let source
+
+      beforeAll(() => {
+        source = new Source({ emitter, target, mode: SYNC, parser, api })
+        source.data = { foo: 'bar' }
+      })
 
       describe('has', () => {
         it('asserts status', () => {
@@ -98,7 +109,7 @@ describe('source/file', () => {
           expect(source.get('foo')).toBe('bar')
         })
 
-        it('returns undefined ithrwise', () => {
+        it('returns undefined otherwise', () => {
           source.status = READY
           expect(source.get('baz')).toBeUndefined()
         })

@@ -1,6 +1,11 @@
 // @flow
 
-import type { IAny, IRegistry, IRegistryIndex, IRegistryStore } from '../interface'
+import type {
+  IRegistry,
+  IRegistryIndex,
+  IRegistryStore,
+  IRegistryItem,
+} from '../interface'
 import AbstractComponent from './abstractComponent'
 
 export default class AbstractRegistry extends AbstractComponent implements IRegistry {
@@ -10,21 +15,25 @@ export default class AbstractRegistry extends AbstractComponent implements IRegi
   constructor (): IRegistry {
     super()
     this.type = 'abstract'
-    this.store = []
-    this.index = {}
+    this.flush()
     return this
   }
-  register (name: string, ...args: IAny[]): void {
-    this.constructor.notImplemented()
+  add (name: string, item: IRegistryItem): void {
+    this.store[name] = item
   }
-  get (name: string, ...args: IAny[]): IAny {
-    this.constructor.notImplemented()
+  get (name: string): ?IRegistryItem {
+    return this.store[name]
   }
-  has (name: string, ...args: IAny[]): boolean {
-    return !!this.get(name, ...args)
+  has (name: string): boolean {
+    return !!this.get(name)
+  }
+  remove (name: string): void {
+    delete this.store[name]
   }
   flush (): void {
-    this.store.length = 0
-    this.index = {}
+    this.store = {}
+  }
+  find () {
+    this.constructor.notImplemented()
   }
 }

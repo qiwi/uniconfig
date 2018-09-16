@@ -11,8 +11,8 @@ describe('schema/registry', () => {
   })
 
   describe('proto', () => {
-    it('`register` adds new entry to store', () => {
-      expect(reg.register(type, range, schema)).toBe(reg)
+    it('`add` adds new entry to store', () => {
+      expect(reg.add(type, range, schema)).toBe(reg)
       expect(reg.store[0]).toEqual({
         type,
         range,

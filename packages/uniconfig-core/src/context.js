@@ -5,7 +5,7 @@ import api from './api'
 import source from './source'
 import AbstractComponent from './core/abstractComponent'
 import type {IContext} from './interface'
-import {ParserEntryRegistry} from './parser/parserEntryRegistry'
+import {ParserRegistry} from './parser/parserEntryRegistry'
 
 class Context extends AbstractComponent {
   api: any
@@ -16,7 +16,7 @@ class Context extends AbstractComponent {
   constructor(): IContext {
     super()
 
-    this.parser = new ParserEntryRegistry()
+    this.parser = new ParserRegistry()
     this.api = api
     this.processor = processor
     this.source = source

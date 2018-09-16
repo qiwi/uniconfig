@@ -9,7 +9,7 @@ export default class SchemaRegistry implements ISchemaRegistry {
     this.store = []
     return this
   }
-  register (type: string, range: string, schema: IAny): ISchemaRegistry {
+  add (type: string, range: string, schema: IAny): ISchemaRegistry {
     this.store.push({
       type,
       range,

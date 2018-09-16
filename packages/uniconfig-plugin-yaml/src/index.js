@@ -13,7 +13,7 @@ const parser = {load}
 
 export default ({
   rollup(context: IContext): void {
-    context.parser.register(type, parser)
+    context.parser.add(type, parser)
   },
   rollback(context: IContext): void {},
 }: IPlugin)

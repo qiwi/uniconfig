@@ -90,25 +90,26 @@ export type ISchemaStoreItem = {
 export type ISchemaStore = ISchemaStoreItem[]
 export interface ISchemaRegistry {
   constructor(): ISchemaRegistry,
-  register(type: string, range: string, schema: IAny): ISchemaRegistry,
+  add(type: string, range: string, schema: IAny): ISchemaRegistry,
   get(type: string, version: string): IAny,
   has(type: string, version: string): boolean,
   flush(): ISchemaRegistry
 }
 
-export type IRegistryStore = IAny[]
-export type IRegistryIndex = {
-  [key: string]: IAny
+export type IRegistryItem =  IAny
+export type IRegistryStore = {
+  [key: string]: IRegistryItem
 }
 export interface IRegistry {
   type: string,
   store: IRegistryStore,
-  index: IRegistryIndex,
 
   constructor(): IRegistry,
-  register(name: string, ...args: IAny[]): void,
-  get(name: string, ...args: IAny[]): IAny,
-  has(name: string, version: string): boolean,
+  add(name: string, item: IRegistryItem): void,
+  get(name: string): ?IRegistryItem,
+  find(...args: IAny): ?IRegistryItem,
+  has(name: string): boolean,
+  remove(name: string): void,
   flush(): void
 }
 

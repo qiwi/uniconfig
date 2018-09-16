@@ -29,7 +29,9 @@
     "js-yaml": "^3.12.0",
     "lodash-es": "^4.17.10",
     "minimist": "^1.2.0",
-    "semver": "^5.5.0"
+    "semver": "^5.5.0",
+    "sync-request": "^6.0.0",
+    "then-request":"^6.0.0"
   },
   "devDependencies": {},
   "files": [

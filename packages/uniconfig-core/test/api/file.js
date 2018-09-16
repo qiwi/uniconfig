@@ -1,7 +1,7 @@
 import file from '../../src/api/file'
 import path from 'path'
 
-describe('loader/file', () => {
+describe('api/file', () => {
   const dst = path.resolve(__dirname, '../stub/foobar.json')
 
   describe('#readSync', () => {

@@ -1,9 +1,11 @@
 // @flow
 
 import file from './file'
+import http from './http'
 
 export {
-  file
+  file,
+  http
 }
 
 export default {}

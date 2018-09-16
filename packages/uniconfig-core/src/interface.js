@@ -21,8 +21,27 @@ export type IConfigOpts = {
   tolerateMissed?: boolean,
   emitter?: IEventEmitter
 }
+
+export type IConfigInput = {
+  prolog: {
+    version: string
+  },
+  data: {
+    [key: string]: IAny
+  },
+  source: {
+    [key: string]: ISourceDefinition
+  }
+}
+
+export type ISourceDefinition = {
+  type: string,
+  parser: string,
+  target: string
+}
+
 export interface IConfig {
-  constructor (path: string, opts: IConfigOpts): IConfig,
+  constructor (path: string | IConfigInput, opts: IConfigOpts): IConfig,
   id: string,
   type: string,
   opts: IConfigOpts,
@@ -34,12 +53,6 @@ export interface IConfig {
   on (event: string, listener: IEventListener): IConfig,
   off (event: string, listener: IEventListener): IConfig,
   emit (event: string, data?: IAny): boolean
-}
-
-export type ILoaderOpts = IAny
-export interface ILoader {
-  sync(target: string, opts?: IAny): IAny,
-  async(target: string, opts?: IAny): Promise<IAny>
 }
 
 export type IResolve = (value: IAny) => void
@@ -54,12 +67,11 @@ export type ISourceOpts = {
   target: string,
   api?: ?IAny
 }
-export type IParser = (raw: IAny, opts?: ?IAny) => IAny
-
-export type IParserEntry = {
-  parser: IParser,
-  type: string,
-  condition: (type: string, raw: IAny) => boolean
+export type IParser = {
+  parse: (raw: IAny, opts?: ?IAny) => IAny
+}
+export type IParserRegistryStore = {
+  [key: string]: IParser
 }
 
 export interface ISource {
@@ -81,6 +93,7 @@ export interface ISource {
   connect(): ISource,
   on(event: string, listener: IEventListener): ISource,
   emit(event: string, data?: IAny): boolean,
+
   get(path: string): IAny,
   has(path: string): boolean,
 }
@@ -117,10 +130,10 @@ export interface IRegistry {
 }
 
 export interface IContext {
-  api: any,
   processor: any,
+  api: IRegistry,
   parser: IRegistry,
-  source: any
+  source: IRegistry
 }
 
 export interface IPlugin {

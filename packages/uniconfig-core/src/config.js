@@ -3,6 +3,7 @@
 import type {
   IConfig,
   IConfigOpts,
+  IConfigInput,
   IAny,
   IEventEmitter,
   IEventListener,
@@ -26,7 +27,7 @@ export default class Config {
   emitter: IEventEmitter
   registry: ISchemaRegistry
 
-  constructor (source: string, opts: IConfigOpts = {}): IConfig {
+  constructor (source: string | IConfigInput, opts: IConfigOpts = {}): IConfig {
     this.opts = {...DEFAULT_OPTS, ...opts}
     this.data = this.constructor.parse(this.constructor.load(source))
     this.type = 'config'

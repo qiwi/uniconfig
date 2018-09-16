@@ -1,13 +1,13 @@
 // @flow
 
 import processor from './processor'
-import api from './api'
-import source from './source'
+import apiRegistry from './api/apiRegistry'
+import parserRegistry from './parser/parserRegistry'
+import SourceRegistry from './source/SourceRegistry'
 import AbstractComponent from './core/abstractComponent'
 import type {IContext} from './interface'
-import {ParserRegistry} from './parser/parserRegistry'
 
-class Context extends AbstractComponent {
+export class Context extends AbstractComponent {
   api: any
   processor: any
   parser: any
@@ -16,10 +16,10 @@ class Context extends AbstractComponent {
   constructor(): IContext {
     super()
 
-    this.parser = new ParserRegistry()
-    this.api = api
+    this.parser = parserRegistry
+    this.api = apiRegistry
+    this.source = new SourceRegistry()
     this.processor = processor
-    this.source = source
 
     return this
   }

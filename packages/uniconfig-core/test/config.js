@@ -3,7 +3,7 @@ import Config, {DEFAULT_OPTS} from '../src/config'
 import {MISSED_VALUE_PATH} from '../src/core/error'
 import EventEmitterPolyfill from '../src/event/polyfill'
 import {SchemaRegistry} from '../src/schema'
-import {SYNC} from '../src/source/source'
+import {SYNC, ASYNC} from '../src/source/source'
 import file from '../src/api/file'
 import apiRegistry from '../src/api/apiRegistry'
 import parserRegistry from '../src/parser/parserRegistry'
@@ -46,34 +46,42 @@ describe('Config', () => {
     })
   })
 
-  fdescribe('loader', () => {
+  describe('loader', () => {
     const target = path.resolve(__dirname, './stub/foobar.json')
+    const input = {
+      prolog: {
+        version: '0.0.1'
+      },
+      data: {
+        someParam: '$fromFile.foo'
+      },
+      source: {
+        fromFile: {
+          target,
+          api: 'file',
+          parser: 'json'
+        }
+      }
+    }
 
     it('sync', () => {
       const mode = SYNC
-      const input = {
-        prolog: {
-          version: '0.0.1'
-        },
-        data: {
-          someParam: '$fromFile.foo'
-        },
-        source: {
-          fromFile: {
-            target,
-            api: 'file',
-            parser: 'json'
-          }
-        }
-      }
       const opts = {mode}
-
       const config = new Config(input, opts)
 
-      console.log('!!!config', config.context.source)
+      expect(config.context.source.get('fromFile').get('foo')).toBe('bar')
     })
 
-    it('async', () => {})
+    it('async', done => {
+      const mode = ASYNC
+      const opts = {mode}
+      const config = new Config(input, opts)
+
+      config.on('CONFIG_READY', () => {
+        expect(config.context.source.get('fromFile').get('foo')).toBe('bar')
+        done()
+      })
+    })
   })
 
   describe('proto', () => {

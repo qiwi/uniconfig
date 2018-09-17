@@ -1,7 +1,7 @@
 // @flow
 
 import AbstractRegistry from '../core/abstractRegistry'
-import type {IParserRegistryStore, IRegistryStore} from '../interface'
+import type { IParserRegistryStore } from '../interface'
 
 export class ParserRegistry extends AbstractRegistry {
   store: IParserRegistryStore

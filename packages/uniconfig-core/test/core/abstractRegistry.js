@@ -12,7 +12,7 @@ describe('core/abstractRegistry', () => {
   })
 
   describe('proto', () => {
-    const foo = {bar: 'baz'}
+    const foo = { bar: 'baz' }
     it('`add` registers new item', () => {
       registry.add('foo', foo)
       expect(registry.store.foo).toBe(foo)

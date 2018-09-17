@@ -3,7 +3,7 @@
 import type {
   IRegistry,
   IRegistryStore,
-  IRegistryItem,
+  IRegistryItem
 } from '../interface'
 import AbstractComponent from './abstractComponent'
 

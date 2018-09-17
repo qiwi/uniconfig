@@ -1,4 +1,4 @@
-import detector, {JSON as Json, YAML} from '../../src/parser/detector'
+import detector, { JSON as Json, YAML } from '../../src/parser/detector'
 
 describe('detector', () => {
   it('detect yaml input', () => {

@@ -3,7 +3,7 @@
 import processor from './processor'
 import apiRegistry from './api/apiRegistry'
 import parserRegistry from './parser/parserRegistry'
-import SourceRegistry from './source/SourceRegistry'
+import SourceRegistry from './source/sourceRegistry'
 import AbstractComponent from './core/abstractComponent'
 import type {IContext} from './interface'
 

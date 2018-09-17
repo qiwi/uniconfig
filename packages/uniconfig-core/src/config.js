@@ -105,7 +105,5 @@ export default class Config {
 
       data[key] = value
     })
-
-    console.log('!!!data', this.data)
   }
 }

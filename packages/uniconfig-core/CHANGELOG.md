@@ -1,3 +1,18 @@
+# [@qiwi/uniconfig-v1.14.0](https://github.com/qiwi/uniconfig/compare/v1.13.9...v1.14.0) (2018-09-17)
+
+
+### Bug Fixes
+
+* **core:** module path ([55c7244](https://github.com/qiwi/uniconfig/commit/55c7244))
+
+
+### Features
+
+* **core:** add http api ([9ffd43c](https://github.com/qiwi/uniconfig/commit/9ffd43c))
+* add Source factory ([99e00b7](https://github.com/qiwi/uniconfig/commit/99e00b7))
+* **core:** implement basic evaluator ([f0e3b65](https://github.com/qiwi/uniconfig/commit/f0e3b65))
+* **core:** support object definition as Config input ([b44e0dc](https://github.com/qiwi/uniconfig/commit/b44e0dc))
+
 # [@qiwi/uniconfig-v1.13.9](https://github.com/qiwi/uniconfig/compare/v1.13.8...v1.13.9) (2018-08-26)
 
 

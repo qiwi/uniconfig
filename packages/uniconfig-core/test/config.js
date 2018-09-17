@@ -53,7 +53,7 @@ describe('Config', () => {
         version: '0.0.1'
       },
       data: {
-        someParam: '$fromFile.foo'
+        someParam: '$fromFile:foo'
       },
       source: {
         fromFile: {
@@ -70,6 +70,7 @@ describe('Config', () => {
       const config = new Config(input, opts)
 
       expect(config.context.source.get('fromFile').get('foo')).toBe('bar')
+      expect(config.get('someParam')).toBe('bar')
     })
 
     it('async', done => {
@@ -79,6 +80,7 @@ describe('Config', () => {
 
       config.on('CONFIG_READY', () => {
         expect(config.context.source.get('fromFile').get('foo')).toBe('bar')
+        expect(config.get('someParam')).toBe('bar')
         done()
       })
     })

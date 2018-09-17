@@ -30,6 +30,7 @@ export default class Config {
   registry: ISchemaRegistry
 
   constructor (input: IConfigInput, opts: IConfigOpts = {}): IConfig {
+    this.input = input
     this.opts = {...DEFAULT_OPTS, ...opts}
     this.type = 'config'
     this.id = '' + Math.random()
@@ -50,12 +51,17 @@ export default class Config {
         source.on('ready', () => {
           sourcesAwaitingCount -= 1
           if (sourcesAwaitingCount === 0) {
+            this.evaluate()
             this.emit(READY)
           }
         })
       }
       this.context.source.add(sourceName, source)
       source.connect()
+
+      if (mode === SYNC) {
+        this.evaluate()
+      }
     })
 
     return this
@@ -85,5 +91,21 @@ export default class Config {
 
   emit (event: string, data?: IAny): boolean {
     return this.emitter.emit(event + this.id, {type: event, data})
+  }
+
+  // TODO supports recursion
+  evaluate () {
+    const data = this.data = {}
+    each(this.input.data, (value, key)=> {
+      if (/^\$.+:.+/.test(value)) {
+        const [source, path] = value.slice(1).split(':')
+        data[key] = this.context.source.get(source).get(path)
+        return
+      }
+
+      data[key] = value
+    })
+
+    console.log('!!!data', this.data)
   }
 }

@@ -6,16 +6,16 @@
  */
 
 import Config from './config'
-import type {IConfig, IConfigOpts} from './interface'
+import type {IConfig, IConfigOpts, IConfigInput} from './interface'
 
 /**
  * Config factory.
- * @param {string} source
+ * @param {IConfigInput} input
  * @param {Object} opts
  * @returns {Config}
  */
-export function factory(source: string, opts: IConfigOpts): IConfig {
-  return new Config(source, opts)
+export function factory(input: IConfigInput, opts: IConfigOpts): IConfig {
+  return new Config(input, opts)
 }
 
 export default factory

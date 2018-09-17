@@ -6,4 +6,4 @@ export default ({
   parse(data: string): IAny {
     return JSON.parse(data)
   }
-})
+}: IParser)

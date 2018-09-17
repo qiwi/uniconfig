@@ -1,15 +1,15 @@
 // @flow
 
-import type {IContext, IPlugin, IAny, IParser} from '../../uniconfig-core/src/interface'
+import type {IContext, IPlugin, IAny, IParser, IParse} from '../../uniconfig-core/src/interface'
 import {safeLoad} from 'js-yaml'
 
 const type = 'yaml'
 
-export const load: IParser = (data: string): IAny => {
+export const parse: IParse = (data: string): IAny => {
   return safeLoad(data)
 }
 
-const parser = {load}
+const parser: IParser = {parse}
 
 export default ({
   rollup(context: IContext): void {

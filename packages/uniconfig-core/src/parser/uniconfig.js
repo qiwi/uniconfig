@@ -1,5 +1,6 @@
 // @flow
 
+/*
 import yaml from './yaml'
 import json from './json'
 import detector, { JSON, YAML } from './detector'
@@ -22,3 +23,4 @@ export default (function (data: string): IAny {
 
   return processor(parser(data))
 }: IParser)
+*/

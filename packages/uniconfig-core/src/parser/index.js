@@ -4,20 +4,21 @@ import type { IAny, IParser } from '../interface'
 
 import { echo } from '../core/util'
 import json from './json'
-import yaml from './yaml'
-import uniconfig from './uniconfig'
+// import yaml from './yaml'
+// import uniconfig from './uniconfig'
 import detector, { JSON, YAML } from './detector'
 import registry from './parserRegistry'
 
 export {
   echo,
   json,
-  yaml,
-  uniconfig,
+  // yaml,
+  // uniconfig,
   detector,
   registry
 }
 
+/*
 export default function (data: IAny): void {
   const type: string = detector(data)
   const parser: IParser | null = type === YAML
@@ -32,3 +33,4 @@ export default function (data: IAny): void {
 
   return parser(data)
 }
+*/

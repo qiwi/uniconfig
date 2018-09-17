@@ -2,7 +2,6 @@
 
 import type {
   IRegistry,
-  IRegistryIndex,
   IRegistryStore,
   IRegistryItem,
 } from '../interface'
@@ -10,7 +9,6 @@ import AbstractComponent from './abstractComponent'
 
 export default class AbstractRegistry extends AbstractComponent implements IRegistry {
   store: IRegistryStore
-  index: IRegistryIndex
   type: string
   constructor (): IRegistry {
     super()

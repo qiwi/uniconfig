@@ -7,7 +7,8 @@ import type {
   IAny,
   IEventEmitter,
   IEventListener,
-  ISchemaRegistry
+  ISchemaRegistry,
+  IContext
 } from './interface'
 
 import {get, has, each} from './core/util'
@@ -28,6 +29,8 @@ export default class Config {
   type: string
   emitter: IEventEmitter
   registry: ISchemaRegistry
+  context: IContext
+  input: IConfigInput
 
   constructor (input: IConfigInput, opts: IConfigOpts = {}): IConfig {
     this.input = input
@@ -98,8 +101,13 @@ export default class Config {
     const data = this.data = {}
     each(this.input.data, (value, key)=> {
       if (/^\$.+:.+/.test(value)) {
-        const [source, path] = value.slice(1).split(':')
-        data[key] = this.context.source.get(source).get(path)
+        const [sourceName, path] = value.slice(1).split(':')
+        const source = this.context.source.get(sourceName)
+
+        if (source) {
+          data[key] = source.get(path)
+        }
+
         return
       }
 

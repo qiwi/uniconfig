@@ -1,7 +1,7 @@
 import path from 'path'
 import Source from '../../src/source/source'
 import EventEmitter from 'events'
-import AbstractSource, { ASYNC, FAILURE, INITIAL, READY, SYNC } from '../../src/source/abstract'
+import { ASYNC, FAILURE, INITIAL, READY, SYNC } from '../../src/source/source'
 import apiRegistry from '../../src/api/apiRegistry'
 import parserRegistry from '../../src/parser/parserRegistry'
 import file from '../../src/api/file'

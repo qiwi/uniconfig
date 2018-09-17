@@ -19,7 +19,8 @@ export interface IEventEmitter {
 
 export type IConfigOpts = {
   tolerateMissed?: boolean,
-  emitter?: IEventEmitter
+  emitter?: IEventEmitter,
+  mode?: IMode
 }
 
 export type IConfigInput = {
@@ -49,6 +50,7 @@ export interface IConfig {
   emitter: IEventEmitter,
   registry: ISchemaRegistry,
   context: IContext,
+  input: IConfigInput,
   get (path: string): IAny,
   has (path: string): boolean,
   on (event: string, listener: IEventListener): IConfig,
@@ -58,7 +60,10 @@ export interface IConfig {
 
 export type IResolve = (value: IAny) => void
 export type IReject = (value: IAny) => void
-export interface IApi {}
+export interface IApi {
+  read(...args: IAny): Promise<IAny>,
+  readSync(...args: IAny): IAny
+}
 
 export type ISourceStatus = 'initial' | 'processing' | 'ready' | 'failure'
 export type IMode = 'sync' | 'async'
@@ -66,10 +71,12 @@ export type ISourceOpts = {
   mode: IMode,
   emitter: IEventEmitter,
   target: string,
-  api?: ?IAny
+  api: string,
+  parser: string
 }
+export type IParse = (raw: IAny, opts?: ?IAny) => IAny
 export type IParser = {
-  parse: (raw: IAny, opts?: ?IAny) => IAny
+  parse: IParse
 }
 export type IParserRegistryStore = {
   [key: string]: IParser
@@ -85,8 +92,8 @@ export interface ISource {
   opts: IAny,
 
   target: string,
-  api: string,
-  parser: string,
+  api: IApi,
+  parser: IParser,
 
   data?: IAny,
 

@@ -12,7 +12,7 @@ import type {
   IEventEmitter,
   IMode,
   IParser,
-  ISourceStatus
+  ISourceStatus, IApi
 } from '../interface'
 
 export const INITIAL = 'initial'
@@ -37,7 +37,7 @@ export default class Source implements ISource {
   mode: IMode
   opts: ISourceOpts
   parser: IParser
-  api: IAny
+  api: IApi
   emitter: IEventEmitter
   data: ?IAny
   target: string

@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.15.0](https://github.com/qiwi/uniconfig/compare/v1.14.1...v1.15.0) (2018-10-08)
+
+
+### Features
+
+* add yaml plugin ([212a526](https://github.com/qiwi/uniconfig/commit/212a526))
+
 # [@qiwi/uniconfig-v1.14.1](https://github.com/qiwi/uniconfig/compare/v1.14.0...v1.14.1) (2018-10-08)
 
 

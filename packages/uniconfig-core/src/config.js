@@ -46,26 +46,31 @@ export default class Config {
     const sources = input.source || {}
     let sourcesAwaitingCount = Object.keys(sources).length
 
-    each(sources, (sourceDefinition, sourceName) => {
-      const source = new Source({emitter, mode, ...sourceDefinition})
+    if (sourcesAwaitingCount === 0) {
+      this.evaluate()
 
-      if (mode !== SYNC) {
-        // TODO once()
-        source.on('ready', () => {
-          sourcesAwaitingCount -= 1
-          if (sourcesAwaitingCount === 0) {
-            this.evaluate()
-            this.emit(READY)
-          }
-        })
-      }
-      this.context.source.add(sourceName, source)
-      source.connect()
+    } else {
+      each(sources, (sourceDefinition, sourceName) => {
+        const source = new Source({emitter, mode, ...sourceDefinition})
+
+        if (mode !== SYNC) {
+          // TODO once()
+          source.on('ready', () => {
+            sourcesAwaitingCount -= 1
+            if (sourcesAwaitingCount === 0) {
+              this.evaluate()
+            }
+          })
+        }
+
+        this.context.source.add(sourceName, source)
+        source.connect()
+      })
 
       if (mode === SYNC) {
         this.evaluate()
       }
-    })
+    }
 
     return this
   }
@@ -96,7 +101,7 @@ export default class Config {
     return this.emitter.emit(event + this.id, {type: event, data})
   }
 
-  // TODO supports recursion
+  // TODO support recursion
   evaluate () {
     const data = this.data = {}
     each(this.input.data, (value, key)=> {
@@ -113,5 +118,7 @@ export default class Config {
 
       data[key] = value
     })
+
+    this.emit(READY)
   }
 }

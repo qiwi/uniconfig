@@ -84,6 +84,21 @@ describe('Config', () => {
         done()
       })
     })
+
+    it('processes config with no sources', () => {
+      const opts = {}
+      const input = {
+        prolog: {
+          version: '0.0.1'
+        },
+        data: {
+          foo: 'bar'
+        }
+      }
+      const config = new Config(input, opts)
+
+      expect(config.get('foo')).toBe('bar')
+    })
   })
 
   describe('proto', () => {

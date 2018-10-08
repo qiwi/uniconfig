@@ -15,5 +15,7 @@ export default ({
   rollup(context: IContext): void {
     context.parser.add(type, parser)
   },
-  rollback(context: IContext): void {},
+  rollback(context: IContext): void {
+    context.parser.remove(type)
+  },
 }: IPlugin)

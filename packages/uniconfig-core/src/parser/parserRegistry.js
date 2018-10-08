@@ -8,7 +8,7 @@ export class ParserRegistry extends AbstractRegistry {
   type: string
   constructor () {
     super()
-
+    this.store = {}
     this.type = 'parser'
     return this
   }

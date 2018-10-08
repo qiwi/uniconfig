@@ -4,16 +4,22 @@
   ],
   "version": "1.7.0",
   "private": true,
+  "esm": {
+    "mode": "all",
+    "cjs": true
+  },
   "scripts": {
     "clean": "lerna clean --yes && lerna run clean",
     "build": "yarn clean && lerna run --stream build",
     "build_es6": "lerna run --stream build_es6",
+    "build_es5": "lerna run --stream build_es5",
+    "build_bundle": "lerna run --stream build_bundle",
     "bootstrap": "lerna bootstrap",
     "test": "npm run flow && npm run flow_coverage && npm run lint && npm run jest",
     "test_with_report": "npm test && npm run codeclimate_push && npm run coveralls_push",
     "codeclimate_push": "codeclimate-test-reporter < ./coverage/lcov.info",
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
-    "jest": "BABEL_ENV=test NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
+    "jest": "BABEL_ENV=test NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles --config jest.config.json",
     "flow": "flow",
     "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 90",
     "fetch_libdefs": "flow-typed install lodash@4.17.10",
@@ -22,20 +28,21 @@
     "show_docs": "node scripts/docsapp.js"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "@semantic-release/changelog": "^2.1.1",
     "@semantic-release/git": "6.0.1",
     "@semantic-release/github": "4.2.18",
     "@semantic-release/npm": "3.3.4",
-    "@std/esm": "^0.26.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-minify": "^0.5.0",
     "codeclimate-test-reporter": "^0.5.0",
     "coveralls": "^3.0.2",
     "docma": "^2.1.0",
@@ -46,6 +53,7 @@
     "flow-typed": "^2.5.1",
     "jest": "^23.6.0",
     "lerna": "^3.4.1",
+    "parcel": "1.10.0-beta.0",
     "parcel-bundler": "^1.10.2",
     "semantic-release": "15.6.6",
     "semantic-release-monorepo": "^6.0.3",
@@ -80,6 +88,5 @@
         "onlyFilesWithFlowAnnotation": true
       }
     }
-  },
-  "dependencies": {}
+  }
 }

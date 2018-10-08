@@ -9,6 +9,7 @@ export default class SourceRegistry extends AbstractRegistry {
   constructor () {
     super()
 
+    this.store = {}
     this.type = 'source'
     return this
   }

@@ -8,7 +8,7 @@ export class ApiRegistry extends AbstractRegistry implements IRegistry {
   type: string
   constructor () {
     super()
-
+    this.store = {}
     this.type = 'api'
     return this
   }

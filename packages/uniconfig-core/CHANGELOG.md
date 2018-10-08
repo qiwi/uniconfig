@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v1.14.1](https://github.com/qiwi/uniconfig/compare/v1.14.0...v1.14.1) (2018-10-08)
+
+
+### Bug Fixes
+
+* handle case with empty sources ([ed77281](https://github.com/qiwi/uniconfig/commit/ed77281)), closes [#40](https://github.com/qiwi/uniconfig/issues/40)
+
 # [@qiwi/uniconfig-v1.14.0](https://github.com/qiwi/uniconfig/compare/v1.13.9...v1.14.0) (2018-09-17)
 
 

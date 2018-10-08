@@ -1258,7 +1258,7 @@
     read-pkg "^4.0.0"
     registry-auth-token "^3.3.1"
 
-"@semantic-release/release-notes-generator@^6.0.0":
+"@semantic-release/release-notes-generator@6.1.1", "@semantic-release/release-notes-generator@^6.0.0":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/@semantic-release/release-notes-generator/-/release-notes-generator-6.1.1.tgz#109416bc55fe8a15fabf4b16faec622b839a9945"
   dependencies:
@@ -9065,9 +9065,9 @@ semantic-release-monorepo-hooks@2.6.1:
   dependencies:
     semver "^5.5.1"
 
-semantic-release-monorepo@^6.0.3:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/semantic-release-monorepo/-/semantic-release-monorepo-6.1.1.tgz#c9d802cbd065963a7d01d258936dfaf2989a2a7f"
+semantic-release-monorepo@6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/semantic-release-monorepo/-/semantic-release-monorepo-6.0.3.tgz#4cf66490df4c32bd40ddaa6afa836cf0b2210bb5"
   dependencies:
     debug "^3.1.0"
     execa "^0.8.0"

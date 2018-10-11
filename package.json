@@ -48,7 +48,7 @@
     "coveralls": "^3.0.2",
     "docma": "^2.1.0",
     "eslint-plugin-flowtype": "^2.50.3",
-    "flow-bin": "^0.82.0",
+    "flow-bin": "^0.83.0",
     "flow-coverage-report": "^0.6.0",
     "flow-remove-types": "^1.2.3",
     "flow-typed": "^2.5.1",

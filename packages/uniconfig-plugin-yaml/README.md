@@ -11,7 +11,7 @@ Uniconfig YAML parser plugin
 
 ## Usage
 ```javascript
-import uniconfig, {rollupPlugin} from '@qiwi/uniconfig'
+import uniconfig, {rollupPlugin} from '@qiwi/uniconfig-core'
 import uniconfigPluginYaml from '@qiwi/uniconfig-plugin-yaml'
     
 rollupPlugin(uniconfigPluginYaml)

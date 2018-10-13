@@ -1,0 +1,13 @@
+import uniconfig, {Config} from '../src'
+
+describe('legacy-facade', () => {
+  describe('factory', () => {
+    it('produces new Config instance', () => {
+      const opts = {}
+      const target = 'foo'
+      const config = uniconfig(target, opts)
+
+      expect(config).toBeInstanceOf(Config)
+    })
+  })
+})

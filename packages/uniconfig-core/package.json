@@ -1,7 +1,7 @@
 {
-  "name": "@qiwi/uniconfig",
+  "name": "@qiwi/uniconfig-core",
   "version": "1.15.0",
-  "description": "Yet another one config processor. Weird. Slow. Our own.",
+  "description": "Core uniconfig library",
   "main": "dist/es6/index.js",
   "scripts": {
     "jest": "BABEL_ENV=test NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
@@ -16,7 +16,8 @@
   },
   "keywords": [
     "universal config",
-    "unified config"
+    "unified config",
+    "uniconfig-core"
   ],
   "author": "Qiwi <opensource@qiwi.com>",
   "license": "MIT",

@@ -18,6 +18,8 @@ export function factory(input: IConfigInput, opts: IConfigOpts): IConfig {
   return new Config(input, opts)
 }
 
+export {Config}
+
 export {rollupPlugin, rollbackPlugin} from './plugin'
 
 export default factory

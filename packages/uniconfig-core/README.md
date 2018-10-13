@@ -11,7 +11,7 @@ Core uniconfig layer: basic ifaces, utils, entry point, plugin API
 # Plugin API
 `uniconfig` features may be significantly extended with plugins.
 ```javascript
-import uniconfig, {rollupPlugin} from '@qiwi/uniconfig'
+import uniconfig, {rollupPlugin} from '@qiwi/uniconfig-core'
 import uniconfigPluginYaml from '@qiwi/uniconfig-plugin-yaml'    
 
 rollupPlugin(uniconfigPluginYaml)

@@ -11,7 +11,7 @@ Uniconfig JSON parser plugin
 
 ## Usage
 ```javascript
-import uniconfig, {rollupPlugin} from '@qiwi/uniconfig'
+import uniconfig, {rollupPlugin} from '@qiwi/uniconfig-core'
 import uniconfigPluginJson from '@qiwi/uniconfig-plugin-json'
     
 rollupPlugin(uniconfigPluginJson)

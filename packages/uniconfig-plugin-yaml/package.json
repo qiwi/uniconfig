@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-yaml",
-  "version": "1.15.0",
+  "version": "1.17.0",
   "description": "Uniconfig yaml parser plugin",
   "main": "dist/es6/index.js",
   "scripts": {

@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v1.18.0](https://github.com/qiwi/uniconfig/compare/v1.17.0...v1.18.0) (2018-10-14)
+
+
+### Features
+
+* support sources with no `parser` option ([6817d6d](https://github.com/qiwi/uniconfig/commit/6817d6d))
+
 # [@qiwi/uniconfig-core-v1.17.0](https://github.com/qiwi/uniconfig/compare/v1.16.0...v1.17.0) (2018-10-13)
 
 

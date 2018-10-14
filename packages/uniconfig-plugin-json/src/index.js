@@ -2,11 +2,11 @@
 
 import type {IContext, IPlugin, IAny, IParser, IParse} from '../../uniconfig-core/src/interface'
 
-const type = 'json'
+export const type = 'json'
 
 export const parse: IParse = (data: string): IAny => JSON.parse(data)
 
-const parser: IParser = {parse}
+export const parser: IParser = {parse}
 
 export default ({
   rollup(context: IContext): void {

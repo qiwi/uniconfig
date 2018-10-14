@@ -105,7 +105,7 @@ export default class Config {
   evaluate () {
     const data = this.data = {}
     each(this.input.data, (value, key)=> {
-      if (/^\$.+:.+/.test(value)) {
+      if (/^\$.+:.*/.test(value)) {
         const [sourceName, path] = value.slice(1).split(':')
         const source = this.context.source.get(sourceName)
 

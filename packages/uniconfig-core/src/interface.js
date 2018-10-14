@@ -102,7 +102,7 @@ export interface ISource {
   on(event: string, listener: IEventListener): ISource,
   emit(event: string, data?: IAny): boolean,
 
-  get(path: string): IAny,
+  get(path?: string): IAny,
   has(path: string): boolean,
 }
 

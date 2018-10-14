@@ -97,10 +97,12 @@ export default class Source implements ISource {
     return this
   }
 
-  get (path: string): IAny {
+  get (path?: string): IAny {
     this.constructor.assertReady(this)
 
-    return get(this.data, path)
+    return path
+      ? get(this.data, path)
+      : this.data
   }
 
   has (path: string): boolean {

@@ -1,6 +1,6 @@
 // @flow
 
-import AbstractRegistry from '../core/abstractRegistry'
+import AbstractRegistry from '../base/abstractRegistry'
 import type { IParserRegistryStore, IParser, IAny } from '../interface'
 
 export const DEFAULT_PARSER: IParser = {

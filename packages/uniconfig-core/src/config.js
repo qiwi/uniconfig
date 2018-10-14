@@ -11,8 +11,8 @@ import type {
   IContext
 } from './interface'
 
-import {get, has, each} from './core/util'
-import {ConfigError, MISSED_VALUE_PATH} from './core/error'
+import {get, has, each} from './base/util'
+import {ConfigError, MISSED_VALUE_PATH} from './base/error'
 import {eventEmitterFactory, READY} from './event'
 import {SchemaRegistry} from './schema'
 import Source, {SYNC} from './source/source'

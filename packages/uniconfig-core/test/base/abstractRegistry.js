@@ -1,6 +1,6 @@
-import AbstractRegistry from '../../src/core/abstractRegistry'
+import AbstractRegistry from '../../src/base/abstractRegistry'
 
-describe('core/abstractRegistry', () => {
+describe('base/abstractRegistry', () => {
   class Registry extends AbstractRegistry {}
   const registry = new Registry()
 

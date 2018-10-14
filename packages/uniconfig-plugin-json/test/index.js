@@ -1,6 +1,6 @@
 import path from 'path'
 import parser from '../dist/es6'
-import file from '../../uniconfig-core/src/api/file'
+import {api as fileApi} from '@qiwi/uniconfig-plugin-api-file'
 import {SYNC} from '../../uniconfig-core/src/source/source'
 import Config, {rollupPlugin, rollbackPlugin} from '../../uniconfig-core/src'
 import parserRegistry from '../../uniconfig-core/src/parser/parserRegistry'
@@ -8,7 +8,7 @@ import apiRegistry from '../../uniconfig-core/src/api/apiRegistry'
 
 describe('plugin-json', () => {
   beforeAll(() => {
-    apiRegistry.add('file', file)
+    apiRegistry.add('file', fileApi)
   })
 
   afterAll(() => {

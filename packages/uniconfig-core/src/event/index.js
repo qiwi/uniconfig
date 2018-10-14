@@ -1,6 +1,6 @@
 // @flow
 
-import { isBrowser } from '../core/util'
+import { isBrowser } from '../base/util'
 import type { IEventEmitter } from '../interface'
 import eventEmitterPolyfill from './polyfill'
 

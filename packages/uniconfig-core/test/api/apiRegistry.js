@@ -1,5 +1,5 @@
 import apiRegistry from '../../src/api/apiRegistry'
-import AbstractRegistry from '../../src/core/abstractRegistry'
+import AbstractRegistry from '../../src/base/abstractRegistry'
 
 describe('api/apiRegistry', () => {
   describe('has proper inners', () => {

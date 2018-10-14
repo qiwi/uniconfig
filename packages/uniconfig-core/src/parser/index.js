@@ -1,6 +1,6 @@
 // @flow
 
-import { echo } from '../core/util'
+import { echo } from '../base/util'
 import json from './json'
 import detector from './detector'
 import registry from './parserRegistry'

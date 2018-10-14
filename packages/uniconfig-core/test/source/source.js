@@ -3,15 +3,15 @@ import EventEmitter from 'events'
 import Source, { ASYNC, FAILURE, INITIAL, READY, SYNC } from '../../src/source/source'
 import apiRegistry from '../../src/api/apiRegistry'
 import parserRegistry from '../../src/parser/parserRegistry'
-import file from '../../src/api/file'
-import json from '../../src/parser/json'
+import { api as fileApi } from '@qiwi/uniconfig-plugin-api-file'
+import { parser as jsonParser } from '@qiwi/uniconfig-plugin-json'
 
 const FOOBAR = path.resolve(__dirname, '../stub/foobar.json')
 
 describe('source', () => {
   beforeAll(() => {
-    apiRegistry.add('file', file)
-    parserRegistry.add('json', json)
+    apiRegistry.add('file', fileApi)
+    parserRegistry.add('json', jsonParser)
   })
 
   afterAll(() => {

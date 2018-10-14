@@ -1,18 +1,18 @@
 import path from 'path'
 import Config, {DEFAULT_OPTS} from '../src/config'
-import {MISSED_VALUE_PATH} from '../src/core/error'
+import {MISSED_VALUE_PATH} from '../src/base/error'
 import EventEmitterPolyfill from '../src/event/polyfill'
 import {SchemaRegistry} from '../src/schema'
 import {SYNC, ASYNC} from '../src/source/source'
-import file from '../src/api/file'
 import apiRegistry from '../src/api/apiRegistry'
 import parserRegistry from '../src/parser/parserRegistry'
-import json from '../src/parser/json'
+import {api as fileApi} from '@qiwi/uniconfig-plugin-api-file'
+import {parser as jsonParser} from '@qiwi/uniconfig-plugin-json'
 
 describe('Config', () => {
   beforeAll(() => {
-    apiRegistry.add('file', file)
-    parserRegistry.add('json', json)
+    apiRegistry.add('file', fileApi)
+    parserRegistry.add('json', jsonParser)
   })
 
   afterAll(() => {

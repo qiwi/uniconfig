@@ -1,6 +1,6 @@
 // @flow
 
-import { get, has } from '../core/util'
+import { get, has } from '../base/util'
 import parserRegistry, { DEFAULT_PARSER } from '../parser/parserRegistry'
 import apiRegistry from '../api/apiRegistry'
 

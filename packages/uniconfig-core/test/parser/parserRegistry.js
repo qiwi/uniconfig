@@ -1,5 +1,5 @@
 import parserRegistry from '../../src/parser/parserRegistry'
-import AbstractRegistry from '../../src/core/abstractRegistry'
+import AbstractRegistry from '../../src/base/abstractRegistry'
 
 describe('parser/parserRegistry', () => {
   describe('has proper inners', () => {

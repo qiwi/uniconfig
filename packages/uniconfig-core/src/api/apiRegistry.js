@@ -1,7 +1,7 @@
 // @flow
 
 import type { IRegistry, IRegistryStore } from '../interface'
-import AbstractRegistry from '../core/abstractRegistry'
+import AbstractRegistry from '../base/abstractRegistry'
 
 export class ApiRegistry extends AbstractRegistry implements IRegistry {
   store: IRegistryStore

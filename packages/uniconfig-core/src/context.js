@@ -4,7 +4,7 @@ import processor from './processor'
 import apiRegistry from './api/apiRegistry'
 import parserRegistry from './parser/parserRegistry'
 import SourceRegistry from './source/sourceRegistry'
-import AbstractComponent from './core/abstractComponent'
+import AbstractComponent from './base/abstractComponent'
 import type {IContext} from './interface'
 
 export class Context extends AbstractComponent {

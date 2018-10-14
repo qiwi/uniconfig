@@ -11,3 +11,6 @@ module.ignore_non_literal_requires=true
 
 [ignore]
 .*/node_modules/config-chain/test/
+.*/node_modules/http-basic/
+.*/node_modules/then-request/
+.*/node_modules/sync-request/

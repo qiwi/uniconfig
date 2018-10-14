@@ -27,10 +27,7 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "lodash-es": "^4.17.11",
-    "minimist": "^1.2.0",
-    "semver": "^5.5.1",
-    "sync-request": "^6.0.0",
-    "then-request": "^6.0.0"
+    "semver": "^5.5.1"
   },
   "files": [
     "README.md",

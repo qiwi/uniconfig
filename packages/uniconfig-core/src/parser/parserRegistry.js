@@ -1,7 +1,11 @@
 // @flow
 
 import AbstractRegistry from '../core/abstractRegistry'
-import type { IParserRegistryStore } from '../interface'
+import type { IParserRegistryStore, IParser, IAny } from '../interface'
+
+export const DEFAULT_PARSER: IParser = {
+  parse: (data: IAny): IAny => data
+}
 
 export class ParserRegistry extends AbstractRegistry {
   store: IParserRegistryStore

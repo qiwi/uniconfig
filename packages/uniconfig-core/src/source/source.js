@@ -1,7 +1,7 @@
 // @flow
 
 import { get, has } from '../core/util'
-import parserRegistry from '../parser/parserRegistry'
+import parserRegistry, { DEFAULT_PARSER } from '../parser/parserRegistry'
 import apiRegistry from '../api/apiRegistry'
 
 import type {
@@ -12,7 +12,8 @@ import type {
   IEventEmitter,
   IMode,
   IParser,
-  ISourceStatus, IApi
+  ISourceStatus,
+  IApi
 } from '../interface'
 
 export const INITIAL = 'initial'
@@ -53,7 +54,7 @@ export default class Source implements ISource {
 
     this.api = this.constructor.getApi(api)
     this.parser = this.constructor.getParser(parser)
-    this.type = api + '-' + parser
+    this.type = api + '-' + (parser || 'echo')
 
     return this
   }
@@ -132,7 +133,7 @@ export default class Source implements ISource {
     return res
   }
 
-  static getApi (name: string) {
+  static getApi (name: string): IApi {
     const api = apiRegistry.get(name)
 
     if (!api) {
@@ -142,7 +143,11 @@ export default class Source implements ISource {
     return api
   }
 
-  static getParser (name: string) {
+  static getParser (name?: string): IParser {
+    if (!name) {
+      return DEFAULT_PARSER
+    }
+
     const parser = parserRegistry.get(name)
 
     if (!parser) {

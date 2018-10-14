@@ -70,6 +70,14 @@ describe('source', () => {
 
         expect(source.status).toBe(FAILURE)
       })
+
+      it('loads data "as is" if no parser defined', () => {
+        const source = new Source({ emitter, target, api, mode: SYNC })
+
+        expect(source.connect()).toBe(source)
+        expect(source.data).toBe('{"foo":"bar"}')
+        expect(source.status).toBe(READY)
+      })
     })
 
     describe('getters', () => {
@@ -114,5 +122,9 @@ describe('source', () => {
         })
       })
     })
+  })
+
+  describe('static', () => {
+
   })
 })

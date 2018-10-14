@@ -72,7 +72,7 @@ export type ISourceOpts = {
   emitter: IEventEmitter,
   target: string,
   api: string,
-  parser: string
+  parser?: string
 }
 export type IParse = (raw: IAny, opts?: ?IAny) => IAny
 export type IParser = {

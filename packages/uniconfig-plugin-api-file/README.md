@@ -5,9 +5,8 @@ Uniconfig File API plugin
 ## Install
 ```bash
   npm i @qiwi/uniconfig-plugin-api-file
-  yarn add @qiwi/uniconfig-plugin-api-fil
+  yarn add @qiwi/uniconfig-plugin-api-file
 ```
-
 
 ## Usage
 ```javascript

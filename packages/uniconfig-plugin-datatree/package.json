@@ -1,14 +1,14 @@
 {
-  "name": "@qiwi/uniconfig-plugin-api-file",
-  "version": "1.20.0",
-  "description": "Uniconfig file API (fs) plugin",
+  "name": "@qiwi/uniconfig-plugin-datatree",
+  "version": "1.19.0",
+  "description": "uniconfig datatree plugin",
   "main": "dist/es6/index.js",
   "scripts": {
     "jest": "BABEL_ENV=test NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
     "build_es6": "flow-remove-types src/ --out-dir dist/es6/",
     "build_es5": "BABEL_ENV=production babel src --out-dir dist/es5/",
     "build_bundle": "parcel build dist/es6/index.js --out-dir dist/bundle --experimental-scope-hoisting",
-    "build": "rm -rf dist && npm run build_es6 && npm run build_es5 && npm run build_bundle"
+    "build": "rm -rf dist && npm run build_es6 && npm run build_es5"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,8 @@
   },
   "keywords": [
     "universal config",
-    "unified config"
+    "unified config",
+    "uniconfig-plugin-datatree"
   ],
   "author": "Qiwi <opensource@qiwi.com>",
   "license": "MIT",
@@ -24,16 +25,14 @@
     "url": "https://github.com/qiwi/uniconfig/issues"
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
-  "dependencies": {
-    "@qiwi/uniconfig-core": "^1.0.0",
-    "lodash-es": "^4.17.11"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.1.2"
-  },
   "files": [
     "README.md",
     "CHANGELOG.md",
     "dist/"
-  ]
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@qiwi/uniconfig-core": "^1.0.0"
+  }
 }

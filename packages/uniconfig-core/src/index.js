@@ -8,8 +8,9 @@
 import Config from './config'
 import type {IConfig, IConfigOpts, IConfigInput, IPipe, IPlugin} from './interface'
 import createContext from './context'
+import pipeExecutor from './pipe/pipeExecutor'
 
-const context = createContext()
+export const context = createContext()
 
 /**
  * Config factory.
@@ -21,8 +22,10 @@ export function factory(input: IConfigInput, opts: IConfigOpts): IConfig {
   return new Config(input, opts)
 }
 
-export {Config}
-
+export {
+  Config,
+  pipeExecutor
+}
 
 export const addPipe = (name: string, pipe: IPipe): void => {
   context.pipe.add(name, pipe)

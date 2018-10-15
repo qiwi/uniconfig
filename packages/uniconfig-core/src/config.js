@@ -17,6 +17,7 @@ import {eventEmitterFactory, READY} from './event'
 import {SchemaRegistry} from './schema'
 import Source, {SYNC} from './source/source'
 import createContext from './context'
+import executor from './pipe/pipeExecutor'
 
 export const DEFAULT_OPTS: IConfigOpts = {
   tolerateMissed: true

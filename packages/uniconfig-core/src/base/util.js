@@ -1,10 +1,9 @@
 // @flow
 
 import type { IAny, IWindow } from '../interface'
+export { get, has, each, reduce, mapValues, map } from 'lodash-es'
 
 declare var window: IWindow
-
-export { get, has, each, reduce } from 'lodash-es'
 
 export function isBrowser (): boolean {
   try {

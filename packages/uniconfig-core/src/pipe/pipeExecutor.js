@@ -3,18 +3,18 @@ import {
   IPipeline,
   IPipeRef,
   IPipeOpts,
-  IPipeLinkExt,
   IPipeChain,
   IMode,
   IAny,
   IRegistry
 } from '../interface'
-import {reduce} from '../base/util'
+import { reduce } from '../base/util'
+import pipeRegistry from '../pipe/pipeRegistry'
 
 export const PIPE_SEPARATOR = '>'
 export const DEFAULT_PIPE: IPipe = {
-  handle(data) { return Promise.resolve(data) },
-  handleSync(data) { return data }
+  handle (data) { return Promise.resolve(data) },
+  handleSync (data) { return data }
 }
 
 export type INormalizedPipe = {
@@ -27,25 +27,25 @@ export type IResolvedPipe = {
   opts: IPipeOpts[]
 }
 
-export default function executor(data: IAny, pipeline: IPipeline, mode: IMode, registry: IRegistry) {
+export default function executor (data: IAny, pipeline: IPipeline, mode: IMode, registry?: IRegistry = pipeRegistry) {
   const resolvedPipes = resolvePipeline(pipeline, registry)
 
   if (mode === 'async') {
     return reduce(
       resolvedPipes,
-      (promise, {pipe: {handle}, opts}) => promise.then(data => handle(data, ...opts)),
+      (promise, { pipe: { handle }, opts }) => promise.then(data => handle(data, ...opts)),
       Promise.resolve(data)
     )
   }
 
   return reduce(
     resolvedPipes,
-    (prev, {pipe: {handleSync}, opts}) => handleSync(prev, ...opts),
+    (prev, { pipe: { handleSync }, opts }) => handleSync(prev, ...opts),
     data
   )
 }
 
-export function resolvePipeline(pipeline?: IPipeline, registry: IRegistry): IResolvedPipe[] {
+export function resolvePipeline (pipeline?: IPipeline, registry: IRegistry): IResolvedPipe[] {
   if (!pipeline) {
     return [{
       pipe: DEFAULT_PIPE,
@@ -54,13 +54,13 @@ export function resolvePipeline(pipeline?: IPipeline, registry: IRegistry): IRes
   }
 
   return normalizePipeline(pipeline)
-    .map(({name, opts}) => ({
+    .map(({ name, opts }) => ({
       pipe: registry.get(name),
       opts
-  }))
+    }))
 }
 
-export function normalizePipeline(pipeline: IPipeline): INormalizedPipe {
+export function normalizePipeline (pipeline: IPipeline): INormalizedPipe {
   const pipes = typeof pipeline === 'string'
     ? pipeline.split(PIPE_SEPARATOR)
     : pipeline
@@ -68,7 +68,7 @@ export function normalizePipeline(pipeline: IPipeline): INormalizedPipe {
   return normalizePipeChain(pipes)
 }
 
-export function normalizePipeChain(pipeline: IPipeChain): INormalizedPipe[] {
+export function normalizePipeChain (pipeline: IPipeChain): INormalizedPipe[] {
   return pipeline
     .map(item => {
       if (typeof item === 'string') {

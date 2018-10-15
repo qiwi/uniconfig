@@ -141,10 +141,23 @@ export interface IContext {
   processor: any,
   api: IRegistry,
   parser: IRegistry,
-  source: IRegistry
+  source: IRegistry,
+  pipe: IRegistry
 }
 
 export interface IPlugin {
   rollback(context: IContext): void,
   rollup(context: IContext): void
 }
+
+export type IPipe = {
+  handle(data: IAny, opts?: IAny): Promise<IAny>,
+  handleSync(data: IAny, opts?: IAny): IAny
+}
+export type IPipeEquation = string
+export type IPipeRef = string
+export type IPipeOpts = IAny
+export type IPipeRefExt = [IPipeRef, ?IPipeOpts, ?IPipeOpts, ?IPipeOpts]
+export type IPipeLink = IPipeRef | IPipeRefExt
+export type IPipeChain = Array<IPipeLink>
+export type IPipeline = IPipeEquation | IPipeChain

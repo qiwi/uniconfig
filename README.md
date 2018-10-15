@@ -16,8 +16,35 @@ Yet another one config processor. Weird. Slow. Our own.
     yarn add @qiwi/uniconfig
 ```
 
+## Concept
+Config is just a piece of `data` with getters. The `data` is obtained from `ISource` in some way and processed with `IReader` and `IProcessor` respectively.
+These operations form the `pipeline`.
+
 ## Features
-* service agnostic contracts
-* declarative definitions
-* optional schemas
-* versioning
+* Declarative definitions
+* Multiple source composition
+* Modular design
+* Ease extensibility
+
+## API
+### Library exports
+#### `factory`
+Produces `IUniconfig` instance.
+
+#### `addPipe`
+```javascript
+import {transform} from 'lodash-es'
+import {addPipe} from '@qiwi/uniconfig-core'
+
+const pipe = data => transform(
+  data,
+  (result, value, key) => result[key.toUpperCase()] = ('' + value).toUpperCase(),
+  {}
+)
+```
+#### `removePipe`
+#### `addPlugin`
+#### `removePlugin`
+
+### IUniconfig
+

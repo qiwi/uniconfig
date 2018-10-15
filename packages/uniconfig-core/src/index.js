@@ -6,7 +6,10 @@
  */
 
 import Config from './config'
-import type {IConfig, IConfigOpts, IConfigInput} from './interface'
+import type {IConfig, IConfigOpts, IConfigInput, IPipe, IPlugin} from './interface'
+import createContext from './context'
+
+const context = createContext()
 
 /**
  * Config factory.
@@ -20,6 +23,21 @@ export function factory(input: IConfigInput, opts: IConfigOpts): IConfig {
 
 export {Config}
 
-export {rollupPlugin, rollbackPlugin} from './plugin'
+
+export const addPipe = (name: string, pipe: IPipe): void => {
+  context.pipe.add(name, pipe)
+}
+
+export const removePipe = (name: string): void => {
+  context.pipe.remove(name)
+}
+
+export function rollupPlugin (plugin: IPlugin) {
+  plugin.rollup(context)
+}
+
+export function rollbackPlugin (plugin: IPlugin) {
+  plugin.rollback(context)
+}
 
 export default factory

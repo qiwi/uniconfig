@@ -1,29 +1,29 @@
-import type {IApi, IAny, IContext, IPlugin} from '../../uniconfig-core/src/interface'
+import type {
+  IAny,
+  IContext,
+  IPlugin,
+  IPipe
+} from '../../uniconfig-core/src/interface'
 
 import requestSync from 'sync-request'
 import requestAsync from 'then-request'
 
-export interface IHttpApi extends IApi {
-  readSync (target: string, opts?: ?IAny): IAny,
-  read (target: string, opts?: ?IAny): Promise<IAny>
-}
-
 export const type = 'http'
 
-export const api: IHttpApi = {
-  readSync (target: string, opts?: ?IAny) {
+export const pipe: IPipe = {
+  handleSync (target: string, opts?: ?IAny) {
     return requestSync('GET', target).getBody('utf8')
   },
-  read (target: string, opts?: ?IAny) {
+  handle (target: string, opts?: ?IAny) {
     return requestAsync('GET', target).getBody('utf8')
   }
 }
 
 export default ({
   rollup(context: IContext): void {
-    context.api.add(type, api)
+    context.pipe.add(type, pipe)
   },
   rollback(context: IContext): void {
-    context.api.remove(type)
+    context.pipe.remove(type)
   },
 }: IPlugin)

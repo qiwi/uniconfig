@@ -20,7 +20,8 @@ export interface IEventEmitter {
 export type IConfigOpts = {
   tolerateMissed?: boolean,
   emitter?: IEventEmitter,
-  mode?: IMode
+  mode?: IMode,
+  pipeline?: IPipeline
 }
 
 export type IConfigInput = {
@@ -55,7 +56,8 @@ export interface IConfig {
   has (path: string): boolean,
   on (event: string, listener: IEventListener): IConfig,
   off (event: string, listener: IEventListener): IConfig,
-  emit (event: string, data?: IAny): boolean
+  emit (event: string, data?: IAny): boolean,
+  setData (data: IAny): IConfig
 }
 
 export type IResolve = (value: IAny) => void

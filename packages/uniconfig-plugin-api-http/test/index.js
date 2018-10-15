@@ -1,7 +1,8 @@
-import plugin, {api} from '../src'
+import httpPlugin, {pipe as httpPipe} from '@qiwi/uniconfig-plugin-api-http'
 import {ASYNC, SYNC} from '@qiwi/uniconfig-core/src/source/source'
-import jsonApiPlugin from '@qiwi/uniconfig-plugin-json'
-import {Config, rollupPlugin, rollbackPlugin} from '@qiwi/uniconfig-core/src'
+import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
+import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
+import {context, Config, rollupPlugin, rollbackPlugin} from '@qiwi/uniconfig-core'
 
 describe('uniconfig-plugin-api-http', () => {
   const target = 'https://reqres.in/api/users/2'
@@ -14,66 +15,63 @@ describe('uniconfig-plugin-api-http', () => {
     }
   }
 
-  describe('#readSync', () => {
+  describe('#handleSync', () => {
     it('gets data as string', () => {
-      expect(api.readSync(target)).toEqual(JSON.stringify(expectedData))
+      expect(httpPipe.handleSync(target)).toEqual(JSON.stringify(expectedData))
     })
 
     it('gets err as result', () => {
-      expect(() => api.readSync('wtf://example.com')).toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
+      expect(() => httpPipe.handleSync('wtf://example.com')).toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
     })
   })
 
-  describe('#read', () => {
+  describe('#handle', () => {
     it('resolves promise with string', () => {
-      return expect(api.read(target)).resolves.toEqual(JSON.stringify(expectedData))
+      return expect(httpPipe.handle(target)).resolves.toEqual(JSON.stringify(expectedData))
     })
 
     it('rejects promise with err', () => {
-      return expect(api.read('wtf://example.com')).rejects.toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
+      return expect(httpPipe.handle('wtf://example.com')).rejects.toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
     })
   })
 
   describe('integration', () => {
     beforeAll(() => {
-      rollupPlugin(plugin)
-      rollupPlugin(jsonApiPlugin)
+      context.pipe.add('json', jsonPipe)
+      context.pipe.add('datatree', datatreePipe)
+      rollupPlugin(httpPlugin)
     })
 
     afterAll(() => {
-      rollbackPlugin(plugin)
-      rollbackPlugin(jsonApiPlugin)
+      context.pipe.flush()
     })
 
     const input = {
       data: {
         someParam: '$fromWeb:data.first_name'
       },
-      source: {
+      sources: {
         fromWeb: {
-          target,
-          api: 'http',
-          parser: 'json'
+          data: target,
+          pipeline: 'http>json'
         }
       }
     }
 
     it('sync', () => {
       const mode = SYNC
-      const opts = {mode}
+      const opts = {mode, pipeline: 'datatree'}
       const config = new Config(input, opts)
 
-      expect(config.context.source.get('fromWeb').get('data.first_name')).toBe('Janet')
       expect(config.get('someParam')).toBe('Janet')
     })
 
     it('async', done => {
       const mode = ASYNC
-      const opts = {mode}
+      const opts = {mode, pipeline: 'datatree'}
       const config = new Config(input, opts)
 
       config.on('CONFIG_READY', () => {
-        expect(config.context.source.get('fromWeb').get('data.first_name')).toBe('Janet')
         expect(config.get('someParam')).toBe('Janet')
         done()
       })

@@ -1,25 +1,25 @@
 import path from 'path'
-import parser from '../dist/es6'
-import {api as fileApi} from '@qiwi/uniconfig-plugin-api-file'
+import {context, Config, rollupPlugin, rollbackPlugin} from '@qiwi/uniconfig-core'
+import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
+import {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
+import jsonPlugin, {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
 import {SYNC} from '../../uniconfig-core/src/source/source'
-import Config, {rollupPlugin, rollbackPlugin} from '../../uniconfig-core/src'
-import parserRegistry from '../../uniconfig-core/src/parser/parserRegistry'
-import apiRegistry from '../../uniconfig-core/src/api/apiRegistry'
 
 describe('plugin-json', () => {
   beforeAll(() => {
-    apiRegistry.add('file', fileApi)
+    context.pipe.add('file', filePipe)
+    context.pipe.add('json', jsonPipe)
+    context.pipe.add('datatree', datatreePipe)
   })
 
   afterAll(() => {
-    apiRegistry.flush()
-    parserRegistry.flush()
+    context.pipe.flush()
   })
 
   it('properly registers self', () => {
-    rollupPlugin(parser)
+    rollupPlugin(jsonPlugin)
 
-    expect(parserRegistry.get('json')).not.toBeUndefined()
+    expect(context.pipe.get('json')).not.toBeUndefined()
   })
 
   it('processes config source data', () => {
@@ -28,17 +28,20 @@ describe('plugin-json', () => {
       data: {
         baz: '$fromJson:foo'
       },
-      source: {
-        'fromJson': {target, parser: 'json', api: 'file'}
+      sources: {
+        'fromJson': {
+          data: target,
+          pipeline: 'file>json'
+        }
       }
-    }, {mode: SYNC})
+    }, {mode: SYNC, pipeline: 'datatree'})
 
     expect(config.get('baz')).toBe('bar')
   })
 
   it('supports rollback', () => {
-    rollbackPlugin(parser)
+    rollbackPlugin(jsonPlugin)
 
-    expect(parserRegistry.get('json')).toBeUndefined()
+    expect(context.pipe.get('json')).toBeUndefined()
   })
 })

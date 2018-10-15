@@ -15,9 +15,9 @@ import {get, has, each} from './base/util'
 import {ConfigError, MISSED_VALUE_PATH} from './base/error'
 import {eventEmitterFactory, READY} from './event'
 import {SchemaRegistry} from './schema'
-import Source, {SYNC} from './source/source'
+import {SYNC} from './source/source'
 import createContext from './context'
-import executor from './pipe/pipeExecutor'
+import pipeExecutor from './pipe/pipeExecutor'
 
 export const DEFAULT_OPTS: IConfigOpts = {
   tolerateMissed: true
@@ -42,35 +42,14 @@ export default class Config {
     this.registry = new SchemaRegistry()
     this.context = createContext()
 
-    const emitter = this.emitter
-    const mode = this.opts.mode
-    const sources = input.source || {}
-    let sourcesAwaitingCount = Object.keys(sources).length
+    const pipeline = this.opts.pipeline
+    const mode = this.opts.mode || 'sync'
+    const data = pipeExecutor(this.input, pipeline, mode, this.context.pipe)
 
-    if (sourcesAwaitingCount === 0) {
-      this.evaluate()
-
+    if (mode === SYNC) {
+      this.setData(data)
     } else {
-      each(sources, (sourceDefinition, sourceName) => {
-        const source = new Source({emitter, mode, ...sourceDefinition})
-
-        if (mode !== SYNC) {
-          // TODO once()
-          source.on('ready', () => {
-            sourcesAwaitingCount -= 1
-            if (sourcesAwaitingCount === 0) {
-              this.evaluate()
-            }
-          })
-        }
-
-        this.context.source.add(sourceName, source)
-        source.connect()
-      })
-
-      if (mode === SYNC) {
-        this.evaluate()
-      }
+      data.then(this.setData.bind(this))
     }
 
     return this
@@ -81,7 +60,9 @@ export default class Config {
       throw new ConfigError(MISSED_VALUE_PATH)
     }
 
-    return get(this.data, path)
+    return path
+      ? get(this.data, path)
+      : this.data
   }
 
   has (path: string): boolean {
@@ -102,24 +83,10 @@ export default class Config {
     return this.emitter.emit(event + this.id, {type: event, data})
   }
 
-  // TODO support recursion
-  evaluate () {
-    const data = this.data = {}
-    each(this.input.data, (value, key)=> {
-      if (/^\$.+:.*/.test(value)) {
-        const [sourceName, path] = value.slice(1).split(':')
-        const source = this.context.source.get(sourceName)
-
-        if (source) {
-          data[key] = source.get(path)
-        }
-
-        return
-      }
-
-      data[key] = value
-    })
-
+  setData (data: IAny) {
+    this.data = data
     this.emit(READY)
+
+    return this
   }
 }

@@ -1,25 +1,24 @@
 import path from 'path'
-import Config, {DEFAULT_OPTS} from '../src/config'
+import {Config, context} from '@qiwi/uniconfig-core'
+import {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
+import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
+import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
+import {DEFAULT_OPTS} from '../src/config'
 import {MISSED_VALUE_PATH} from '../src/base/error'
 import EventEmitterPolyfill from '../src/event/polyfill'
-import {SchemaRegistry} from '../src/schema'
 import {SYNC, ASYNC} from '../src/source/source'
-import apiRegistry from '../src/api/apiRegistry'
-import parserRegistry from '../src/parser/parserRegistry'
-import {api as fileApi} from '@qiwi/uniconfig-plugin-api-file'
-import {parser as jsonParser} from '@qiwi/uniconfig-plugin-json'
 
-xdescribe('Config', () => {
+describe('Config', () => {
   beforeAll(() => {
-    apiRegistry.add('file', fileApi)
-    parserRegistry.add('json', jsonParser)
+    context.pipe.add('file', filePipe)
+    context.pipe.add('json', jsonPipe)
+    context.pipe.add('datatree', datatreePipe)
   })
 
   afterAll(() => {
-    apiRegistry.flush()
-    parserRegistry.flush()
+    context.pipe.flush()
   })
-
+/*
   describe('constructor', () => {
     it('returns proper instance', () => {
       const opts = {foo: 'bar'}
@@ -44,49 +43,43 @@ xdescribe('Config', () => {
 
       expect(cfg.emitter).toEqual(emitter)
     })
-  })
+  })*/
 
   describe('loader', () => {
     const target = path.resolve(__dirname, './stub/foobar.json')
     const input = {
-      prolog: {
-        version: '0.0.1'
-      },
       data: {
         someParam: '$fromFile:foo'
       },
-      source: {
+      sources: {
         fromFile: {
-          target,
-          api: 'file',
-          parser: 'json'
+          data: target,
+          pipeline: 'file>json'
         }
       }
     }
 
     it('sync', () => {
       const mode = SYNC
-      const opts = {mode}
+      const opts = {mode, pipeline: 'datatree'}
       const config = new Config(input, opts)
 
-      expect(config.context.source.get('fromFile').get('foo')).toBe('bar')
       expect(config.get('someParam')).toBe('bar')
     })
 
     it('async', done => {
       const mode = ASYNC
-      const opts = {mode}
+      const opts = {mode, pipeline: 'datatree'}
       const config = new Config(input, opts)
 
       config.on('CONFIG_READY', () => {
-        expect(config.context.source.get('fromFile').get('foo')).toBe('bar')
         expect(config.get('someParam')).toBe('bar')
         done()
       })
     })
 
     it('processes config with no sources', () => {
-      const opts = {}
+      const opts = {mode: SYNC, pipeline: 'datatree'}
       const input = {
         prolog: {
           version: '0.0.1'

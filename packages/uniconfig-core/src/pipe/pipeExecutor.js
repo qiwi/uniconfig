@@ -55,6 +55,7 @@ export function resolvePipeline (pipeline?: IPipeline, registry: IRegistry): IRe
 
   return normalizePipeline(pipeline)
     .map(({ name, opts }) => ({
+      name,
       pipe: registry.get(name),
       opts
     }))

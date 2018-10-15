@@ -1,69 +1,59 @@
-import plugin, {api} from '../src'
 import path from 'path'
+import {context, Config, rollupPlugin, rollbackPlugin} from '@qiwi/uniconfig-core'
+import filePlugin, {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
 import {ASYNC, SYNC} from '@qiwi/uniconfig-core/src/source/source'
-import {Config, rollupPlugin, rollbackPlugin} from '@qiwi/uniconfig-core/src'
 
 describe('uniconfig-plugin-api-file', () => {
+  afterAll(() => {
+    context.pipe.flush()
+  })
+
   const target = path.resolve(__dirname, './foobar.json')
 
   describe('#readSync', () => {
     it('gets file data as string', () => {
-      expect(api.readSync(target)).toEqual(JSON.stringify({ foo: 'bar' }))
+      expect(filePipe.handleSync(target)).toEqual(JSON.stringify({ foo: 'bar' }))
     })
 
     it('gets err as result', () => {
-      expect(() => api.readSync('bazqux')).toThrow('ENOENT: no such file or directory, open \'bazqux\'')
+      expect(() => filePipe.handleSync('bazqux')).toThrow('ENOENT: no such file or directory, open \'bazqux\'')
     })
   })
 
   describe('#read', () => {
     it('resolves promise with string', () => {
-      return expect(api.read(target)).resolves.toEqual(JSON.stringify({ foo: 'bar' }))
+      return expect(filePipe.handle(target)).resolves.toEqual(JSON.stringify({ foo: 'bar' }))
     })
 
     it('rejects promise with err', () => {
-      return expect(api.read('bazqux')).rejects.toThrow('ENOENT: no such file or directory, open \'bazqux\'')
+      return expect(filePipe.handle('bazqux')).rejects.toThrow('ENOENT: no such file or directory, open \'bazqux\'')
     })
   })
 
   describe('integration', () => {
     beforeAll(() => {
-      rollupPlugin(plugin)
+      rollupPlugin(filePlugin)
     })
 
     afterAll(() => {
-      rollbackPlugin(plugin)
+      rollbackPlugin(filePlugin)
     })
-
-    const input = {
-      data: {
-        someParam: '$fromFile:'
-      },
-      source: {
-        fromFile: {
-          target,
-          api: 'file'
-        }
-      }
-    }
 
     it('sync', () => {
       const mode = SYNC
-      const opts = {mode}
-      const config = new Config(input, opts)
+      const opts = {mode, pipeline: 'file'}
+      const config = new Config(target, opts)
 
-      expect(config.context.source.get('fromFile').get()).toBe('{"foo":"bar"}')
-      expect(config.get('someParam')).toBe('{"foo":"bar"}')
+      expect(config.get()).toBe('{"foo":"bar"}')
     })
 
     it('async', done => {
       const mode = ASYNC
-      const opts = {mode}
-      const config = new Config(input, opts)
+      const opts = {mode, pipeline: 'file'}
+      const config = new Config(target, opts)
 
       config.on('CONFIG_READY', () => {
-        expect(config.context.source.get('fromFile').get()).toBe('{"foo":"bar"}')
-        expect(config.get('someParam')).toBe('{"foo":"bar"}')
+        expect(config.get()).toBe('{"foo":"bar"}')
         done()
       })
     })

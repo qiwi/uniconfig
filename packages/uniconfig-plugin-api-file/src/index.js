@@ -1,14 +1,17 @@
 // @flow
 
-import type {IApi, IAny, IResolve, IReject, IContext, IPlugin} from '../../uniconfig-core/src/interface'
+import type {
+  IContext,
+  IPlugin,
+  IAny,
+  IResolve,
+  IReject,
+  IPipe
+} from '../../uniconfig-core/src/interface'
+
 export type IFsOpts = {
   encoding: string,
   flag?: string
-}
-
-export interface IFileApi extends IApi {
-  readSync (target: string, opts?: ?IFsOpts): IAny,
-  read (target: string, opts?: ?IFsOpts): Promise<IAny>
 }
 
 export const DEFAULT_OPTS: IFsOpts = {
@@ -17,11 +20,11 @@ export const DEFAULT_OPTS: IFsOpts = {
 
 export const type = 'file'
 
-export const api: IFileApi = {
-  readSync (target: string, opts?: ?IFsOpts): IAny {
+export const pipe: IPipe = {
+  handleSync (target: string, opts?: ?IFsOpts): IAny {
     return require('fs').readFileSync(target, processOpts(opts))
   },
-  read (target: string, opts?: ?IFsOpts): Promise<IAny> {
+  handle (target: string, opts?: ?IFsOpts): Promise<IAny> {
     return new Promise((resolve: IResolve, reject: IReject): void => {
       require('fs').readFile(target, processOpts(opts), (err: IAny | null, data: IAny) => {
         if (err) {
@@ -36,10 +39,10 @@ export const api: IFileApi = {
 
 export default ({
   rollup(context: IContext): void {
-    context.api.add(type, api)
+    context.pipe.add(type, pipe)
   },
   rollback(context: IContext): void {
-    context.api.remove(type)
+    context.pipe.remove(type)
   },
 }: IPlugin)
 

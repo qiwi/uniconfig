@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-api-file",
-  "version": "1.20.0",
+  "version": "1.21.0",
   "description": "Uniconfig file API (fs) plugin",
   "main": "dist/es6/index.js",
   "scripts": {

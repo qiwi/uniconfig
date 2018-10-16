@@ -1,3 +1,15 @@
+# [@qiwi/uniconfig-plugin-yaml-v2.0.0](https://github.com/qiwi/uniconfig/compare/v1.21.0...v2.0.0) (2018-10-16)
+
+
+### Code Refactoring
+
+* migrate to pipelines ([742f9fd](https://github.com/qiwi/uniconfig/commit/742f9fd))
+
+
+### BREAKING CHANGES
+
+* changed ISourceDefinition and IConfigOpts contracts
+
 # [@qiwi/uniconfig-plugin-yaml-v1.17.0](https://github.com/qiwi/uniconfig/compare/v1.16.0...v1.17.0) (2018-10-13)
 
 

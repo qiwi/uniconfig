@@ -27,8 +27,8 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^1.0.0",
-    "@qiwi/uniconfig-plugin-json": "^1.0.0"
+    "@qiwi/uniconfig-core": "^2.0.0",
+    "@qiwi/uniconfig-plugin-json": "^2.0.0"
   },
   "files": [
     "README.md",

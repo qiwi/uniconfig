@@ -2,7 +2,7 @@
   "name": "@qiwi/uniconfig-plugin-api-file",
   "version": "2.0.2",
   "description": "Uniconfig file API (fs) plugin",
-  "main": "dist/es5/index.js",
+  "main": "dist/es6/index.js",
   "scripts": {
     "jest": "BABEL_ENV=test NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
     "build_es6": "flow-remove-types src/ --out-dir dist/es6/",

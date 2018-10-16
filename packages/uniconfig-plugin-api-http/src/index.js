@@ -1,3 +1,5 @@
+// @flow
+
 import type {
   IAny,
   IContext,
@@ -5,7 +7,9 @@ import type {
   IPipe
 } from '../../uniconfig-core/src/interface'
 
+// $FlowFixMe
 import requestSync from 'sync-request'
+// $FlowFixMe
 import requestAsync from 'then-request'
 
 export const type = 'http'

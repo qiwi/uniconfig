@@ -1,7 +1,11 @@
+// @flow
+
 import type {
   IPipe,
   IPipeline,
   IPipeRef,
+  IPipeRefExt,
+  IPipeLink,
   IPipeOpts,
   IPipeChain,
   IMode,
@@ -55,23 +59,32 @@ export function resolvePipeline (pipeline?: IPipeline, registry: IRegistry): IRe
 
   return normalizePipeline(pipeline)
     .map(({ name, opts }) => ({
-      name,
-      pipe: registry.get(name),
+      pipe: getPipe(name, registry),
       opts
     }))
 }
 
+export function getPipe (name: string, registry: IRegistry): IPipe {
+  const pipe = registry.get(name)
+
+  if (!pipe) {
+    throw new Error()
+  }
+
+  return pipe
+}
+
 export function normalizePipeline (pipeline: IPipeline): INormalizedPipe[] {
-  const pipes: IPipeChain = typeof pipeline === 'string'
-    ? (pipeline.split(PIPE_SEPARATOR): IPipeChain)
+  const pipes = typeof pipeline === 'string'
+    ? (pipeline.split(PIPE_SEPARATOR): Array<IPipeRef>)
     : pipeline
 
   return normalizePipeChain(pipes)
 }
 
-export function normalizePipeChain (pipeline: IPipeChain): INormalizedPipe[] {
+export function normalizePipeChain (pipeline: Array<IPipeRef> | IPipeChain): INormalizedPipe[] {
   return pipeline
-    .map(item => {
+    .map((item: IPipeLink) => {
       if (typeof item === 'string') {
         return {
           name: item,
@@ -79,12 +92,10 @@ export function normalizePipeChain (pipeline: IPipeChain): INormalizedPipe[] {
         }
       }
 
-      if (Array.isArray(item)) {
-        const [name, ...opts] = item
-        return {
-          name,
-          opts
-        }
+      const [name, ...opts] = (item: IPipeRefExt)
+      return {
+        name,
+        opts: [...opts]
       }
     })
 }

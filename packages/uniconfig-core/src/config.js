@@ -42,7 +42,7 @@ export default class Config {
     this.registry = new SchemaRegistry()
     this.context = createContext()
 
-    const pipeline = this.opts.pipeline
+    const pipeline = this.opts.pipeline || ''
     const mode = this.opts.mode || 'sync'
     const data = pipeExecutor(this.input, pipeline, mode, this.context.pipe)
 

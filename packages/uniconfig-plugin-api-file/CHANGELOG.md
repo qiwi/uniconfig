@@ -1,3 +1,15 @@
+# [@qiwi/uniconfig-plugin-api-file-v2.0.0](https://github.com/qiwi/uniconfig/compare/v1.21.0...v2.0.0) (2018-10-16)
+
+
+### Code Refactoring
+
+* migrate to pipelines ([742f9fd](https://github.com/qiwi/uniconfig/commit/742f9fd))
+
+
+### BREAKING CHANGES
+
+* changed ISourceDefinition and IConfigOpts contracts
+
 # [@qiwi/uniconfig-plugin-api-file-v1.21.0](https://github.com/qiwi/uniconfig/compare/v1.20.0...v1.21.0) (2018-10-15)
 
 

@@ -12,12 +12,15 @@ Core uniconfig layer: basic ifaces, utils, entry point, plugin API
 `uniconfig` features may be significantly extended with plugins.
 ```javascript
 import uniconfig, {rollupPlugin} from '@qiwi/uniconfig-core'
+import uniconfigPluginFile from '@qiwi/uniconfig-plugin-api-file'    
 import uniconfigPluginYaml from '@qiwi/uniconfig-plugin-yaml'    
+import uniconfigPluginDatatree from '@qiwi/uniconfig-plugin-datatree'    
 
+rollupPlugin(uniconfigPluginFile)
 rollupPlugin(uniconfigPluginYaml)
-const config = uniconfig('./foobar.yml')    
+rollupPlugin(uniconfigPluginDatatree)
+const config = uniconfig('./foobar.yml', {mode: 'sync', pipeline: 'file>yaml>datatree'})    
 ```
-
 
 Each plugin must expose at least two methods to be registered: `rollup` and `rollback`.
 ```javascript
@@ -43,10 +46,10 @@ export interface IPlugin {
     "host": "$remoteConfig.hostname",
     "port": "$jsonFile.defaultPort"
   },
-  "source": {
-     "jsonFile": {"api": "file", "parser": "json", "target": "./foo.json"},
-     "yamlFile": {"api": "file", "parser": "yaml", "target": "./bar.yaml"},
-     "remoteConfig": {"api": "http", "parser": "json", "target": "https://reqres.in/api/users/2"}
+  "sources": {
+     "jsonFile": {"pipeline": "file>json", "data": "./foo.json"},
+     "yamlFile": {"pipeline": "file>yaml", "data": "./bar.yaml"},
+     "remoteConfig": {"pipeline": "http>json", "data": "https://reqres.in/api/users/2"}
   }
 }
 ```

@@ -30,13 +30,13 @@ const config = uniconfig({
   },
   source: {
     fromFile: {
-      target,
-      api: 'file',
-      parser: 'json'
+      data: '<some path>',
+      pipeline: 'file>json'
     }
   }
 }, {
-  mode: 'sync'
+  mode: 'sync',
+  pipeline: 'datatree'
 })    
 
 config.get('someParam') // "bar"

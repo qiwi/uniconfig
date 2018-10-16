@@ -27,6 +27,29 @@ These operations form the `pipeline`.
 * Ease extensibility
 
 ## API
+### Migration from 1.x to 2.x
+Update `sources` definitions. Replace `api` and `parser` fields with `pipeline`, and `target` with `data`.
+```javascript
+const before = {
+  "sources": {
+    "fromFile": {
+      "target": "<some path>",
+      "api": "file",
+      "parser": "json"
+    }
+  }
+}
+
+const after = {
+  "sources": {
+    "fromFile": {
+      "data": "<some path>",
+      "pipeline": "file>json"
+    }
+  }
+}
+```
+
 ### Library exports
 #### `factory`
 Produces `IUniconfig` instance.

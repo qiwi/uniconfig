@@ -34,13 +34,13 @@ const config = uniconfig({
   },
   source: {
     fromWeb: {
-      target: '',
-      api: 'http',
-      parser: 'json'
+      target,
+      pipeline: 'http>json'
     }
   }
 }, {
-  mode: 'sync'
+  mode: 'sync',
+  pipeline: 'datatree'
 })    
 
 config.get('someParam') // "Janet"

@@ -1,4 +1,4 @@
-import {
+import type {
   IPipe,
   IPipeline,
   IPipeRef,
@@ -61,9 +61,9 @@ export function resolvePipeline (pipeline?: IPipeline, registry: IRegistry): IRe
     }))
 }
 
-export function normalizePipeline (pipeline: IPipeline): INormalizedPipe {
-  const pipes = typeof pipeline === 'string'
-    ? pipeline.split(PIPE_SEPARATOR)
+export function normalizePipeline (pipeline: IPipeline): INormalizedPipe[] {
+  const pipes: IPipeChain = typeof pipeline === 'string'
+    ? (pipeline.split(PIPE_SEPARATOR): IPipeChain)
     : pipeline
 
   return normalizePipeChain(pipes)

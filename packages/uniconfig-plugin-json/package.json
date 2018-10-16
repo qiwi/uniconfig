@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-json",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Uniconfig json parser plugin",
   "main": "dist/es6/index.js",
   "scripts": {

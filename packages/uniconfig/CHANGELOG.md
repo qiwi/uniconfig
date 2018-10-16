@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v2.0.1](https://github.com/qiwi/uniconfig/compare/v2.0.0...v2.0.1) (2018-10-16)
+
+
+### Bug Fixes
+
+* **package:** update cross-package refs ([5823542](https://github.com/qiwi/uniconfig/commit/5823542))
+
 # [@qiwi/uniconfig-v1.17.0](https://github.com/qiwi/uniconfig/compare/v1.16.0...v1.17.0) (2018-10-13)
 
 

@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v2.1.1](https://github.com/qiwi/uniconfig/compare/v2.1.0...v2.1.1) (2018-10-17)
+
+
+### Performance Improvements
+
+* remove dead code ([b6047a7](https://github.com/qiwi/uniconfig/commit/b6047a7))
+
 # [@qiwi/uniconfig-core-v2.1.0](https://github.com/qiwi/uniconfig/compare/v2.0.2...v2.1.0) (2018-10-16)
 
 

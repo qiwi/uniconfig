@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v2.2.0](https://github.com/qiwi/uniconfig/compare/v2.1.1...v2.2.0) (2018-10-17)
+
+
+### Features
+
+* expose `ready` promise as config instance field ([c2e7e8a](https://github.com/qiwi/uniconfig/commit/c2e7e8a)), closes [#52](https://github.com/qiwi/uniconfig/issues/52)
+
 # [@qiwi/uniconfig-core-v2.1.1](https://github.com/qiwi/uniconfig/compare/v2.1.0...v2.1.1) (2018-10-17)
 
 

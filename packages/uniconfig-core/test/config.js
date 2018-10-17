@@ -76,6 +76,14 @@ describe('Config', () => {
       })
     })
 
+    it('promises to be ready', () => {
+      const mode = ASYNC
+      const opts = {mode}
+      const config = new Config({foo: 'bar'}, opts)
+
+      return expect(config.ready.then(config => config.get('foo'))).resolves.toBe('bar')
+    })
+
     it('processes config with no sources', () => {
       const opts = {mode: SYNC, pipeline: 'datatree'}
       const input = {

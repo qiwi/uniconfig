@@ -7,7 +7,11 @@ import type {
   IAny,
   IEventEmitter,
   IEventListener,
-  IContext
+  IContext,
+  IConfigPromise,
+  IIntention,
+  IResolve,
+  IReject
 } from './interface'
 
 import {get, has} from './base/util'
@@ -30,6 +34,8 @@ export class Config {
   emitter: IEventEmitter
   context: IContext
   input: IConfigInput
+  ready: IConfigPromise
+  intention: IIntention
 
   constructor (input: IConfigInput, opts: IConfigOpts = {}): IConfig {
     this.input = input
@@ -38,6 +44,8 @@ export class Config {
     this.id = '' + Math.random()
     this.emitter = this.opts.emitter || eventEmitterFactory()
     this.context = createContext()
+    this.intention = this.constructor.getIntention()
+    this.ready = this.intention.promise
 
     const pipeline = this.opts.pipeline || ''
     const mode = this.opts.mode || SYNC
@@ -82,9 +90,23 @@ export class Config {
 
   setData (data: IAny) {
     this.data = data
+    this.intention.resolve(this)
     this.emit(READY)
 
     return this
+  }
+
+  static getIntention(): IIntention {
+    let resolve
+    let reject
+
+    const promise: IConfigPromise = new Promise((...args: [IResolve, IReject]) => [resolve, reject] = args)
+
+    return {
+      promise,
+      resolve(data) { resolve(data) },
+      reject(data) { reject(data) }
+    }
   }
 }
 

@@ -24,7 +24,14 @@ export type IConfigOpts = {
   pipeline?: IPipeline
 }
 
+export type IConfigPromise = Promise<IConfig>
 export type IConfigInput = IAny
+
+export type IIntention = {
+  promise: IConfigPromise,
+  resolve: Function,
+  reject: Function
+}
 
 export interface IConfig {
   constructor (input: IConfigInput, opts: IConfigOpts): IConfig,
@@ -35,6 +42,8 @@ export interface IConfig {
   emitter: IEventEmitter,
   context: IContext,
   input: IConfigInput,
+  intention: IIntention,
+  ready: IConfigPromise,
   get (path: string): IAny,
   has (path: string): boolean,
   on (event: string, listener: IEventListener): IConfig,

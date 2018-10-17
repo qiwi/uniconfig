@@ -2,7 +2,7 @@ import path from 'path'
 import {context, Config, rollupPlugin, rollbackPlugin, SYNC} from '@qiwi/uniconfig-core'
 import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
 import {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
-import yamlPlugin, {pipe as yamlPipe} from '@qiwi/uniconfig-plugin-yaml'
+import yamlPlugin, {pipe as yamlPipe} from '../src'
 
 describe('plugin-yaml', () => {
   beforeAll(() => {

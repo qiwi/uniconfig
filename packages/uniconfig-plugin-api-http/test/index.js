@@ -1,4 +1,4 @@
-import httpPlugin, {pipe as httpPipe} from '@qiwi/uniconfig-plugin-api-http'
+import httpPlugin, {pipe as httpPipe} from '../src'
 import {context, Config, rollupPlugin, rollbackPlugin, ASYNC, SYNC} from '@qiwi/uniconfig-core'
 import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
 import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'

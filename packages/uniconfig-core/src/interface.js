@@ -24,23 +24,7 @@ export type IConfigOpts = {
   pipeline?: IPipeline
 }
 
-export type IConfigInput = {
-  prolog: {
-    version: string
-  },
-  data: {
-    [key: string]: IAny
-  },
-  source: {
-    [key: string]: ISourceDefinition
-  }
-}
-
-export type ISourceDefinition = {
-  type: string,
-  parser: string,
-  target: string
-}
+export type IConfigInput = IAny
 
 export interface IConfig {
   constructor (input: IConfigInput, opts: IConfigOpts): IConfig,
@@ -49,7 +33,6 @@ export interface IConfig {
   opts: IConfigOpts,
   data: IAny,
   emitter: IEventEmitter,
-  registry: ISchemaRegistry,
   context: IContext,
   input: IConfigInput,
   get (path: string): IAny,
@@ -62,65 +45,8 @@ export interface IConfig {
 
 export type IResolve = (value: IAny) => void
 export type IReject = (value: IAny) => void
-export interface IApi {
-  read(...args: IAny): Promise<IAny>,
-  readSync(...args: IAny): IAny
-}
 
-export type ISourceStatus = 'initial' | 'processing' | 'ready' | 'failure'
 export type IMode = 'sync' | 'async'
-export type ISourceOpts = {
-  mode: IMode,
-  emitter: IEventEmitter,
-  target: string,
-  api: string,
-  parser?: string
-}
-export type IParse = (raw: IAny, opts?: ?IAny) => IAny
-export type IParser = {
-  parse: IParse
-}
-export type IParserRegistryStore = {
-  [key: string]: IParser
-}
-
-export interface ISource {
-  constructor(opts: ISourceOpts): ISource,
-  type: string,
-  id: string,
-  status: ISourceStatus,
-  emitter: IEventEmitter,
-  mode: IMode,
-  opts: IAny,
-
-  target: string,
-  api: IApi,
-  parser: IParser,
-
-  data?: IAny,
-
-  setStatus(status: ISourceStatus, data?: ?IAny): ISource,
-  connect(): ISource,
-  on(event: string, listener: IEventListener): ISource,
-  emit(event: string, data?: IAny): boolean,
-
-  get(path?: string): IAny,
-  has(path: string): boolean,
-}
-
-export type ISchemaStoreItem = {
-  type: string,
-  schema: IAny,
-  range: string
-}
-export type ISchemaStore = ISchemaStoreItem[]
-export interface ISchemaRegistry {
-  constructor(): ISchemaRegistry,
-  add(type: string, range: string, schema: IAny): ISchemaRegistry,
-  get(type: string, version: string): IAny,
-  has(type: string, version: string): boolean,
-  flush(): ISchemaRegistry
-}
 
 export type IRegistryItem =  IAny
 export type IRegistryStore = {
@@ -140,10 +66,6 @@ export interface IRegistry {
 }
 
 export interface IContext {
-  processor: any,
-  api: IRegistry,
-  parser: IRegistry,
-  source: IRegistry,
   pipe: IRegistry
 }
 

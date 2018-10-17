@@ -1,8 +1,7 @@
 import httpPlugin, {pipe as httpPipe} from '@qiwi/uniconfig-plugin-api-http'
-import {ASYNC, SYNC} from '@qiwi/uniconfig-core/src/source/source'
+import {context, Config, rollupPlugin, rollbackPlugin, ASYNC, SYNC} from '@qiwi/uniconfig-core'
 import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
 import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
-import {context, Config, rollupPlugin, rollbackPlugin} from '@qiwi/uniconfig-core'
 
 describe('uniconfig-plugin-api-http', () => {
   const target = 'https://reqres.in/api/users/2'

@@ -1,6 +1,5 @@
 import createContext, {Context} from '../src/context'
-import apiRegistry from '../src/api/apiRegistry'
-import parserRegistry from '../src/parser/parserRegistry'
+import pipeRegistry from '../src/pipe/pipeRegistry'
 
 describe('context', () => {
   describe('constructor', () => {
@@ -8,8 +7,7 @@ describe('context', () => {
       const context = createContext()
 
       expect(context).toBeInstanceOf(Context)
-      expect(context.api).toBe(apiRegistry)
-      expect(context.parser).toBe(parserRegistry)
+      expect(context.pipe).toBe(pipeRegistry)
     })
   })
 })

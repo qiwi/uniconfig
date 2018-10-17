@@ -1,7 +1,6 @@
 import path from 'path'
-import {context, Config, rollupPlugin, rollbackPlugin} from '@qiwi/uniconfig-core'
+import {context, Config, rollupPlugin, rollbackPlugin, ASYNC, SYNC} from '@qiwi/uniconfig-core'
 import filePlugin, {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
-import {ASYNC, SYNC} from '@qiwi/uniconfig-core/src/source/source'
 
 describe('uniconfig-plugin-api-file', () => {
   afterAll(() => {

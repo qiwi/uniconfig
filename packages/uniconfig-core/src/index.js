@@ -10,7 +10,7 @@ import type {IConfig, IConfigOpts, IConfigInput, IPipe, IPlugin} from './interfa
 import createContext from './context'
 import pipeExecutor from './pipe/pipeExecutor'
 
-export const context = createContext()
+const context = createContext()
 
 /**
  * Config factory.
@@ -18,29 +18,34 @@ export const context = createContext()
  * @param {Object} opts
  * @returns {Config}
  */
-export function factory(input: IConfigInput, opts: IConfigOpts): IConfig {
+const factory = (input: IConfigInput, opts: IConfigOpts): IConfig => {
   return new Config(input, opts)
 }
 
-export {
-  Config,
-  pipeExecutor
-}
-
-export const addPipe = (name: string, pipe: IPipe): void => {
+const addPipe = (name: string, pipe: IPipe): void => {
   context.pipe.add(name, pipe)
 }
 
-export const removePipe = (name: string): void => {
+const removePipe = (name: string): void => {
   context.pipe.remove(name)
 }
 
-export function rollupPlugin (plugin: IPlugin) {
+const rollupPlugin = (plugin: IPlugin): void => {
   plugin.rollup(context)
 }
 
-export function rollbackPlugin (plugin: IPlugin) {
+const rollbackPlugin = (plugin: IPlugin): void => {
   plugin.rollback(context)
 }
 
+export * from './config'
+export {
+  context,
+  pipeExecutor,
+  factory,
+  addPipe,
+  removePipe,
+  rollupPlugin,
+  rollbackPlugin
+}
 export default factory

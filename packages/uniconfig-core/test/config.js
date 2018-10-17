@@ -1,24 +1,13 @@
 import path from 'path'
-import {Config, context} from '@qiwi/uniconfig-core'
+import {Config, SYNC, ASYNC, DEFAULT_OPTS} from '../src'
+import {Config as _Config, context as _context} from '@qiwi/uniconfig-core'
 import {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
 import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
 import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
-import {DEFAULT_OPTS} from '../src/config'
 import {MISSED_VALUE_PATH} from '../src/base/error'
 import EventEmitterPolyfill from '../src/event/polyfill'
-import {SYNC, ASYNC} from '../src/source/source'
 
 describe('Config', () => {
-  beforeAll(() => {
-    context.pipe.add('file', filePipe)
-    context.pipe.add('json', jsonPipe)
-    context.pipe.add('datatree', datatreePipe)
-  })
-
-  afterAll(() => {
-    context.pipe.flush()
-  })
-/*
   describe('constructor', () => {
     it('returns proper instance', () => {
       const opts = {foo: 'bar'}
@@ -28,7 +17,6 @@ describe('Config', () => {
       expect(cfg.opts).toEqual({...opts, ...DEFAULT_OPTS})
       expect(cfg.id).toEqual(expect.stringMatching(/^\d\.\d+$/))
       expect(cfg.emitter).not.toBeUndefined()
-      expect(cfg.registry).toBeInstanceOf(SchemaRegistry)
     })
 
     it('uses default preset if `opt` param is empty', () => {
@@ -43,9 +31,19 @@ describe('Config', () => {
 
       expect(cfg.emitter).toEqual(emitter)
     })
-  })*/
+  })
 
-  describe('loader', () => {
+  describe('pipeline', () => {
+    beforeAll(() => {
+      _context.pipe.add('file', filePipe)
+      _context.pipe.add('json', jsonPipe)
+      _context.pipe.add('datatree', datatreePipe)
+    })
+
+    afterAll(() => {
+      _context.pipe.flush()
+    })
+
     const target = path.resolve(__dirname, './stub/foobar.json')
     const input = {
       data: {
@@ -62,7 +60,7 @@ describe('Config', () => {
     it('sync', () => {
       const mode = SYNC
       const opts = {mode, pipeline: 'datatree'}
-      const config = new Config(input, opts)
+      const config = new _Config(input, opts)
 
       expect(config.get('someParam')).toBe('bar')
     })
@@ -70,7 +68,7 @@ describe('Config', () => {
     it('async', done => {
       const mode = ASYNC
       const opts = {mode, pipeline: 'datatree'}
-      const config = new Config(input, opts)
+      const config = new _Config(input, opts)
 
       config.on('CONFIG_READY', () => {
         expect(config.get('someParam')).toBe('bar')
@@ -88,7 +86,7 @@ describe('Config', () => {
           foo: 'bar'
         }
       }
-      const config = new Config(input, opts)
+      const config = new _Config(input, opts)
 
       expect(config.get('foo')).toBe('bar')
     })
@@ -129,7 +127,7 @@ describe('Config', () => {
     })
 
     describe('has', () => {
-      const cfg = new Config('path', {})
+      const cfg = new Config('path')
       cfg.data = {
         foo: {
           bar: 'baz'

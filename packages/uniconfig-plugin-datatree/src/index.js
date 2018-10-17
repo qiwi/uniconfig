@@ -9,7 +9,7 @@ import type {
 } from '../../uniconfig-core/src/interface'
 
 import { get, map, reduce, mapValues } from 'lodash-es'
-import { pipeExecutor } from '@qiwi/uniconfig-core'
+import { pipeExecutor, SYNC, ASYNC } from '@qiwi/uniconfig-core'
 
 export const type = 'datatree'
 
@@ -56,7 +56,7 @@ export const pipe: IPipe = {
     const {sources = {}, data} = input
 
     return evaluate(data, mapValues(sources, ({data, pipeline}) => {
-      return pipeExecutor(data, pipeline, 'sync')
+      return pipeExecutor(data, pipeline, SYNC)
     }))
   },
 
@@ -64,7 +64,7 @@ export const pipe: IPipe = {
     const {sources = {}, data} = input
     const pairs = map(sources, ({data, pipeline}, key) => ({
       key,
-      promise: pipeExecutor(data, pipeline, 'async')
+      promise: pipeExecutor(data, pipeline, ASYNC)
     }))
 
     return Promise

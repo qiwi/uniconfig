@@ -4,14 +4,13 @@ import type {
   IContext,
   IPlugin,
   IAny,
-  IParse,
   IPipe
 } from '../../uniconfig-core/src/interface'
 import {safeLoad} from 'js-yaml'
 
 const type = 'yaml'
 
-export const parse: IParse = (data: string): IAny => safeLoad(data)
+export const parse = (data: string): IAny => safeLoad(data)
 
 export const pipe: IPipe = {
   handleSync(data: IAny): IAny {

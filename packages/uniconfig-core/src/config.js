@@ -7,29 +7,27 @@ import type {
   IAny,
   IEventEmitter,
   IEventListener,
-  ISchemaRegistry,
   IContext
 } from './interface'
 
-import {get, has, each} from './base/util'
+import {get, has} from './base/util'
 import {ConfigError, MISSED_VALUE_PATH} from './base/error'
 import {eventEmitterFactory, READY} from './event'
-import {SchemaRegistry} from './schema'
-import {SYNC} from './source/source'
 import createContext from './context'
 import pipeExecutor from './pipe/pipeExecutor'
 
+export const SYNC = 'sync'
+export const ASYNC = 'async'
 export const DEFAULT_OPTS: IConfigOpts = {
   tolerateMissed: true
 }
 
-export default class Config {
+export class Config {
   data: IAny
   opts: IConfigOpts
   id: string
   type: string
   emitter: IEventEmitter
-  registry: ISchemaRegistry
   context: IContext
   input: IConfigInput
 
@@ -39,11 +37,10 @@ export default class Config {
     this.type = 'config'
     this.id = '' + Math.random()
     this.emitter = this.opts.emitter || eventEmitterFactory()
-    this.registry = new SchemaRegistry()
     this.context = createContext()
 
     const pipeline = this.opts.pipeline || ''
-    const mode = this.opts.mode || 'sync'
+    const mode = this.opts.mode || SYNC
     const data = pipeExecutor(this.input, pipeline, mode, this.context.pipe)
 
     if (mode === SYNC) {
@@ -90,3 +87,5 @@ export default class Config {
     return this
   }
 }
+
+export default Config

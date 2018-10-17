@@ -4,13 +4,12 @@ import type {
   IContext,
   IPlugin,
   IAny,
-  IParse,
   IPipe
 } from '../../uniconfig-core/src/interface'
 
 export const type = 'json'
 
-export const parse: IParse = (data: string): IAny => JSON.parse(data)
+export const parse = (data: string): IAny => JSON.parse(data)
 
 export const pipe: IPipe = {
   handleSync(data: IAny): IAny {

@@ -1,9 +1,8 @@
 import path from 'path'
-import {context, Config, rollupPlugin, rollbackPlugin} from '@qiwi/uniconfig-core'
+import {context, Config, rollupPlugin, rollbackPlugin, SYNC} from '@qiwi/uniconfig-core'
 import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
 import {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
 import jsonPlugin, {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
-import {SYNC} from '../../uniconfig-core/src/source/source'
 
 describe('plugin-json', () => {
   beforeAll(() => {

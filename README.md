@@ -17,7 +17,7 @@ Yet another one config processor. Weird. Slow. Our own.
 ```
 
 ## Concept
-Config is just a piece of `data` with getters. The `data` is obtained from `ISource` in some way and processed with `IReader` and `IProcessor` respectively.
+Config is just a piece of `data` with getters. The `data` is obtained from `ISource` in some way and processed by registered `IPipe` handlers.
 These operations form the `pipeline`.
 
 ## Features
@@ -25,6 +25,47 @@ These operations form the `pipeline`.
 * Multiple source composition
 * Modular design
 * Ease extensibility
+
+## Usage example
+```javascript
+import path from 'path'
+import { Config, rollupPlugin } from '@qiwi/uniconfig-core'
+import envPlugin from '@qiwi/uniconfig-plugin-env'
+import jsonPlugin from '@qiwi/uniconfig-plugin-json'
+import filePlugin from '@qiwi/uniconfig-plugin-api-file'
+import datatreePlugin from '@qiwi/uniconfig-plugin-datatree'
+
+rollupPlugin(envPlugin)
+rollupPlugin(jsonPlugin)
+rollupPlugin(filePlugin)
+rollupPlugin(datatreePlugin)
+
+const target = path.resolve(__dirname, '../../config/default.json')
+/* default.json
+{
+  "data": {
+    "mode": "$env:ENVIRONMENT_PROFILE_NAME",
+    "server": {
+      "port": 8080
+    },
+    "consul": {
+      "host": "$env:CONSUL_AGENT_HOST",
+      "port": "$env:CONSUL_AGENT_PORT",
+      "token": "***"
+    }
+  },
+  "sources": {
+    "env": {
+      "pipeline": "env"
+    }
+  }
+}
+ */
+
+export default new Config(target, { mode: 'sync', pipeline: 'file>json>datatree' })
+
+config.get('consul.host') // '10.10.10.10'
+```
 
 ## API
 ### Migration from 1.x to 2.x

@@ -67,6 +67,14 @@ export default new Config(target, { mode: 'sync', pipeline: 'file>json>datatree'
 config.get('consul.host') // '10.10.10.10'
 ```
 
+## Plugins
+* [uniconfig-plugin-env](./packages/uniconfig-plugin-env/README.md)
+* [uniconfig-plugin-json](./packages/uniconfig-plugin-json/README.md)
+* [uniconfig-plugin-yaml](./packages/uniconfig-plugin-yaml/README.md)
+* [uniconfig-plugin-datatree](./packages/uniconfig-plugin-datatree/README.md)
+* [uniconfig-plugin-api-http](./packages/uniconfig-plugin-api-http/README.md)
+* [uniconfig-plugin-api-file](./packages/uniconfig-plugin-api-file/README.md)
+
 ## API
 ### Migration from 1.x to 2.x
 Update `sources` definitions. Replace `api` and `parser` fields with `pipeline`, and `target` with `data`.
@@ -91,24 +99,58 @@ const after = {
 }
 ```
 
-### Library exports
 #### `factory`
-Produces `IUniconfig` instance.
+Produces `IConfig` instance.
+```javascript
+import {factory} from '@qiwi/uniconfig-core'
+...
+
+const config = factory('', {pipeline: 'env'}) // IConfig
+```
 
 #### `addPipe`
 ```javascript
 import {transform} from 'lodash-es'
-import {addPipe} from '@qiwi/uniconfig-core'
+import {addPipe, context} from '@qiwi/uniconfig-core'
 
-const pipe = data => transform(
+const formatToUpper = data => transform(
   data,
   (result, value, key) => result[key.toUpperCase()] = ('' + value).toUpperCase(),
   {}
 )
-```
-#### `removePipe`
-#### `addPlugin`
-#### `removePlugin`
+const pipe = {
+  handleSync(data) {
+    return formatToUpper(data)
+  },
+  handle(data) {
+    return Promise.resolve(formatToUpper(data))
+  }
+}
 
-### IUniconfig
+addPipe('uppercase', pipe)
+context.pipe.get('uppercase') // <IPipe>
+```
+
+#### `removePipe`
+```javascript
+removePipe('uppercase')
+context.pipe.get('uppercase') // undefined
+```
+
+#### `rollupPlugin`
+```javascript
+import {addPipe, context} from '@qiwi/uniconfig-core'
+import envPlugin from '@qiwi/uniconfig-plugin-env'
+
+rollupPlugin(envPlugin)
+context.pipe.get('env') // <IPipe>
+```
+
+#### `rollbackPlugin`
+```javascript
+rollbackPlugin(envPlugin)
+context.pipe.get('env') // undefined
+```
+
+### IConfig
 

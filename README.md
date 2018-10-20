@@ -62,7 +62,11 @@ const target = path.resolve(__dirname, '../../config/default.json')
 }
  */
 
-export default new Config(target, { mode: 'sync', pipeline: 'file>json>datatree' })
+export default new Config({
+  data: target,
+  mode: 'sync',
+  pipeline: 'file>json>datatree' 
+})
 
 config.get('consul.host') // '10.10.10.10'
 ```
@@ -105,7 +109,7 @@ Produces `IConfig` instance.
 import {factory} from '@qiwi/uniconfig-core'
 ...
 
-const config = factory('', {pipeline: 'env'}) // IConfig
+const config = factory({pipeline: 'env'}) // IConfig
 ```
 
 #### `addPipe`

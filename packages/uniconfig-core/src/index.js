@@ -6,7 +6,14 @@
  */
 
 import Config from './config'
-import type {IConfig, IConfigOpts, IConfigInput, IPipe, IPlugin} from './interface'
+import type {
+  IConfig,
+  IConfigOpts,
+  IConfigLegacyOpts,
+  IConfigInput,
+  IPipe,
+  IPlugin,
+} from './interface'
 import createContext from './context'
 import pipeExecutor from './pipe/pipeExecutor'
 
@@ -14,12 +21,12 @@ const context = createContext()
 
 /**
  * Config factory.
- * @param {IConfigInput} input
- * @param {Object} opts
+ * @param {IConfigInput|IConfigOpts} input
+ * @param {IConfigLegacyOpts} [legacyOpts]
  * @returns {Config}
  */
-const factory = (input: IConfigInput, opts: IConfigOpts): IConfig => {
-  return new Config(input, opts)
+const factory = (input: IConfigInput | IConfigOpts, legacyOpts?: IConfigLegacyOpts): IConfig => {
+  return new Config(input, legacyOpts)
 }
 
 const addPipe = (name: string, pipe: IPipe): void => {

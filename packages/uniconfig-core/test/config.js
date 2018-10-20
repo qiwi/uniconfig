@@ -14,7 +14,7 @@ describe('Config', () => {
       const cfg = new Config('path', opts)
 
       expect(cfg).toBeInstanceOf(Config)
-      expect(cfg.opts).toEqual({...opts, ...DEFAULT_OPTS})
+      expect(cfg.opts).toEqual({data: 'path', ...opts, ...DEFAULT_OPTS})
       expect(cfg.id).toEqual(expect.stringMatching(/^\d\.\d+$/))
       expect(cfg.emitter).not.toBeUndefined()
     })
@@ -22,7 +22,7 @@ describe('Config', () => {
     it('uses default preset if `opt` param is empty', () => {
       const cfg = new Config('path')
 
-      expect(cfg.opts).toEqual(DEFAULT_OPTS)
+      expect(cfg.opts).toEqual({data: 'path', ...DEFAULT_OPTS})
     })
 
     it('passes emitter from opts if specified', () => {
@@ -30,6 +30,19 @@ describe('Config', () => {
       const cfg = new Config('path', {emitter})
 
       expect(cfg.emitter).toEqual(emitter)
+    })
+
+    it('supports single argument configuration', () => {
+      const data = {foo: 'bar'}
+      const opts = {
+        data,
+        pipeline: '',
+        mode: SYNC
+      }
+      const cfg = new Config(opts)
+
+      expect(cfg.opts).toEqual({...DEFAULT_OPTS, ...opts})
+      expect(cfg.data).toBe(data)
     })
   })
 

@@ -18,6 +18,14 @@ export interface IEventEmitter {
 }
 
 export type IConfigOpts = {
+  data?: IAny,
+  tolerateMissed?: boolean,
+  emitter?: IEventEmitter,
+  mode?: IMode,
+  pipeline?: IPipeline
+}
+
+export type IConfigLegacyOpts = {
   tolerateMissed?: boolean,
   emitter?: IEventEmitter,
   mode?: IMode,
@@ -34,14 +42,13 @@ export type IIntention = {
 }
 
 export interface IConfig {
-  constructor (input: IConfigInput, opts: IConfigOpts): IConfig,
+  constructor (input: IConfigInput | IConfigOpts, legacyOpts?: IConfigLegacyOpts): IConfig,
   id: string,
   type: string,
   opts: IConfigOpts,
   data: IAny,
   emitter: IEventEmitter,
   context: IContext,
-  input: IConfigInput,
   intention: IIntention,
   ready: IConfigPromise,
   get (path: string): IAny,

@@ -3,6 +3,7 @@
 import type {
   IConfig,
   IConfigOpts,
+  IConfigLegacyOpts,
   IConfigInput,
   IAny,
   IEventEmitter,
@@ -23,6 +24,7 @@ import pipeExecutor from './pipe/pipeExecutor'
 export const SYNC = 'sync'
 export const ASYNC = 'async'
 export const DEFAULT_OPTS: IConfigOpts = {
+  mode: SYNC,
   tolerateMissed: true
 }
 
@@ -33,13 +35,11 @@ export class Config {
   type: string
   emitter: IEventEmitter
   context: IContext
-  input: IConfigInput
   ready: IConfigPromise
   intention: IIntention
 
-  constructor (input: IConfigInput, opts: IConfigOpts = {}): IConfig {
-    this.input = input
-    this.opts = {...DEFAULT_OPTS, ...opts}
+  constructor (input: IConfigInput | IConfigOpts, legacyOpts?: IConfigLegacyOpts): IConfig {
+    this.opts = this.constructor.processOpts(input, legacyOpts)
     this.type = 'config'
     this.id = '' + Math.random()
     this.emitter = this.opts.emitter || eventEmitterFactory()
@@ -49,7 +49,7 @@ export class Config {
 
     const pipeline = this.opts.pipeline || ''
     const mode = this.opts.mode || SYNC
-    const data = pipeExecutor(this.input, pipeline, mode, this.context.pipe)
+    const data = pipeExecutor(this.opts.data, pipeline, mode, this.context.pipe)
 
     if (mode === SYNC) {
       this.setData(data)
@@ -106,6 +106,22 @@ export class Config {
       promise,
       resolve(data) { resolve(data) },
       reject(data) { reject(data) }
+    }
+  }
+
+  static processOpts(input: IConfigInput | IConfigOpts, legacyOpts?: IConfigLegacyOpts): IConfigOpts {
+    if (legacyOpts) {
+      console.warn('Lecacy opts support will be dropped in the next major release')
+      return {...DEFAULT_OPTS, ...legacyOpts, data: input}
+    }
+
+    if (input.pipeline || input.mode) {
+      return {...DEFAULT_OPTS, ...input}
+    }
+
+    return {
+      ...DEFAULT_OPTS,
+      data: input
     }
   }
 }

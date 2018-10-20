@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v2.4.0](https://github.com/qiwi/uniconfig/compare/v2.3.0...v2.4.0) (2018-10-20)
+
+
+### Features
+
+* support single argument iface for Config constructor ([192ace3](https://github.com/qiwi/uniconfig/commit/192ace3)), closes [#59](https://github.com/qiwi/uniconfig/issues/59)
+
 # [@qiwi/uniconfig-core-v2.2.0](https://github.com/qiwi/uniconfig/compare/v2.1.1...v2.2.0) (2018-10-17)
 
 

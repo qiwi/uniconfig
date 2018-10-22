@@ -4,7 +4,10 @@ describe('uniconfig-plugin-datatree', () => {
   const input = {
     data: {
       someParam: '$foo:bar',
-      otherParam: '$a:b'
+      otherParam: '$a:b',
+      nested: {
+        foo: '$foo:bar'
+      }
     },
     sources: {
       foo: {
@@ -24,7 +27,10 @@ describe('uniconfig-plugin-datatree', () => {
     it('populates input with source data', () => {
       expect(pipe.handleSync(input)).toEqual({
         someParam: 'baz',
-        otherParam: 'c'
+        otherParam: 'c',
+        nested: {
+          foo: 'baz'
+        }
       })
     })
   })
@@ -33,7 +39,10 @@ describe('uniconfig-plugin-datatree', () => {
     it('populates input with source data', async () => {
       await expect(pipe.handle(input)).resolves.toEqual({
         someParam: 'baz',
-        otherParam: 'c'
+        otherParam: 'c',
+        nested: {
+          foo: 'baz'
+        }
       })
     })
   })

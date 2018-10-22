@@ -31,19 +31,27 @@ export type ISourceMap = {
 export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
   data,
   (result: ISourceMap, value: IAny, key: string) => {
-    if (/^\$.+:.*/.test(value)) {
-      const [sourceName, path] = value.slice(1).split(':')
-      const source = sources[sourceName]
+    switch (true) {
+      case /^\$.+:.*/.test(value):
+        const [sourceName, path] = value.slice(1).split(':')
+        const source = sources[sourceName]
 
-      if (source) {
-        result[key] = path
-          ? get(source, path)
-          : source
-      } else {
-        // TODO Throw error
-      }
-    } else {
-      result[key] = value
+        if (source) {
+          result[key] = path
+            ? get(source, path)
+            : source
+        } else {
+          // TODO Throw error
+        }
+        break;
+
+      case typeof value === 'object':
+        result[key] = evaluate(value, sources)
+
+        break;
+
+      default:
+        result[key] = value
     }
 
     return result

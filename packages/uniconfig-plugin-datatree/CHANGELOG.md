@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-datatree-v2.5.0](https://github.com/qiwi/uniconfig/compare/v2.4.0...v2.5.0) (2018-10-22)
+
+
+### Features
+
+* **datatree:** support nested fields ([01a2fc6](https://github.com/qiwi/uniconfig/commit/01a2fc6))
+
 # [@qiwi/uniconfig-plugin-datatree-v2.1.1](https://github.com/qiwi/uniconfig/compare/v2.1.0...v2.1.1) (2018-10-17)
 
 

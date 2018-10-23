@@ -72,12 +72,18 @@ config.get('consul.host') // '10.10.10.10'
 ```
 
 ## Plugins
+##### API extensions
+* [uniconfig-plugin-api-http](./packages/uniconfig-plugin-api-http/README.md)
+* [uniconfig-plugin-api-file](./packages/uniconfig-plugin-api-file/README.md)
 * [uniconfig-plugin-env](./packages/uniconfig-plugin-env/README.md)
+##### Parsers
 * [uniconfig-plugin-json](./packages/uniconfig-plugin-json/README.md)
 * [uniconfig-plugin-yaml](./packages/uniconfig-plugin-yaml/README.md)
 * [uniconfig-plugin-datatree](./packages/uniconfig-plugin-datatree/README.md)
-* [uniconfig-plugin-api-http](./packages/uniconfig-plugin-api-http/README.md)
-* [uniconfig-plugin-api-file](./packages/uniconfig-plugin-api-file/README.md)
+
+##### Template engines
+* [uniconfig-plugin-dot](./packages/uniconfig-plugin-dot/README.md)
+
 
 ## API
 ### Migration from 1.x to 2.x

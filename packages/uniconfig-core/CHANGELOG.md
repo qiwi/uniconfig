@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v2.7.0](https://github.com/qiwi/uniconfig/compare/v2.6.0...v2.7.0) (2018-10-27)
+
+
+### Features
+
+* support IPipe as plugin declaration ([9ecc7c3](https://github.com/qiwi/uniconfig/commit/9ecc7c3)), closes [#51](https://github.com/qiwi/uniconfig/issues/51)
+
 # [@qiwi/uniconfig-core-v2.4.0](https://github.com/qiwi/uniconfig/compare/v2.3.0...v2.4.0) (2018-10-20)
 
 

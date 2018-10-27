@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-ip",
-  "version": "2.3.0",
+  "version": "2.8.0",
   "description": "Uniconfig IP/host resolver plugin",
   "main": "dist/es6/index.js",
   "scripts": {

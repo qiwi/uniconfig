@@ -12,7 +12,8 @@ import type {
   IConfigLegacyOpts,
   IConfigInput,
   IPipe,
-  IPlugin,
+  IPluginDeclaration,
+  IContext,
 } from './interface'
 import createContext from './context'
 import pipeExecutor from './pipe/pipeExecutor'
@@ -37,12 +38,26 @@ const removePipe = (name: string): void => {
   context.pipe.remove(name)
 }
 
-const rollupPlugin = (plugin: IPlugin): void => {
-  plugin.rollup(context)
+const rollupPlugin = (plugin: IPluginDeclaration, _context?: IContext = context): void => {
+  if (typeof plugin.rollup === 'function') {
+    plugin.rollup(_context)
+    return
+  }
+
+  if (typeof plugin.name === 'string') {
+    _context.pipe.add(plugin.name, plugin)
+  }
 }
 
-const rollbackPlugin = (plugin: IPlugin): void => {
-  plugin.rollback(context)
+const rollbackPlugin = (plugin: IPluginDeclaration, _context?: IContext = context): void => {
+  if (typeof plugin.rollback === 'function') {
+    plugin.rollback(_context)
+    return
+  }
+
+  if (typeof plugin.name === 'string') {
+    _context.pipe.remove(plugin.name)
+  }
 }
 
 export * from './config'

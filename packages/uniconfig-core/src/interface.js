@@ -92,8 +92,12 @@ export interface IPlugin {
 
 export type IPipe = {
   handle(data: IAny, opts?: IAny): Promise<IAny>,
-  handleSync(data: IAny, opts?: IAny): IAny
+  handleSync(data: IAny, opts?: IAny): IAny,
+  name?: string
 }
+
+export type IPluginDeclaration = IPipe | IPlugin
+
 export type IPipeEquation = string
 export type IPipeRef = string
 export type IPipeOpts = IAny

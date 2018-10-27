@@ -22,13 +22,10 @@ rollupPlugin(uniconfigPluginDatatree)
 const config = uniconfig('./foobar.yml', {mode: 'sync', pipeline: 'file>yaml>datatree'})    
 ```
 
-Each plugin must expose at least two methods to be registered: `rollup` and `rollback`.
+Each plugin should expose at least two methods to be registered: `rollup` and `rollback`.
 ```javascript
 export interface IContext {
-  api: any,
-  processor: any,
-  parser: any,
-  source: any
+  pipe: IRegistry
 }
 
 export interface IPlugin {
@@ -36,6 +33,19 @@ export interface IPlugin {
   rollup(context: IContext): void
 }
 ``` 
+
+`IPipe` with additional `name` field is also provided as plugin declaration:
+```javascript
+  const name = 'test'
+  const pipe = {
+    handle() {},
+    handleSync() {}
+  }
+  const pipeAsPlugin = {...pipe, name}
+  
+  rollupPlugin(pipeAsPlugin)
+  context.pipe.get(name)  // IPipe
+```
 
 ### Example
 ```json

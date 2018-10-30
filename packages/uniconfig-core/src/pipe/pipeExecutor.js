@@ -31,7 +31,7 @@ export type IResolvedPipe = {
   opts: IPipeOpts[]
 }
 
-export default function executor (data: IAny, pipeline: IPipeline, mode: IMode, registry?: IRegistry = pipeRegistry) {
+export default function executor (data: IAny, pipeline: IPipeline, mode: IMode, registry?: IRegistry = pipeRegistry): IAny | Promise<IAny> {
   const resolvedPipes = resolvePipeline(pipeline, registry)
 
   if (mode === 'async') {

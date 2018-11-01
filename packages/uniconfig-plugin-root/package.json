@@ -1,0 +1,39 @@
+{
+  "name": "@qiwi/uniconfig-plugin-root",
+  "version": "2.9.0",
+  "description": "Uniconfig root resolver plugin",
+  "main": "dist/es6/index.js",
+  "scripts": {
+    "jest": "BABEL_ENV=test NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
+    "build_es6": "flow-remove-types src/ --out-dir dist/es6/",
+    "build_es5": "BABEL_ENV=production babel src --out-dir dist/es5/",
+    "build_bundle": "parcel build dist/es6/index.js --out-dir dist/bundle --experimental-scope-hoisting",
+    "build": "rm -rf dist && npm run build_es6 && npm run build_es5 && npm run build_bundle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiwi/uniconfig.git"
+  },
+  "keywords": [
+    "universal config",
+    "unified config"
+  ],
+  "author": "Qiwi <opensource@qiwi.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qiwi/uniconfig/issues"
+  },
+  "homepage": "https://github.com/qiwi/uniconfig#readme",
+  "dependencies": {
+    "app-root-path": "^2.1.0",
+    "@qiwi/uniconfig-core": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2"
+  },
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "dist/"
+  ]
+}

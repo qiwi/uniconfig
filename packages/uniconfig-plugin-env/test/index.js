@@ -1,7 +1,7 @@
 import {context, Config, rollupPlugin, rollbackPlugin, SYNC} from '@qiwi/uniconfig-core'
 import envPlugin from '../src'
 
-describe('plugin-yaml', () => {
+describe('plugin-env', () => {
   afterAll(() => {
     context.pipe.flush()
   })

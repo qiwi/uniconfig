@@ -3,7 +3,7 @@ import globalPlugin from '../src'
 
 const name = globalPlugin.name
 
-describe('plugin-yaml', () => {
+describe('plugin-global', () => {
   beforeAll(() => {
     global.FOO = 'bar'
   })

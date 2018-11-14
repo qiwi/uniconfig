@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-api-http-v2.13.0](https://github.com/qiwi/uniconfig/compare/v2.12.0...v2.13.0) (2018-11-14)
+
+
+### Features
+
+* **plugin-http:** pass additional opts to request api ([6ebd4e9](https://github.com/qiwi/uniconfig/commit/6ebd4e9))
+
 # [@qiwi/uniconfig-plugin-api-http-v2.1.1](https://github.com/qiwi/uniconfig/compare/v2.1.0...v2.1.1) (2018-10-17)
 
 

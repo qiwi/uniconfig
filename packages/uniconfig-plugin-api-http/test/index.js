@@ -19,6 +19,13 @@ describe('uniconfig-plugin-api-http', () => {
       expect(httpPipe.handleSync(target)).toEqual(JSON.stringify(expectedData))
     })
 
+    it('supports req opts', () => {
+      expect(httpPipe.handleSync({
+        url: target,
+        method: 'GET'
+      })).toEqual(JSON.stringify(expectedData))
+    })
+
     it('gets err as result', () => {
       expect(() => httpPipe.handleSync('wtf://example.com')).toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
     })

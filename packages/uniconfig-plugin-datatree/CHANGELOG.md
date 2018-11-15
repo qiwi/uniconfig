@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-datatree-v2.16.0](https://github.com/qiwi/uniconfig/compare/v2.15.1...v2.16.0) (2018-11-15)
+
+
+### Features
+
+* **datatree:** support any regular and dot separated keys conjunction ([472932f](https://github.com/qiwi/uniconfig/commit/472932f))
+
 # [@qiwi/uniconfig-plugin-datatree-v2.15.1](https://github.com/qiwi/uniconfig/compare/v2.15.0...v2.15.1) (2018-11-15)
 
 

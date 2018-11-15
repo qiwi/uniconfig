@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-datatree-v2.15.1](https://github.com/qiwi/uniconfig/compare/v2.15.0...v2.15.1) (2018-11-15)
+
+
+### Performance Improvements
+
+* tech release ([8069a1d](https://github.com/qiwi/uniconfig/commit/8069a1d))
+
 # [@qiwi/uniconfig-plugin-datatree-v2.15.0](https://github.com/qiwi/uniconfig/compare/v2.14.0...v2.15.0) (2018-11-15)
 
 

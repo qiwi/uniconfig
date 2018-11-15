@@ -5,7 +5,7 @@ import { PipeRegistry } from '../../src/pipe/pipeRegistry'
 import { reduce } from '../../src/base/util'
 
 describe('pipe/pipeExecutor', () => {
-  describe('executor', () => {
+  describe('processes pipeline', () => {
     const data = JSON.stringify({ foo: 'bar' })
     const registry = new PipeRegistry()
     const json = (data) => { return JSON.parse(data) }
@@ -53,6 +53,10 @@ describe('pipe/pipeExecutor', () => {
           await expect(executor(data, pipeline, mode, registry)).resolves.toEqual(expected)
         })
       }
+    })
+
+    it('throws error if required `some` pipe is not found', () => {
+      expect(() => executor(data, 'json>some', 'sync', registry)).toThrow('Pipe not found: some')
     })
   })
 })

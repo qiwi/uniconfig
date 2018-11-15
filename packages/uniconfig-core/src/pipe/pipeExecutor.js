@@ -68,7 +68,7 @@ export function getPipe (name: string, registry: IRegistry): IPipe {
   const pipe = registry.get(name)
 
   if (!pipe) {
-    throw new Error()
+    throw new Error(`Pipe not found: ${name}`)
   }
 
   return pipe

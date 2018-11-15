@@ -15,7 +15,7 @@ import type {
 import { reduce } from '../base/util'
 import pipeRegistry from '../pipe/pipeRegistry'
 
-export const PIPE_SEPARATOR = '>'
+export const PIPE_SEPARATOR = /[\s\r\n]*>+[\s\r\n]*/
 export const DEFAULT_PIPE: IPipe = {
   handle (data) { return Promise.resolve(data) },
   handleSync (data) { return data }
@@ -76,7 +76,7 @@ export function getPipe (name: string, registry: IRegistry): IPipe {
 
 export function normalizePipeline (pipeline: IPipeline): INormalizedPipe[] {
   const pipes = typeof pipeline === 'string'
-    ? (pipeline.split(PIPE_SEPARATOR): Array<IPipeRef>)
+    ? (pipeline.trim().split(PIPE_SEPARATOR): Array<IPipeRef>)
     : pipeline
 
   return normalizePipeChain(pipes)

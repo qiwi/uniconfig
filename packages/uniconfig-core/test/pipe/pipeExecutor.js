@@ -37,7 +37,11 @@ describe('pipe/pipeExecutor', () => {
       [data, ['json', 'upper', 'spacer'], { FOO: 'BAR' }, true],
       [data, ['json', ['spacer', '_']], { f_o_o: 'b_a_r' }, true],
       [data, '', data, true],
-      [data, 'json>upper>spacer', { FOO: 'BAR' }, false],
+      [data, `json   >  upper
+      >
+      spacer
+      
+`, { FOO: 'BAR' }, false],
       [data, '', data, false]
     ]
 

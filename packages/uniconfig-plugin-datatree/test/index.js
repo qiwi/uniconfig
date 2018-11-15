@@ -5,6 +5,7 @@ describe('uniconfig-plugin-datatree', () => {
     data: {
       someParam: '$foo:bar',
       otherParam: '$a:b',
+      anotherParam: '$a:d.e.f.g',
       nested: {
         foo: '$foo:bar'
       }
@@ -17,9 +18,10 @@ describe('uniconfig-plugin-datatree', () => {
       },
       a: {
         data: {
-          b: 'c'
+          b: 'c',
+          'd.e.f.g': 'h'
         }
-      }
+      },
     }
   }
 
@@ -28,6 +30,7 @@ describe('uniconfig-plugin-datatree', () => {
       expect(pipe.handleSync(input)).toEqual({
         someParam: 'baz',
         otherParam: 'c',
+        anotherParam: 'h',
         nested: {
           foo: 'baz'
         }
@@ -40,6 +43,7 @@ describe('uniconfig-plugin-datatree', () => {
       await expect(pipe.handle(input)).resolves.toEqual({
         someParam: 'baz',
         otherParam: 'c',
+        anotherParam: 'h',
         nested: {
           foo: 'baz'
         }

@@ -38,7 +38,7 @@ export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
 
         if (source) {
           result[key] = path
-            ? get(source, path)
+            ? source[path] || get(source, path)
             : source
         } else {
           // TODO Throw error

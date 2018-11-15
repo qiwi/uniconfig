@@ -19,7 +19,8 @@ addPlugin(dataTreePlugin)
 const config = new Config({
   data: {
     someParam: '$foo:bar',
-    otherParam: '$a:b'
+    otherParam: '$a:b',
+    anotherParam: '$a:d.e.f.g'
   },
   source: {
     foo: {
@@ -29,7 +30,8 @@ const config = new Config({
     },
     a: {
       data: {
-        b: 'c'
+        b: 'c',
+        'd.e.f.g': 'h'
       }
     }
   }
@@ -38,7 +40,8 @@ const config = new Config({
   mode: 'sync'
 })
 
-config.get('someParam')   // 'baz'
-config.get('otherParam')  // 'c'
+config.get('someParam')     // 'baz'
+config.get('otherParam')    // 'c'
+config.get('anotherParam')  // 'h'
 ```
 

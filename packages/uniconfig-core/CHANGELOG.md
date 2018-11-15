@@ -1,3 +1,11 @@
+# [@qiwi/uniconfig-core-v2.14.0](https://github.com/qiwi/uniconfig/compare/v2.13.0...v2.14.0) (2018-11-15)
+
+
+### Features
+
+* add details to pipeExecutor error ([966ee2b](https://github.com/qiwi/uniconfig/commit/966ee2b))
+* **pipeExecutor:** replace char separator with regex ([39650e3](https://github.com/qiwi/uniconfig/commit/39650e3)), closes [#86](https://github.com/qiwi/uniconfig/issues/86)
+
 # [@qiwi/uniconfig-core-v2.7.0](https://github.com/qiwi/uniconfig/compare/v2.6.0...v2.7.0) (2018-10-27)
 
 

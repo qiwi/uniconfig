@@ -44,4 +44,3 @@ config.get('someParam')     // 'baz'
 config.get('otherParam')    // 'c'
 config.get('anotherParam')  // 'h'
 ```
-

@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-datatree-v2.15.0](https://github.com/qiwi/uniconfig/compare/v2.14.0...v2.15.0) (2018-11-15)
+
+
+### Features
+
+* **datatree:** full key match has a priority over get method result ([ef263d8](https://github.com/qiwi/uniconfig/commit/ef263d8))
+
 # [@qiwi/uniconfig-plugin-datatree-v2.5.0](https://github.com/qiwi/uniconfig/compare/v2.4.0...v2.5.0) (2018-10-22)
 
 

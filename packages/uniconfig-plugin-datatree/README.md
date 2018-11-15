@@ -20,7 +20,8 @@ const config = new Config({
   data: {
     someParam: '$foo:bar',
     otherParam: '$a:b',
-    anotherParam: '$a:d.e.f.g'
+    anotherParam: '$a:d.e.f.g',
+    lastParam: '$a:i.j.k.l.m.n'
   },
   source: {
     foo: {
@@ -31,7 +32,12 @@ const config = new Config({
     a: {
       data: {
         b: 'c',
-        'd.e.f.g': 'h'
+        'd.e.f.g': 'h',
+        'i.j': {
+          k: {
+            'l.m.n': 'o'
+          }
+        }
       }
     }
   }
@@ -43,4 +49,5 @@ const config = new Config({
 config.get('someParam')     // 'baz'
 config.get('otherParam')    // 'c'
 config.get('anotherParam')  // 'h'
+config.get('lastParam')     // 'o'
 ```

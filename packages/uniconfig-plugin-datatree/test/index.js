@@ -6,6 +6,7 @@ describe('uniconfig-plugin-datatree', () => {
       someParam: '$foo:bar',
       otherParam: '$a:b',
       anotherParam: '$a:d.e.f.g',
+      lastParam: '$a:i.j.k.l.m.n',
       nested: {
         foo: '$foo:bar'
       }
@@ -19,7 +20,12 @@ describe('uniconfig-plugin-datatree', () => {
       a: {
         data: {
           b: 'c',
-          'd.e.f.g': 'h'
+          'd.e.f.g': 'h',
+          'i.j': {
+            k: {
+              'l.m.n': 'o'
+            }
+          }
         }
       },
     }
@@ -31,6 +37,7 @@ describe('uniconfig-plugin-datatree', () => {
         someParam: 'baz',
         otherParam: 'c',
         anotherParam: 'h',
+        lastParam: 'o',
         nested: {
           foo: 'baz'
         }
@@ -44,6 +51,7 @@ describe('uniconfig-plugin-datatree', () => {
         someParam: 'baz',
         otherParam: 'c',
         anotherParam: 'h',
+        lastParam: 'o',
         nested: {
           foo: 'baz'
         }

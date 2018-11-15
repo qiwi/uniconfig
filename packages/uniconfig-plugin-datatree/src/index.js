@@ -8,7 +8,7 @@ import type {
   IAny
 } from '../../uniconfig-core/src/interface'
 
-import { get, map, reduce, mapValues } from 'lodash-es'
+import { get, map, reduce, mapValues, forEach, keys, isArray, isObject } from 'lodash-es'
 import { pipeExecutor, SYNC, ASYNC } from '@qiwi/uniconfig-core'
 
 export const type = 'datatree'
@@ -28,6 +28,20 @@ export type ISourceMap = {
   [key: string]: IAny
 }
 
+const compact = (object: {[key: string]: IAny}, separator?: string ='.') => {
+  const paths = {}
+  const process = (branch, path) => {
+    isObject(branch) && keys(branch).length > 0 || isArray(branch) ?
+      forEach(branch, (value, name) => {
+        process(value, path + separator + name);
+      }) :
+      (paths[path] = branch);
+  }
+  forEach(object, process)
+
+  return paths;
+}
+
 export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
   data,
   (result: ISourceMap, value: IAny, key: string) => {
@@ -38,7 +52,7 @@ export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
 
         if (source) {
           result[key] = path
-            ? source[path] || get(source, path)
+            ? source[path] || get(source, path) || get(compact(source), path)
             : source
         } else {
           // TODO Throw error

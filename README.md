@@ -26,7 +26,7 @@ These operations form the `pipeline`.
 * Modular design
 * Ease extensibility
 
-## Usage example
+## Basic usage
 ```javascript
 import path from 'path'
 import { Config, rollupPlugin } from '@qiwi/uniconfig-core'
@@ -70,6 +70,9 @@ export default new Config({
 
 config.get('consul.host') // '10.10.10.10'
 ```
+
+## Examples
+* [vault](./examples/vault.md)
 
 ## Plugins
 ##### API extensions

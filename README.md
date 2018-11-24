@@ -84,6 +84,7 @@ config.get('consul.host') // '10.10.10.10'
 * [uniconfig-plugin-root](./packages/uniconfig-plugin-root/README.md)
 * [uniconfig-plugin-global](./packages/uniconfig-plugin-global/README.md)
 * [uniconfig-plugin-path](./packages/uniconfig-plugin-path/README.md)
+* [uniconfig-plugin-argv](./packages/uniconfig-plugin-argv/README.md)
 ##### Parsers
 * [uniconfig-plugin-json](./packages/uniconfig-plugin-json/README.md)
 * [uniconfig-plugin-yaml](./packages/uniconfig-plugin-yaml/README.md)

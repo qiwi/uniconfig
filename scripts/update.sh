@@ -2,7 +2,7 @@
 
 NPM_UPGRADE="npm-upgrade"
 
-eval NPM_UPGRADE
+eval $NPM_UPGRADE
 
 for f in packages/*; do
   if [ -d "$f" ]; then

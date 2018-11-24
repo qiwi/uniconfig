@@ -26,8 +26,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "lodash-es": "^4.17.11",
-    "semver": "^5.5.1"
+    "lodash-es": "^4.17.11"
   },
   "files": [
     "README.md",
@@ -35,6 +34,6 @@
     "dist/"
   ],
   "devDependencies": {
-    "@babel/core": "^7.1.2"
+    "@babel/core": "^7.1.6"
   }
 }

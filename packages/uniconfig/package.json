@@ -27,17 +27,14 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^2.0.0",
-    "@qiwi/uniconfig-plugin-json": "^2.0.0",
-    "@qiwi/uniconfig-plugin-datatree": "^2.0.0",
-    "@qiwi/uniconfig-plugin-api-file": "^2.0.0"
+    "@qiwi/uniconfig-core": "^2.14.0",
+    "@qiwi/uniconfig-plugin-json": "^2.1.1",
+    "@qiwi/uniconfig-plugin-datatree": "^2.16.0",
+    "@qiwi/uniconfig-plugin-api-file": "^2.1.1"
   },
   "files": [
     "README.md",
     "CHANGELOG.md",
     "dist/"
-  ],
-  "devDependencies": {
-    "@babel/core": "^7.1.2"
-  }
+  ]
 }

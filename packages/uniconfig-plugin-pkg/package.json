@@ -25,15 +25,15 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "read-pkg": "^4.0.1",
-    "@qiwi/uniconfig-core": "^2.0.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.1.2"
+    "@qiwi/uniconfig-core": "^2.14.0",
+    "read-pkg": "^4.0.1"
   },
   "files": [
     "README.md",
     "CHANGELOG.md",
     "dist/"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.1.6"
+  }
 }

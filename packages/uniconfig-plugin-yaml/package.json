@@ -28,12 +28,12 @@
     "@qiwi/uniconfig-core": "^2.0.0",
     "js-yaml": "^3.12.0"
   },
-  "devDependencies": {
-    "@babel/core": "^7.1.2"
-  },
   "files": [
     "README.md",
     "CHANGELOG.md",
     "dist/"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.1.6"
+  }
 }

@@ -4,7 +4,6 @@
   "description": "Uniconfig IP/host resolver plugin",
   "main": "dist/es6/index.js",
   "scripts": {
-    "jest": "BABEL_ENV=test NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
     "build_es6": "flow-remove-types src/ --out-dir dist/es6/",
     "build_es5": "BABEL_ENV=production babel src --out-dir dist/es5/",
     "build_bundle": "parcel build dist/es6/index.js --out-dir dist/bundle --experimental-scope-hoisting",

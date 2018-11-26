@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-dotenv",
-  "version": "2.1.1",
+  "version": "2.18.0",
   "description": "Uniconfig dotenv parser plugin",
   "main": "dist/es6/index.js",
   "scripts": {

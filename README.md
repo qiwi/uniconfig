@@ -89,6 +89,7 @@ config.get('consul.host') // '10.10.10.10'
 * [uniconfig-plugin-json](./packages/uniconfig-plugin-json/README.md)
 * [uniconfig-plugin-yaml](./packages/uniconfig-plugin-yaml/README.md)
 * [uniconfig-plugin-datatree](./packages/uniconfig-plugin-datatree/README.md)
+* [uniconfig-plugin-dotenv](./packages/uniconfig-plugin-dotenv/README.md)
 
 ##### Template engines
 * [uniconfig-plugin-dot](./packages/uniconfig-plugin-dot/README.md)

@@ -1230,7 +1230,6 @@
 "@semantic-release/github@5.2.5":
   version "5.2.5"
   resolved "https://registry.yarnpkg.com/@semantic-release/github/-/github-5.2.5.tgz#14e53d99f1e84c76b5674b7506f235a7a4cae302"
-  integrity sha512-myO00q84CyfyzaEZ4OdA7GOMCQKd+juZd5g2Cloh4jV6CyiMyWflZ629RH99wjAVUiwMKnvX2SQ5XPFvO1+FCw==
   dependencies:
     "@octokit/rest" "^16.0.1"
     "@semantic-release/error" "^2.2.0"
@@ -1253,7 +1252,6 @@
 "@semantic-release/github@^5.1.0":
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/@semantic-release/github/-/github-5.2.4.tgz#07bad4aebddb29cf7d7592d2e9fc8a2f040e10e8"
-  integrity sha512-6WSOaHZLk1e5Cs9digWJnysN7HYJZsNAIckrGJbVSDcwIxb0KtEyp0V4G02VCJNNDjOLJBMMaIhA+lPdiGOqrw==
   dependencies:
     "@octokit/rest" "^16.0.1"
     "@semantic-release/error" "^2.2.0"
@@ -3548,6 +3546,10 @@ dotenv-expand@^4.2.0:
 dotenv@^5.0.0, dotenv@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
+
+dotenv@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.1.0.tgz#9853b6ca98292acb7dec67a95018fa40bccff42c"
 
 duplexer2@~0.1.0, duplexer2@~0.1.4:
   version "0.1.4"
@@ -9484,7 +9486,6 @@ semantic-release-plugin-decorators@^2.0.0:
 semantic-release@15.12.1:
   version "15.12.1"
   resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.12.1.tgz#48939aaf8fd623769003f6bd76fdb974e24785b7"
-  integrity sha512-HySTv+k3gKHM7/LWluz/2nZbDRI5zZpsOQ+GTVPLVepRMm5SdWzi4L+I7z5wBwN/JNSPHU7UF4CDSFeGYK1/Mg==
   dependencies:
     "@semantic-release/commit-analyzer" "^6.1.0"
     "@semantic-release/error" "^2.2.0"

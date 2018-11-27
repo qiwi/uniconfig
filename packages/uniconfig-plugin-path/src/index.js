@@ -18,11 +18,11 @@ export const name: string = 'path'
 
 const pathPlugin: IPipe = {
   name,
-  handleSync({data}): IAny {
-    return path.resolve(...resolveRoots(data))
+  handleSync(data): IAny {
+    return path.resolve(...resolveRoots(data && data.data || data))
   },
-  handle({data}): Promise<IAny> {
-    return Promise.resolve(path.resolve(...resolveRoots(data)))
+  handle(data): Promise<IAny> {
+    return Promise.resolve(path.resolve(...resolveRoots(data && data.data || data)))
   }
 }
 

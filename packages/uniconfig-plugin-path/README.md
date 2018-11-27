@@ -14,7 +14,7 @@ import uniconfig, {rollupPlugin} from '@qiwi/uniconfig-core'
 import uniconfigPluginPath from '@qiwi/uniconfig-plugin-path'
     
 rollupPlugin(uniconfigPluginPath)
-const config = uniconfig({data: ['<root>', 'config/default.json']}, {pipeline: 'global'}) 
+const config = uniconfig({data: ['<root>', 'config/default.json']}, {pipeline: 'path'}) 
 
 config.get() // '/Users/antongolub/projects/uniconfig/config/default.json'  
 ```

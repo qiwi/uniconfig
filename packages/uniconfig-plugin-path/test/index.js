@@ -22,6 +22,12 @@ describe('plugin-path', () => {
     it('sync', () => {
       const config = new Config({data: ['$root', 'config/default.json']}, {mode: SYNC, pipeline: 'path'})
       expect(config.get()).toBe(expected)
+
+      expect(new Config({
+        data: ['$root', 'config/default.json'],
+        mode: SYNC,
+        pipeline: 'path'}
+      ).get()).toBe(expected)
     })
 
     it('async', async () => {

@@ -75,7 +75,7 @@ config.get('consul.host') // '10.10.10.10'
 * [vault](./examples/vault.md)
 
 ## Plugins
-##### API extensions
+##### Fetchers
 * [uniconfig-plugin-api-http](./packages/uniconfig-plugin-api-http/README.md)
 * [uniconfig-plugin-api-file](./packages/uniconfig-plugin-api-file/README.md)
 * [uniconfig-plugin-env](./packages/uniconfig-plugin-env/README.md)
@@ -93,6 +93,9 @@ config.get('consul.host') // '10.10.10.10'
 
 ##### Template engines
 * [uniconfig-plugin-dot](./packages/uniconfig-plugin-dot/README.md)
+
+##### Etc
+* [uniconfig-plugin-ajv](./packages/uniconfig-plugin-ajv/README.md)
 
 
 ## API

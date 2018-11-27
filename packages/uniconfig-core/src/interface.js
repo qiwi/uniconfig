@@ -1,6 +1,9 @@
 // @flow
 
 export type IAny = any
+export type IAnyObject = {
+  [key: string]: IAny
+}
 
 export type IWindow = {document: IAny} | void
 

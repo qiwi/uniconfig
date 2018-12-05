@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-v2.21.0](https://github.com/qiwi/uniconfig/compare/v2.20.0...v2.21.0) (2018-12-05)
+
+
+### Features
+
+* add path plugin to uniconfig pack ([3598d55](https://github.com/qiwi/uniconfig/commit/3598d55))
+
 # [@qiwi/uniconfig-v2.1.0](https://github.com/qiwi/uniconfig/compare/v2.0.2...v2.1.0) (2018-10-16)
 
 

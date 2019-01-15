@@ -13,7 +13,7 @@ import type {
   IConfigInput,
   IPipe,
   IPluginDeclaration,
-  IContext,
+  IContext
 } from './interface'
 import createContext from './context'
 import pipeExecutor from './pipe/pipeExecutor'
@@ -40,6 +40,8 @@ const removePipe = (name: string): void => {
 
 const rollupPlugin = (plugin: IPluginDeclaration, _context?: IContext = context): void => {
   if (typeof plugin.rollup === 'function') {
+    // NOTE flow 0.90.0 breaks prev checks
+    // $FlowFixMe
     plugin.rollup(_context)
     return
   }
@@ -51,6 +53,7 @@ const rollupPlugin = (plugin: IPluginDeclaration, _context?: IContext = context)
 
 const rollbackPlugin = (plugin: IPluginDeclaration, _context?: IContext = context): void => {
   if (typeof plugin.rollback === 'function') {
+    // $FlowFixMe
     plugin.rollback(_context)
     return
   }

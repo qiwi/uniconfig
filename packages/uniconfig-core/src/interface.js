@@ -88,9 +88,12 @@ export interface IContext {
   pipe: IRegistry
 }
 
-export interface IPlugin {
-  rollback(context: IContext): void,
-  rollup(context: IContext): void
+export type IRollup = (context: IContext) => void
+export type IRollback = (context: IContext) => void
+
+export type IPlugin = {
+  rollback: IRollup,
+  rollup: IRollback
 }
 
 export type IPipe = {
@@ -99,7 +102,13 @@ export type IPipe = {
   name?: string
 }
 
-export type IPluginDeclaration = IPipe | IPlugin
+export type INamedPipe = {
+  handle(data: IAny, opts?: IAny): Promise<IAny>,
+  handleSync(data: IAny, opts?: IAny): IAny,
+  name: string
+}
+
+export type IPluginDeclaration = IPlugin | INamedPipe
 
 export type IPipeEquation = string
 export type IPipeRef = string

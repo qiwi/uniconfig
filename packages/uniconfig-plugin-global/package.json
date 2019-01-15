@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-global",
-  "version": "2.12.0",
+  "version": "2.21.1",
   "description": "Uniconfig global variables reading API",
   "main": "dist/es6/index.js",
   "scripts": {

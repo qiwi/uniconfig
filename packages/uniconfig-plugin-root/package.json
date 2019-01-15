@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-root",
-  "version": "2.10.0",
+  "version": "2.21.1",
   "description": "Uniconfig root resolver plugin",
   "main": "dist/es6/index.js",
   "scripts": {

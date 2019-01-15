@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-api-file-v2.21.1](https://github.com/qiwi/uniconfig/compare/v2.21.0...v2.21.1) (2019-01-15)
+
+
+### Performance Improvements
+
+* up deps and repack ([0527e8e](https://github.com/qiwi/uniconfig/commit/0527e8e))
+
 # [@qiwi/uniconfig-plugin-api-file-v2.1.1](https://github.com/qiwi/uniconfig/compare/v2.1.0...v2.1.1) (2018-10-17)
 
 

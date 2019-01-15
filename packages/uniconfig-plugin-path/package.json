@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-path",
-  "version": "2.20.0",
+  "version": "2.21.1",
   "description": "Uniconfig path resolver plugin",
   "main": "dist/es6/index.js",
   "scripts": {

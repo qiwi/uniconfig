@@ -20,12 +20,22 @@ export interface IEventEmitter {
   once(event: string, listener: IEventListener): IEventEmitter
 }
 
+export type IInjectRule = {
+  from: string | RegExp,
+  to: any
+}
+export type IInject = IInjectRule | string
+export type IInjectsMap = {
+  [key: string]: IInject
+}
+
 export type IConfigOpts = {
   data?: IAny,
   tolerateMissed?: boolean,
   emitter?: IEventEmitter,
   mode?: IMode,
-  pipeline?: IPipeline
+  pipeline?: IPipeline,
+  injects?: IInjectsMap
 }
 
 export type IConfigLegacyOpts = {

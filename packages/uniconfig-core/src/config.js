@@ -12,11 +12,12 @@ import type {
   IConfigPromise,
   IIntention,
   IResolve,
-  IReject
+  IReject,
+  IInjectsMap
 } from './interface'
 
-import {get, has} from './base/util'
-import {ConfigError, MISSED_VALUE_PATH} from './base/error'
+import {get, has, reduce} from './base/util'
+import {ConfigError, MISSED_VALUE_PATH, BROKEN_INJECT} from './base/error'
 import {eventEmitterFactory, READY} from './event'
 import createContext from './context'
 import pipeExecutor from './pipe/pipeExecutor'
@@ -49,7 +50,8 @@ export class Config {
 
     const pipeline = this.opts.pipeline || ''
     const mode = this.opts.mode || SYNC
-    const data = pipeExecutor(this.opts.data, pipeline, mode, this.context.pipe)
+    const injected = this.constructor.processInjects(this.opts.data, this.opts.injects)
+    const data = pipeExecutor(injected, pipeline, mode, this.context.pipe)
 
     if (mode === SYNC) {
       this.setData(data)
@@ -122,6 +124,33 @@ export class Config {
     return {
       ...DEFAULT_OPTS,
       data: input
+    }
+  }
+
+  static processInjects(input: IConfigInput, injects?: IInjectsMap): IConfigInput {
+    if (!injects) {
+      return input
+    }
+
+    try {
+      return JSON.parse(reduce(injects, (memo, inject, name) => {
+        let {from, to} = typeof inject === 'object' && inject.hasOwnProperty('from') && inject.hasOwnProperty('to')
+          ? inject
+          : {from: name, to: inject}
+
+        if (typeof to === 'object') {
+          to = JSON.stringify(to)
+
+          if (typeof from === 'string') {
+            from = '"' + from + '"'
+          }
+        }
+
+        return memo.replace(from, to)
+      }, JSON.stringify(input)))
+    } catch (err) {
+
+      throw new ConfigError(BROKEN_INJECT)
     }
   }
 }

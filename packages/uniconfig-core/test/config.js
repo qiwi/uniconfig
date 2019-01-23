@@ -198,4 +198,69 @@ describe('Config', () => {
       })
     })
   })
+
+  describe('static', () => {
+    describe('processInjects', () => {
+      it('injects data to input', () => {
+        const input = {
+          foo: '$$1$$',
+          bar: '$$2$$',
+          BAR: '$$2$$$$2$$',
+          baz: '$$3$$',
+          qux: '$$qux$$',
+          quux: '$$quux$$'
+        }
+        const injects = {
+          injectFoo: {
+            from: '$$1$$',
+            to: 'foo'
+          },
+          injectBar: {
+            from: /\$\$2\$\$/g,
+            to: 'bar'
+          },
+          injectBaz: {
+            from: '$$3$$',
+            to: {
+              a: {
+                b: {
+                  c: 'd'
+                }
+              }
+            }
+          },
+          '$$qux$$': 'qux',
+          '$$quux$$': {
+            q: {
+              uu: 'x'
+            }
+          }
+        }
+
+        expect(Config.processInjects(input, injects)).toEqual({
+          foo: 'foo',
+          bar: 'bar',
+          BAR: 'barbar',
+          baz: {
+            a: {
+              b: {
+                c: 'd'
+              }
+            }
+          },
+          qux: 'qux',
+          quux: {
+            q: {
+              uu: 'x'
+            }
+          }
+        })
+      })
+
+      it('returns value as is if no inject declared', () => {
+        const input = {}
+        expect(Config.processInjects(input)).toBe(input)
+      })
+    })
+  })
 })

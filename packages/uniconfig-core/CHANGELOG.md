@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v2.22.0](https://github.com/qiwi/uniconfig/compare/v2.21.1...v2.22.0) (2019-01-23)
+
+
+### Features
+
+* **core:** add injects support ([30049fd](https://github.com/qiwi/uniconfig/commit/30049fd)), closes [#90](https://github.com/qiwi/uniconfig/issues/90)
+
 # [@qiwi/uniconfig-core-v2.21.1](https://github.com/qiwi/uniconfig/compare/v2.21.0...v2.21.1) (2019-01-15)
 
 

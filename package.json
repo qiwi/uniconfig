@@ -56,7 +56,7 @@
     "flow-typed": "^2.5.1",
     "jest": "^23.6.0",
     "lerna": "^3.10.7",
-    "parcel": "1.11.0",
+    "parcel": "1.12.0",
     "parcel-bundler": "^1.11.0",
     "semantic-release": "15.13.3",
     "semantic-release-monorepo": "6.1.1",

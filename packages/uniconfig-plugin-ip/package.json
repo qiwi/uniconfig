@@ -33,6 +33,6 @@
     "dist/"
   ],
   "devDependencies": {
-    "@babel/core": "^7.4.3"
+    "@babel/core": "^7.4.4"
   }
 }

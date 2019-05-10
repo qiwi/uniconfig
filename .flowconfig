@@ -15,3 +15,6 @@ module.ignore_non_literal_requires=true
 .*/node_modules/http-basic/
 .*/node_modules/then-request/
 .*/node_modules/sync-request/
+
+[lints]
+deprecated-utility=off

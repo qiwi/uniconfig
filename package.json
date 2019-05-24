@@ -52,7 +52,7 @@
     "eslint-plugin-flowtype": "^3.8.1",
     "flow-bin": "0.98.1",
     "flow-coverage-report": "^0.6.1",
-    "flow-remove-types": "^1.2.3",
+    "flow-remove-types": "^2.99.0",
     "flow-typed": "^2.5.1",
     "jest": "23.6.0",
     "lerna": "^3.13.4",

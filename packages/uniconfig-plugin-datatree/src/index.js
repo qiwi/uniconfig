@@ -8,7 +8,7 @@ import type {
   IAny
 } from '../../uniconfig-core/src/interface'
 
-import { get, map, reduce, mapValues, forEach, keys, isArray, isObject } from 'lodash-es'
+import { get, map, reduce, mapValues, forEach, keys, isArray, isObject } from 'lodash'
 import { pipeExecutor, SYNC, ASYNC } from '@qiwi/uniconfig-core'
 
 export const type = 'datatree'

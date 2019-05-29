@@ -1,7 +1,7 @@
 // @flow
 
 import type { IAny, IWindow } from '../interface'
-export { get, has, each, reduce, mapValues, map } from 'lodash-es'
+export { get, has, each, reduce, mapValues, map } from 'lodash'
 
 declare var window: IWindow
 

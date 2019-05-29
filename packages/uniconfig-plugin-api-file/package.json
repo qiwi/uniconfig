@@ -24,8 +24,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^2.22.0",
-    "lodash-es": "^4.17.11"
+    "@qiwi/uniconfig-core": "^2.22.0"
   },
   "files": [
     "README.md",

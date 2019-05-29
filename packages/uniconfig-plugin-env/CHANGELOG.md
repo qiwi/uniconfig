@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-env-v2.22.1](https://github.com/qiwi/uniconfig/compare/v2.22.0...v2.22.1) (2019-05-29)
+
+
+### Performance Improvements
+
+* expose main as es5, repack ([104fc74](https://github.com/qiwi/uniconfig/commit/104fc74))
+
 # [@qiwi/uniconfig-plugin-env-v2.21.1](https://github.com/qiwi/uniconfig/compare/v2.21.0...v2.21.1) (2019-01-15)
 
 

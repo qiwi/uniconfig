@@ -76,7 +76,7 @@ export function getPipe (name: string, registry: IRegistry): IPipe {
 
 export function normalizePipeline (pipeline: IPipeline): INormalizedPipe[] {
   const pipes = typeof pipeline === 'string'
-    ? (pipeline.trim().split(PIPE_SEPARATOR): Array<IPipeRef>)
+    ? pipeline.trim().split(PIPE_SEPARATOR)
     : pipeline
 
   return normalizePipeChain(pipes)

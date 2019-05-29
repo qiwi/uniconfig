@@ -2,7 +2,7 @@
   "name": "@qiwi/uniconfig-plugin-pkg",
   "version": "2.21.1",
   "description": "Uniconfig package.json reader plugin",
-  "main": "dist/es6/index.js",
+  "main": "dist/es5/index.js",
   "scripts": {
     "build_es6": "flow-remove-types src/ --out-dir dist/es6/",
     "build_es5": "BABEL_ENV=production babel src --out-dir dist/es5/",

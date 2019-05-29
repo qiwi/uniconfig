@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-api-file-v2.22.2](https://github.com/qiwi/uniconfig/compare/v2.22.1...v2.22.2) (2019-05-29)
+
+
+### Performance Improvements
+
+* **package:** replace lodash-es with lodash & repack ([5053089](https://github.com/qiwi/uniconfig/commit/5053089))
+
 # [@qiwi/uniconfig-plugin-api-file-v2.22.1](https://github.com/qiwi/uniconfig/compare/v2.22.0...v2.22.1) (2019-05-29)
 
 

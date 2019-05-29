@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^2.19.0",
+    "@qiwi/uniconfig-core": "^2.22.0",
     "ajv": "^6.10.0"
   },
   "files": [
@@ -32,6 +32,6 @@
     "dist/"
   ],
   "devDependencies": {
-    "@babel/core": "^7.4.4"
+    "@babel/core": "^7.4.5"
   }
 }

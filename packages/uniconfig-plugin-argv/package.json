@@ -24,7 +24,7 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "^2.22.0",
-    "yargs": "^13.2.2"
+    "yargs": "^13.2.4"
   },
   "files": [
     "README.md",
@@ -32,6 +32,6 @@
     "dist/"
   ],
   "devDependencies": {
-    "@babel/core": "^7.4.4"
+    "@babel/core": "^7.4.5"
   }
 }

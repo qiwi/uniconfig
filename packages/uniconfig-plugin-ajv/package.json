@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-ajv",
-  "version": "2.21.1",
+  "version": "2.22.1",
   "description": "Uniconfig AJV plugin",
   "main": "dist/es5/index.js",
   "scripts": {

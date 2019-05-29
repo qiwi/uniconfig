@@ -133,7 +133,7 @@ const config = factory({pipeline: 'env'}) // IConfig
 
 #### `addPipe`
 ```javascript
-import {transform} from 'lodash-es'
+import {transform} from 'lodash'
 import {addPipe, context} from '@qiwi/uniconfig-core'
 
 const formatToUpper = data => transform(

@@ -9,9 +9,5 @@
   ],
   "testMatch": [
     "<rootDir>/packages/**/test/**/*.js"
-  ],
-  "transformIgnorePatterns": [
-    "/!node_modules\\/lodash-es/",
-    "<roodDir>/node_modules/(?!lodash-es)"
   ]
 }

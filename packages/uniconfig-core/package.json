@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-core",
-  "version": "2.22.0",
+  "version": "2.22.1",
   "description": "Core uniconfig library",
   "main": "dist/es5/index.js",
   "scripts": {

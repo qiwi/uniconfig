@@ -1,3 +1,15 @@
+# [@qiwi/uniconfig-plugin-path-v2.23.0](https://github.com/qiwi/uniconfig/compare/v2.22.2...v2.23.0) (2019-06-03)
+
+
+### Bug Fixes
+
+* **pathPlugin:** expose pathPlugin as pipe ([146864a](https://github.com/qiwi/uniconfig/commit/146864a))
+
+
+### Features
+
+* **pathPlugin:** resolve root aliases in strings ([47e35f7](https://github.com/qiwi/uniconfig/commit/47e35f7)), closes [#99](https://github.com/qiwi/uniconfig/issues/99)
+
 # [@qiwi/uniconfig-plugin-path-v2.22.1](https://github.com/qiwi/uniconfig/compare/v2.22.0...v2.22.1) (2019-05-29)
 
 

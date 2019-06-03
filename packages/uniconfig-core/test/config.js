@@ -6,6 +6,7 @@ import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
 import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
 import {pipe as dotPipe} from '@qiwi/uniconfig-plugin-dot'
 import {pipe as pathPipe} from '@qiwi/uniconfig-plugin-path'
+import {pipe as envPipe} from '@qiwi/uniconfig-plugin-env'
 import {MISSED_VALUE_PATH} from '../src/base/error'
 import EventEmitterPolyfill from '../src/event/polyfill'
 
@@ -54,6 +55,7 @@ describe('Config', () => {
       _context.pipe.add('json', jsonPipe)
       _context.pipe.add('dot', dotPipe)
       _context.pipe.add('path', pathPipe)
+      _context.pipe.add('env', envPipe)
       _context.pipe.add('datatree', datatreePipe)
     })
 
@@ -116,13 +118,13 @@ describe('Config', () => {
       expect(config.get('foo')).toBe('bar')
     })
 
-    fit('obtains target config by env variable and resolves its data', () => {
+    it('obtains target config by env variable and resolves its data', () => {
       const opts = {
         mode: SYNC,
         data: {
           data: {
             data: {
-              target: "$env:TARGET_CONFIG_NAME"
+              target: "$env:BAZ"
             },
             template: "<root>/packages/uniconfig-core/test/stub/{{=it.target}}.json"
           },
@@ -132,11 +134,11 @@ describe('Config', () => {
             }
           },
         },
-        pipeline: 'datatree>dot>path' // >file>json>datatree
+        pipeline: 'datatree>dot>path>file>json>datatree'
       }
       const config = new _Config(opts)
 
-      expect(config.get()).toEqual({})
+      expect(config.get()).toEqual({someParam: 'c'})
     })
   })
 

@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^2.22.0",
+    "@qiwi/uniconfig-core": "^2.22.2",
     "sync-request": "^6.1.0",
     "then-request": "^6.0.2"
   },

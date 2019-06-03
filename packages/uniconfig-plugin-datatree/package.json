@@ -30,6 +30,6 @@
     "dist/"
   ],
   "dependencies": {
-    "@qiwi/uniconfig-core": "^2.22.0"
+    "@qiwi/uniconfig-core": "^2.22.2"
   }
 }

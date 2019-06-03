@@ -16,7 +16,7 @@ export const resolveRoots = (args: IAny[]): IAny[] => args.map(arg => ROOT_ALIAS
 )
 export const name: string = 'path'
 
-const pathPlugin: IPipe = {
+const pipe: IPipe = {
   name,
   handleSync(data): IAny {
     return path.resolve(...resolveRoots(data && data.data || data))
@@ -28,7 +28,7 @@ const pathPlugin: IPipe = {
 
 export default ({
   rollup(context: IContext): void {
-    context.pipe.add(name, pathPlugin)
+    context.pipe.add(name, pipe)
     context.pipe.add(rootPlugin.name, rootPlugin)
   },
   rollback(context: IContext): void {

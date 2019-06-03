@@ -1,5 +1,5 @@
 import {context, Config, rollupPlugin, rollbackPlugin, SYNC, ASYNC} from '@qiwi/uniconfig-core'
-import pathPlugin, {resolveRoots} from '../src'
+import pathPlugin, {resolveRoots, pipe} from '../src'
 import path from 'path'
 
 describe('plugin-path', () => {
@@ -34,10 +34,14 @@ describe('plugin-path', () => {
       const config = new Config({data: ['<root>', 'config/default.json']}, {mode: ASYNC, pipeline: 'path'})
       return expect(config.ready.then(config => config.get())).resolves.toBe(expected)
     })
-  })
 
-  it('processes root aliases', () => {
-    expect(resolveRoots(['<root>', '$root', 'APP_ROOT'])).toEqual([root, root, root])
+    it('processes root aliases', () => {
+      expect(resolveRoots(['<root>', '$root', 'APP_ROOT'])).toEqual([root, root, root])
+    })
+
+    it('handles root aliases as a part of strings', () => {
+      expect(pipe.handleSync('<root>/config/default.json')).toBe(expected)
+    })
   })
 
   it('supports rollback', () => {

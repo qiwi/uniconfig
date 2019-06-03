@@ -16,13 +16,20 @@ export const resolveRoots = (args: IAny[]): IAny[] => args.map(arg => ROOT_ALIAS
 )
 export const name: string = 'path'
 
-const pipe: IPipe = {
+export const pipe: IPipe = {
   name,
   handleSync(data): IAny {
-    return path.resolve(...resolveRoots(data && data.data || data))
+    let _data = data
+
+    if (typeof data === 'string') {
+      const re = new RegExp(`(${ROOT_ALIASES.join('|')})(?:/)?`, 'g')
+      _data = data.split(re)
+    }
+
+    return path.resolve(...resolveRoots(_data && _data.data || _data))
   },
   handle(data): Promise<IAny> {
-    return Promise.resolve(path.resolve(...resolveRoots(data && data.data || data)))
+    return Promise.resolve(pipe.handleSync(data))
   }
 }
 

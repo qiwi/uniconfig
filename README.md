@@ -73,6 +73,7 @@ config.get('consul.host') // '10.10.10.10'
 
 ## Examples
 * [vault](./examples/vault.md)
+* [file-by-env](./examples/file-by-env-value.md)
 
 ## Plugins
 ##### Fetchers

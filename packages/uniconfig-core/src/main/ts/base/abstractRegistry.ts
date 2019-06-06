@@ -1,25 +1,23 @@
-// @flow
-
-import type {
+import {
   IRegistry,
   IRegistryStore,
   IRegistryItem
 } from '../interface'
+
 import AbstractComponent from './abstractComponent'
 
 export default class AbstractRegistry extends AbstractComponent implements IRegistry {
   store: IRegistryStore
   type: string
-  constructor (): IRegistry {
+  constructor () {
     super()
     this.type = 'abstract'
-    this.flush()
-    return this
+    this.store = {}
   }
   add (name: string, item: IRegistryItem): void {
     this.store[name] = item
   }
-  get (name: string): ?IRegistryItem {
+  get (name: string): IRegistryItem | undefined {
     return this.store[name]
   }
   has (name: string): boolean {
@@ -32,6 +30,6 @@ export default class AbstractRegistry extends AbstractComponent implements IRegi
     this.store = {}
   }
   find () {
-    this.constructor.notImplemented()
+    AbstractRegistry.notImplemented()
   }
 }

@@ -1,15 +1,15 @@
-import type {
+import {
   IPipe,
   IPipeline,
   IPipeRef,
   IPipeRefExt,
   IPipeLink,
   IPipeOpts,
-  IPipeChain,
   IMode,
   IAny,
   IRegistry
 } from '../interface'
+
 import { reduce } from '../base/util'
 import pipeRegistry from '../pipe/pipeRegistry'
 
@@ -29,7 +29,7 @@ export type IResolvedPipe = {
   opts: IPipeOpts[]
 }
 
-export default function executor (data: IAny, pipeline: IPipeline, mode: IMode, registry?: IRegistry = pipeRegistry): IAny | Promise<IAny> {
+export default function executor (data: IAny, pipeline: IPipeline, mode: IMode, registry: IRegistry = pipeRegistry): IAny | Promise<IAny> {
   const resolvedPipes = resolvePipeline(pipeline, registry)
 
   if (mode === 'async') {
@@ -47,8 +47,8 @@ export default function executor (data: IAny, pipeline: IPipeline, mode: IMode, 
   )
 }
 
-export function resolvePipeline (pipeline?: IPipeline, registry: IRegistry): IResolvedPipe[] {
-  if (!pipeline) {
+export function resolvePipeline (pipeline?: IPipeline, registry?: IRegistry): IResolvedPipe[] {
+  if (!pipeline || !registry) {
     return [{
       pipe: DEFAULT_PIPE,
       opts: []
@@ -80,7 +80,7 @@ export function normalizePipeline (pipeline: IPipeline): INormalizedPipe[] {
   return normalizePipeChain(pipes)
 }
 
-export function normalizePipeChain (pipeline: Array<IPipeRef> | IPipeChain): INormalizedPipe[] {
+export function normalizePipeChain (pipeline: Array<IPipeRef | IPipeRefExt | IPipeLink>): INormalizedPipe[] {
   return pipeline
     .map((item: IPipeLink) => {
       if (typeof item === 'string') {
@@ -90,7 +90,7 @@ export function normalizePipeChain (pipeline: Array<IPipeRef> | IPipeChain): INo
         }
       }
 
-      const [name, ...opts] = (item: IPipeRefExt)
+      const [name, ...opts] = item
       return {
         name,
         opts: [...opts]

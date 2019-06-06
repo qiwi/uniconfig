@@ -1,6 +1,4 @@
-// @flow
-
-import type {
+import {
   IConfig,
   IConfigOpts,
   IConfigLegacyOpts,
@@ -39,18 +37,18 @@ export class Config {
   ready: IConfigPromise
   intention: IIntention
 
-  constructor (input: IConfigInput | IConfigOpts, legacyOpts?: IConfigLegacyOpts): IConfig {
-    this.opts = this.constructor.processOpts(input, legacyOpts)
+  constructor (input: IConfigInput | IConfigOpts, legacyOpts?: IConfigLegacyOpts) {
+    this.opts = Config.processOpts(input, legacyOpts)
     this.type = 'config'
     this.id = '' + Math.random()
     this.emitter = this.opts.emitter || eventEmitterFactory()
     this.context = createContext()
-    this.intention = this.constructor.getIntention()
+    this.intention = Config.getIntention()
     this.ready = this.intention.promise
 
     const pipeline = this.opts.pipeline || ''
     const mode = this.opts.mode || SYNC
-    const injected = this.constructor.processInjects(this.opts.data, this.opts.injects)
+    const injected = Config.processInjects(this.opts.data, this.opts.injects)
     const data = pipeExecutor(injected, pipeline, mode, this.context.pipe)
 
     if (mode === SYNC) {
@@ -58,8 +56,6 @@ export class Config {
     } else {
       data.then(this.setData.bind(this))
     }
-
-    return this
   }
 
   get (path: string): IAny {
@@ -99,15 +95,15 @@ export class Config {
   }
 
   static getIntention(): IIntention {
-    let resolve
-    let reject
+    let resolve: Function
+    let reject: Function
 
     const promise: IConfigPromise = new Promise((...args: [IResolve, IReject]) => [resolve, reject] = args)
 
     return {
       promise,
-      resolve(data) { resolve(data) },
-      reject(data) { reject(data) }
+      resolve(data: any) { return resolve(data) },
+      reject(data: any) { return reject(data) }
     }
   }
 

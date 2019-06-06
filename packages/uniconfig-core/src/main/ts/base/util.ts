@@ -1,6 +1,4 @@
-// @flow
-
-import type { IAny, IWindow } from '../interface'
+import { IAny, IWindow } from '../interface'
 export { get, has, each, reduce, mapValues, map } from 'lodash'
 
 declare var window: IWindow

@@ -1,8 +1,7 @@
-// @flow
-
 import { isBrowser } from '../base/util'
-import type { IEventEmitter } from '../interface'
+import { IEventEmitter } from '../interface'
 import eventEmitterPolyfill from './polyfill'
+
 
 export function eventEmitterFactory (): IEventEmitter {
   const Constructor = isBrowser()

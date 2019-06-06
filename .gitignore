@@ -19,6 +19,8 @@ coverage
 
 # Bundles
 /packages/*/dist
+/packages/*/target
+*.map
 
 # Docs
 docs

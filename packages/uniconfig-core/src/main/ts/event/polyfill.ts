@@ -4,7 +4,7 @@
  * Adapted from https://gist.github.com/mudge/5830382
  */
 
-import type { IAny, IEventEmitter, IEventListener } from '../interface'
+import { IAny, IEventEmitter, IEventListener } from '../interface'
 
 type IListenersMap = {
   [key: string]: Array<IEventListener>
@@ -12,10 +12,8 @@ type IListenersMap = {
 
 export default class EventEmitter implements IEventEmitter {
   events: IListenersMap
-  constructor (): IEventEmitter {
+  constructor () {
     this.events = {}
-
-    return this
   }
 
   on (event: string, listener: IEventListener): IEventEmitter {

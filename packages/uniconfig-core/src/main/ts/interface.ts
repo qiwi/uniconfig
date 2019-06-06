@@ -1,5 +1,3 @@
-// @flow
-
 export type IAny = any
 export type IAnyObject = {
   [key: string]: IAny
@@ -11,12 +9,11 @@ export type IEvent = {
   type: string,
   data?: IAny
 }
-export type IEventListener = (...args?: IAny[]) => IAny
+export type IEventListener = (...args: IAny[]) => IAny
 export interface IEventEmitter {
-  constructor(): ?IEventEmitter,
   on(event: string, listener: IEventListener): IEventEmitter,
   removeListener(event: string, listener: IEventListener): IEventEmitter,
-  emit(event: string, ...args?: IAny[]): boolean,
+  emit(event: string, ...args: IAny[]): boolean,
   once(event: string, listener: IEventListener): IEventEmitter
 }
 
@@ -55,7 +52,6 @@ export type IIntention = {
 }
 
 export interface IConfig {
-  constructor (input: IConfigInput | IConfigOpts, legacyOpts?: IConfigLegacyOpts): IConfig,
   id: string,
   type: string,
   opts: IConfigOpts,
@@ -85,10 +81,9 @@ export interface IRegistry {
   type: string,
   store: IRegistryStore,
 
-  constructor(): IRegistry,
   add(name: string, item: IRegistryItem): void,
-  get(name: string): ?IRegistryItem,
-  find(...args: IAny): ?IRegistryItem,
+  get(name: string): IRegistryItem | undefined,
+  find(...args: IAny[]): IRegistryItem | undefined,
   has(name: string): boolean,
   remove(name: string): void,
   flush(): void
@@ -103,7 +98,8 @@ export type IRollback = (context: IContext) => void
 
 export type IPlugin = {
   rollback: IRollup,
-  rollup: IRollback
+  rollup: IRollback,
+  [key: string]: any
 }
 
 export type IPipe = {
@@ -115,7 +111,8 @@ export type IPipe = {
 export type INamedPipe = {
   handle(data: IAny, opts?: IAny): Promise<IAny>,
   handleSync(data: IAny, opts?: IAny): IAny,
-  name: string
+  name: string,
+  [key: string]: any
 }
 
 export type IPluginDeclaration = IPlugin | INamedPipe
@@ -123,7 +120,7 @@ export type IPluginDeclaration = IPlugin | INamedPipe
 export type IPipeEquation = string
 export type IPipeRef = string
 export type IPipeOpts = IAny
-export type IPipeRefExt = [IPipeRef, ?IPipeOpts, ?IPipeOpts, ?IPipeOpts]
+export type IPipeRefExt = [IPipeRef, IPipeOpts | undefined, IPipeOpts | undefined, IPipeOpts | undefined]
 export type IPipeLink = IPipeRef | IPipeRefExt
 export type IPipeChain = Array<IPipeLink>
 export type IPipeline = IPipeEquation | IPipeChain

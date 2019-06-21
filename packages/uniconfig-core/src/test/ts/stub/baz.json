@@ -1,0 +1,11 @@
+{
+  "data": {
+    "someParam": "$a:b"
+  },
+  "sources": {
+    "a": {
+      "data": "{\"b\":\"c\"}",
+      "pipeline": "json"
+    }
+  }
+}

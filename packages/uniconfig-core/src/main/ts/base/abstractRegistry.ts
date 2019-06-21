@@ -9,6 +9,7 @@ import AbstractComponent from './abstractComponent'
 export default class AbstractRegistry extends AbstractComponent implements IRegistry {
   store: IRegistryStore
   type: string
+  [key: string]: any
   constructor () {
     super()
     this.type = 'abstract'

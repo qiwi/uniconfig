@@ -5,6 +5,9 @@
     "paths": {
       "@qiwi/uniconfig-core": [
         "./uniconfig-core/src/ts"
+      ],
+      "@qiwi/pijma-app/*": [
+        "./uniconfig-core/src/ts/*"
       ]
     }
   }

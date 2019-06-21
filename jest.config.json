@@ -1,5 +1,6 @@
 {
   "preset": "ts-jest",
+  "collectCoverage": true,
   "testEnvironment": "node",
   "projects": [
     "<rootDir>/packages/uniconfig-core/jest.config.js"

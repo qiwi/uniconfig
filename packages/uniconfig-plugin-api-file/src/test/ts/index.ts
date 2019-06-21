@@ -1,6 +1,7 @@
-import path from 'path'
+import * as path from 'path'
 import {context, Config, rollupPlugin, rollbackPlugin, ASYNC, SYNC} from '@qiwi/uniconfig-core'
-import filePlugin, {pipe as filePipe} from '../src'
+import filePlugin, {pipe as filePipe} from '../../main/ts'
+import {IConfigLegacyOpts} from "@qiwi/uniconfig-core/src/main/ts";
 
 describe('uniconfig-plugin-api-file', () => {
   afterAll(() => {
@@ -40,7 +41,7 @@ describe('uniconfig-plugin-api-file', () => {
 
     it('sync', () => {
       const mode = SYNC
-      const opts = {mode, pipeline: 'file'}
+      const opts: IConfigLegacyOpts = {mode, pipeline: 'file'}
       const config = new Config(target, opts)
 
       expect(config.get()).toBe('{"foo":"bar"}')
@@ -48,7 +49,7 @@ describe('uniconfig-plugin-api-file', () => {
 
     it('async', done => {
       const mode = ASYNC
-      const opts = {mode, pipeline: 'file'}
+      const opts: IConfigLegacyOpts = {mode, pipeline: 'file'}
       const config = new Config(target, opts)
 
       config.on('CONFIG_READY', () => {

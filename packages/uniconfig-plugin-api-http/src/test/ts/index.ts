@@ -1,7 +1,7 @@
-import httpPlugin, {pipe as httpPipe} from '../src'
-import {context, Config, rollupPlugin, rollbackPlugin, ASYNC, SYNC} from '@qiwi/uniconfig-core'
-import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
-import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
+import {pipe as httpPipe} from '../../main/ts'
+// import {context, Config, rollupPlugin, rollbackPlugin, ASYNC, SYNC} from '@qiwi/uniconfig-core'
+// import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
+// import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
 
 describe('uniconfig-plugin-api-http', () => {
   const target = 'https://reqres.in/api/users/2'
@@ -41,7 +41,7 @@ describe('uniconfig-plugin-api-http', () => {
       return expect(httpPipe.handle('wtf://example.com')).rejects.toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
     })
   })
-
+/*
   describe('integration', () => {
     beforeAll(() => {
       context.pipe.add('json', jsonPipe)
@@ -84,4 +84,5 @@ describe('uniconfig-plugin-api-http', () => {
       })
     })
   })
+ */
 })

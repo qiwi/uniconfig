@@ -14,6 +14,18 @@
       ],
       "@qiwi/uniconfig-plugin-ajv/*": [
         "./uniconfig-plugin-ajv/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-api-file": [
+        "./uniconfig-plugin-api-file/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-api-file/*": [
+        "./uniconfig-plugin-api-file/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-api-http": [
+        "./uniconfig-plugin-api-http/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-api-http/*": [
+        "./uniconfig-plugin-api-http/src/ts/*"
       ]
     }
   }

@@ -1,16 +1,14 @@
-// @flow
-
-import type {
+import {
   IAny,
   IContext,
   IPlugin,
   IPipe
-} from '../../uniconfig-core/src/interface'
+} from '@qiwi/uniconfig-core'
 
-// $FlowFixMe
 import requestSync from 'sync-request'
-// $FlowFixMe
 import requestAsync from 'then-request'
+
+export type IMethod = 'GET' | 'POST' | 'HEAD' | 'PUT' | 'DELETE' | 'OPTIONS' | 'TRACE' | 'PATCH'
 
 export const type = 'http'
 
@@ -19,7 +17,7 @@ export type IOpts = {
 }
 // TODO Support axios format
 export type IRequestOpts = {
-  method: string,
+  method: IMethod,
   url: string,
   opts?: IOpts
 }
@@ -34,6 +32,7 @@ const parseTarget = (target: string | IRequestOpts): IRequestOpts => {
   return target
 }
 
+
 export const pipe: IPipe = {
   handleSync (target: string | IRequestOpts) {
     const {method, url, opts} = parseTarget(target)
@@ -47,11 +46,13 @@ export const pipe: IPipe = {
   }
 }
 
-export default ({
+export const plugin: IPlugin = {
   rollup(context: IContext): void {
     context.pipe.add(type, pipe)
   },
   rollback(context: IContext): void {
     context.pipe.remove(type)
   },
-}: IPlugin)
+}
+
+export default plugin

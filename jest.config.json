@@ -1,13 +1,13 @@
 {
+  "preset": "ts-jest",
   "testEnvironment": "node",
-  "collectCoverage": true,
-  "coveragePathIgnorePatterns": [
-    "interface.js"
+  "projects": [
+    "<rootDir>/packages/uniconfig-core/jest.config.js"
   ],
   "collectCoverageFrom": [
-    "<rootDir>/packages/**/src/**/*.js"
+    "<rootDir>/packages/**/src/main/ts/**/*.ts"
   ],
   "testMatch": [
-    "<rootDir>/packages/**/test/**/*.js"
+    "<rootDir>/packages/**/src/test/ts/**/*.ts"
   ]
 }

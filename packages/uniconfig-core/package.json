@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "rm -rf lib",
     "b": "mkdir -p target/es5 && tsc -p tsconfig.build.json",
-    "jest": "BABEL_ENV=test NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
+    "t": "NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
+    "jest": "NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
     "build_es6": "flow-remove-types src/ --out-dir dist/es6/",
     "build_es5": "BABEL_ENV=production babel src --out-dir dist/es5/",
     "build_bundle": "parcel build dist/es6/index.js --out-dir dist/bundle --experimental-scope-hoisting",
@@ -40,6 +41,9 @@
     "@babel/core": "^7.4.5",
     "typescript": "3.5.1",
     "@types/node": "^12.0.5",
-    "@types/lodash": "^4.14.133"
+    "@types/lodash": "^4.14.133",
+    "ts-jest": "^24.0.2",
+    "@types/jest": "^24.0.15",
+    "jest": "^24.8.0"
   }
 }

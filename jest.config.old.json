@@ -1,0 +1,13 @@
+{
+  "testEnvironment": "node",
+  "collectCoverage": true,
+  "coveragePathIgnorePatterns": [
+    "interface.js"
+  ],
+  "collectCoverageFrom": [
+    "<rootDir>/packages/**/src/**/*.js"
+  ],
+  "testMatch": [
+    "<rootDir>/packages/**/test/**/*.js"
+  ]
+}

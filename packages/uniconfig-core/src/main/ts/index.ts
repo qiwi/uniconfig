@@ -69,3 +69,5 @@ export {
   rollbackPlugin
 }
 export default factory
+
+export * from './interface'

@@ -1,0 +1,14 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "collectCoverage": true,
+  "coveragePathIgnorePatterns": [
+    "interface.js"
+  ],
+  "collectCoverageFrom": [
+    "<rootDir>/src/main/ts/**/*.ts"
+  ],
+  "testMatch": [
+    "<rootDir>/src/test/ts/**/*.ts"
+  ]
+}

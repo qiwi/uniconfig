@@ -1,17 +1,17 @@
 // @flow
 
-import type {
-  IPipe,
+import {
+  INamedPipe,
   IAny,
   IAnyObject
-} from '../../uniconfig-core/src/interface'
+} from '@qiwi/uniconfig-core'
 
-import Ajv from 'ajv'
+import * as Ajv from 'ajv'
 
 export const name = 'ajv'
 export const DEFAULT_OPTS = {}
 
-const ajvStack = {}
+const ajvStack: IAnyObject = {}
 const getAjv = (opts: IAnyObject): IAnyObject => {
   const key = JSON.stringify(opts)
 
@@ -24,8 +24,8 @@ const getAjv = (opts: IAnyObject): IAnyObject => {
 
 export type IAjvInput = {
   data: IAny,
-  schema?: ?IAnyObject,
-  opts?: ?IAnyObject
+  schema?: IAnyObject,
+  opts?: IAnyObject
 }
 
 export const handle = ({data, schema, opts}: IAjvInput): IAny => {
@@ -42,7 +42,7 @@ export const handle = ({data, schema, opts}: IAjvInput): IAny => {
   return data
 }
 
-export default ({
+export const pipe: INamedPipe = {
   name,
   handleSync(input: IAjvInput): IAny {
     return handle(input)
@@ -57,4 +57,6 @@ export default ({
       }
     })
   }
-}: IPipe)
+}
+
+export default pipe

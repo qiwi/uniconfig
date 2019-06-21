@@ -58,8 +58,8 @@ export class Config {
     }
   }
 
-  get (path: string): IAny {
-    if (!this.opts.tolerateMissed && !this.has(path)) {
+  get (path?: string): IAny {
+    if (path && !this.opts.tolerateMissed && !this.has(path)) {
       throw new ConfigError(MISSED_VALUE_PATH)
     }
 

@@ -1,6 +1,6 @@
 //import path from 'path'
 import {Config, SYNC, ASYNC, DEFAULT_OPTS} from '../../main/ts'
-import {Config as _Config, context as _context} from '@qiwi/uniconfig-core'
+// import {Config as _Config, context as _context} from '@qiwi/uniconfig-core'
 /*import {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
 import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
 import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'

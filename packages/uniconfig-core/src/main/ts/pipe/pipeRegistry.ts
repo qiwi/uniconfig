@@ -6,14 +6,16 @@ export type IPipeRegistryStore = {
 }
 
 export class PipeRegistry extends AbstractRegistry implements IRegistry {
+
   store: IPipeRegistryStore
   type: string
   [key: string]: any
-  constructor () {
+  constructor() {
     super()
     this.store = {}
     this.type = 'pipe'
   }
+
 }
 
 export default new PipeRegistry()

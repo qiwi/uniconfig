@@ -1,16 +1,19 @@
-import { IAny, IWindow } from '../interface'
-export { get, has, each, reduce, mapValues, map } from 'lodash'
+import {IAny, IWindow} from '../interface'
+export {get, has, each, reduce, mapValues, map} from 'lodash'
 
 declare var window: IWindow
 
-export function isBrowser (): boolean {
+export const isBrowser = (): boolean => {
   try {
     const w: IWindow = window
-
     return typeof w !== 'undefined' && typeof w.document !== 'undefined'
-  } catch (e) {
+
+  }
+  catch (e) {
     return false
   }
 }
 
-export function echo (data: IAny): IAny { return data }
+export const echo = (data: IAny): IAny => {
+  return data
+}

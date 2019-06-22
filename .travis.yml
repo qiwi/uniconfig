@@ -13,7 +13,6 @@ after_script: greenkeeper-lockfile-upload
 install:
   - yarn cache clean
   - sh scripts/install.sh
-  - yarn run fetch_libdefs
   - yarn run bootstrap
   - yarn run build
 

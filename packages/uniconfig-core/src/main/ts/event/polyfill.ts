@@ -4,20 +4,21 @@
  * Adapted from https://gist.github.com/mudge/5830382
  */
 
-import { IAny, IEventEmitter, IEventListener } from '../interface'
+import {IAny, IEventEmitter, IEventListener} from '../interface'
 
 type IListenersMap = {
   [key: string]: Array<IEventListener>
 }
 
 export default class EventEmitter implements IEventEmitter {
+
   events: IListenersMap
-  constructor () {
+  constructor() {
     this.events = {}
   }
 
-  on (event: string, listener: IEventListener): IEventEmitter {
-    if (typeof this.events[event] !== 'object') {
+  on(event: string, listener: IEventListener): IEventEmitter {
+    if (!this.events[event]) {
       this.events[event] = []
     }
 
@@ -26,17 +27,15 @@ export default class EventEmitter implements IEventEmitter {
     return this
   }
 
-  /**
-   * Awaits PR merge https://github.com/facebook/flow/pull/6471
-  off (name: string, listener: IEventListener): IEventEmitter {
-    return this.removeListener(name, listener)
-  }
-   */
+// Awaits PR merge https://github.com/facebook/flow/pull/6471
+// off (name: string, listener: IEventListener): IEventEmitter {
+//   return this.removeListener(name, listener)
+// }
 
-  removeListener (event: string, listener: IEventListener): IEventEmitter {
+  removeListener(event: string, listener: IEventListener): IEventEmitter {
     let idx
 
-    if (typeof this.events[event] === 'object') {
+    if (this.events[event]) {
       idx = this.events[event].indexOf(listener)
 
       if (idx > -1) {
@@ -47,10 +46,10 @@ export default class EventEmitter implements IEventEmitter {
     return this
   }
 
-  once (event: string, listener: IEventListener): IEventEmitter {
+  once(event: string, listener: IEventListener): IEventEmitter {
     const self = this
 
-    function g (...args: IAny[]) {
+    function g(...args: IAny[]) {
       self.removeListener(event, g)
       listener.apply(null, args)
     }
@@ -58,14 +57,12 @@ export default class EventEmitter implements IEventEmitter {
     return this.on(event, g)
   }
 
-  emit (event: string, ...args: IAny[]): boolean {
-    let i, listeners, length
+  emit(event: string, ...args: IAny[]): boolean {
+    if (this.events[event]) {
+      const listeners = this.events[event].slice()
+      const length = listeners.length
 
-    if (typeof this.events[event] === 'object') {
-      listeners = this.events[event].slice()
-      length = listeners.length
-
-      for (i = 0; i < length; i++) {
+      for (let i = 0; i < length; i++) {
         listeners[i].apply(this, args)
       }
       return listeners.length > 0
@@ -73,4 +70,5 @@ export default class EventEmitter implements IEventEmitter {
 
     return false
   }
+
 }

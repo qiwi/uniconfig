@@ -24,7 +24,7 @@ describe('plugin-root', () => {
   })
 
   describe('gets app root path', () => {
-    const expected = path.resolve(__dirname, '../../..')
+    const expected = path.resolve(__dirname, '../../../../..')
 
     it('sync', () => {
       const config = new Config({mode: SYNC, pipeline: name})

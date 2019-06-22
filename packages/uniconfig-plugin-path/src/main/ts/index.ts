@@ -1,13 +1,11 @@
-// @flow
-
 import rootPlugin from '@qiwi/uniconfig-plugin-root'
-import path from 'path'
-import type {
+import * as path from 'path'
+import {
   IAny,
   IContext,
-  IPipe,
+  INamedPipe,
   IPlugin
-} from '../../uniconfig-core/src/interface'
+} from '@qiwi/uniconfig-core'
 
 export const ROOT_ALIASES = ['<root>', '$root', 'APP_ROOT']
 export const resolveRoots = (args: IAny[]): IAny[] => args.map(arg => ROOT_ALIASES.includes(arg)
@@ -16,7 +14,7 @@ export const resolveRoots = (args: IAny[]): IAny[] => args.map(arg => ROOT_ALIAS
 )
 export const name: string = 'path'
 
-export const pipe: IPipe = {
+export const pipe: INamedPipe = {
   name,
   handleSync(data): IAny {
     let _data = data
@@ -33,7 +31,7 @@ export const pipe: IPipe = {
   }
 }
 
-export default ({
+export const plugin: IPlugin = {
   rollup(context: IContext): void {
     context.pipe.add(name, pipe)
     context.pipe.add(rootPlugin.name, rootPlugin)
@@ -42,4 +40,6 @@ export default ({
     context.pipe.remove(name)
     context.pipe.remove(rootPlugin.name)
   },
-}: IPlugin)
+}
+
+export default plugin

@@ -1,5 +1,5 @@
 import {context, Config, rollupPlugin, rollbackPlugin, SYNC, ASYNC} from '@qiwi/uniconfig-core'
-import pkgPlugin from '../src'
+import pkgPlugin from '../../main/ts'
 
 const name = pkgPlugin.name
 
@@ -33,7 +33,7 @@ describe('plugin-pkg', () => {
     it('async', async () => {
       const config = new Config({mode: ASYNC, pipeline: name})
 
-      return expect(config.ready.then(config => config.get())).resolves.toMatchObject(expected)
+      return expect(config.ready.then((config: Config) => config.get())).resolves.toMatchObject(expected)
     })
 
   })

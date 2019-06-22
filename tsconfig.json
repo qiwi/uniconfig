@@ -26,6 +26,12 @@
       ],
       "@qiwi/uniconfig-plugin-api-http/*": [
         "./uniconfig-plugin-api-http/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-argv": [
+        "./uniconfig-plugin-argv/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-argv/*": [
+        "./uniconfig-plugin-argv/src/ts/*"
       ]
     }
   }

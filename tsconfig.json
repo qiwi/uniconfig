@@ -3,10 +3,16 @@
   "compilerOptions": {
     "baseUrl": "./packages",
     "paths": {
+      "@qiwi/uniconfig": [
+        "./uniconfig/src/ts"
+      ],
+      "@qiwi/uniconfig/*": [
+        "./uniconfig/src/ts/*"
+      ],
       "@qiwi/uniconfig-core": [
         "./uniconfig-core/src/ts"
       ],
-      "@qiwi/pijma-app/*": [
+      "@qiwi/uniconfig-core/*": [
         "./uniconfig-core/src/ts/*"
       ],
       "@qiwi/uniconfig-plugin-ajv": [

@@ -1,6 +1,13 @@
-import {context, Config, rollupPlugin, rollbackPlugin, SYNC, ASYNC} from '@qiwi/uniconfig-core'
-import rootPlugin from '../src'
-import path from 'path'
+import {
+  context,
+  Config,
+  rollupPlugin,
+  rollbackPlugin,
+  SYNC,
+  ASYNC
+} from '@qiwi/uniconfig-core'
+import rootPlugin from '../../main/ts'
+import * as path from 'path'
 
 const name = rootPlugin.name
 
@@ -27,7 +34,7 @@ describe('plugin-root', () => {
     it('async', async () => {
       const config = new Config({mode: ASYNC, pipeline: name})
 
-      return expect(config.ready.then(config => config.get())).resolves.toBe(expected)
+      return expect(config.ready.then((config: Config) => config.get())).resolves.toBe(expected)
     })
   })
 

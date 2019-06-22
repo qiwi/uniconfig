@@ -1,4 +1,4 @@
-import plugin, {pipe, evaluate} from '../src'
+import {pipe} from '../../main/ts'
 
 describe('uniconfig-plugin-datatree', () => {
   const input = {

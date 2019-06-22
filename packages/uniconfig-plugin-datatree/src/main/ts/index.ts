@@ -1,15 +1,13 @@
-// @flow
-
-import type {
+import {
   IContext,
   IPlugin,
-  IPipe,
   IPipeline,
   IAny
-} from '../../uniconfig-core/src/interface'
+} from '@qiwi/uniconfig-core'
 
 import { get, map, reduce, mapValues, forEach, keys, isArray, isObject } from 'lodash'
 import { pipeExecutor, SYNC, ASYNC } from '@qiwi/uniconfig-core'
+import {IAnyObject, INamedPipe} from "@qiwi/uniconfig-core/src/main/ts";
 
 export const type = 'datatree'
 
@@ -28,9 +26,9 @@ export type ISourceMap = {
   [key: string]: IAny
 }
 
-const compact = (object: {[key: string]: IAny}, separator?: string ='.') => {
-  const paths = {}
-  const process = (branch, path) => {
+const compact = (object: {[key: string]: IAny}, separator: string ='.') => {
+  const paths: IAnyObject = {}
+  const process = (branch: any, path: string) => {
     isObject(branch) && keys(branch).length > 0 || isArray(branch) ?
       forEach(branch, (value, name) => {
         process(value, path + separator + name);
@@ -73,8 +71,9 @@ export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
   {}
 )
 
-export const pipe: IPipe = {
-  handleSync(input: IDatatree, opts: IAny): IAny {
+export const pipe: INamedPipe = {
+  name: 'datatree',
+  handleSync(input: IDatatree): IAny {
     const {sources = {}, data} = input
 
     return evaluate(data, mapValues(sources, ({data, pipeline}) => {
@@ -103,11 +102,13 @@ export const pipe: IPipe = {
   }
 }
 
-export default ({
+export const plugin: IPlugin = {
   rollup(context: IContext): void {
     context.pipe.add(type, pipe)
   },
   rollback(context: IContext): void {
     context.pipe.remove(type)
   },
-}: IPlugin)
+}
+
+export default plugin

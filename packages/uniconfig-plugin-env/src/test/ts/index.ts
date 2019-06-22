@@ -1,5 +1,11 @@
-import {context, Config, rollupPlugin, rollbackPlugin, SYNC} from '@qiwi/uniconfig-core'
-import envPlugin from '../src'
+import {
+  context,
+  Config,
+  rollupPlugin,
+  rollbackPlugin,
+  SYNC
+} from '@qiwi/uniconfig-core'
+import envPlugin from '../../main/ts'
 
 describe('plugin-env', () => {
   afterAll(() => {

@@ -1,15 +1,24 @@
-import {context, Config, rollupPlugin, rollbackPlugin, SYNC, ASYNC} from '@qiwi/uniconfig-core'
-import globalPlugin from '../src'
+import {
+  context,
+  Config,
+  rollupPlugin,
+  rollbackPlugin,
+  SYNC,
+  ASYNC
+} from '@qiwi/uniconfig-core'
+import globalPlugin from '../../main/ts'
 
 const name = globalPlugin.name
 
 describe('plugin-global', () => {
   beforeAll(() => {
+    // @ts-ignore
     global.FOO = 'bar'
   })
 
   afterAll(() => {
     context.pipe.flush()
+    // @ts-ignore
     delete global.FOO
   })
 

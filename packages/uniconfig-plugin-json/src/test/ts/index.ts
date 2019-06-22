@@ -1,8 +1,8 @@
-import path from 'path'
+import * as path from 'path'
 import {context, Config, rollupPlugin, rollbackPlugin, SYNC} from '@qiwi/uniconfig-core'
 import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
 import {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
-import jsonPlugin, {pipe as jsonPipe} from '../src'
+import jsonPlugin, {pipe as jsonPipe} from '../../main/ts'
 
 describe('plugin-json', () => {
   beforeAll(() => {
@@ -11,9 +11,7 @@ describe('plugin-json', () => {
     context.pipe.add('datatree', datatreePipe)
   })
 
-  afterAll(() => {
-    context.pipe.flush()
-  })
+  afterAll(context.pipe.flush)
 
   it('properly registers self', () => {
     rollupPlugin(jsonPlugin)

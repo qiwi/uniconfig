@@ -66,6 +66,10 @@
     "standard": "^12.0.1",
     "ts-jest": "^24.0.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiwi/uniconfig.git"
+  },
   "standard": {
     "parser": "babel-eslint",
     "plugins": [

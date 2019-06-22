@@ -4,9 +4,7 @@ import pkgPlugin from '../../main/ts'
 const name = pkgPlugin.name
 
 describe('plugin-pkg', () => {
-  afterAll(() => {
-    context.pipe.flush()
-  })
+  afterAll(context.pipe.flush)
 
   it('properly registers self', () => {
     rollupPlugin(pkgPlugin)
@@ -17,12 +15,10 @@ describe('plugin-pkg', () => {
 
   describe('gets package.json data', () => {
     const expected = {
-      workspaces: [ 'packages/*' ],
-      scripts:
-        {
-          clean: 'lerna clean --yes && lerna run clean',
-          build: 'yarn clean && lerna run --stream build'
-        }
+      repository: {
+        type: 'git',
+        url: 'git+https://github.com/qiwi/uniconfig.git'
+      },
     }
 
     it('sync', () => {

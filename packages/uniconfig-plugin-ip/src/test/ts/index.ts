@@ -1,5 +1,5 @@
 import {context, Config, rollupPlugin, rollbackPlugin, SYNC} from '@qiwi/uniconfig-core'
-import ipPlugin from '../src'
+import ipPlugin from '../../main/ts'
 
 describe('plugin-ip', () => {
   afterAll(() => {

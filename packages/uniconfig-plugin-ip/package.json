@@ -2,12 +2,14 @@
   "name": "@qiwi/uniconfig-plugin-ip",
   "version": "2.22.1",
   "description": "Uniconfig IP/host resolver plugin",
-  "main": "dist/es5/index.js",
+  "main": "target/es5/index.js",
+  "types": "target/es5/index.d.ts",
   "scripts": {
-    "build_es6": "flow-remove-types src/ --out-dir dist/es6/",
-    "build_es5": "BABEL_ENV=production babel src --out-dir dist/es5/",
-    "build_bundle": "parcel build dist/es6/index.js --out-dir dist/bundle --experimental-scope-hoisting",
-    "build": "rm -rf dist && npm run build_es6 && npm run build_es5 && npm run build_bundle"
+    "clean": "rm -rf target",
+    "jest": "NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
+    "build_es5": "mkdir -p target/es5 && tsc -p tsconfig.build.json --target ES5 --outDir target/es5 -m CommonJS",
+    "build_es6": "mkdir -p target/es6 && tsc -p tsconfig.build.json --target ES6 --outDir target/es6",
+    "build": "yarn clean && npm run build_es6 && npm run build_es5"
   },
   "repository": {
     "type": "git",
@@ -25,14 +27,20 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "^2.22.2",
-    "ip": "^1.1.5"
+    "ip": "^1.1.5",
+    "tslib": "^1.9.3"
   },
   "files": [
     "README.md",
     "CHANGELOG.md",
-    "dist/"
+    "target"
   ],
   "devDependencies": {
-    "@babel/core": "^7.4.5"
+    "typescript": "3.5.1",
+    "@types/node": "^12.0.5",
+    "ts-jest": "^24.0.2",
+    "@types/jest": "^24.0.15",
+    "jest": "^24.8.0",
+    "@types/ip": "^1.1.0"
   }
 }

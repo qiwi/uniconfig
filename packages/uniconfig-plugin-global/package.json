@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-global",
-  "version": "2.22.1",
+  "version": "3.0.0",
   "description": "Uniconfig global variables reading API",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",

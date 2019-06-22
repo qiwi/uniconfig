@@ -1,7 +1,7 @@
-import path from 'path'
+import * as path from 'path'
 import {context, Config, rollupPlugin, rollbackPlugin, SYNC, ASYNC} from '@qiwi/uniconfig-core'
 import {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
-import dotenvPlugin from '../src'
+import dotenvPlugin from '../../main/ts'
 
 describe('plugin-dotenv', () => {
   beforeAll(() => {

@@ -31,7 +31,7 @@
     "@semantic-release/github": "5.4.0",
     "@semantic-release/npm": "5.1.9",
     "@semantic-release/release-notes-generator": "7.2.0",
-    "@types/node": "^12.0.8",
+    "@types/node": "^12.0.10",
     "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.0.4",
     "docma": "^3.2.2",

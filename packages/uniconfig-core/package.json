@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "tslib": "^1.9.3",
+    "tslib": "^1.10.0",
     "lodash": "^4.17.11"
   },
   "files": [
@@ -37,9 +37,9 @@
     "target"
   ],
   "devDependencies": {
-    "typescript": "3.5.1",
-    "@types/node": "^12.0.5",
-    "@types/lodash": "^4.14.133",
+    "typescript": "3.5.2",
+    "@types/node": "^12.0.10",
+    "@types/lodash": "^4.14.134",
     "ts-jest": "^24.0.2",
     "@types/jest": "^24.0.15",
     "jest": "^24.8.0"

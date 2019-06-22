@@ -1,18 +1,17 @@
-// @flow
-
-import type {
+import {
   IContext,
   IPlugin,
   IAny,
-  IPipe
-} from '../../uniconfig-core/src/interface'
+  INamedPipe
+} from '@qiwi/uniconfig-core'
 import {safeLoad} from 'js-yaml'
 
-const type = 'yaml'
+const name = 'yaml'
 
 export const parse = (data: string): IAny => safeLoad(data)
 
-export const pipe: IPipe = {
+export const pipe: INamedPipe = {
+  name,
   handleSync(data: IAny): IAny {
     return parse(data)
   },
@@ -21,11 +20,13 @@ export const pipe: IPipe = {
   }
 }
 
-export default ({
+export const plugin: IPlugin = {
   rollup(context: IContext): void {
-    context.pipe.add(type, pipe)
+    context.pipe.add(name, pipe)
   },
   rollback(context: IContext): void {
-    context.pipe.remove(type)
+    context.pipe.remove(name)
   },
-}: IPlugin)
+}
+
+export default plugin

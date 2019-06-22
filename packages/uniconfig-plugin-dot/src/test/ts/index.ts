@@ -1,5 +1,12 @@
-import {context, Config, rollupPlugin, rollbackPlugin, SYNC, ASYNC} from '@qiwi/uniconfig-core'
-import dotPlugin from '../src'
+import {
+  context,
+  Config,
+  rollupPlugin,
+  rollbackPlugin,
+  SYNC,
+  ASYNC
+} from '@qiwi/uniconfig-core'
+import dotPlugin from '../../main/ts'
 
 describe('plugin-dot', () => {
   afterAll(() => {
@@ -37,7 +44,7 @@ describe('plugin-dot', () => {
         ...opt,
         mode: ASYNC,
       })
-      return await expect(config.ready.then(config => config.get())).resolves.toBe('FOO-bar-BAZ')
+      return await expect(config.ready.then((config: Config) => config.get())).resolves.toBe('FOO-bar-BAZ')
     })
   })
 

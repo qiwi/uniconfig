@@ -4,7 +4,7 @@ import {
 } from '@qiwi/uniconfig-core'
 
 // @ts-ignore
-const GLOBAL: any = (() => globalThis || global || this || Function('return this')())()
+const GLOBAL: any = (() => this.globalThis || global || this || Function('return this')())()
 
 const pipe: INamedPipe = {
   name: 'global',

@@ -32,6 +32,72 @@
       ],
       "@qiwi/uniconfig-plugin-argv/*": [
         "./uniconfig-plugin-argv/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-datatree": [
+        "./uniconfig-plugin-datatree/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-datatree/*": [
+        "./uniconfig-plugin-datatree/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-dot": [
+        "./uniconfig-plugin-dot/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-dot/*": [
+        "./uniconfig-plugin-dot/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-dotenv": [
+        "./uniconfig-plugin-dotenv/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-dotenv/*": [
+        "./uniconfig-plugin-dotenv/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-env": [
+        "./uniconfig-plugin-env/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-env/*": [
+        "./uniconfig-plugin-env/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-global": [
+        "./uniconfig-plugin-global/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-global/*": [
+        "./uniconfig-plugin-global/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-ip": [
+        "./uniconfig-plugin-ip/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-ip/*": [
+        "./uniconfig-plugin-ip/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-json": [
+        "./uniconfig-plugin-json/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-json/*": [
+        "./uniconfig-plugin-json/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-path": [
+        "./uniconfig-plugin-path/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-path/*": [
+        "./uniconfig-plugin-path/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-pkg": [
+        "./uniconfig-plugin-pkg/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-pkg/*": [
+        "./uniconfig-plugin-pkg/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-root": [
+        "./uniconfig-plugin-root/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-root/*": [
+        "./uniconfig-plugin-root/src/ts/*"
+      ],
+      "@qiwi/uniconfig-plugin-yaml": [
+        "./uniconfig-plugin-yaml/src/ts"
+      ],
+      "@qiwi/uniconfig-plugin-yaml/*": [
+        "./uniconfig-plugin-yaml/src/ts/*"
       ]
     }
   }

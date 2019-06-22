@@ -103,14 +103,14 @@ export type IPlugin = {
 }
 
 export type IPipe = {
-  handle(data: IAny, opts?: IAny): Promise<IAny>,
-  handleSync(data: IAny, opts?: IAny): IAny,
+  handle(data?: IAny, opts?: IAny): Promise<IAny>,
+  handleSync(data?: IAny, opts?: IAny): IAny,
   name?: string
 }
 
 export type INamedPipe = {
-  handle(data: IAny, opts?: IAny): Promise<IAny>,
-  handleSync(data: IAny, opts?: IAny): IAny,
+  handle(data?: IAny, opts?: IAny): Promise<IAny>,
+  handleSync(data?: IAny, opts?: IAny): IAny,
   name: string,
   [key: string]: any
 }

@@ -1,5 +1,5 @@
 import uniconfig, {Config} from '@qiwi/uniconfig'
-import path from 'path'
+import * as path from 'path'
 
 describe('legacy-facade', () => {
   describe('factory', () => {
@@ -25,7 +25,7 @@ describe('legacy-facade', () => {
         }
       }
     }
-    const mode = 'sync'
+    const mode: 'sync' = 'sync'
     const opts = {mode, pipeline: 'datatree'}
     const config = new Config(input, opts)
 

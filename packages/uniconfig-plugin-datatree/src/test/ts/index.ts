@@ -8,14 +8,14 @@ describe('uniconfig-plugin-datatree', () => {
       anotherParam: '$a:d.e.f.g',
       lastParam: '$a:i.j.k.l.m.n',
       nested: {
-        foo: '$foo:bar'
-      }
+        foo: '$foo:bar',
+      },
     },
     sources: {
       foo: {
         data: {
-          bar: 'baz'
-        }
+          bar: 'baz',
+        },
       },
       a: {
         data: {
@@ -23,12 +23,12 @@ describe('uniconfig-plugin-datatree', () => {
           'd.e.f.g': 'h',
           'i.j': {
             k: {
-              'l.m.n': 'o'
-            }
-          }
-        }
+              'l.m.n': 'o',
+            },
+          },
+        },
       },
-    }
+    },
   }
 
   describe('#handleSync', () => {
@@ -39,22 +39,22 @@ describe('uniconfig-plugin-datatree', () => {
         anotherParam: 'h',
         lastParam: 'o',
         nested: {
-          foo: 'baz'
-        }
+          foo: 'baz',
+        },
       })
     })
   })
 
   describe('#handle', () => {
-    it('populates input with source data', async () => {
+    it('populates input with source data', async() => {
       await expect(pipe.handle(input)).resolves.toEqual({
         someParam: 'baz',
         otherParam: 'c',
         anotherParam: 'h',
         lastParam: 'o',
         nested: {
-          foo: 'baz'
-        }
+          foo: 'baz',
+        },
       })
     })
   })

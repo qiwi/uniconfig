@@ -26,11 +26,11 @@ describe('plugin-path', () => {
       expect(new Config({
         data: ['$root', 'config/default.json'],
         mode: SYNC,
-        pipeline: 'path'}
+        pipeline: 'path'},
       ).get()).toBe(expected)
     })
 
-    it('async', async () => {
+    it('async', async() => {
       const config = new Config({data: ['<root>', 'config/default.json']}, {mode: ASYNC, pipeline: 'path'})
       return expect(config.ready.then((config: Config) => config.get())).resolves.toBe(expected)
     })

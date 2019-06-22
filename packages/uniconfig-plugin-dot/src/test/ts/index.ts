@@ -4,7 +4,7 @@ import {
   rollupPlugin,
   rollbackPlugin,
   SYNC,
-  ASYNC
+  ASYNC,
 } from '@qiwi/uniconfig-core'
 import dotPlugin from '../../main/ts'
 
@@ -25,10 +25,10 @@ describe('plugin-dot', () => {
         template: '{{=it.foo}}-bar-{{=it.baz}}',
         data: {
           foo: 'FOO',
-          baz: 'BAZ'
-        }
+          baz: 'BAZ',
+        },
       },
-      pipeline: 'dot'
+      pipeline: 'dot',
     }
 
     it('sync', () => {
@@ -39,12 +39,12 @@ describe('plugin-dot', () => {
       expect(config.get()).toBe('FOO-bar-BAZ')
     })
 
-    it('async', async () => {
+    it('async', async() => {
       const config = new Config({
         ...opt,
         mode: ASYNC,
       })
-      return await expect(config.ready.then((config: Config) => config.get())).resolves.toBe('FOO-bar-BAZ')
+      return expect(config.ready.then((config: Config) => config.get())).resolves.toBe('FOO-bar-BAZ')
     })
   })
 

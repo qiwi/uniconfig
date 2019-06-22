@@ -23,14 +23,14 @@ describe('plugin-json', () => {
     const target = path.resolve(__dirname, './foobar.json')
     const config = new Config({
       data: {
-        baz: '$fromJson:foo'
+        baz: '$fromJson:foo',
       },
       sources: {
         'fromJson': {
           data: target,
-          pipeline: 'file>json'
-        }
-      }
+          pipeline: 'file>json',
+        },
+      },
     }, {mode: SYNC, pipeline: 'datatree'})
 
     expect(config.get('baz')).toBe('bar')

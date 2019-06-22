@@ -4,7 +4,7 @@ import {
   rollupPlugin,
   rollbackPlugin,
   SYNC,
-  ASYNC
+  ASYNC,
 } from '@qiwi/uniconfig-core'
 import ajvPlugin from '../../main/ts'
 
@@ -29,22 +29,22 @@ describe('plugin-ajv', () => {
       properties: {
         foo: {
           type: 'string',
-          minLength: 1
+          minLength: 1,
         },
         date: {
           type: 'string',
-          format: 'date-time'
-        }
-      }
+          format: 'date-time',
+        },
+      },
     }
     const cases: Array<[string, any, any, string] | [string, any, any]> = [
-      [SYNC, { foo: 'bar' }, {}],
-      [SYNC, { foo: 1 }, {}, '[uniconfig ajv]: data.foo should be string'],
-      [SYNC, { foo: 'bar', date: '2000-01-32T20:20:20Z' }, {format: 'fast'}],
-      [SYNC, { foo: 'bar', date: '2000-01-32T20:20:20Z' }, {format: 'full'}, '[uniconfig ajv]: data.date should match format "date-time"'],
+      [SYNC, {foo: 'bar'}, {}],
+      [SYNC, {foo: 1}, {}, '[uniconfig ajv]: data.foo should be string'],
+      [SYNC, {foo: 'bar', date: '2000-01-32T20:20:20Z'}, {format: 'fast'}],
+      [SYNC, {foo: 'bar', date: '2000-01-32T20:20:20Z'}, {format: 'full'}, '[uniconfig ajv]: data.date should match format "date-time"'],
 
-      [ASYNC, { foo: 'bar' }, {}],
-      [ASYNC, { foo: 1 }, {}, '[uniconfig ajv]: data.foo should be string'],
+      [ASYNC, {foo: 'bar'}, {}],
+      [ASYNC, {foo: 1}, {}, '[uniconfig ajv]: data.foo should be string'],
     ]
 
     cases.forEach(([mode, data, ajvOpts, err]) => {
@@ -53,9 +53,9 @@ describe('plugin-ajv', () => {
         data: {
           data,
           schema,
-          opts: ajvOpts
+          opts: ajvOpts,
         },
-        pipeline: name
+        pipeline: name,
       }
 
       if (mode === SYNC) {
@@ -63,18 +63,23 @@ describe('plugin-ajv', () => {
           it(`${mode}: ${err}`, () => {
             expect(() => new Config(opts)).toThrow(new Error(err))
           })
-        } else {
+        }
+        else {
           it(`${mode} returns valid data as is`, () => {
             expect(new Config(opts).get()).toBe(data)
           })
         }
-      } else {
+      }
+      else {
         if (err) {
           it(`${mode}: rejects with err ${err}`, () => {
+            // tslint:disable-next-line
             expect(new Config(opts).ready.then((config: Config) => config.get())).rejects.toBe(err)
           })
-        } else {
+        }
+        else {
           it(`${mode} resolves valid data as is`, () => {
+            // tslint:disable-next-line
             expect(new Config(opts).ready.then((config: Config) => config.get())).resolves.toBe(data)
           })
         }

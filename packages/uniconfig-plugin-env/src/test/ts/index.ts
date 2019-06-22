@@ -3,7 +3,7 @@ import {
   Config,
   rollupPlugin,
   rollbackPlugin,
-  SYNC
+  SYNC,
 } from '@qiwi/uniconfig-core'
 import envPlugin from '../../main/ts'
 

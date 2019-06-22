@@ -2,7 +2,7 @@ import {
   IAny,
   IContext,
   IPlugin,
-  IPipe
+  IPipe,
 } from '@qiwi/uniconfig-core'
 
 import requestSync from 'sync-request'
@@ -25,25 +25,24 @@ const parseTarget = (target: string | IRequestOpts): IRequestOpts => {
   if (typeof target === 'string') {
     return {
       url: target,
-      method: 'GET'
+      method: 'GET',
     }
   }
 
   return target
 }
 
-
 export const pipe: IPipe = {
-  handleSync (target: string | IRequestOpts) {
+  handleSync(target: string | IRequestOpts) {
     const {method, url, opts} = parseTarget(target)
 
     return requestSync(method, url, opts).getBody('utf8')
   },
-  handle (target: string | IRequestOpts) {
+  handle(target: string | IRequestOpts) {
     const {method, url, opts} = parseTarget(target)
 
     return requestAsync(method, url, opts).getBody('utf8')
-  }
+  },
 }
 
 export const plugin: IPlugin = {

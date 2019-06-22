@@ -48,7 +48,7 @@ describe('Config', () => {
       const opts = {
         data,
         pipeline: '',
-        mode: SYNC
+        mode: SYNC,
       }
       const cfg = new Config(opts)
 

@@ -22,7 +22,7 @@ describe('pipe/pipeExecutor', () => {
     }, {})
     const asPipe = (handler: Function) => ({
       handleSync: handler,
-      async handle (...args: any[]) { return handler(...args) }
+      async handle (...args: any[]) { return handler(...args) },
     })
 
     registry.add('json', asPipe(json))
@@ -43,7 +43,7 @@ describe('pipe/pipeExecutor', () => {
       spacer
       
 `, { FOO: 'BAR' }, false],
-      [data, '', data, false]
+      [data, '', data, false],
     ]
 
     cases.forEach(([data, pipeline, expected, sync]) => {

@@ -17,7 +17,7 @@ describe('plugin-pkg', () => {
     const expected = {
       repository: {
         type: 'git',
-        url: 'git+https://github.com/qiwi/uniconfig.git'
+        url: 'git+https://github.com/qiwi/uniconfig.git',
       },
     }
 
@@ -26,7 +26,7 @@ describe('plugin-pkg', () => {
       expect(config.get()).toMatchObject(expected)
     })
 
-    it('async', async () => {
+    it('async', async() => {
       const config = new Config({mode: ASYNC, pipeline: name})
 
       return expect(config.ready.then((config: Config) => config.get())).resolves.toMatchObject(expected)

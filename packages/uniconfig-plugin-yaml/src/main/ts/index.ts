@@ -2,7 +2,7 @@ import {
   IContext,
   IPlugin,
   IAny,
-  INamedPipe
+  INamedPipe,
 } from '@qiwi/uniconfig-core'
 import {safeLoad} from 'js-yaml'
 
@@ -17,7 +17,7 @@ export const pipe: INamedPipe = {
   },
   handle(data: IAny): Promise<IAny> {
     return Promise.resolve(parse(data))
-  }
+  },
 }
 
 export const plugin: IPlugin = {

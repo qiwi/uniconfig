@@ -1,7 +1,7 @@
 import * as path from 'path'
 import {context, Config, rollupPlugin, rollbackPlugin, ASYNC, SYNC} from '@qiwi/uniconfig-core'
 import filePlugin, {pipe as filePipe} from '../../main/ts'
-import {IConfigLegacyOpts} from "@qiwi/uniconfig-core/src/main/ts";
+import {IConfigLegacyOpts} from '@qiwi/uniconfig-core/src/main/ts'
 
 describe('uniconfig-plugin-api-file', () => {
   afterAll(() => {
@@ -12,7 +12,7 @@ describe('uniconfig-plugin-api-file', () => {
 
   describe('#readSync', () => {
     it('gets file data as string', () => {
-      expect(filePipe.handleSync(target)).toEqual(JSON.stringify({ foo: 'bar' }))
+      expect(filePipe.handleSync(target)).toEqual(JSON.stringify({foo: 'bar'}))
     })
 
     it('gets err as result', () => {
@@ -22,7 +22,7 @@ describe('uniconfig-plugin-api-file', () => {
 
   describe('#read', () => {
     it('resolves promise with string', () => {
-      return expect(filePipe.handle(target)).resolves.toEqual(JSON.stringify({ foo: 'bar' }))
+      return expect(filePipe.handle(target)).resolves.toEqual(JSON.stringify({foo: 'bar'}))
     })
 
     it('rejects promise with err', () => {

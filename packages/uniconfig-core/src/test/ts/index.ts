@@ -5,7 +5,7 @@ import uniconfig, {
   addPipe,
   removePipe,
   rollupPlugin,
-  rollbackPlugin
+  rollbackPlugin,
 } from '../../main/ts'
 import {Context} from '../../main/ts/context'
 
@@ -16,7 +16,7 @@ describe('facade', () => {
   const name = 'test'
   const pipe = {
     async handle() {},
-    handleSync() {}
+    handleSync() {},
   }
   const pipeAsPlugin = {...pipe, name}
   const plugin = {
@@ -25,7 +25,7 @@ describe('facade', () => {
     },
     rollback(context: Context) {
       context.pipe.remove(name)
-    }
+    },
   }
 
   describe('exports factory as default', () => {

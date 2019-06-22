@@ -1,6 +1,6 @@
 import {
   IAny,
-  INamedPipe
+  INamedPipe,
 } from '@qiwi/uniconfig-core'
 
 // @ts-ignore
@@ -13,7 +13,7 @@ const pipe: INamedPipe = {
   },
   handle(): Promise<IAny> {
     return Promise.resolve(GLOBAL)
-  }
+  },
 }
 
 export default pipe

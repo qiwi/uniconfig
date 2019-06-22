@@ -2,7 +2,7 @@ import {
   IContext,
   IPlugin,
   IAny,
-  INamedPipe
+  INamedPipe,
 } from '@qiwi/uniconfig-core'
 
 export const name = 'json'
@@ -16,7 +16,7 @@ export const pipe: INamedPipe = {
   },
   handle(data: IAny): Promise<IAny> {
     return Promise.resolve(parse(data))
-  }
+  },
 }
 
 const plugin: IPlugin = {

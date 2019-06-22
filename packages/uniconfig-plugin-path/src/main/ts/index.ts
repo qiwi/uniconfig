@@ -4,13 +4,13 @@ import {
   IAny,
   IContext,
   INamedPipe,
-  IPlugin
+  IPlugin,
 } from '@qiwi/uniconfig-core'
 
 export const ROOT_ALIASES = ['<root>', '$root', 'APP_ROOT']
 export const resolveRoots = (args: IAny[]): IAny[] => args.map(arg => ROOT_ALIASES.includes(arg)
   ? rootPlugin.handleSync()
-  : arg
+  : arg,
 )
 export const name: string = 'path'
 
@@ -28,7 +28,7 @@ export const pipe: INamedPipe = {
   },
   handle(data): Promise<IAny> {
     return Promise.resolve(pipe.handleSync(data))
-  }
+  },
 }
 
 export const plugin: IPlugin = {

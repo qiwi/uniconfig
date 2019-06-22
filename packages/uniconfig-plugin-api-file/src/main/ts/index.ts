@@ -4,7 +4,7 @@ import {
   IAny,
   IResolve,
   IReject,
-  IPipe
+  IPipe,
 } from '@qiwi/uniconfig-core'
 
 export type IFsOpts = {
@@ -13,26 +13,27 @@ export type IFsOpts = {
 }
 
 export const DEFAULT_OPTS: IFsOpts = {
-  encoding: 'utf8'
+  encoding: 'utf8',
 }
 
 export const type = 'file'
 
 export const pipe: IPipe = {
-  handleSync (target: string, opts?: IFsOpts): IAny {
+  handleSync(target: string, opts?: IFsOpts): IAny {
     return require('fs').readFileSync(target, processOpts(opts))
   },
-  handle (target: string, opts?: IFsOpts): Promise<IAny> {
+  handle(target: string, opts?: IFsOpts): Promise<IAny> {
     return new Promise((resolve: IResolve, reject: IReject): void => {
       require('fs').readFile(target, processOpts(opts), (err: IAny | null, data: IAny) => {
         if (err) {
           reject(err)
-        } else {
+        }
+        else {
           resolve(data)
         }
       })
     })
-  }
+  },
 }
 
 const plugin: IPlugin = {
@@ -46,6 +47,6 @@ const plugin: IPlugin = {
 
 export default plugin
 
-export function processOpts (opts?: IFsOpts): IFsOpts {
-  return { ...DEFAULT_OPTS, ...opts }
+export function processOpts(opts?: IFsOpts): IFsOpts {
+  return {...DEFAULT_OPTS, ...opts}
 }

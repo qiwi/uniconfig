@@ -11,7 +11,7 @@ import {
   IIntention,
   IResolve,
   IReject,
-  IInjectsMap
+  IInjectsMap,
 } from './interface'
 
 import {get, has, reduce} from './base/util'
@@ -24,7 +24,7 @@ export const SYNC = 'sync'
 export const ASYNC = 'async'
 export const DEFAULT_OPTS: IConfigOpts = {
   mode: SYNC,
-  tolerateMissed: true
+  tolerateMissed: true,
 }
 
 export class Config {
@@ -103,7 +103,7 @@ export class Config {
     return {
       promise,
       resolve(data: any) { return resolve(data) },
-      reject(data: any) { return reject(data) }
+      reject(data: any) { return reject(data) },
     }
   }
 
@@ -119,7 +119,7 @@ export class Config {
 
     return {
       ...DEFAULT_OPTS,
-      data: input
+      data: input,
     }
   }
 

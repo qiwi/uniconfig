@@ -1,6 +1,6 @@
 import {
   IAny,
-  INamedPipe
+  INamedPipe,
 } from '@qiwi/uniconfig-core'
 import {parse} from 'dotenv'
 
@@ -13,7 +13,7 @@ export const pipe: INamedPipe = {
   },
   handle(data: IAny): Promise<IAny> {
     return Promise.resolve(parse(data))
-  }
+  },
 }
 
 export default pipe

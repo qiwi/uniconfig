@@ -24,14 +24,14 @@ describe('plugin-yaml', () => {
     const target = path.resolve(__dirname, './foobar.yml')
     const config = new Config({
       data: {
-        baz: '$fromYaml:foo'
+        baz: '$fromYaml:foo',
       },
       sources: {
         'fromYaml': {
           data: target,
-          pipeline: 'file>yaml'
-        }
-      }
+          pipeline: 'file>yaml',
+        },
+      },
     }, {mode: SYNC, pipeline: 'datatree'})
 
     expect(config.get('baz')).toBe('bar')

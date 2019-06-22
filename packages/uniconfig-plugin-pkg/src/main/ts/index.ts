@@ -1,6 +1,6 @@
 import {
   IAny,
-  INamedPipe
+  INamedPipe,
 } from '@qiwi/uniconfig-core'
 import * as read from 'read-pkg'
 
@@ -11,7 +11,7 @@ export const pipe: INamedPipe = {
   },
   handle(): Promise<IAny> {
     return read()
-  }
+  },
 }
 
 export default pipe

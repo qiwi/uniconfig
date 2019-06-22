@@ -3,7 +3,7 @@
 import {
   INamedPipe,
   IAny,
-  IAnyObject
+  IAnyObject,
 } from '@qiwi/uniconfig-core'
 
 import * as Ajv from 'ajv'
@@ -52,11 +52,12 @@ export const pipe: INamedPipe = {
       try {
         resolve(handle(input))
 
-      } catch (e) {
+      }
+      catch (e) {
         reject(e)
       }
     })
-  }
+  },
 }
 
 export default pipe

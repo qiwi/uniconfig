@@ -11,7 +11,7 @@ import {
   IConfigInput,
   IPipe,
   IPluginDeclaration,
-  IContext, IPlugin, INamedPipe
+  IContext, IPlugin, INamedPipe,
 } from './interface'
 import createContext from './context'
 import pipeExecutor from './pipe/pipeExecutor'
@@ -66,7 +66,7 @@ export {
   addPipe,
   removePipe,
   rollupPlugin,
-  rollbackPlugin
+  rollbackPlugin,
 }
 export default factory
 

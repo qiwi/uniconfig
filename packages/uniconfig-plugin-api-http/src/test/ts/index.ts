@@ -11,8 +11,8 @@ describe('uniconfig-plugin-api-http', () => {
       email: 'janet.weaver@reqres.in',
       first_name: 'Janet',
       last_name: 'Weaver',
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg'
-    }
+      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg',
+    },
   }
 
   describe('#handleSync', () => {
@@ -23,7 +23,7 @@ describe('uniconfig-plugin-api-http', () => {
     it('supports req opts', () => {
       expect(httpPipe.handleSync({
         url: target,
-        method: 'GET'
+        method: 'GET',
       })).toEqual(JSON.stringify(expectedData))
     })
 

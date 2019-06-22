@@ -16,14 +16,14 @@ describe('legacy-facade', () => {
     const target = path.resolve(__dirname, './foobar.json')
     const input = {
       data: {
-        someParam: '$fromFile:foo'
+        someParam: '$fromFile:foo',
       },
       sources: {
         fromFile: {
           data: target,
-          pipeline: 'file>json'
-        }
-      }
+          pipeline: 'file>json',
+        },
+      },
     }
     const mode: 'sync' = 'sync'
     const opts = {mode, pipeline: 'datatree'}

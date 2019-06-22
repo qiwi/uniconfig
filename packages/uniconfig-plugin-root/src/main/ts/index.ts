@@ -1,6 +1,6 @@
 import {
   IAny,
-  INamedPipe
+  INamedPipe,
 } from '@qiwi/uniconfig-core'
 import {path as ROOT} from 'app-root-path'
 
@@ -11,7 +11,7 @@ export const pipe: INamedPipe = {
   },
   handle(): Promise<IAny> {
     return Promise.resolve(ROOT)
-  }
+  },
 }
 
 export default pipe

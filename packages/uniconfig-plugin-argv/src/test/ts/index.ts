@@ -4,7 +4,7 @@ import {
   rollupPlugin,
   rollbackPlugin,
   SYNC,
-  ASYNC
+  ASYNC,
 } from '@qiwi/uniconfig-core'
 import argvPlugin from '../../main/ts'
 

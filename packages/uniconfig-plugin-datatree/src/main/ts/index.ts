@@ -2,12 +2,15 @@ import {
   IContext,
   IPlugin,
   IPipeline,
-  IAny
+  IAny,
+  IAnyObject,
+  INamedPipe,
+  pipeExecutor,
+  SYNC,
+  ASYNC,
 } from '@qiwi/uniconfig-core'
 
-import { get, map, reduce, mapValues, forEach, keys, isArray, isObject } from 'lodash'
-import { pipeExecutor, SYNC, ASYNC } from '@qiwi/uniconfig-core'
-import {IAnyObject, INamedPipe} from "@qiwi/uniconfig-core/src/main/ts";
+import {get, map, reduce, mapValues, forEach, keys, isArray, isObject} from 'lodash'
 
 export const type = 'datatree'
 
@@ -26,18 +29,18 @@ export type ISourceMap = {
   [key: string]: IAny
 }
 
-const compact = (object: {[key: string]: IAny}, separator: string ='.') => {
+const compact = (object: {[key: string]: IAny}, separator: string = '.') => {
   const paths: IAnyObject = {}
   const process = (branch: any, path: string) => {
     isObject(branch) && keys(branch).length > 0 || isArray(branch) ?
       forEach(branch, (value, name) => {
-        process(value, path + separator + name);
+        process(value, path + separator + name)
       }) :
-      (paths[path] = branch);
+      (paths[path] = branch)
   }
   forEach(object, process)
 
-  return paths;
+  return paths
 }
 
 export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
@@ -52,15 +55,16 @@ export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
           result[key] = path
             ? source[path] || get(source, path) || get(compact(source), path)
             : source
-        } else {
+        }
+        else {
           // TODO Throw error
         }
-        break;
+        break
 
       case typeof value === 'object':
         result[key] = evaluate(value, sources)
 
-        break;
+        break
 
       default:
         result[key] = value
@@ -68,7 +72,7 @@ export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
 
     return result
   },
-  {}
+  {},
 )
 
 export const pipe: INamedPipe = {
@@ -85,7 +89,7 @@ export const pipe: INamedPipe = {
     const {sources = {}, data} = input
     const pairs = map(sources, ({data, pipeline}, key) => ({
       key,
-      promise: pipeExecutor(data, pipeline, ASYNC)
+      promise: pipeExecutor(data, pipeline, ASYNC),
     }))
 
     return Promise
@@ -96,10 +100,10 @@ export const pipe: INamedPipe = {
           m[key] = resolved[i]
           return m
         },
-        {}
+        {},
       ))
       .then(sources => evaluate(data, sources))
-  }
+  },
 }
 
 export const plugin: IPlugin = {

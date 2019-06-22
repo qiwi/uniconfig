@@ -2,7 +2,7 @@ import {
   IContext,
   IPlugin,
   IAny,
-  INamedPipe
+  INamedPipe,
 } from '@qiwi/uniconfig-core'
 
 const name = 'env'
@@ -14,7 +14,7 @@ export const pipe: INamedPipe = {
   },
   handle(): Promise<IAny> {
     return Promise.resolve(process.env)
-  }
+  },
 }
 
 export const plugin: IPlugin = {

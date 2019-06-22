@@ -4,7 +4,7 @@ import {
   rollupPlugin,
   rollbackPlugin,
   SYNC,
-  ASYNC
+  ASYNC,
 } from '@qiwi/uniconfig-core'
 import rootPlugin from '../../main/ts'
 import * as path from 'path'
@@ -31,7 +31,7 @@ describe('plugin-root', () => {
       expect(config.get()).toBe(expected)
     })
 
-    it('async', async () => {
+    it('async', async() => {
       const config = new Config({mode: ASYNC, pipeline: name})
 
       return expect(config.ready.then((config: Config) => config.get())).resolves.toBe(expected)

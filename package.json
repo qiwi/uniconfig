@@ -9,10 +9,11 @@
     "cjs": true
   },
   "scripts": {
-    "clean": "lerna clean --yes && lerna run clean",
-    "build": "yarn clean && lerna run --stream build",
+    "clean": "lerna clean --yes && lerna run --stream clean",
+    "build": "lerna run --stream build",
     "build_es6": "lerna run --stream build_es6",
     "build_es5": "lerna run --stream build_es5",
+    "build:clean": "yarn clean && yarn run build",
     "bootstrap": "lerna bootstrap",
     "test": "yarn lint && yarn jest",
     "test_with_report": "yarn test && yarn codeclimate_push && yarn coveralls_push",

@@ -1732,57 +1732,6 @@
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
 
-"@qiwi/uniconfig-core@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/uniconfig-core/-/uniconfig-core-3.0.0.tgz#d09e4f5e4ad355d4a838031d518eb77f996237d0"
-  integrity sha512-3MeNSQXH0dw+TdIIpNHadHk82vndbRRYgG3J4Cp0mwEbM4YzvqaKIw7r/KRD+Zj3yo0ROjkH1V5lf6X9JT+LJg==
-  dependencies:
-    lodash "^4.17.11"
-    tslib "^1.10.0"
-
-"@qiwi/uniconfig-plugin-api-file@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/uniconfig-plugin-api-file/-/uniconfig-plugin-api-file-3.0.0.tgz#db1b9b56f1d39a7a52666b2a2b5ee13b98c9a487"
-  integrity sha512-wHeGm3AmSpgvPq2erjvEWEajx2xO6ZtzswYbpiEWSDNI6kYwDeZEPYCuQEdtD0/tbOxDtnwr7d0chkJCQko4lg==
-  dependencies:
-    "@qiwi/uniconfig-core" "^2.22.2"
-    tslib "^1.10.0"
-
-"@qiwi/uniconfig-plugin-datatree@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/uniconfig-plugin-datatree/-/uniconfig-plugin-datatree-3.0.0.tgz#6247d4f3adc9d6b5e2fb27365640fb874b634d12"
-  integrity sha512-jaZkoxoGzNT8qzojXefY3tN7xatwi7mvQXVXj0i9d6QEzsNPgrKWcwp2PzOJZsPa81L3sqt7sLEO2jN5L//c+Q==
-  dependencies:
-    "@qiwi/uniconfig-core" "^2.22.2"
-    lodash "^4.17.11"
-    tslib "^1.10.0"
-
-"@qiwi/uniconfig-plugin-json@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/uniconfig-plugin-json/-/uniconfig-plugin-json-3.0.0.tgz#d402758365eabd67d3a4fda6236c8df4c15b2b42"
-  integrity sha512-zsbyqGsBd+Q2iRO/swROvlUD+xelCkumZwGi5OvnNHESKP4gbYwXKCQw8LYR6E29L7uP/SBErlaZfkrpzgkNYg==
-  dependencies:
-    "@qiwi/uniconfig-core" "^2.22.2"
-    tslib "^1.10.0"
-
-"@qiwi/uniconfig-plugin-path@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/uniconfig-plugin-path/-/uniconfig-plugin-path-3.0.0.tgz#5b415fdb3d8f92e1c6e6d89ba41a10ed31d61b3a"
-  integrity sha512-uh+s2L9/FiRB5HX3fDEyvh9vGHKjJ2pAK59o5UWncWM7C9p+td/hS+npbW38TmlPT9ISAnxAUGZSGh1ha/WpoA==
-  dependencies:
-    "@qiwi/uniconfig-core" "^2.22.2"
-    "@qiwi/uniconfig-plugin-root" "^2.22.1"
-    tslib "^1.10.0"
-
-"@qiwi/uniconfig-plugin-root@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/uniconfig-plugin-root/-/uniconfig-plugin-root-3.0.0.tgz#7881fbda5004381d58e96b140f60124b361321ef"
-  integrity sha512-pZPvz+rU4QJ0NyN6pZuhDVQD/wihujmgBVyEFi5ib7rTD6EfoYxm9DVJZpvnbpHFFn3yl2ZRY1qQX3MNMoE8kA==
-  dependencies:
-    "@qiwi/uniconfig-core" "^2.22.2"
-    app-root-path "^2.2.1"
-    tslib "^1.10.0"
-
 "@semantic-release/changelog@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@semantic-release/changelog/-/changelog-3.0.4.tgz#8fc578b76bca5b23c3000694277c38e0fa835edd"

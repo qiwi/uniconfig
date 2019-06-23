@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^2.22.2",
+    "@qiwi/uniconfig-core": "^3.0.0",
     "app-root-path": "^2.2.1",
     "tslib": "^1.10.0"
   },

@@ -29,11 +29,11 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^2.22.2",
-    "@qiwi/uniconfig-plugin-json": "^2.22.1",
-    "@qiwi/uniconfig-plugin-datatree": "^2.22.2",
-    "@qiwi/uniconfig-plugin-api-file": "^2.22.2",
-    "@qiwi/uniconfig-plugin-path": "^2.23.0"
+    "@qiwi/uniconfig-core": "^3.0.0",
+    "@qiwi/uniconfig-plugin-json": "^3.0.0",
+    "@qiwi/uniconfig-plugin-datatree": "^3.0.0",
+    "@qiwi/uniconfig-plugin-api-file": "^3.0.0",
+    "@qiwi/uniconfig-plugin-path": "^3.0.0"
   },
   "files": [
     "README.md",

@@ -1,6 +1,4 @@
 import {
-  IContext,
-  IPlugin,
   IAny,
   INamedPipe,
   IAnyObject,
@@ -19,13 +17,4 @@ export const pipe: INamedPipe = {
   },
 }
 
-export const plugin: IPlugin = {
-  rollup(context: IContext): void {
-    context.pipe.add(name, pipe)
-  },
-  rollback(context: IContext): void {
-    context.pipe.remove(name)
-  },
-}
-
-export default plugin
+export default pipe

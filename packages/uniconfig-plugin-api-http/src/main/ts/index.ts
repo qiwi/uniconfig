@@ -1,8 +1,6 @@
 import {
   IAny,
-  IContext,
-  IPlugin,
-  IPipe,
+  INamedPipe,
 } from '@qiwi/uniconfig-core'
 
 import requestSync from 'sync-request'
@@ -10,7 +8,7 @@ import requestAsync from 'then-request'
 
 export type IMethod = 'GET' | 'POST' | 'HEAD' | 'PUT' | 'DELETE' | 'OPTIONS' | 'TRACE' | 'PATCH'
 
-export const type = 'http'
+export const name = 'http'
 
 export type IOpts = {
   [key: string]: IAny
@@ -32,7 +30,8 @@ const parseTarget = (target: string | IRequestOpts): IRequestOpts => {
   return target
 }
 
-export const pipe: IPipe = {
+export const pipe: INamedPipe = {
+  name,
   handleSync(target: string | IRequestOpts) {
     const {method, url, opts} = parseTarget(target)
 
@@ -45,13 +44,4 @@ export const pipe: IPipe = {
   },
 }
 
-export const plugin: IPlugin = {
-  rollup(context: IContext): void {
-    context.pipe.add(type, pipe)
-  },
-  rollback(context: IContext): void {
-    context.pipe.remove(type)
-  },
-}
-
-export default plugin
+export default pipe

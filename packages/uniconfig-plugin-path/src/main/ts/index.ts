@@ -1,5 +1,5 @@
-import rootPlugin from '@qiwi/uniconfig-plugin-root'
 import * as path from 'path'
+import rootPlugin from '@qiwi/uniconfig-plugin-root'
 import {
   IAny,
   IContext,

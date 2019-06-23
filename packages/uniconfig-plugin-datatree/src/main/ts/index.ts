@@ -1,6 +1,4 @@
 import {
-  IContext,
-  IPlugin,
   IPipeline,
   IAny,
   IAnyObject,
@@ -12,7 +10,7 @@ import {
 
 import {get, map, reduce, mapValues, forEach, keys, isArray, isObject} from 'lodash'
 
-export const type = 'datatree'
+export const name = 'datatree'
 
 export type ISource = {
   data: IAny,
@@ -76,7 +74,7 @@ export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
 )
 
 export const pipe: INamedPipe = {
-  name: 'datatree',
+  name,
   handleSync(input: IDatatree): IAny {
     const {sources = {}, data} = input
 
@@ -106,13 +104,4 @@ export const pipe: INamedPipe = {
   },
 }
 
-export const plugin: IPlugin = {
-  rollup(context: IContext): void {
-    context.pipe.add(type, pipe)
-  },
-  rollback(context: IContext): void {
-    context.pipe.remove(type)
-  },
-}
-
-export default plugin
+export default pipe

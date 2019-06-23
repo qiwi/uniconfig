@@ -1,11 +1,9 @@
 import {
-  IContext,
-  IPlugin,
   IAny,
   INamedPipe,
 } from '@qiwi/uniconfig-core'
 
-const name = 'env'
+export const name = 'env'
 
 export const pipe: INamedPipe = {
   name,
@@ -17,13 +15,4 @@ export const pipe: INamedPipe = {
   },
 }
 
-export const plugin: IPlugin = {
-  rollup(context: IContext): void {
-    context.pipe.add(name, pipe)
-  },
-  rollback(context: IContext): void {
-    context.pipe.remove(name)
-  },
-}
-
-export default plugin
+export default pipe

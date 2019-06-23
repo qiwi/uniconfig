@@ -1,10 +1,8 @@
 import {
-  IContext,
-  IPlugin,
   IAny,
   IResolve,
   IReject,
-  IPipe,
+  INamedPipe,
 } from '@qiwi/uniconfig-core'
 
 export type IFsOpts = {
@@ -16,9 +14,12 @@ export const DEFAULT_OPTS: IFsOpts = {
   encoding: 'utf8',
 }
 
-export const type = 'file'
+export const processOpts = (opts?: IFsOpts): IFsOpts => ({...DEFAULT_OPTS, ...opts})
 
-export const pipe: IPipe = {
+export const name = 'file'
+
+export const pipe: INamedPipe = {
+  name,
   handleSync(target: string, opts?: IFsOpts): IAny {
     return require('fs').readFileSync(target, processOpts(opts))
   },
@@ -36,17 +37,4 @@ export const pipe: IPipe = {
   },
 }
 
-const plugin: IPlugin = {
-  rollup(context: IContext): void {
-    context.pipe.add(type, pipe)
-  },
-  rollback(context: IContext): void {
-    context.pipe.remove(type)
-  },
-}
-
-export default plugin
-
-export function processOpts(opts?: IFsOpts): IFsOpts {
-  return {...DEFAULT_OPTS, ...opts}
-}
+export default pipe

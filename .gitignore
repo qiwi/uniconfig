@@ -41,3 +41,8 @@ flow-typed/npm/
 
 .idea
 *.iml
+
+# Typescript
+*.tsbuildinfo
+.tsbuildinfo
+buildcache

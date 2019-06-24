@@ -10,7 +10,7 @@
 Yet another one config processor. Weird. Slow. Our own.
 
 ## Install
-```javascript
+```bash
     npm i @qiwi/uniconfig
     yarn add @qiwi/uniconfig
 ```
@@ -27,7 +27,7 @@ These operations form the `pipeline`.
 
 ## Basic usage
 ```javascript
-import path from 'path'
+import * as path from 'path'
 import { Config, rollupPlugin } from '@qiwi/uniconfig-core'
 import envPlugin from '@qiwi/uniconfig-plugin-env'
 import jsonPlugin from '@qiwi/uniconfig-plugin-json'

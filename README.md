@@ -1,7 +1,7 @@
 # uniconfig
 
+![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)
 [![Build Status](https://travis-ci.com/qiwi/uniconfig.svg?branch=master)](https://travis-ci.com/qiwi/uniconfig)
-[![dependencyStatus](https://img.shields.io/david/qiwi/uniconfig.svg?maxAge=3600)](https://david-dm.org/qiwi/uniconfig)
 [![devDependencyStatus](https://img.shields.io/david/dev/qiwi/uniconfig.svg?maxAge=3600)](https://david-dm.org/qiwi/uniconfig)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2b7e955e5e675161fc56/maintainability)](https://codeclimate.com/github/qiwi/uniconfig/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2b7e955e5e675161fc56/test_coverage)](https://codeclimate.com/github/qiwi/uniconfig/test_coverage)

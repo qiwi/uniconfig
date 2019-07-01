@@ -6,6 +6,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/2b7e955e5e675161fc56/maintainability)](https://codeclimate.com/github/qiwi/uniconfig/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2b7e955e5e675161fc56/test_coverage)](https://codeclimate.com/github/qiwi/uniconfig/test_coverage)
 [![Greenkeeper badge](https://badges.greenkeeper.io/qiwi/uniconfig.svg)](https://greenkeeper.io/)
+[![CodeStyle](https://img.shields.io/badge/code%20style-tslint--config--qiwi-brightgreen.svg)](https://github.com/qiwi/tslint-config-qiwi)
 
 Yet another one config processor. Weird. Slow. Our own.
 

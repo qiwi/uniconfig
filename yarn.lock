@@ -4800,6 +4800,11 @@ finalhandler@~1.1.2:
     statuses "~1.5.0"
     unpipe "~1.0.0"
 
+find-git-root@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/find-git-root/-/find-git-root-1.0.0.tgz#3afa29d791be31a1609628bc462874c5b1c42e2d"
+  integrity sha512-sFaYfA2/Km2Pj2PVuFaFy1UwwUXlcA3VnCDGEEyZ/LRfXweIqaRytVY/onJP93LUyu7lK1Ak2I5j5ybME5BjOw==
+
 find-npm-prefix@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/find-npm-prefix/-/find-npm-prefix-1.0.2.tgz#8d8ce2c78b3b4b9e66c8acc6a37c231eb841cfdf"
@@ -10314,12 +10319,12 @@ scoped-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/scoped-regex/-/scoped-regex-1.0.0.tgz#a346bb1acd4207ae70bd7c0c7ca9e566b6baddb8"
   integrity sha1-o0a7Gs1CB65wvXwMfKnlZra63bg=
 
-semantic-release-monorepo-hooks@2.9.3:
-  version "2.9.3"
-  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-2.9.3.tgz#95197f89a654d92b0878a46a1bdb93b565b19e6b"
-  integrity sha512-Bo33DOsKCZ06MrH2cVOWYDiyvl1iLdzI31JjbgwVkvvFr/O9zrxOYCShR6vRG1AVlsimttSlMiN0Vr20Hyk+Mg==
+semantic-release-monorepo-hooks@2.9.4:
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-2.9.4.tgz#cd28dd025068fd4bebd990eea964111278771ca1"
+  integrity sha512-I8yidqzKo2i5CgIXtHe/I+zaWTJIzLalAqrbI0txAzBXlwn76Fm1yYgwS/Wv6+y+DdrkyxrgMlvbJskEAfG+PA==
   dependencies:
-    app-root-path "^2.2.1"
+    find-git-root "^1.0.0"
     lodash "^4.17.11"
     read-pkg "^5.1.1"
     semver "^6.1.1"

@@ -34,21 +34,21 @@ describe('legacy-facade', () => {
 
   it('registers all plugins at once', () => {
     expect(getPipes()).toEqual([
-      "ajv",
-      "file",
-      "http",
-      "argv",
-      "datatree",
-      "dot",
-      "dotenv",
-      "env",
-      "global",
-      "ip",
-      "json",
-      "path",
-      "root",
-      "pkg",
-      "yaml"
+      'ajv',
+      'file',
+      'http',
+      'argv',
+      'datatree',
+      'dot',
+      'dotenv',
+      'env',
+      'global',
+      'ip',
+      'json',
+      'path',
+      'root',
+      'pkg',
+      'yaml',
     ])
   })
 })

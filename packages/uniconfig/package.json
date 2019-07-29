@@ -1,7 +1,7 @@
 {
   "name": "@qiwi/uniconfig",
   "version": "3.0.1",
-  "description": "Yet another one config processor. Weird. Slow. Our own.",
+  "description": "All-in-one uniconfig pack",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",
   "scripts": {
@@ -10,7 +10,7 @@
     "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.build.json --target ES5 --outDir target/es5 -m CommonJS",
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.build.json --target ES6 --outDir target/es6",
     "build:bundle": "parcel build target/es6/index.js --out-dir target/bundle --experimental-scope-hoisting",
-    "build": "yarn build:es6 && yarn build:es5 && yarn build:bundle"
+    "build": "yarn build:es6 && yarn build:es5"
   },
   "repository": {
     "type": "git",
@@ -30,10 +30,21 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "^3.0.0",
-    "@qiwi/uniconfig-plugin-json": "^3.0.1",
-    "@qiwi/uniconfig-plugin-datatree": "^3.0.1",
+    "@qiwi/uniconfig-plugin-ajv": "^3.0.1",
     "@qiwi/uniconfig-plugin-api-file": "^3.0.1",
-    "@qiwi/uniconfig-plugin-path": "^3.0.1"
+    "@qiwi/uniconfig-plugin-api-http": "^3.0.1",
+    "@qiwi/uniconfig-plugin-argv": "^3.0.1",
+    "@qiwi/uniconfig-plugin-datatree": "^3.0.1",
+    "@qiwi/uniconfig-plugin-dot": "^3.0.1",
+    "@qiwi/uniconfig-plugin-dotenv": "^3.0.1",
+    "@qiwi/uniconfig-plugin-env": "^3.0.1",
+    "@qiwi/uniconfig-plugin-global": "^3.0.1",
+    "@qiwi/uniconfig-plugin-ip": "^3.0.1",
+    "@qiwi/uniconfig-plugin-json": "^3.0.1",
+    "@qiwi/uniconfig-plugin-path": "^3.0.1",
+    "@qiwi/uniconfig-plugin-pkg": "^3.0.1",
+    "@qiwi/uniconfig-plugin-root": "^3.0.1",
+    "@qiwi/uniconfig-plugin-yaml": "^3.0.1"
   },
   "files": [
     "README.md",
@@ -42,8 +53,8 @@
   ],
   "devDependencies": {
     "typescript": "3.5.3",
-    "@types/node": "^12.0.12",
-    "@types/lodash": "^4.14.135",
+    "@types/node": "^12.6.8",
+    "@types/lodash": "^4.14.136",
     "ts-jest": "^24.0.2",
     "@types/jest": "^24.0.15",
     "jest": "^24.8.0"

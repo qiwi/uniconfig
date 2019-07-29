@@ -19,7 +19,7 @@
     "test_with_report": "yarn test && yarn codeclimate_push && yarn coveralls_push",
     "codeclimate_push": "codeclimate-test-reporter < ./coverage/lcov.info",
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
-    "jest": "NODE_ENV=test BAZ=baz jest --no-cache -w 1 --detectOpenHandles --config jest.config.json",
+    "jest": "NODE_ENV=test BAZ=baz jest --no-cache -w 1 --detectOpenHandles --config jest.config.json ",
     "lint": "tslint -p tsconfig.json",
     "lint:fix": "tslint -p tsconfig.json --fix",
     "docs": "docma -c ./docma.json",
@@ -32,12 +32,12 @@
     "@semantic-release/github": "5.4.2",
     "@semantic-release/npm": "5.1.13",
     "@semantic-release/release-notes-generator": "7.2.1",
-    "@types/node": "^12.0.12",
+    "@types/node": "^12.6.8",
     "codeclimate-test-reporter": "^0.5.1",
-    "coveralls": "^3.0.4",
+    "coveralls": "^3.0.5",
     "docma": "^3.2.2",
     "jest": "24.8.0",
-    "lerna": "^3.15.0",
+    "lerna": "^3.16.4",
     "parcel": "1.12.3",
     "parcel-bundler": "^1.12.3",
     "semantic-release": "15.13.18",
@@ -46,7 +46,7 @@
     "semantic-release-plugin-decorators": "^2.0.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.18.0",
-    "tslint-config-qiwi": "^1.1.0"
+    "tslint-config-qiwi": "^1.1.1"
   },
   "repository": {
     "type": "git",

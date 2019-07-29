@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v3.1.0](https://github.com/qiwi/uniconfig/compare/v3.0.1...v3.1.0) (2019-07-29)
+
+
+### Features
+
+* **facade:** assemble all plugins ([325e471](https://github.com/qiwi/uniconfig/commit/325e471)), closes [#170](https://github.com/qiwi/uniconfig/issues/170)
+
 # [@qiwi/uniconfig-core-v3.0.0](https://github.com/qiwi/uniconfig/compare/v2.23.0...v3.0.0) (2019-06-22)
 
 

@@ -36,6 +36,8 @@ const removePipe = (name: string): void => {
   context.pipe.remove(name)
 }
 
+const getPipes = (): string[] => Object.keys(context.pipe.store)
+
 const rollupPlugin = (plugin: IPlugin | INamedPipe, _context: IContext = context): void => {
   if (typeof plugin.rollup === 'function') {
     plugin.rollup(_context)
@@ -65,6 +67,7 @@ export {
   factory,
   addPipe,
   removePipe,
+  getPipes,
   rollupPlugin,
   rollbackPlugin,
 }

@@ -4,6 +4,7 @@ import uniconfig, {
   context,
   addPipe,
   removePipe,
+  getPipes,
   rollupPlugin,
   rollbackPlugin,
 } from '../../main/ts'
@@ -53,6 +54,12 @@ describe('facade', () => {
       addPipe(name, pipe)
 
       expect(context.pipe.get(name)).toBe(pipe)
+    })
+  })
+
+  describe('getPipes', () => {
+    it('returns the list of registred pipes', () => {
+      expect(getPipes()).toEqual([name])
     })
   })
 

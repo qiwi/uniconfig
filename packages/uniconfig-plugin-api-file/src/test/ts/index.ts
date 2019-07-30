@@ -1,12 +1,17 @@
 import * as path from 'path'
-import {context, Config, rollupPlugin, rollbackPlugin, ASYNC, SYNC} from '@qiwi/uniconfig-core'
+import {
+  context,
+  Config,
+  rollupPlugin,
+  rollbackPlugin,
+  ASYNC,
+  SYNC,
+  IConfigLegacyOpts,
+} from '@qiwi/uniconfig-core'
 import filePlugin, {pipe as filePipe} from '../../main/ts'
-import {IConfigLegacyOpts} from '@qiwi/uniconfig-core/src/main/ts'
 
 describe('uniconfig-plugin-api-file', () => {
-  afterAll(() => {
-    context.pipe.flush()
-  })
+  afterAll(() => context.pipe.flush())
 
   const target = path.resolve(__dirname, './foobar.json')
 

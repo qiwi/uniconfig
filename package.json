@@ -22,6 +22,7 @@
     "jest": "NODE_ENV=test BAZ=baz jest --no-cache -w 1 --detectOpenHandles --config jest.config.json ",
     "lint": "tslint -p tsconfig.json",
     "lint:fix": "tslint -p tsconfig.json --fix",
+    "rebuild": "yarn && yarn bootstrap && yarn build && yarn test",
     "docs": "docma -c ./docma.json",
     "show_docs": "node scripts/docsapp.js"
   },

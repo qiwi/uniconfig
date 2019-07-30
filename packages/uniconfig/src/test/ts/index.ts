@@ -1,4 +1,4 @@
-import uniconfig, {Config, getPipes} from '@qiwi/uniconfig'
+import uniconfig, {Config, getPipes} from '../../main/ts'
 import * as path from 'path'
 
 describe('legacy-facade', () => {
@@ -10,26 +10,6 @@ describe('legacy-facade', () => {
 
       expect(config).toBeInstanceOf(Config)
     })
-  })
-
-  it('presets `json`, `file` and `datatree` plugins', () => {
-    const target = path.resolve(__dirname, './foobar.json')
-    const input = {
-      data: {
-        someParam: '$fromFile:foo',
-      },
-      sources: {
-        fromFile: {
-          data: target,
-          pipeline: 'file>json',
-        },
-      },
-    }
-    const mode: 'sync' = 'sync'
-    const opts = {mode, pipeline: 'datatree'}
-    const config = new Config(input, opts)
-
-    expect(config.get('someParam')).toBe('bar')
   })
 
   it('registers all plugins at once', () => {
@@ -50,5 +30,25 @@ describe('legacy-facade', () => {
       'pkg',
       'yaml',
     ])
+  })
+
+  it('presets `json`, `file` and `datatree` plugins', () => {
+    const target = path.resolve(__dirname, './foobar.json')
+    const input = {
+      data: {
+        someParam: '$fromFile:foo',
+      },
+      sources: {
+        fromFile: {
+          data: target,
+          pipeline: 'file>json',
+        },
+      },
+    }
+    const mode: 'sync' = 'sync'
+    const opts = {mode, pipeline: 'datatree'}
+    const config = new Config(input, opts)
+
+    expect(config.get('someParam')).toBe('bar')
   })
 })

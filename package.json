@@ -41,7 +41,7 @@
     "lerna": "^3.16.4",
     "parcel": "1.12.3",
     "parcel-bundler": "^1.12.3",
-    "semantic-release": "15.13.21",
+    "semantic-release": "15.13.24",
     "semantic-release-monorepo": "6.1.1",
     "semantic-release-monorepo-hooks": "2.9.5",
     "semantic-release-plugin-decorators": "^2.0.0",

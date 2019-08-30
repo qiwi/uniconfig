@@ -3,10 +3,9 @@ node_js:
   - '10'
 
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.9.4
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.17.3
   - export PATH="$HOME/.yarn/bin:$PATH"
-  - npm install -g lerna
-  - npm install -g greenkeeper-lockfile
+  - yarn global add greenkeeper-lockfile
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
 
@@ -17,7 +16,7 @@ install:
   - yarn run build
 
 script:
-  - yarn run test_with_report
+  - yarn run test:report
 
 deploy:
   provider: script

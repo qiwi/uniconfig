@@ -6,6 +6,4 @@ export {get, has, each, reduce, mapValues, map} from 'lodash'
 
 export {isBrowser, isNode}
 
-export const echo = (data: IAny): IAny => {
-  return data
-}
+export const echo = (data: IAny): IAny => data

@@ -6,15 +6,19 @@
 import Config from './config'
 import {
   IConfig,
-  IConfigOpts,
-  IConfigLegacyOpts,
   IConfigInput,
+  IConfigLegacyOpts,
+  IConfigOpts,
+  IContext,
+  IEnvType,
+  INamedPipe,
   IPipe,
+  IPlugin,
   IPluginDeclaration,
-  IContext, IPlugin, INamedPipe,
 } from './interface'
 import createContext from './context'
 import pipeExecutor from './pipe/pipeExecutor'
+import {isBrowser, isNode} from './base/util';
 
 const context = createContext()
 
@@ -28,12 +32,29 @@ const factory = (input: IConfigInput | IConfigOpts, legacyOpts?: IConfigLegacyOp
   return new Config(input, legacyOpts)
 }
 
-const addPipe = (name: string, pipe: IPipe): void => {
-  context.pipe.add(name, pipe)
+export const assertEnvType = (env?: IEnvType, name: string = '') => {
+  if (!env) {
+    return
+  }
+
+  if (env === IEnvType.BROWSER && isBrowser) {
+    return
+  }
+
+  if (env === IEnvType.NODE && isNode) {
+    return
+  }
+
+  throw new Error(`Uniconfig plugin '${name}' requires '${env}' env only`)
 }
 
-const removePipe = (name: string): void => {
-  context.pipe.remove(name)
+const addPipe = (name: string, pipe: IPipe, env?: IEnvType, _context: IContext = context): void => {
+  assertEnvType(env, name)
+  _context.pipe.add(name, pipe)
+}
+
+const removePipe = (name: string, _context: IContext = context): void => {
+  _context.pipe.remove(name)
 }
 
 const getPipes = (): string[] => Object.keys(context.pipe.store)
@@ -45,7 +66,7 @@ const rollupPlugin = (plugin: IPlugin | INamedPipe, _context: IContext = context
   }
 
   if (typeof plugin.name === 'string') {
-    _context.pipe.add(plugin.name, plugin)
+    addPipe(plugin.name, plugin as INamedPipe, plugin.env, _context)
   }
 }
 

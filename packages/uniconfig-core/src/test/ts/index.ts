@@ -1,12 +1,13 @@
 import uniconfig, {
-  factory,
+  addPipe,
   Config,
   context,
-  addPipe,
-  removePipe,
+  factory,
   getPipes,
-  rollupPlugin,
+  IEnvType,
+  removePipe,
   rollbackPlugin,
+  rollupPlugin,
 } from '../../main/ts'
 import {Context} from '../../main/ts/context'
 
@@ -50,10 +51,18 @@ describe('facade', () => {
   })
 
   describe('addPipe', () => {
-    it('adds pipe to context', () => {
+    it('adds pipe to current context', () => {
       addPipe(name, pipe)
 
       expect(context.pipe.get(name)).toBe(pipe)
+    })
+
+    it('asserts env type if defined, throws error on mismatch', () => {
+      expect(() => addPipe(name, pipe, IEnvType.BROWSER))
+        .toThrow(new Error('Uniconfig plugin \'test\' requires \'browser\' env only'))
+
+      expect(() => addPipe(name, pipe, IEnvType.NODE))
+        .not.toThrow()
     })
   })
 

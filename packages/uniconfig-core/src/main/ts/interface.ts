@@ -102,16 +102,24 @@ export type IPlugin = {
   [key: string]: any
 }
 
+export enum IEnvType {
+  BROWSER = 'browser',
+  NODE = 'node',
+  ANY = 'any',
+}
+
 export type IPipe = {
   handle(data?: IAny, opts?: IAny): Promise<IAny>,
   handleSync(data?: IAny, opts?: IAny): IAny,
-  name?: string
+  name?: string,
+  env?: IEnvType
 }
 
 export type INamedPipe = {
   handle(data?: IAny, opts?: IAny): Promise<IAny>,
   handleSync(data?: IAny, opts?: IAny): IAny,
   name: string,
+  env?: IEnvType,
   [key: string]: any
 }
 

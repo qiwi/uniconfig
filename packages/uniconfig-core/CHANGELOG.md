@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v3.2.0](https://github.com/qiwi/uniconfig/compare/v3.1.0...v3.2.0) (2019-09-03)
+
+
+### Features
+
+* **core:** add env type assertion on pipe registration ([db03e3a](https://github.com/qiwi/uniconfig/commit/db03e3a)), closes [#54](https://github.com/qiwi/uniconfig/issues/54)
+
 # [@qiwi/uniconfig-core-v3.1.0](https://github.com/qiwi/uniconfig/compare/v3.0.1...v3.1.0) (2019-07-29)
 
 

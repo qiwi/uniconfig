@@ -3,7 +3,7 @@ import {IEventEmitter} from '../interface'
 import eventEmitterPolyfill from './polyfill'
 
 export function eventEmitterFactory(): IEventEmitter {
-  const Constructor = isBrowser()
+  const Constructor = isBrowser
     ? eventEmitterPolyfill
     : require('events')
 

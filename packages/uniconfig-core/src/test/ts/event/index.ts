@@ -1,7 +1,3 @@
-import * as EventEmitter from 'events'
-import EventEmitterPolyfill from '../../../main/ts/event/polyfill'
-import { eventEmitterFactory } from '../../../main/ts/event'
-
 describe('event', () => {
   describe('eventEmitterFactory', () => {
     const globalAny: any = global;
@@ -10,14 +6,23 @@ describe('event', () => {
       delete globalAny.window
     })
 
+    beforeEach(jest.resetModules)
+
     it('constructs native emitter in nodejs runtime', () => {
+      const EventEmitter = require('events')
+      const { eventEmitterFactory } = require('../../../main/ts/event')
       const emitter = eventEmitterFactory()
+
       expect(emitter).toBeInstanceOf(EventEmitter)
     })
 
     it('constructs eePolyfill emitter instance in browser', () => {
       globalAny.window = { document: {} }
+
+      const { eventEmitterFactory } = require( '../../../main/ts/event')
+      const EventEmitterPolyfill = require('../../../main/ts/event/polyfill').default
       const emitter = eventEmitterFactory()
+
       expect(emitter).toBeInstanceOf(EventEmitterPolyfill)
     })
   })

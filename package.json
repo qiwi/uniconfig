@@ -24,7 +24,8 @@
     "lint:fix": "tslint -p tsconfig.json --fix",
     "rebuild": "yarn && yarn bootstrap && yarn build && yarn test",
     "docs": "docma -c ./docma.json",
-    "show:docs": "node scripts/docsapp.js"
+    "show:docs": "node scripts/docsapp.js",
+    "postupdate": "yarn && yarn bootstrap && yarn build && yarn test"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.4",
@@ -33,7 +34,7 @@
     "@semantic-release/github": "5.4.3",
     "@semantic-release/npm": "5.1.15",
     "@semantic-release/release-notes-generator": "7.3.0",
-    "@types/node": "^12.7.4",
+    "@types/node": "^12.7.5",
     "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.0.6",
     "docma": "^3.2.2",
@@ -45,8 +46,8 @@
     "semantic-release-monorepo": "6.1.1",
     "semantic-release-monorepo-hooks": "2.9.5",
     "semantic-release-plugin-decorators": "^2.0.0",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.19.0",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.0",
     "tslint-config-qiwi": "^1.1.1"
   },
   "repository": {

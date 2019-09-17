@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^3.1.0",
+    "@qiwi/uniconfig-core": "^3.2.0",
     "js-yaml": "^3.13.1",
     "tslib": "^1.10.0"
   },
@@ -36,9 +36,9 @@
     "target"
   ],
   "devDependencies": {
-    "typescript": "3.6.2",
-    "@types/node": "^12.7.4",
-    "ts-jest": "^24.0.2",
+    "typescript": "3.6.3",
+    "@types/node": "^12.7.5",
+    "ts-jest": "^24.1.0",
     "@types/jest": "^24.0.18",
     "jest": "^24.9.0",
     "@types/js-yaml": "^3.12.1"

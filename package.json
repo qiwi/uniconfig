@@ -40,7 +40,7 @@
     "docma": "^3.2.2",
     "jest": "24.9.0",
     "lerna": "^3.16.4",
-    "parcel": "1.12.3",
+    "parcel": "1.12.4",
     "parcel-bundler": "^1.12.3",
     "semantic-release": "15.13.24",
     "semantic-release-monorepo": "6.1.1",

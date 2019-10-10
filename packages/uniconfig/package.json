@@ -52,9 +52,9 @@
     "target"
   ],
   "devDependencies": {
-    "typescript": "3.6.3",
-    "@types/node": "^12.7.8",
-    "@types/lodash": "^4.14.141",
+    "typescript": "3.6.4",
+    "@types/node": "^12.7.12",
+    "@types/lodash": "^4.14.144",
     "ts-jest": "^24.1.0",
     "@types/jest": "^24.0.18",
     "jest": "^24.9.0"

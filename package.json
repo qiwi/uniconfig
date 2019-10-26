@@ -33,7 +33,7 @@
     "@semantic-release/git": "7.0.16",
     "@semantic-release/github": "5.5.3",
     "@semantic-release/npm": "5.2.0",
-    "@semantic-release/release-notes-generator": "7.3.0",
+    "@semantic-release/release-notes-generator": "7.3.2",
     "@types/node": "^12.7.12",
     "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.0.6",

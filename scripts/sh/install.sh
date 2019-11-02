@@ -20,11 +20,10 @@ echo "npm http status: $npmHttpStatus"
 if [ $yarnHttpStatus = $OK ] ; then
    yarn install --cwd ../
 
-else if [ $npmHttpStatus = $OK ] ; then
+elif [ $npmHttpStatus = $OK ] ; then
    npm install
 
 else
    echo "Network failure"
 
-fi
 fi

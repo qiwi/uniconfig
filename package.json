@@ -24,7 +24,7 @@
     "lint:fix": "tslint -p tsconfig.json --fix",
     "rebuild": "yarn && yarn bootstrap && yarn build && yarn test",
     "docs": "docma -c ./docma.json",
-    "show:docs": "node scripts/docsapp.js",
+    "show:docs": "node scripts/js/docsapp.js",
     "postupdate": "yarn && yarn bootstrap && yarn build && yarn test"
   },
   "devDependencies": {

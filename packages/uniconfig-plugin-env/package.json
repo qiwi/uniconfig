@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-env",
-  "version": "3.0.1",
+  "version": "3.2.1",
   "description": "Uniconfig environment variables API",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",

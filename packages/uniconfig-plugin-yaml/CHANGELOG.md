@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-yaml-v3.2.1](https://github.com/qiwi/uniconfig/compare/v3.2.0...v3.2.1) (2019-11-02)
+
+
+### Performance Improvements
+
+* **package:** up deps and repack ([f9c0e14](https://github.com/qiwi/uniconfig/commit/f9c0e14))
+
 # [@qiwi/uniconfig-plugin-yaml-v3.0.1](https://github.com/qiwi/uniconfig/compare/v3.0.0...v3.0.1) (2019-06-23)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-dot",
-  "version": "3.0.1",
+  "version": "3.2.1",
   "description": "Uniconfig doT template plugin",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",

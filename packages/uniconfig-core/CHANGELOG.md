@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v3.2.1](https://github.com/qiwi/uniconfig/compare/v3.2.0...v3.2.1) (2019-11-02)
+
+
+### Performance Improvements
+
+* **package:** up deps and repack ([f9c0e14](https://github.com/qiwi/uniconfig/commit/f9c0e14))
+
 # [@qiwi/uniconfig-core-v3.2.0](https://github.com/qiwi/uniconfig/compare/v3.1.0...v3.2.0) (2019-09-03)
 
 

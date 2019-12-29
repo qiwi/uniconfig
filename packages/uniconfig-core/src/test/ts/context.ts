@@ -1,4 +1,4 @@
-import createContext, {Context} from '../../main/ts/context'
+import { createContext, Context} from '../../main/ts/context'
 import pipeRegistry from '../../main/ts/pipe/pipeRegistry'
 
 describe('context', () => {

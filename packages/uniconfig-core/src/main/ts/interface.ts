@@ -32,7 +32,8 @@ export type IConfigOpts = {
   emitter?: IEventEmitter,
   mode?: IMode,
   pipeline?: IPipeline,
-  injects?: IInjectsMap
+  injects?: IInjectsMap,
+  context?: IContext
 }
 
 export type IConfigLegacyOpts = {

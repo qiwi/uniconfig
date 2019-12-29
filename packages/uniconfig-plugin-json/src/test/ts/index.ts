@@ -15,7 +15,6 @@ describe('plugin-json', () => {
 
   it('properly registers self', () => {
     rollupPlugin(jsonPlugin)
-
     expect(context.pipe.get('json')).not.toBeUndefined()
   })
 

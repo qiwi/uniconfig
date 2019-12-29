@@ -17,7 +17,7 @@ import {
 import {get, has, reduce} from './base/util'
 import {ConfigError, MISSED_VALUE_PATH, BROKEN_INJECT} from './base/error'
 import {eventEmitterFactory, READY} from './event'
-import createContext from './context'
+import {defaultContext} from './context'
 import pipeExecutor from './pipe/pipeExecutor'
 
 export const SYNC = 'sync'
@@ -42,7 +42,7 @@ export class Config {
     this.type = 'config'
     this.id = '' + Math.random()
     this.emitter = this.opts.emitter || eventEmitterFactory()
-    this.context = createContext()
+    this.context = this.opts.context || defaultContext
     this.intention = Config.getIntention()
     this.ready = this.intention.promise
 

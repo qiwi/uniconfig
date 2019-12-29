@@ -16,11 +16,11 @@ import {
   IPlugin,
   IPluginDeclaration,
 } from './interface'
-import createContext from './context'
+import {defaultContext} from './context'
 import pipeExecutor from './pipe/pipeExecutor'
 import {isBrowser, isNode} from './base/util';
 
-const context = createContext()
+const context = defaultContext
 
 /**
  * Config factory.

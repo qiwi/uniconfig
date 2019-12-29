@@ -13,6 +13,6 @@ export class Context extends AbstractComponent {
   }
 }
 
-export default function createContext(): IContext {
-  return new Context()
-}
+export const createContext = (): IContext => new Context()
+
+export const defaultContext = createContext()

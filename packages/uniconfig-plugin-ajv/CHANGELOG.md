@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-ajv-v3.2.2](https://github.com/qiwi/uniconfig/compare/v3.2.1...v3.2.2) (2019-12-29)
+
+
+### Performance Improvements
+
+* up TS to 3.7 ([1be0dfa](https://github.com/qiwi/uniconfig/commit/1be0dfa4413b06deba7fdc8c4acfeeaf6f44dfde)), closes [#205](https://github.com/qiwi/uniconfig/issues/205)
+
 # [@qiwi/uniconfig-plugin-ajv-v3.2.1](https://github.com/qiwi/uniconfig/compare/v3.2.0...v3.2.1) (2019-11-02)
 
 

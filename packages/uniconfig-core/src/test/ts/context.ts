@@ -7,7 +7,7 @@ describe('context', () => {
       const context = createContext()
 
       expect(context).toBeInstanceOf(Context)
-      expect(context.pipe).toBe(pipeRegistry)
+      expect(context.pipe).toStrictEqual(pipeRegistry)
     })
   })
 })

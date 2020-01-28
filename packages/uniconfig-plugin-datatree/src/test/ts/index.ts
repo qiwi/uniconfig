@@ -1,4 +1,5 @@
 import {pipe} from '../../main/ts'
+import {context} from '@qiwi/uniconfig-core'
 
 describe('uniconfig-plugin-datatree', () => {
   const input = {
@@ -33,7 +34,7 @@ describe('uniconfig-plugin-datatree', () => {
 
   describe('#handleSync', () => {
     it('populates input with source data', () => {
-      expect(pipe.handleSync(input)).toEqual({
+      expect(pipe.handleSync(context, input)).toEqual({
         someParam: 'baz',
         otherParam: 'c',
         anotherParam: 'h',
@@ -47,7 +48,7 @@ describe('uniconfig-plugin-datatree', () => {
 
   describe('#handle', () => {
     it('populates input with source data', async() => {
-      await expect(pipe.handle(input)).resolves.toEqual({
+      await expect(pipe.handle(context, input)).resolves.toEqual({
         someParam: 'baz',
         otherParam: 'c',
         anotherParam: 'h',

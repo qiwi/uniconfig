@@ -3,6 +3,7 @@ import {
   IResolve,
   IReject,
   INamedPipe,
+  IContext,
 } from '@qiwi/uniconfig-core'
 
 export type IFsOpts = {
@@ -20,10 +21,10 @@ export const name = 'file'
 
 export const pipe: INamedPipe = {
   name,
-  handleSync(target: string, opts?: IFsOpts): IAny {
+  handleSync(_context: IContext, target: string, opts?: IFsOpts): IAny {
     return require('fs').readFileSync(target, processOpts(opts))
   },
-  handle(target: string, opts?: IFsOpts): Promise<IAny> {
+  handle(_context: IContext, target: string, opts?: IFsOpts): Promise<IAny> {
     return new Promise((resolve: IResolve, reject: IReject): void => {
       require('fs').readFile(target, processOpts(opts), (err: IAny | null, data: IAny) => {
         if (err) {

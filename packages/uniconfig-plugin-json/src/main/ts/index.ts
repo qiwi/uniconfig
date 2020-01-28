@@ -1,5 +1,5 @@
 import {
-  IAny,
+  IAny, IContext,
   INamedPipe,
 } from '@qiwi/uniconfig-core'
 
@@ -9,10 +9,10 @@ export const parse = (data: string): IAny => JSON.parse(data)
 
 export const pipe: INamedPipe = {
   name,
-  handleSync(data: IAny): IAny {
+  handleSync(_context: IContext, data: IAny): IAny {
     return parse(data)
   },
-  handle(data: IAny): Promise<IAny> {
+  handle(_context: IContext, data: IAny): Promise<IAny> {
     return Promise.resolve(parse(data))
   },
 }

@@ -8,17 +8,17 @@ import {
   IMode,
   IAny,
   IRegistry,
+  IContext,
 } from '../interface'
 
 import {reduce} from '../base/util'
-import pipeRegistry from '../pipe/pipeRegistry'
 
 export const PIPE_SEPARATOR = /[\s\r\n]*>+[\s\r\n]*/
 export const DEFAULT_PIPE: IPipe = {
-  handle(data) {
+  handle(_context: IContext, data) {
     return Promise.resolve(data)
   },
-  handleSync(data) {
+  handleSync(_context: IContext, data) {
     return data
   },
 }
@@ -33,20 +33,20 @@ export type IResolvedPipe = {
   opts: IPipeOpts[]
 }
 
-export default function executor(data: IAny, pipeline: IPipeline, mode: IMode, registry: IRegistry = pipeRegistry): IAny | Promise<IAny> {
-  const resolvedPipes = resolvePipeline(pipeline, registry)
+export default function executor(data: IAny, pipeline: IPipeline, mode: IMode, context: IContext): IAny | Promise<IAny> {
+  const resolvedPipes = resolvePipeline(pipeline, context.pipe)
 
   if (mode === 'async') {
     return reduce(
       resolvedPipes,
-      (promise, {pipe: {handle}, opts}) => promise.then(data => handle(data, ...opts)),
+      (promise, {pipe: {handle}, opts}) => promise.then(data => handle(context, data, ...opts)),
       Promise.resolve(data),
     )
   }
 
   return reduce(
     resolvedPipes,
-    (prev, {pipe: {handleSync}, opts}) => handleSync(prev, ...opts),
+    (prev, {pipe: {handleSync}, opts}) => handleSync(context, prev, ...opts),
     data,
   )
 }

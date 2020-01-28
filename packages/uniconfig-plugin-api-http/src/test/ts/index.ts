@@ -1,5 +1,5 @@
 import {pipe as httpPipe} from '../../main/ts'
-// import {context, Config, rollupPlugin, rollbackPlugin, ASYNC, SYNC} from '@qiwi/uniconfig-core'
+import {context} from '@qiwi/uniconfig-core'
 // import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
 // import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
 
@@ -17,28 +17,28 @@ describe('uniconfig-plugin-api-http', () => {
 
   describe('#handleSync', () => {
     it('gets data as string', () => {
-      expect(httpPipe.handleSync(target)).toEqual(JSON.stringify(expectedData))
+      expect(httpPipe.handleSync(context, target)).toEqual(JSON.stringify(expectedData))
     })
 
     it('supports req opts', () => {
-      expect(httpPipe.handleSync({
+      expect(httpPipe.handleSync(context,{
         url: target,
         method: 'GET',
       })).toEqual(JSON.stringify(expectedData))
     })
 
     it('gets err as result', () => {
-      expect(() => httpPipe.handleSync('wtf://example.com')).toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
+      expect(() => httpPipe.handleSync(context,'wtf://example.com')).toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
     })
   })
 
   describe('#handle', () => {
     it('resolves promise with string', () => {
-      return expect(httpPipe.handle(target)).resolves.toEqual(JSON.stringify(expectedData))
+      return expect(httpPipe.handle(context, target)).resolves.toEqual(JSON.stringify(expectedData))
     })
 
     it('rejects promise with err', () => {
-      return expect(httpPipe.handle('wtf://example.com')).rejects.toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
+      return expect(httpPipe.handle(context, 'wtf://example.com')).rejects.toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
     })
   })
 /*

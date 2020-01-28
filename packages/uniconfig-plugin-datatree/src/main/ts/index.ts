@@ -6,6 +6,7 @@ import {
   pipeExecutor,
   SYNC,
   ASYNC,
+  IContext,
 } from '@qiwi/uniconfig-core'
 
 import {get, map, reduce, mapValues, forEach, keys, isArray, isObject} from 'lodash'
@@ -20,7 +21,7 @@ export type IDatatree = {
   data: IAny,
   sources: {
     [key: string]: ISource
-  }
+  },
 }
 
 export type ISourceMap = {
@@ -75,19 +76,19 @@ export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
 
 export const pipe: INamedPipe = {
   name,
-  handleSync(input: IDatatree): IAny {
+  handleSync(_context: IContext, input: IDatatree): IAny {
     const {sources = {}, data} = input
 
     return evaluate(data, mapValues(sources, ({data, pipeline}) => {
-      return pipeExecutor(data, pipeline, SYNC)
+      return pipeExecutor(data, pipeline, SYNC, _context)
     }))
   },
 
-  async handle(input: IDatatree): Promise<IAny> {
+  async handle(_context: IContext, input: IDatatree): Promise<IAny> {
     const {sources = {}, data} = input
     const pairs = map(sources, ({data, pipeline}, key) => ({
       key,
-      promise: pipeExecutor(data, pipeline, ASYNC),
+      promise: pipeExecutor(data, pipeline, ASYNC, _context),
     }))
 
     return Promise

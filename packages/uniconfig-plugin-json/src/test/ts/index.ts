@@ -1,20 +1,21 @@
 import * as path from 'path'
-import {context, Config, rollupPlugin, rollbackPlugin, SYNC} from '@qiwi/uniconfig-core'
-import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
-import {pipe as filePipe} from '@qiwi/uniconfig-plugin-api-file'
-import jsonPlugin, {pipe as jsonPipe} from '../../main/ts'
+import {createContext, Config, rollupPlugin, rollbackPlugin, SYNC} from '../../../../uniconfig-core'
+import {pipe as datatreePipe} from '../../../../uniconfig-plugin-datatree'
+import {pipe as filePipe} from '../../../../uniconfig-plugin-api-file'
+import jsonPlugin from '../../main/ts'
 
 describe('plugin-json', () => {
+  const context = createContext()
+
   beforeAll(() => {
     context.pipe.add('file', filePipe)
-    context.pipe.add('json', jsonPipe)
     context.pipe.add('datatree', datatreePipe)
   })
 
   afterAll(context.pipe.flush)
 
   it('properly registers self', () => {
-    rollupPlugin(jsonPlugin)
+    rollupPlugin(jsonPlugin, context)
     expect(context.pipe.get('json')).not.toBeUndefined()
   })
 
@@ -22,21 +23,26 @@ describe('plugin-json', () => {
     const target = path.resolve(__dirname, './foobar.json')
     const config = new Config({
       data: {
-        baz: '$fromJson:foo',
-      },
-      sources: {
-        'fromJson': {
-          data: target,
-          pipeline: 'file>json',
+        data: {
+          baz: '$fromJson:foo',
         },
+        sources: {
+          'fromJson': {
+            data: target,
+            pipeline: 'file>json',
+          },
+        }
       },
-    }, {mode: SYNC, pipeline: 'datatree'})
+      mode: SYNC,
+      pipeline: 'datatree',
+      context
+    })
 
     expect(config.get('baz')).toBe('bar')
   })
 
   it('supports rollback', () => {
-    rollbackPlugin(jsonPlugin)
+    rollbackPlugin(jsonPlugin, context)
 
     expect(context.pipe.get('json')).toBeUndefined()
   })

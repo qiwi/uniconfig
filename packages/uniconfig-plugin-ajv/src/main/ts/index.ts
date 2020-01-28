@@ -2,6 +2,7 @@ import {
   INamedPipe,
   IAny,
   IAnyObject,
+  IContext,
 } from '@qiwi/uniconfig-core'
 
 import * as Ajv from 'ajv'
@@ -42,10 +43,10 @@ export const handle = ({data, schema, opts}: IAjvInput): IAny => {
 
 export const pipe: INamedPipe = {
   name,
-  handleSync(input: IAjvInput): IAny {
+  handleSync(_context: IContext, input: IAjvInput): IAny {
     return handle(input)
   },
-  handle(input: IAjvInput): Promise<IAny> {
+  handle(_context: IContext, input: IAjvInput): Promise<IAny> {
     return new Promise((resolve, reject) => {
       try {
         resolve(handle(input))

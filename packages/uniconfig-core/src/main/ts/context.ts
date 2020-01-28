@@ -1,4 +1,4 @@
-import pipeRegistry from './pipe/pipeRegistry'
+import { PipeRegistry } from './pipe/pipeRegistry'
 import AbstractComponent from './base/abstractComponent'
 import {IContext, IRegistry} from './interface'
 
@@ -7,7 +7,7 @@ export class Context extends AbstractComponent {
 
   constructor() {
     super()
-    this.pipe = pipeRegistry
+    this.pipe = new PipeRegistry()
 
     return this
   }

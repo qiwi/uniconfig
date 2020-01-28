@@ -8,15 +8,15 @@ import {
 } from '@qiwi/uniconfig-core'
 
 export const ROOT_ALIASES = ['<root>', '$root', 'APP_ROOT']
-export const resolveRoots = (args: IAny[]): IAny[] => args.map(arg => ROOT_ALIASES.includes(arg)
-  ? rootPlugin.handleSync()
+export const resolveRoots = (context: IContext, args: IAny[]): IAny[] => args.map(arg => ROOT_ALIASES.includes(arg)
+  ? rootPlugin.handleSync(context)
   : arg,
 )
 export const name: string = 'path'
 
 export const pipe: INamedPipe = {
   name,
-  handleSync(data): IAny {
+  handleSync(_context: IContext, data): IAny {
     let _data = data
 
     if (typeof data === 'string') {
@@ -24,10 +24,10 @@ export const pipe: INamedPipe = {
       _data = data.split(re)
     }
 
-    return path.resolve(...resolveRoots(_data && _data.data || _data))
+    return path.resolve(...resolveRoots(_context,_data && _data.data || _data))
   },
-  handle(data): Promise<IAny> {
-    return Promise.resolve(pipe.handleSync(data))
+  handle(_context: IContext, data): Promise<IAny> {
+    return Promise.resolve(pipe.handleSync(_context, data))
   },
 }
 

@@ -17,21 +17,21 @@ describe('uniconfig-plugin-api-file', () => {
 
   describe('#readSync', () => {
     it('gets file data as string', () => {
-      expect(filePipe.handleSync(target)).toEqual(JSON.stringify({foo: 'bar'}))
+      expect(filePipe.handleSync(context, target)).toEqual(JSON.stringify({foo: 'bar'}))
     })
 
     it('gets err as result', () => {
-      expect(() => filePipe.handleSync('bazqux')).toThrow('ENOENT: no such file or directory, open \'bazqux\'')
+      expect(() => filePipe.handleSync(context, 'bazqux')).toThrow('ENOENT: no such file or directory, open \'bazqux\'')
     })
   })
 
   describe('#read', () => {
     it('resolves promise with string', () => {
-      return expect(filePipe.handle(target)).resolves.toEqual(JSON.stringify({foo: 'bar'}))
+      return expect(filePipe.handle(context, target)).resolves.toEqual(JSON.stringify({foo: 'bar'}))
     })
 
     it('rejects promise with err', () => {
-      return expect(filePipe.handle('bazqux')).rejects.toThrow('ENOENT: no such file or directory, open \'bazqux\'')
+      return expect(filePipe.handle(context, 'bazqux')).rejects.toThrow('ENOENT: no such file or directory, open \'bazqux\'')
     })
   })
 

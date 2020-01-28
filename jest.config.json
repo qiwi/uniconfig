@@ -3,7 +3,23 @@
   "collectCoverage": true,
   "testEnvironment": "node",
   "projects": [
-    "<rootDir>/packages/uniconfig-core/jest.config.js"
+    "<rootDir>/packages/uniconfig/jest.config.json",
+    "<rootDir>/packages/uniconfig-core/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-ajv/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-api-file/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-api-http/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-argv/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-datatree/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-dot/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-dotenv/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-env/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-global/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-ip/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-json/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-path/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-pkg/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-root/jest.config.json",
+    "<rootDir>/packages/uniconfig-plugin-yaml/jest.config.json"
   ],
   "collectCoverageFrom": [
     "<rootDir>/packages/**/src/main/ts/**/*.ts"

@@ -26,7 +26,14 @@ export type IInjectsMap = {
   [key: string]: IInject
 }
 
-export type IConfigOpts = {
+export interface IConfigLegacyOpts {
+  tolerateMissed?: boolean,
+  emitter?: IEventEmitter,
+  mode?: IMode,
+  pipeline?: IPipeline
+}
+
+export interface IConfigOpts extends IConfigLegacyOpts {
   data?: IAny,
   tolerateMissed?: boolean,
   emitter?: IEventEmitter,
@@ -34,13 +41,6 @@ export type IConfigOpts = {
   pipeline?: IPipeline,
   injects?: IInjectsMap,
   context?: IContext
-}
-
-export type IConfigLegacyOpts = {
-  tolerateMissed?: boolean,
-  emitter?: IEventEmitter,
-  mode?: IMode,
-  pipeline?: IPipeline
 }
 
 export type IConfigPromise = Promise<IConfig>
@@ -110,15 +110,15 @@ export enum IEnvType {
 }
 
 export type IPipe = {
-  handle(data?: IAny, opts?: IAny): Promise<IAny>,
-  handleSync(data?: IAny, opts?: IAny): IAny,
+  handle(context: IContext, data?: IAny, ...opts: IAny[]): Promise<IAny>,
+  handleSync(context: IContext, data?: IAny, ...opts: IAny[]): IAny,
   name?: string,
   env?: IEnvType
 }
 
 export type INamedPipe = {
-  handle(data?: IAny, opts?: IAny): Promise<IAny>,
-  handleSync(data?: IAny, opts?: IAny): IAny,
+  handle(context: IContext, data?: IAny, ...opts: IAny[]): Promise<IAny>,
+  handleSync(context: IContext, data?: IAny, ...opts: IAny[]): IAny,
   name: string,
   env?: IEnvType,
   [key: string]: any

@@ -49,7 +49,7 @@ export class Config {
     const pipeline = this.opts.pipeline || ''
     const mode = this.opts.mode || SYNC
     const injected = Config.processInjects(this.opts.data, this.opts.injects)
-    const data = pipeExecutor(injected, pipeline, mode, this.context.pipe)
+    const data = pipeExecutor(injected, pipeline, mode, this.context)
 
     if (mode === SYNC) {
       this.setData(data)

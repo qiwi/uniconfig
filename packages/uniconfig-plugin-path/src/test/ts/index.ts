@@ -36,11 +36,11 @@ describe('plugin-path', () => {
     })
 
     it('processes root aliases', () => {
-      expect(resolveRoots(['<root>', '$root', 'APP_ROOT'])).toEqual([root, root, root])
+      expect(resolveRoots(context,['<root>', '$root', 'APP_ROOT'])).toEqual([root, root, root])
     })
 
     it('handles root aliases as a part of strings', () => {
-      expect(pipe.handleSync('<root>/config/default.json')).toBe(expected)
+      expect(pipe.handleSync(context,'<root>/config/default.json')).toBe(expected)
     })
   })
 

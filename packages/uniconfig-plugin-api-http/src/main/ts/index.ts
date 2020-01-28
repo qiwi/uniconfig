@@ -1,5 +1,5 @@
 import {
-  IAny,
+  IAny, IContext,
   INamedPipe,
 } from '@qiwi/uniconfig-core'
 
@@ -32,12 +32,12 @@ const parseTarget = (target: string | IRequestOpts): IRequestOpts => {
 
 export const pipe: INamedPipe = {
   name,
-  handleSync(target: string | IRequestOpts) {
+  handleSync(_context: IContext, target: string | IRequestOpts) {
     const {method, url, opts} = parseTarget(target)
 
     return requestSync(method, url, opts).getBody('utf8')
   },
-  handle(target: string | IRequestOpts) {
+  handle(_context: IContext, target: string | IRequestOpts) {
     const {method, url, opts} = parseTarget(target)
 
     return requestAsync(method, url, opts).getBody('utf8')

@@ -8,6 +8,7 @@ import uniconfig, {
   removePipe,
   rollbackPlugin,
   rollupPlugin,
+  createContext
 } from '../../main/ts'
 import {Context} from '../../main/ts/context'
 
@@ -45,8 +46,12 @@ describe('facade', () => {
   })
 
   describe('context', () => {
-    it('is exported from index', () => {
+    it('defaultContext is exported from index', () => {
       expect(context).toBeInstanceOf(Context)
+    })
+
+    it('createContext factory is exported from index', () => {
+      expect(createContext).toEqual(expect.any(Function))
     })
   })
 

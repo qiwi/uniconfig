@@ -16,7 +16,7 @@ import {
   IPlugin,
   IPluginDeclaration,
 } from './interface'
-import {defaultContext} from './context'
+import {defaultContext, createContext} from './context'
 import pipeExecutor from './pipe/pipeExecutor'
 import {isBrowser, isNode} from './base/util';
 
@@ -91,6 +91,8 @@ export {
   getPipes,
   rollupPlugin,
   rollbackPlugin,
+  createContext,
+  defaultContext,
 }
 export default factory
 

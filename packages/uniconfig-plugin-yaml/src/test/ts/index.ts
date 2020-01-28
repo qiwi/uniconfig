@@ -34,7 +34,7 @@ describe('plugin-yaml', () => {
       },
       mode: SYNC,
       pipeline: 'datatree',
-      context
+      context,
     })
 
     expect(config.get('baz')).toBe('bar')

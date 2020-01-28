@@ -8,7 +8,7 @@ import uniconfig, {
   removePipe,
   rollbackPlugin,
   rollupPlugin,
-  createContext
+  createContext,
 } from '../../main/ts'
 import {Context} from '../../main/ts/context'
 

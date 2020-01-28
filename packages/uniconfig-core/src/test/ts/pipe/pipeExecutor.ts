@@ -8,7 +8,7 @@ describe('pipe/pipeExecutor', () => {
     const data = JSON.stringify({ foo: 'bar' })
     const registry = new PipeRegistry()
     const context: IContext = {
-      pipe: registry
+      pipe: registry,
     }
     const json = (_context: IContext, data: any) => { return JSON.parse(data) }
     const upper = (_context: IContext, data: IAnyObject) => reduce(data, (m: IAnyObject, v, k: string) => {

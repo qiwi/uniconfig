@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^3.2.1",
+    "@qiwi/uniconfig-core": "^3.2.2",
     "@qiwi/uniconfig-plugin-ajv": "^3.2.2",
     "@qiwi/uniconfig-plugin-api-file": "^3.2.2",
     "@qiwi/uniconfig-plugin-api-http": "^3.2.2",
@@ -53,7 +53,7 @@
   ],
   "devDependencies": {
     "typescript": "3.7.5",
-    "@types/node": "^13.5.0",
+    "@types/node": "^13.5.1",
     "@types/lodash": "^4.14.149",
     "ts-jest": "^25.0.0",
     "@types/jest": "^25.1.0",

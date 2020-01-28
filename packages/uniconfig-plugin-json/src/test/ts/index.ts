@@ -31,11 +31,11 @@ describe('plugin-json', () => {
             data: target,
             pipeline: 'file>json',
           },
-        }
+        },
       },
       mode: SYNC,
       pipeline: 'datatree',
-      context
+      context,
     })
 
     expect(config.get('baz')).toBe('bar')

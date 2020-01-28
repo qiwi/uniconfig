@@ -21,7 +21,7 @@ export type IDatatree = {
   data: IAny,
   sources: {
     [key: string]: ISource
-  },
+  }
 }
 
 export type ISourceMap = {

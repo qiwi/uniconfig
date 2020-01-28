@@ -11,6 +11,7 @@ describe('uniconfig-plugin-datatree', () => {
       nested: {
         foo: '$foo:bar',
       },
+      arr: ['$foo:bar', 1],
     },
     sources: {
       foo: {
@@ -42,6 +43,7 @@ describe('uniconfig-plugin-datatree', () => {
         nested: {
           foo: 'baz',
         },
+        arr: ['baz', 1],
       })
     })
   })
@@ -56,6 +58,7 @@ describe('uniconfig-plugin-datatree', () => {
         nested: {
           foo: 'baz',
         },
+        arr: ['baz', 1],
       })
     })
   })

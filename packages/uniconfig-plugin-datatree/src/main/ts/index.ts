@@ -46,7 +46,7 @@ export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
   data,
   (result: ISourceMap, value: IAny, key: string) => {
     switch (true) {
-      case /^\$.+:.*/.test(value):
+      case typeof value === 'string' && /^\$.+:.*/.test(value):
         const [sourceName, path] = value.slice(1).split(':')
         const source = sources[sourceName]
 
@@ -71,7 +71,7 @@ export const evaluate = (data: IAny, sources: ISourceMap) => reduce(
 
     return result
   },
-  {},
+  Array.isArray(data) ? [] : {},
 )
 
 export const pipe: INamedPipe = {

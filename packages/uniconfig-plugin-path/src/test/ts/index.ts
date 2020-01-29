@@ -22,7 +22,7 @@ describe('plugin-path', () => {
         context,
         data: ['$root', 'config/default.json'],
         mode: SYNC,
-        pipeline: 'path'
+        pipeline: 'path',
       })
       expect(config.get()).toBe(expected)
 

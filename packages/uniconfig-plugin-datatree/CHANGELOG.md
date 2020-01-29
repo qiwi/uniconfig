@@ -1,3 +1,15 @@
+# [@qiwi/uniconfig-plugin-datatree-v3.3.0](https://github.com/qiwi/uniconfig/compare/v3.2.2...v3.3.0) (2020-01-29)
+
+
+### Bug Fixes
+
+* **datatree:** handle arrays ([2e5d3f9](https://github.com/qiwi/uniconfig/commit/2e5d3f9fb78c877025414561e23a7ed06b04df9f)), closes [#217](https://github.com/qiwi/uniconfig/issues/217)
+
+
+### Features
+
+* **core:** pass execution context to pipe handlers ([9ca0ef8](https://github.com/qiwi/uniconfig/commit/9ca0ef81a0b2ead9215517e02b44564763547d39))
+
 # [@qiwi/uniconfig-plugin-datatree-v3.2.2](https://github.com/qiwi/uniconfig/compare/v3.2.1...v3.2.2) (2019-12-29)
 
 

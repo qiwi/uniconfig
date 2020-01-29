@@ -1,7 +1,5 @@
 import {pipe as httpPipe} from '../../main/ts'
 import {context} from '@qiwi/uniconfig-core'
-// import {pipe as datatreePipe} from '@qiwi/uniconfig-plugin-datatree'
-// import {pipe as jsonPipe} from '@qiwi/uniconfig-plugin-json'
 
 describe('uniconfig-plugin-api-http', () => {
   const target = 'https://reqres.in/api/users/2'
@@ -41,48 +39,4 @@ describe('uniconfig-plugin-api-http', () => {
       return expect(httpPipe.handle(context, 'wtf://example.com')).rejects.toThrow('The protocol "wtf" is not supported, cannot load "wtf://example.com"')
     })
   })
-/*
-  describe('integration', () => {
-    beforeAll(() => {
-      context.pipe.add('json', jsonPipe)
-      context.pipe.add('datatree', datatreePipe)
-      rollupPlugin(httpPlugin)
-    })
-
-    afterAll(() => {
-      context.pipe.flush()
-    })
-
-    const input = {
-      data: {
-        someParam: '$fromWeb:data.first_name'
-      },
-      sources: {
-        fromWeb: {
-          data: target,
-          pipeline: 'http>json'
-        }
-      }
-    }
-
-    it('sync', () => {
-      const mode = SYNC
-      const opts = {mode, pipeline: 'datatree'}
-      const config = new Config(input, opts)
-
-      expect(config.get('someParam')).toBe('Janet')
-    })
-
-    it('async', done => {
-      const mode = ASYNC
-      const opts = {mode, pipeline: 'datatree'}
-      const config = new Config(input, opts)
-
-      config.on('CONFIG_READY', () => {
-        expect(config.get('someParam')).toBe('Janet')
-        done()
-      })
-    })
-  })
- */
 })

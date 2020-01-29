@@ -24,10 +24,8 @@ describe('plugin-argv', () => {
     it('sync', () => {
       const config = new Config({mode: SYNC, pipeline: name})
 
-      expect(config.get('cache')).toBeFalsy()
       expect(config.get('w')).toBe(1)
       expect(config.get('config')).toBe('jest.config.json')
-      expect(config.get('detectOpenHandles')).toBeTruthy()
     })
 
     it('async', () => {

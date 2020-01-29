@@ -5,9 +5,7 @@ import * as path from 'path'
 describe('plugin-path', () => {
   const root = path.resolve(__dirname, '../../../../../')
 
-  afterAll(() => {
-    context.pipe.flush()
-  })
+  afterAll(context.pipe.flush)
 
   it('properly registers `path` (self) and `root` plugins', () => {
     rollupPlugin(pathPlugin)
@@ -20,7 +18,12 @@ describe('plugin-path', () => {
     const expected = `${root}/config/default.json`
 
     it('sync', () => {
-      const config = new Config({data: ['$root', 'config/default.json']}, {mode: SYNC, pipeline: 'path'})
+      const config = new Config({
+        context,
+        data: ['$root', 'config/default.json'],
+        mode: SYNC,
+        pipeline: 'path'
+      })
       expect(config.get()).toBe(expected)
 
       expect(new Config({

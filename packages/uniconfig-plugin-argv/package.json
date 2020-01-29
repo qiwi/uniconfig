@@ -6,7 +6,8 @@
   "types": "target/es5/index.d.ts",
   "scripts": {
     "clean": "rm -rf target",
-    "jest": "NODE_ENV=test BAZ=baz jest -w 1 --detectOpenHandles --config jest.config.json",
+    "jest": "NODE_ENV=test BAZ=baz jest -w 1 --config jest.config.json",
+    "test": "yarn run jest",
     "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.build.json --target ES5 --outDir target/es5 -m CommonJS",
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.build.json --target ES6 --outDir target/es6",
     "build": "yarn build:es6 && yarn build:es5"

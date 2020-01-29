@@ -2,6 +2,7 @@
   "preset": "ts-jest",
   "testEnvironment": "node",
   "collectCoverage": true,
+  "coverageDirectory": "./coverage",
   "coveragePathIgnorePatterns": [
     "interface.js"
   ],

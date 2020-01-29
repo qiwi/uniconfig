@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-argv",
-  "version": "3.2.2",
+  "version": "3.3.0",
   "description": "Uniconfig argv reader plugin",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",

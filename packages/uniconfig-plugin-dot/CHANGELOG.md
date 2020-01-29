@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-dot-v3.3.0](https://github.com/qiwi/uniconfig/compare/v3.2.2...v3.3.0) (2020-01-29)
+
+
+### Features
+
+* **core:** pass execution context to pipe handlers ([9ca0ef8](https://github.com/qiwi/uniconfig/commit/9ca0ef81a0b2ead9215517e02b44564763547d39))
+
 # [@qiwi/uniconfig-plugin-dot-v3.2.2](https://github.com/qiwi/uniconfig/compare/v3.2.1...v3.2.2) (2019-12-29)
 
 

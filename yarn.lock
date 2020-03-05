@@ -10820,10 +10820,10 @@ semantic-release-monorepo-hooks@2.9.5:
     read-pkg "^5.2.0"
     semver "^6.2.0"
 
-semantic-release-monorepo@6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/semantic-release-monorepo/-/semantic-release-monorepo-6.1.1.tgz#c9d802cbd065963a7d01d258936dfaf2989a2a7f"
-  integrity sha512-qObVQYU4MuUAx1lr/tpIYfhebRl6NxVk52wo+bG2RTg2ePtqmHDunXNpSkDIi1Mqvq2CgyG50IdDnceZ8N5+gQ==
+semantic-release-monorepo@7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/semantic-release-monorepo/-/semantic-release-monorepo-7.0.1.tgz#4294b46a67c57eddc8d344cf6eafc73679b10017"
+  integrity sha512-jvNzSKNfBdYJfqb7JljOqG6UIVQ7adeRNBtkQRCsfRMApe8HkB92DmMVbKwJA5pS1Htcb9547YzN9XSI4uQ1QQ==
   dependencies:
     debug "^3.1.0"
     execa "^0.8.0"
@@ -10831,20 +10831,20 @@ semantic-release-monorepo@6.1.1:
     pkg-up "^2.0.0"
     ramda "^0.25.0"
     read-pkg "^3.0.0"
-    semantic-release-plugin-decorators "^1.2.1"
-
-semantic-release-plugin-decorators@^1.2.1:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/semantic-release-plugin-decorators/-/semantic-release-plugin-decorators-1.2.3.tgz#12dd1a9a70192a46240dab009de82dd3563c28ee"
-  integrity sha512-bEXRStCDiVIgFMiqvF2Chxt1JouFYGVQGA2F6i5GjI9Aq7hukdmkl8P2hB0HAzY7ezJB5lvdlJPcAf16wpfkcg==
-  dependencies:
-    import-from "^2.1.0"
-    lodash "^4.17.4"
+    semantic-release-plugin-decorators "^2.1.0"
 
 semantic-release-plugin-decorators@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/semantic-release-plugin-decorators/-/semantic-release-plugin-decorators-2.0.1.tgz#39ca1fafb0912e0258afd3a4d0d3b12f852b5d63"
   integrity sha512-4h3rHcBmvc2KuZLqnSgA0zQWnim2eLD/re8bTtZXZBIqSoe9wblL6BxrEbADatCGXyCuBLHaqjFNeA2t+JGt9g==
+  dependencies:
+    import-from "^2.1.0"
+    lodash "^4.17.15"
+
+semantic-release-plugin-decorators@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/semantic-release-plugin-decorators/-/semantic-release-plugin-decorators-2.1.1.tgz#3dedae949fcb307910cdbc846f254869985ae852"
+  integrity sha512-WxgJHB3Dwvf7WMQY5Se72hXDNlXCMGg5Qezs+2P0pRFPBjnrqOwPiQJh4I30bopTU/7eD5FeIUq4ErHzmrMeIg==
   dependencies:
     import-from "^2.1.0"
     lodash "^4.17.15"

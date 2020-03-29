@@ -1,7 +1,9 @@
 import {pipe as httpPipe} from '../../main/ts'
 import {context} from '@qiwi/uniconfig-core'
+import {pick} from 'lodash'
 
 describe('uniconfig-plugin-api-http', () => {
+  const removeAd = (body: string) => JSON.stringify(pick(JSON.parse(body), 'data'))
   const target = 'https://reqres.in/api/users/2'
   const expectedData = {
     data: {
@@ -15,14 +17,14 @@ describe('uniconfig-plugin-api-http', () => {
 
   describe('#handleSync', () => {
     it('gets data as string', () => {
-      expect(httpPipe.handleSync(context, target)).toEqual(JSON.stringify(expectedData))
+      expect(removeAd(httpPipe.handleSync(context, target))).toBe(JSON.stringify(expectedData))
     })
 
     it('supports req opts', () => {
-      expect(httpPipe.handleSync(context,{
+      expect(removeAd(httpPipe.handleSync(context,{
         url: target,
         method: 'GET',
-      })).toEqual(JSON.stringify(expectedData))
+      }))).toBe(JSON.stringify(expectedData))
     })
 
     it('gets err as result', () => {
@@ -32,7 +34,7 @@ describe('uniconfig-plugin-api-http', () => {
 
   describe('#handle', () => {
     it('resolves promise with string', () => {
-      return expect(httpPipe.handle(context, target)).resolves.toEqual(JSON.stringify(expectedData))
+      return expect(httpPipe.handle(context, target).then(removeAd)).resolves.toBe(JSON.stringify(expectedData))
     })
 
     it('rejects promise with err', () => {

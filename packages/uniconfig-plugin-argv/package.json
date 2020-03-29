@@ -27,9 +27,9 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^3.2.2",
-    "tslib": "^1.10.0",
-    "yargs": "^15.1.0"
+    "@qiwi/uniconfig-core": "^3.3.0",
+    "tslib": "^1.11.1",
+    "yargs": "^15.3.1"
   },
   "files": [
     "README.md",
@@ -37,10 +37,10 @@
     "target"
   ],
   "devDependencies": {
-    "typescript": "3.7.5",
-    "@types/node": "^13.5.1",
-    "ts-jest": "^25.0.0",
-    "@types/jest": "^25.1.0",
-    "jest": "^25.1.0"
+    "typescript": "3.8.3",
+    "@types/node": "^13.9.5",
+    "ts-jest": "^25.2.1",
+    "@types/jest": "^25.1.4",
+    "jest": "^25.2.3"
   }
 }

@@ -30,22 +30,22 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^3.2.2",
-    "@qiwi/uniconfig-plugin-ajv": "^3.2.2",
-    "@qiwi/uniconfig-plugin-api-file": "^3.2.2",
-    "@qiwi/uniconfig-plugin-api-http": "^3.2.2",
-    "@qiwi/uniconfig-plugin-argv": "^3.2.2",
-    "@qiwi/uniconfig-plugin-datatree": "^3.2.2",
-    "@qiwi/uniconfig-plugin-dot": "^3.2.2",
-    "@qiwi/uniconfig-plugin-dotenv": "^3.2.2",
-    "@qiwi/uniconfig-plugin-env": "^3.2.2",
-    "@qiwi/uniconfig-plugin-global": "^3.2.2",
-    "@qiwi/uniconfig-plugin-ip": "^3.2.2",
-    "@qiwi/uniconfig-plugin-json": "^3.2.2",
-    "@qiwi/uniconfig-plugin-path": "^3.2.2",
-    "@qiwi/uniconfig-plugin-pkg": "^3.2.2",
-    "@qiwi/uniconfig-plugin-root": "^3.2.2",
-    "@qiwi/uniconfig-plugin-yaml": "^3.2.2"
+    "@qiwi/uniconfig-core": "^3.3.0",
+    "@qiwi/uniconfig-plugin-ajv": "^3.3.0",
+    "@qiwi/uniconfig-plugin-api-file": "^3.3.0",
+    "@qiwi/uniconfig-plugin-api-http": "^3.3.0",
+    "@qiwi/uniconfig-plugin-argv": "^3.3.0",
+    "@qiwi/uniconfig-plugin-datatree": "^3.3.0",
+    "@qiwi/uniconfig-plugin-dot": "^3.3.0",
+    "@qiwi/uniconfig-plugin-dotenv": "^3.3.0",
+    "@qiwi/uniconfig-plugin-env": "^3.3.0",
+    "@qiwi/uniconfig-plugin-global": "^3.3.0",
+    "@qiwi/uniconfig-plugin-ip": "^3.3.0",
+    "@qiwi/uniconfig-plugin-json": "^3.3.0",
+    "@qiwi/uniconfig-plugin-path": "^3.3.0",
+    "@qiwi/uniconfig-plugin-pkg": "^3.3.0",
+    "@qiwi/uniconfig-plugin-root": "^3.3.0",
+    "@qiwi/uniconfig-plugin-yaml": "^3.3.0"
   },
   "files": [
     "README.md",
@@ -53,11 +53,11 @@
     "target"
   ],
   "devDependencies": {
-    "typescript": "3.7.5",
-    "@types/node": "^13.5.1",
+    "typescript": "3.8.3",
+    "@types/node": "^13.9.5",
     "@types/lodash": "^4.14.149",
-    "ts-jest": "^25.0.0",
-    "@types/jest": "^25.1.0",
-    "jest": "^25.1.0"
+    "ts-jest": "^25.2.1",
+    "@types/jest": "^25.1.4",
+    "jest": "^25.2.3"
   }
 }

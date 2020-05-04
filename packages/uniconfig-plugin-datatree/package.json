@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-datatree",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "uniconfig datatree plugin",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",

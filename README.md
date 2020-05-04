@@ -175,6 +175,3 @@ context.pipe.get('env') // <IPipe>
 rollbackPlugin(envPlugin)
 context.pipe.get('env') // undefined
 ```
-
-### IConfig
-

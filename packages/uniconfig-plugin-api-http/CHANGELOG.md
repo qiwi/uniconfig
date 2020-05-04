@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-api-http-v3.3.1](https://github.com/qiwi/uniconfig/compare/v3.3.0...v3.3.1) (2020-05-04)
+
+
+### Performance Improvements
+
+* **package:** up deps ([e9eef1f](https://github.com/qiwi/uniconfig/commit/e9eef1f013a96f8219cee291f144e87506780465))
+
 # [@qiwi/uniconfig-plugin-api-http-v3.3.0](https://github.com/qiwi/uniconfig/compare/v3.2.2...v3.3.0) (2020-01-29)
 
 

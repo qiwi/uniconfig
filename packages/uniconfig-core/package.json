@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "tslib": "^1.11.1",
+    "tslib": "^2.0.0",
     "lodash": "^4.17.15",
     "browser-or-node": "^1.2.1"
   },

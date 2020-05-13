@@ -33,7 +33,7 @@
     "target"
   ],
   "dependencies": {
-    "tslib": "^1.11.1",
+    "tslib": "^2.0.0",
     "@qiwi/uniconfig-core": "^3.3.0",
     "lodash": "^4.17.15",
     "@types/lodash": "^4.14.150"

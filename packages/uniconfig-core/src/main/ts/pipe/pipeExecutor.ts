@@ -38,11 +38,11 @@ export const invokePipe = (
   {
     name,
     handle,
-    handleSync
+    handleSync,
   }: IPipe,
   context: IContext,
   data: any,
-  opts: any[]
+  opts: any[],
 ) => {
   const handleException = (e: any, name: any, data: any, opts: any[]) => {
     console.error('Pipe exec failure', 'name=', name, 'data=', data, 'opts=', opts)

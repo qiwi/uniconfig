@@ -23,8 +23,12 @@ describe('pipe/pipeExecutor', () => {
       m[v] = k
       return m
     }, {})
+    const broken = (_context: IContext, _data: IAnyObject) => {
+      throw new Error('Broken pipe')
+    }
     const asPipe = (handler: Function) => ({
       handleSync: handler,
+      name: handler.name,
       async handle (...args: any[]) { return handler(...args) },
     })
 
@@ -32,6 +36,8 @@ describe('pipe/pipeExecutor', () => {
     registry.add('upper', asPipe(upper))
     registry.add('spacer', asPipe(spacer))
     registry.add('flip', asPipe(flip))
+    registry.add('flip', asPipe(flip))
+    registry.add('broken', asPipe(broken))
 
     type ITuple = [any, string | IPipeline, any, boolean];
 
@@ -65,6 +71,14 @@ describe('pipe/pipeExecutor', () => {
 
     it('throws error if required `some` pipe is not found', () => {
       expect(() => executor(data, 'json>some', 'sync', context)).toThrow('Pipe not found: some')
+    })
+
+    it('raises error on failure', () => {
+      expect(() => executor(data, 'broken', 'sync', context))
+        .toThrow('Broken pipe')
+
+      return expect(executor(data, 'broken', 'async', context))
+        .rejects.toEqual(new Error('Broken pipe'))
     })
   })
 })

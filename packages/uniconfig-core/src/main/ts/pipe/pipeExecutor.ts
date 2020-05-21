@@ -33,20 +33,47 @@ export type IResolvedPipe = {
   opts: IPipeOpts[]
 }
 
+export const invokePipe = (
+  mode: IMode,
+  {
+    name,
+    handle,
+    handleSync
+  }: IPipe,
+  context: IContext,
+  data: any,
+  opts: any[]
+) => {
+  const handleException = (e: any, name: any, data: any, opts: any[]) => {
+    console.error('Pipe exec failure', 'name=', name, 'data=', data, 'opts=', opts)
+    console.error(e)
+    throw e
+  }
+
+  try {
+    return mode === 'async'
+      ? handle(context, data, ...opts).catch((e: any) => handleException(e, name, data, opts))
+      : handleSync(context, data, ...opts)
+
+  } catch (e) {
+    handleException(e, name, data, opts)
+  }
+}
+
 export default function executor(data: IAny, pipeline: IPipeline, mode: IMode, context: IContext): IAny | Promise<IAny> {
   const resolvedPipes = resolvePipeline(pipeline, context.pipe)
 
   if (mode === 'async') {
     return reduce(
       resolvedPipes,
-      (promise, {pipe: {handle}, opts}) => promise.then(data => handle(context, data, ...opts)),
+      (promise, {pipe, opts}) => promise.then(data => invokePipe(mode, pipe, context, data, opts)),
       Promise.resolve(data),
     )
   }
 
   return reduce(
     resolvedPipes,
-    (prev, {pipe: {handleSync}, opts}) => handleSync(context, prev, ...opts),
+    (prev, {pipe, opts}) => invokePipe(mode, pipe, context, prev, opts),
     data,
   )
 }

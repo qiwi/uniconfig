@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v3.4.0](https://github.com/qiwi/uniconfig/compare/v3.3.1...v3.4.0) (2020-05-21)
+
+
+### Features
+
+* **core:** add logging for failed pipe ([05dd364](https://github.com/qiwi/uniconfig/commit/05dd3643cb4a773660921dac66c4ed592e55a9c7)), closes [#248](https://github.com/qiwi/uniconfig/issues/248)
+
 # [@qiwi/uniconfig-core-v3.3.1](https://github.com/qiwi/uniconfig/compare/v3.3.0...v3.3.1) (2020-05-04)
 
 

@@ -12,6 +12,7 @@ import {
   IResolve,
   IReject,
   IInjectsMap,
+  IInjectRule,
 } from './interface'
 
 import {get, has, reduce} from './base/util'
@@ -131,7 +132,7 @@ export class Config {
     try {
       return JSON.parse(reduce(injects, (memo, inject, name) => {
         let {from, to} = typeof inject === 'object' && inject.hasOwnProperty('from') && inject.hasOwnProperty('to')
-          ? inject
+          ? inject as IInjectRule
           : {from: name, to: inject}
 
         if (typeof to === 'object') {

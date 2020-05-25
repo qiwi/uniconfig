@@ -21,7 +21,7 @@ export type IInjectRule = {
   from: string | RegExp,
   to: any
 }
-export type IInject = IInjectRule | string
+export type IInject = IInjectRule | string | object
 export type IInjectsMap = {
   [key: string]: IInject
 }

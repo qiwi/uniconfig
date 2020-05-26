@@ -53,9 +53,6 @@ export const invokePipe = (
   opts: any[],
 ) => {
   const handleException = (e: any, name: any, data: any, opts: any[]) => {
-    console.warn('data', secretMasker(data))
-    console.warn('typeof data', typeof data)
-    console.warn('e', e)
     console.error('Pipe exec failure', 'name=', name, 'data=', typeof data === 'object' ? secretMasker(data) : 'string' , 'opts=', opts)
     console.error(e)
     throw e

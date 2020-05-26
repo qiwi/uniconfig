@@ -11,8 +11,16 @@ import {
   IContext,
 } from '../interface'
 
-import {reduce} from '../base/util'
+import {reduce, deepMasker} from '../base/util'
 
+const secretMasker = deepMasker(
+  (key) => ['secret', 'pass', 'password', 'token']
+    //@ts-ignore
+    .some((token) => key && key.toString() === token.toString()),
+  (value?: number | string) => value === undefined
+    ? 'empty value'
+    : `${typeof value}{${value.toString().length}}`,
+)
 export const PIPE_SEPARATOR = /[\s\r\n]*>+[\s\r\n]*/
 export const DEFAULT_PIPE: IPipe = {
   handle(_context: IContext, data) {
@@ -45,7 +53,10 @@ export const invokePipe = (
   opts: any[],
 ) => {
   const handleException = (e: any, name: any, data: any, opts: any[]) => {
-    console.error('Pipe exec failure', 'name=', name, 'data=', data, 'opts=', opts)
+    console.warn('data', secretMasker(data))
+    console.warn('typeof data', typeof data)
+    console.warn('e', e)
+    console.error('Pipe exec failure', 'name=', name, 'data=', typeof data === 'object' ? secretMasker(data) : 'string' , 'opts=', opts)
     console.error(e)
     throw e
   }

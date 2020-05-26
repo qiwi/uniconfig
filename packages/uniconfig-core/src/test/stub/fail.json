@@ -1,0 +1,12 @@
+{
+  "data": {
+    "someParam": "$a:b",
+    "secret": "qwertyuio",
+  },
+  "sources": {
+    "a": {
+      "data": "{\"b\":\"c\"}",
+      "pipeline": "json"
+    }
+  }
+}

@@ -129,7 +129,6 @@ describe('Config', () => {
             },
             "sources": {
               "fromFile": {
-                "data": "/Users/m.pismenskiy/project/uniconfig/packages/uniconfig-core/src/test/stub/fail.json",
                 "pipeline": "file>json",
               },
             },

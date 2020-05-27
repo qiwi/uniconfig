@@ -28,12 +28,13 @@ export const deepMasker = (
   refs.set(input, acc)
   const keys = Object.keys(input)
   keys.forEach((key) => {
+    const _condition = condition(key) ? () => true : condition
     // @ts-ignore
     acc[key] = deepMasker(
       input[key],
       key,
       fn,
-      condition(key) ? () => true : condition,
+      _condition,
       refs,
     )
   })

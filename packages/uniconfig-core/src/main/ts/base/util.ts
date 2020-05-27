@@ -45,9 +45,10 @@ export const secretDeepMasker = (input: any) => {
   const keywords = ['secret', 'password', 'token', 'cred', 'credentials', 'pass']
   const condition = (el?:string) => el !== undefined && keywords.some(keyword => el.toLowerCase().includes(keyword))
   const fn = (el:any) => {
-    if(el === undefined) {
-      return 'empty value'
+    if(el === undefined || el === null || el.toString().length === 0) {
+      return '{empty value}'
     }
+
     const length = el.toString().length
     return length < 7 ? ''.padEnd(length, '*') : `*******...{${length}}`
   }

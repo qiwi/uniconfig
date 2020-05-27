@@ -80,7 +80,9 @@ describe('Config', () => {
           secret: "secret",
           token: {
             a: 'foo',
-            b: 'barbaz',
+            b: 'barbazbarbaz',
+            c: '',
+            d: undefined,
           },
         },
         sources: {
@@ -124,7 +126,9 @@ describe('Config', () => {
               "secret": "******",
               "token": {
                 "a": "***",
-                "b": "******",
+                "b": "*******...{12}",
+                "c": "{empty value}",
+                "d": "{empty value}",
               },
             },
             "sources": {

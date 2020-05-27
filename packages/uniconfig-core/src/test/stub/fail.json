@@ -1,7 +1,7 @@
 {
   "data": {
     "someParam": "$a:b",
-    "secret": "qwertyuio",
+    "password": "qwertyuio",
   },
   "sources": {
     "a": {

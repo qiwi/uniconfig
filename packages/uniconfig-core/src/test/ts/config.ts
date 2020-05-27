@@ -76,8 +76,12 @@ describe('Config', () => {
 
       const input = {
         data: {
-          "someParam": "$a:b",
-          "secret": "qwertyuio",
+          someParam: "$a:b",
+          secret: "secret",
+          token: {
+            a: 'foo',
+            b: 'barbaz',
+          },
         },
         sources: {
           fromFile: {
@@ -98,14 +102,42 @@ describe('Config', () => {
       new Config(opts)
     } catch (e) {
       await delay(100)
-      expect(errors).toMatchObject(
+      expect(errors).toMatchObject([
         [
-          ["Pipe exec failure","name=","json","data=","string","opts=",[]],
-          [{}],
-          ["Pipe exec failure","name=","datatree","data=",{"data":{"someParam":"$a:b","secret":"string{9}"},"sources":{"fromFile":{"data":"/Users/m.pismenskiy/project/uniconfig/packages/uniconfig-core/src/test/stub/fail.json","pipeline":"file>json"}}},"opts=",[]],
-          [{}],
+          "Pipe exec failure",
+          "name=",
+          "json",
+          "data=",
+          "{\n  \"data\": {\n    \"someParam\": \"$a:b\",\n    \"password\": \"qwertyuio\",\n  },\n  \"sources\": {\n    \"a\": {\n      \"data\": \"{\\\"b\\\":\\\"c\\\"}\",\n      \"pipeline\": \"json\"\n    }\n  }\n}\n",
+          "opts=",
+          [],
         ],
-      )
+        [{}],
+        [
+          "Pipe exec failure",
+          "name=",
+          "datatree",
+          "data=",
+          {
+            "data": {
+              "someParam": "$a:b",
+              "secret": "******",
+              "token": {
+                "a": "***",
+                "b": "******",
+              },
+            },
+            "sources": {
+              "fromFile": {
+                "data": "/Users/m.pismenskiy/project/uniconfig/packages/uniconfig-core/src/test/stub/fail.json",
+                "pipeline": "file>json",
+              },
+            },
+          },
+          "opts=",
+          [],
+        ], [{}],
+      ])
       console.error = nativeConsoleError
     }
 

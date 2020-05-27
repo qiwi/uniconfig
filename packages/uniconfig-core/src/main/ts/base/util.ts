@@ -8,6 +8,8 @@ export {isBrowser, isNode}
 
 export const echo = (data: IAny): IAny => data
 
+const getSameTypeOfObject = (input: {} | []) => Array.isArray(input) ? [] : {}
+
 export const deepMasker = (
   input: any,
   key: string | undefined,
@@ -24,34 +26,49 @@ export const deepMasker = (
     return ref
   }
 
-  const acc = Array.isArray(input) ? [] : {}
+  const acc = getSameTypeOfObject(input)
   refs.set(input, acc)
+
   const keys = Object.keys(input)
   keys.forEach((key) => {
-    const _condition = condition(key) ? () => true : condition
     // @ts-ignore
     acc[key] = deepMasker(
       input[key],
       key,
       fn,
-      _condition,
+      condition(key) ? () => true : condition,
       refs,
     )
   })
   return acc
 }
 
-export const secretDeepMasker = (input: any) => {
-  const keywords = ['secret', 'password', 'token', 'cred', 'credentials', 'pass']
-  const condition = (el?:string) => el !== undefined && keywords.some(keyword => el.toLowerCase().includes(keyword))
-  const fn = (el:any) => {
-    if(el === undefined || el === null || el.toString().length === 0) {
-      return '{empty value}'
-    }
-
-    const length = el.toString().length
-    return length < 7 ? ''.padEnd(length, '*') : `*******...{${length}}`
+const maskerFn = (el: any) => {
+  if (!el) {
+    return '{empty value}'
   }
 
-  return deepMasker(input, undefined, fn, condition)
+  const length = el.toString().length
+  return length < 7 ? ''.padEnd(length, '*') : `*******...{${length}}`
+}
+
+const maskerCondition = (el?: string): boolean => {
+  const keywords = [
+    'secret',
+    'password',
+    'token',
+    'cred',
+    'credentials',
+    'pass',
+  ]
+
+  if (el === undefined) {
+    return false
+  }
+
+  return keywords.some((keyword) => el.toLowerCase().includes(keyword))
+}
+
+export const secretDeepMasker = (input: any) => {
+  return deepMasker(input, undefined, maskerFn, maskerCondition)
 }

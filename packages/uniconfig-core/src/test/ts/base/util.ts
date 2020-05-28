@@ -1,4 +1,4 @@
-import { echo, deepMap } from '../../../main/ts/base/util'
+import { echo, deepMap } from '../../../main/ts//base/util'
 
 describe('base/util', () => {
   it('`echo` returns input as a result', () => {

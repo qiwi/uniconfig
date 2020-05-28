@@ -16,6 +16,8 @@ import {pipe as pathPipe} from '../../../../uniconfig-plugin-path/src/main/ts'
 import {pipe as envPipe} from '../../../../uniconfig-plugin-env/src/main/ts'
 import {MISSED_VALUE_PATH} from '../../main/ts/base/error'
 
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+
 describe('config-core', () => {
   it('exposes inner constants', () => {
     [SYNC, ASYNC, DEFAULT_OPTS].forEach(v => expect(v).not.toBeUndefined())
@@ -23,6 +25,7 @@ describe('config-core', () => {
 })
 
 describe('Config', () => {
+  jest.useRealTimers()
   describe('constructor', () => {
     it('returns proper instance', () => {
       const opts: IConfigLegacyOpts = {tolerateMissed: true}
@@ -59,6 +62,90 @@ describe('Config', () => {
       expect(cfg.opts).toEqual({...DEFAULT_OPTS, ...opts})
       expect(cfg.data).toBe(data)
     })
+
+    it('hides secrets in errors', async function () {
+      const context = createContext()
+      context.pipe.add('file', filePipe)
+      context.pipe.add('json', jsonPipe)
+      context.pipe.add('dot', dotPipe)
+      context.pipe.add('path', pathPipe)
+      context.pipe.add('env', envPipe)
+      context.pipe.add('datatree', datatreePipe)
+
+      const target = resolve(__dirname, '../stub/fail.json')
+
+      const input = {
+        data: {
+          someParam: "$a:b",
+          secret: "secret",
+          token: {
+            a: 'foo',
+            b: 'barbazbarbaz',
+            c: '',
+            d: undefined,
+          },
+        },
+        sources: {
+          fromFile: {
+            data: target,
+            pipeline: 'file>json',
+          },
+        },
+      }
+
+
+    const nativeConsoleError = console.error
+    const errors: any[] = []
+    console.error = (...args: any[]) => errors.push(args)
+    const mode = SYNC
+
+    try {
+      const opts = {mode, context, pipeline: 'datatree', data: input}
+      new Config(opts)
+    } catch (e) {
+      await delay(100)
+      expect(errors).toMatchObject([
+        [
+          "Pipe exec failure",
+          "name=",
+          "json",
+          "data=",
+          "{\n  \"data\": {\n    \"someParam\": \"$a:b\",\n    \"password\": \"qwertyuio\",\n  },\n  \"sources\": {\n    \"a\": {\n      \"data\": \"{\\\"b\\\":\\\"c\\\"}\",\n      \"pipeline\": \"json\"\n    }\n  }\n}\n",
+          "opts=",
+          [],
+        ],
+        [{}],
+        [
+          "Pipe exec failure",
+          "name=",
+          "datatree",
+          "data=",
+          {
+            "data": {
+              "someParam": "$a:b",
+              "secret": "*****",
+              "token": {
+                "a": "*****",
+                "b": "*****",
+                "c": "***** (empty)",
+                "d": "***** (empty)",
+              },
+            },
+            "sources": {
+              "fromFile": {
+                "pipeline": "file>json",
+              },
+            },
+          },
+          "opts=",
+          [],
+        ], [{}],
+      ])
+      console.error = nativeConsoleError
+    }
+
+    })
+
   })
   describe('static', () => {
     describe('processInjects', () => {
@@ -146,6 +233,7 @@ describe('Config', () => {
         },
       },
     }
+
 
     it('sync', () => {
       const mode = SYNC

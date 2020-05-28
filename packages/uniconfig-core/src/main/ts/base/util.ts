@@ -10,7 +10,7 @@ export const echo = (data: IAny): IAny => data
 
 const getSameTypeOfObject = (input: any) => Array.isArray(input) ? [] : {}
 
-const deepMap = (
+export const deepMap = (
   input: any,
   cb: Function,
   key?: string,

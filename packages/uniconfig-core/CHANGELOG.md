@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-core-v3.5.0](https://github.com/qiwi/uniconfig/compare/v3.4.0...v3.5.0) (2020-05-28)
+
+
+### Features
+
+* add masking for creds ([36187b0](https://github.com/qiwi/uniconfig/commit/36187b025c8baa9c842239361a0f215ed86d9bbe))
+
 # [@qiwi/uniconfig-core-v3.4.0](https://github.com/qiwi/uniconfig/compare/v3.3.1...v3.4.0) (2020-05-21)
 
 

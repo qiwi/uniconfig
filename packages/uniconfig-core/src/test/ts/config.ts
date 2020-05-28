@@ -123,12 +123,12 @@ describe('Config', () => {
           {
             "data": {
               "someParam": "$a:b",
-              "secret": "******",
+              "secret": "***** {6}",
               "token": {
-                "a": "***",
-                "b": "*******...{12}",
-                "c": "{empty value}",
-                "d": "{empty value}",
+                "a": "***** {3}",
+                "b": "***** {12}",
+                "c": "***** {empty}",
+                "d": "***** {empty}",
               },
             },
             "sources": {

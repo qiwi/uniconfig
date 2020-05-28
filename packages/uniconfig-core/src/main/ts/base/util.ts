@@ -8,52 +8,53 @@ export {isBrowser, isNode}
 
 export const echo = (data: IAny): IAny => data
 
-const getSameTypeOfObject = (input: {} | []) => Array.isArray(input) ? [] : {}
+const deepMap = (() => {
+  const getSameTypeOfObject = (input: any) => Array.isArray(input) ? [] : {}
 
-export const deepMasker = (
-  input: any,
-  key: string | undefined,
-  fn: Function,
-  condition: Function,
-  refs = new WeakMap(),
-) => {
-  if (typeof input !== 'object' || input === null) {
-    return condition(key) ? fn(input) : input
+  const _deepMap = (
+    cb: Function,
+    input: any,
+    key?: string,
+    path?: string,
+    target = input,
+    refs = new WeakMap(),
+  ) => {
+    if (typeof cb !== 'function') {
+      return input
+    }
+
+    if (typeof input !== 'object' || input === null) {
+      return cb(input, key, target, path)
+    }
+
+    const ref = refs.get(input)
+    if (ref) {
+      return ref
+    }
+
+    const acc = getSameTypeOfObject(input)
+    refs.set(input, acc)
+
+    Object.keys(input).forEach((key) => {
+      // @ts-ignore
+      acc[key] = _deepMap(
+        cb,
+        input[key],
+        key,
+        (path ? path + '.' : '') + key,
+        input,
+        refs,
+      )
+    })
+
+    return acc
   }
 
-  const ref = refs.get(input)
-  if (ref) {
-    return ref
-  }
+  return (input: any, cb: Function) => _deepMap(cb, input)
+})()
 
-  const acc = getSameTypeOfObject(input)
-  refs.set(input, acc)
-
-  const keys = Object.keys(input)
-  keys.forEach((key) => {
-    // @ts-ignore
-    acc[key] = deepMasker(
-      input[key],
-      key,
-      fn,
-      condition(key) ? () => true : condition,
-      refs,
-    )
-  })
-  return acc
-}
-
-const maskerFn = (el: any) => {
-  if (!el) {
-    return '{empty value}'
-  }
-
-  const length = el.toString().length
-  return length < 7 ? ''.padEnd(length, '*') : `*******...{${length}}`
-}
-
-const maskerCondition = (el?: string): boolean => {
-  const keywords = [
+const maskerFn = (value: any, _key: string, _target: any, path: string) => {
+  const list = [
     'secret',
     'password',
     'token',
@@ -62,13 +63,21 @@ const maskerCondition = (el?: string): boolean => {
     'pass',
   ]
 
-  if (el === undefined) {
-    return false
+  if(path === undefined) {
+    return value
   }
 
-  return keywords.some((keyword) => el.toLowerCase().includes(keyword))
+  const chunks = path.split('.')
+
+  if (chunks.some((r: string) => list.some(el => r.includes(el)))) {
+    const len = !value
+      ? 'empty'
+      : value.toString().length
+
+    return `***** {${len}}`
+  }
+
+  return value
 }
 
-export const secretDeepMasker = (input: any) => {
-  return deepMasker(input, undefined, maskerFn, maskerCondition)
-}
+export const secretMasker = (input: any) => deepMap(input, maskerFn)

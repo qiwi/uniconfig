@@ -67,7 +67,7 @@ const maskerFn = (value: any, _key: string, _target: any, path: string) => {
   const chunks = path.split('.')
 
   if (chunks.some((r: string) => list.some(el => r.includes(el)))) {
-    return `***** (${!value ? 'empty' : value.toString().length})`
+    return `***** (${!value ? 'empty' : ''})`
   }
 
   return value

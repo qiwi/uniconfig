@@ -8,50 +8,47 @@ export {isBrowser, isNode}
 
 export const echo = (data: IAny): IAny => data
 
-const deepMap = (() => {
-  const getSameTypeOfObject = (input: any) => Array.isArray(input) ? [] : {}
+const getSameTypeOfObject = (input: any) => Array.isArray(input) ? [] : {}
 
-  const _deepMap = (
-    cb: Function,
-    input: any,
-    key?: string,
-    path?: string,
-    target = input,
-    refs = new WeakMap(),
-  ) => {
-    if (typeof cb !== 'function') {
-      return input
-    }
-
-    if (typeof input !== 'object' || input === null) {
-      return cb(input, key, target, path)
-    }
-
-    const ref = refs.get(input)
-    if (ref) {
-      return ref
-    }
-
-    const acc = getSameTypeOfObject(input)
-    refs.set(input, acc)
-
-    Object.keys(input).forEach((key) => {
-      // @ts-ignore
-      acc[key] = _deepMap(
-        cb,
-        input[key],
-        key,
-        (path ? path + '.' : '') + key,
-        input,
-        refs,
-      )
-    })
-
-    return acc
+const deepMap = (
+  input: any,
+  cb: Function,
+  key?: string,
+  path?: string,
+  target = input,
+  refs = new WeakMap(),
+) => {
+  if (typeof cb !== 'function') {
+    return input
   }
 
-  return (input: any, cb: Function) => _deepMap(cb, input)
-})()
+  if (typeof input !== 'object' || input === null) {
+    return cb(input, key, target, path)
+  }
+
+  const ref = refs.get(input)
+  if (ref) {
+    return ref
+  }
+
+  const acc = getSameTypeOfObject(input)
+  refs.set(input, acc)
+
+  Object.keys(input).forEach((key) => {
+    // @ts-ignore
+    acc[key] = deepMap(
+      input[key],
+      cb,
+      key,
+      (path ? path + '.' : '') + key,
+      input,
+      refs,
+    )
+  })
+
+  return acc
+}
+
 
 const maskerFn = (value: any, _key: string, _target: any, path: string) => {
   const list = [

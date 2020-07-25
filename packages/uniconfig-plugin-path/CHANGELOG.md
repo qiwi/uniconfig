@@ -1,3 +1,10 @@
+# [@qiwi/uniconfig-plugin-path-v3.5.1](https://github.com/qiwi/uniconfig/compare/v3.5.0...v3.5.1) (2020-07-25)
+
+
+### Bug Fixes
+
+* **package:** up deps, fix some vulns ([9a93496](https://github.com/qiwi/uniconfig/commit/9a934964074456a8f343b9153f8b9b093cddb50e))
+
 # [@qiwi/uniconfig-plugin-path-v3.3.1](https://github.com/qiwi/uniconfig/compare/v3.3.0...v3.3.1) (2020-05-04)
 
 

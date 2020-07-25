@@ -5368,10 +5368,10 @@ finalhandler@~1.1.2:
     statuses "~1.5.0"
     unpipe "~1.0.0"
 
-find-git-root@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/find-git-root/-/find-git-root-1.0.2.tgz#1b22195cef4bde0a0133d426baf424809da44e57"
-  integrity sha512-4RvQEPt1yDFrom3rEG30DN8L8dhNbxq2iKBwGUQlYNUPVDuS/Kmsz0O/xkSOCPEGFeNZYLKZ7XQku2GfhUa4Pw==
+find-git-root@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/find-git-root/-/find-git-root-1.0.4.tgz#8bc1e0897db783e06762bf050b0943288e5399fd"
+  integrity sha512-468fmirKKgcrqfZfPn0xIpwZUUsZQcYXfx0RC2/jX39GPz83TwutQNZZhDrI6HqjO8cRejxQVaUY8GQdXopFfA==
 
 find-npm-prefix@^1.0.2:
   version "1.0.2"
@@ -8032,6 +8032,11 @@ lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
+lodash@^4.17.19:
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 log-driver@^1.2.7:
   version "1.2.7"
@@ -11197,15 +11202,15 @@ scoped-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/scoped-regex/-/scoped-regex-2.1.0.tgz#7b9be845d81fd9d21d1ec97c61a0b7cf86d2015f"
   integrity sha512-g3WxHrqSWCZHGHlSrF51VXFdjImhwvH8ZO/pryFH56Qi0cDsZfylQa/t0jCzVQFNbNvM00HfHjkDPEuarKDSWQ==
 
-semantic-release-monorepo-hooks@2.9.5:
-  version "2.9.5"
-  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-2.9.5.tgz#493c76af8c187f7a34f4836f22f3f09d9f315c37"
-  integrity sha512-KIE5ZMcmCiGwm7rbbPbRR3Hm9/zBlskefJSni6LRCHuOg7xtj/J2ig8rExR8qI2E+ZAIP4n5YYCb2EtZA7WANQ==
+semantic-release-monorepo-hooks@2.9.6:
+  version "2.9.6"
+  resolved "https://registry.yarnpkg.com/semantic-release-monorepo-hooks/-/semantic-release-monorepo-hooks-2.9.6.tgz#1160f6180709c6d689bf8ed84a5b892456db64fe"
+  integrity sha512-JETk6yWutvJIZ25TLIOuk9XJYTBMPYARRcSqCo3taU2IK4162IqFwnZaBocfPtXdULTHInY3ZgigTChVs8TO0A==
   dependencies:
-    find-git-root "^1.0.2"
-    lodash "^4.17.14"
+    find-git-root "^1.0.4"
+    lodash "^4.17.19"
     read-pkg "^5.2.0"
-    semver "^6.2.0"
+    semver "^7.3.2"
 
 semantic-release-monorepo@7.0.2:
   version "7.0.2"

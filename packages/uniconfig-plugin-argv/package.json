@@ -29,7 +29,7 @@
   "dependencies": {
     "@qiwi/uniconfig-core": "^3.5.0",
     "tslib": "^2.0.0",
-    "yargs": "^15.4.1"
+    "yargs": "^16.0.0"
   },
   "files": [
     "README.md",

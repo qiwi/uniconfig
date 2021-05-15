@@ -43,7 +43,7 @@
     "docma": "^3.2.2",
     "jest": "26.1.0",
     "lcov-parse": "^1.0.0",
-    "lerna": "^3.22.1",
+    "lerna": "4.0.0",
     "parcel": "1.12.4",
     "parcel-bundler": "^1.12.4",
     "semantic-release": "17.1.1",

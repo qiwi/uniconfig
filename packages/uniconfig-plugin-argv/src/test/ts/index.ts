@@ -11,7 +11,7 @@ import argvPlugin from '../../main/ts'
 const name = argvPlugin.name
 
 describe('plugin-argv', () => {
-  afterAll(context.pipe.flush)
+  afterAll(() => context.pipe.flush())
 
   it('properly registers itself', () => {
     rollupPlugin(argvPlugin)

@@ -45,7 +45,7 @@ export const invokePipe = (
   opts: any[],
 ) => {
   const handleException = (e: any, name: any, data: any, opts: any[]) => {
-    console.error('Pipe exec failure', 'name=', name, 'data=', JSON.stringify(secretMasker(data)) , 'opts=', JSON.stringify(secretMasker(opts)))
+    console.error('Pipe exec failure', 'name=', name, 'data=', secretMasker(data) , 'opts=', secretMasker(opts))
     console.error(e)
     throw e
   }

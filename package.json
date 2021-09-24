@@ -1,4 +1,5 @@
 {
+  "name": "@qiwi/uniconfig-monorepo",
   "workspaces": [
     "packages/*"
   ],

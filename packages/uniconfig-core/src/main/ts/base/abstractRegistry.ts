@@ -1,3 +1,5 @@
+// import bind from 'bind-decorator'
+
 import {
   IRegistry,
   IRegistryStore,
@@ -16,23 +18,28 @@ export default class AbstractRegistry extends AbstractComponent implements IRegi
     this.type = 'abstract'
     this.store = {}
   }
+
   add(name: string, item: IRegistryItem): void {
     this.store[name] = item
   }
+
   get(name: string): IRegistryItem | undefined {
     return this.store[name]
   }
+
   has(name: string): boolean {
     return !!this.get(name)
   }
+
   remove(name: string): void {
     delete this.store[name]
   }
+
   flush(): void {
     this.store = {}
   }
+
   find() {
     AbstractRegistry.notImplemented()
   }
-
 }

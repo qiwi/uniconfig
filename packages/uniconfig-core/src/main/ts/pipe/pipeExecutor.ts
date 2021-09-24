@@ -12,6 +12,7 @@ import {
 } from '../interface'
 
 import {reduce, secretMasker} from '../base/util'
+import {ASYNC} from '../constants'
 export const PIPE_SEPARATOR = /[\s\r\n]*>+[\s\r\n]*/
 export const DEFAULT_PIPE: IPipe = {
   handle(_context: IContext, data) {
@@ -44,13 +45,13 @@ export const invokePipe = (
   opts: any[],
 ) => {
   const handleException = (e: any, name: any, data: any, opts: any[]) => {
-    console.error('Pipe exec failure', 'name=', name, 'data=', secretMasker(data) , 'opts=', secretMasker(opts))
+    console.error('Pipe exec failure', 'name=', name, 'data=', JSON.stringify(secretMasker(data)) , 'opts=', JSON.stringify(secretMasker(opts)))
     console.error(e)
     throw e
   }
 
   try {
-    return mode === 'async'
+    return mode === ASYNC
       ? handle(context, data, ...opts).catch((e: any) => handleException(e, name, data, opts))
       : handleSync(context, data, ...opts)
 
@@ -62,7 +63,7 @@ export const invokePipe = (
 export default function executor(data: IAny, pipeline: IPipeline, mode: IMode, context: IContext): IAny | Promise<IAny> {
   const resolvedPipes = resolvePipeline(pipeline, context.pipe)
 
-  if (mode === 'async') {
+  if (mode === ASYNC) {
     return reduce(
       resolvedPipes,
       (promise, {pipe, opts}) => promise.then(data => invokePipe(mode, pipe, context, data, opts)),

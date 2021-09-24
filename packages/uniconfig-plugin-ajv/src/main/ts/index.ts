@@ -5,7 +5,8 @@ import {
   IContext,
 } from '@qiwi/uniconfig-core'
 
-import * as Ajv from 'ajv'
+import Ajv from 'ajv'
+import addAjvFormats from 'ajv-formats'
 
 export const name = 'ajv'
 export const DEFAULT_OPTS = {}
@@ -16,6 +17,7 @@ const getAjv = (opts: IAnyObject): IAnyObject => {
 
   if (!ajvStack[key]) {
     ajvStack[key] = new Ajv(opts)
+    addAjvFormats(ajvStack[key])
   }
 
   return ajvStack[key]
@@ -50,7 +52,6 @@ export const pipe: INamedPipe = {
     return new Promise((resolve, reject) => {
       try {
         resolve(handle(input))
-
       }
       catch (e) {
         reject(e)

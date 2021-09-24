@@ -15,14 +15,13 @@ import {
   IInjectRule,
 } from './interface'
 
+import {SYNC} from './constants'
 import {get, has, reduce} from './base/util'
 import {ConfigError, MISSED_VALUE_PATH, BROKEN_INJECT} from './base/error'
 import {eventEmitterFactory, READY} from './event'
 import {defaultContext} from './context'
 import pipeExecutor from './pipe/pipeExecutor'
 
-export const SYNC = 'sync'
-export const ASYNC = 'async'
 export const DEFAULT_OPTS: IConfigOpts = {
   mode: SYNC,
   tolerateMissed: true,
@@ -55,7 +54,7 @@ export class Config {
     if (mode === SYNC) {
       this.setData(data)
     } else {
-      data.then(this.setData.bind(this))
+      data.then(this.setData.bind(this)).catch(this.intention.reject)
     }
   }
 

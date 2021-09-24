@@ -11,13 +11,10 @@ import ajvPlugin from '../../main/ts'
 const name = ajvPlugin.name
 
 describe('plugin-ajv', () => {
-  afterAll(() => {
-    context.pipe.flush()
-  })
+  beforeAll(() => rollupPlugin(ajvPlugin))
+  afterAll(() => context.pipe.flush())
 
   it('properly registers itself', () => {
-    rollupPlugin(ajvPlugin)
-
     expect(name).toBe('ajv')
     expect(context.pipe.get(name)).not.toBeUndefined()
   })
@@ -39,16 +36,18 @@ describe('plugin-ajv', () => {
     }
     const cases: Array<[string, any, any, string] | [string, any, any]> = [
       [SYNC, {foo: 'bar'}, {}],
-      [SYNC, {foo: 1}, {}, '[uniconfig ajv]: data.foo should be string'],
-      [SYNC, {foo: 'bar', date: '2000-01-32T20:20:20Z'}, {format: 'fast'}],
-      [SYNC, {foo: 'bar', date: '2000-01-32T20:20:20Z'}, {format: 'full'}, '[uniconfig ajv]: data.date should match format "date-time"'],
+      [SYNC, {foo: 1}, {}, '[uniconfig ajv]: data/foo must be string'],
+      // // https://github.com/ajv-validator/ajv-formats#options
+      // // [SYNC, {foo: 'bar', date: '2000-02-28T20:20:59Z'}, {mode: 'fast', formats: ['date-time']}],
+      [SYNC, {foo: 'bar', date: '2000-01-32T20:20:20Z'}, {mode: 'full'}, '[uniconfig ajv]: data/date must match format "date-time"'],
 
       [ASYNC, {foo: 'bar'}, {}],
-      [ASYNC, {foo: 1}, {}, '[uniconfig ajv]: data.foo should be string'],
+      [ASYNC, {foo: 1}, {foo: 1}, '[uniconfig ajv]: data/foo must be string'],
     ]
 
     cases.forEach(([mode, data, ajvOpts, err]) => {
       const opts = {
+        context,
         mode,
         data: {
           data,
@@ -74,13 +73,13 @@ describe('plugin-ajv', () => {
         if (err) {
           it(`${mode}: rejects with err ${err}`, () => {
             // tslint:disable-next-line
-            expect(new Config(opts).ready.then((config: Config) => config.get())).rejects.toBe(err)
+            return expect(new Config(opts).ready).rejects.toEqual(new Error(err))
           })
         }
         else {
-          it(`${mode} resolves valid data as is`, () => {
+          it(`${mode} resolves valid data as is`, async() => {
             // tslint:disable-next-line
-            expect(new Config(opts).ready.then((config: Config) => config.get())).resolves.toBe(data)
+            await expect(new Config(opts).ready.then((config: Config) => config.get())).resolves.toBe(data)
           })
         }
       }

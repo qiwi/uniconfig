@@ -12,7 +12,7 @@ describe('plugin-json', () => {
     context.pipe.add('datatree', datatreePipe)
   })
 
-  afterAll(context.pipe.flush)
+  afterAll(() => context.pipe.flush())
 
   it('properly registers self', () => {
     rollupPlugin(jsonPlugin, context)

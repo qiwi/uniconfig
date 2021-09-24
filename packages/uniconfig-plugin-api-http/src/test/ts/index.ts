@@ -3,7 +3,7 @@ import {context} from '@qiwi/uniconfig-core'
 import {pick} from 'lodash'
 
 describe('uniconfig-plugin-api-http', () => {
-  const removeAd = (body: string) => JSON.stringify(pick(JSON.parse(body), 'data'))
+  const removeAd = (body: string) => pick(JSON.parse(body), 'data')
   const target = 'https://reqres.in/api/users/2'
   const expectedData = {
     data: {
@@ -11,20 +11,20 @@ describe('uniconfig-plugin-api-http', () => {
       email: 'janet.weaver@reqres.in',
       first_name: 'Janet',
       last_name: 'Weaver',
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg',
+      avatar: expect.anything(),
     },
   }
 
   describe('#handleSync', () => {
     it('gets data as string', () => {
-      expect(removeAd(httpPipe.handleSync(context, target))).toBe(JSON.stringify(expectedData))
+      expect(removeAd(httpPipe.handleSync(context, target))).toEqual(expectedData)
     })
 
     it('supports req opts', () => {
       expect(removeAd(httpPipe.handleSync(context,{
         url: target,
         method: 'GET',
-      }))).toBe(JSON.stringify(expectedData))
+      }))).toEqual(expectedData)
     })
 
     it('gets err as result', () => {
@@ -34,7 +34,7 @@ describe('uniconfig-plugin-api-http', () => {
 
   describe('#handle', () => {
     it('resolves promise with string', () => {
-      return expect(httpPipe.handle(context, target).then(removeAd)).resolves.toBe(JSON.stringify(expectedData))
+      return expect(httpPipe.handle(context, target).then(removeAd)).resolves.toEqual(expectedData)
     })
 
     it('rejects promise with err', () => {

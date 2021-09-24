@@ -5,7 +5,7 @@ import * as path from 'path'
 describe('plugin-path', () => {
   const root = path.resolve(__dirname, '../../../../../')
 
-  afterAll(context.pipe.flush)
+  afterAll(() => context.pipe.flush())
 
   it('properly registers `path` (self) and `root` plugins', () => {
     rollupPlugin(pathPlugin)

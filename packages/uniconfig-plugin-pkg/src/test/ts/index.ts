@@ -4,7 +4,7 @@ import pkgPlugin from '../../main/ts'
 const name = pkgPlugin.name
 
 describe('plugin-pkg', () => {
-  afterAll(context.pipe.flush)
+  afterAll(() => context.pipe.flush())
 
   it('properly registers self', () => {
     rollupPlugin(pkgPlugin)

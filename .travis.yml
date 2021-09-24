@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '11.8.0'
+  - '16'
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -31,4 +31,4 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-    - yarn lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
+    - npx -p @qiwi/semrel-toolkit multi-semrel

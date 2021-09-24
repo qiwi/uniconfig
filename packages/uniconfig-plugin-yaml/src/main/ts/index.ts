@@ -1,4 +1,4 @@
-import {safeLoad} from 'js-yaml'
+import {load} from 'js-yaml'
 import {
   IAny, IContext,
   INamedPipe,
@@ -6,7 +6,7 @@ import {
 
 export const name = 'yaml'
 
-export const parse = (data: string): IAny => safeLoad(data)
+export const parse = (data: string): IAny => load(data)
 
 export const pipe: INamedPipe = {
   name,

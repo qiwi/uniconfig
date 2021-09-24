@@ -13,8 +13,7 @@ import uniconfig, {
 import {Context} from '../../main/ts/context'
 
 describe('facade', () => {
-  afterAll(context.pipe.flush)
-  beforeEach(context.pipe.flush)
+  afterAll(() => context.pipe.flush())
 
   const name = 'test'
   const pipe = {

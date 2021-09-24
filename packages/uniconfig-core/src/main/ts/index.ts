@@ -82,6 +82,7 @@ const rollbackPlugin = (plugin: IPluginDeclaration, _context: IContext = context
 }
 
 export * from './config'
+export * from './constants'
 export {
   context,
   pipeExecutor,

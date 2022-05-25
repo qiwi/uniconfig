@@ -38,7 +38,7 @@
     "docma": "^3.2.2",
     "jest": "28.1.0",
     "lcov-parse": "^1.0.0",
-    "lerna": "^4.0.0",
+    "lerna": "^5.0.0",
     "parcel": "2.6.0",
     "parcel-bundler": "^1.12.4",
     "ts-jest": "^28.0.0",

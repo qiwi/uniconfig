@@ -43,7 +43,7 @@
     "@types/node": "^16.9.6",
     "@types/lodash": "^4.14.173",
     "ts-jest": "^28.0.0",
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^28.0.0",
     "jest": "^28.0.0"
   }
 }

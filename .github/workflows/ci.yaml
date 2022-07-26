@@ -128,8 +128,8 @@ jobs:
       - name: Install deps
         run: yarn
 
-      - name: Unit test only
-        run: yarn test:unit
+      - name: Test
+        run: yarn test
 
       - name: Push coverage
         if: github.ref == 'refs/heads/master'

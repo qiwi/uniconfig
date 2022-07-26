@@ -28,7 +28,8 @@
     "rebuild": "yarn && yarn build && yarn test",
     "docs": "docma -c ./docma.json",
     "show:docs": "node scripts/js/docsapp.js",
-    "postupdate": "yarn && yarn build && yarn test"
+    "postupdate": "yarn && yarn build && yarn test",
+    "test:unit": "yarn lint && yarn jest"
   },
   "devDependencies": {
     "@qiwi/docma": "^3.3.10",

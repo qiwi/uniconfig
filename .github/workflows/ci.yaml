@@ -131,13 +131,13 @@ jobs:
       - name: Unit test only
         run: yarn test:unit
 
-  #      - name: Push coverage
-  #        if: github.ref == 'refs/heads/master'
-  #        uses: actions/upload-artifact@v3
-  #        with:
-  #          name: artifact-${{ needs.init.outputs.checksum }}
-  #          retention-days: 1
-  #          path: coverage
+      - name: Push coverage
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact-${{ needs.init.outputs.checksum }}
+          retention-days: 1
+          path: coverage
 
   test_pr:
     if: github.event_name == 'pull_request'

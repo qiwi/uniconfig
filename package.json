@@ -28,20 +28,20 @@
     "rebuild": "yarn && yarn build && yarn test",
     "docs": "docma -c ./docma.json",
     "show:docs": "node scripts/js/docsapp.js",
-    "postupdate": "yarn && npx yarn-audit-fix && yarn build && yarn test"
+    "postupdate": "yarn && yarn build && yarn test"
   },
   "devDependencies": {
     "@qiwi/docma": "^3.3.10",
+    "@types/jest": "^28.0.0",
     "@types/node": "^16.9.6",
     "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.1.1",
     "jest": "28.1.3",
     "lcov-parse": "^1.0.0",
-    "parcel": "2.6.2",
-    "parcel-bundler": "^1.12.4",
     "ts-jest": "^28.0.0",
     "tslint": "^6.1.2",
-    "tslint-config-qiwi": "^1.8.1"
+    "tslint-config-qiwi": "^1.8.1",
+    "typescript": "4.7.4"
   },
   "repository": {
     "type": "git",

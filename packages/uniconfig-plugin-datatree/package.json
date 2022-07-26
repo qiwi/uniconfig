@@ -6,10 +6,10 @@
   "types": "target/es5/index.d.ts",
   "scripts": {
     "clean": "rm -rf target",
-    "jest": "NODE_ENV=test BAZ=baz jest -w 1 --config jest.config.json",
+    "jest": "NODE_ENV=test BAZ=baz run -T jest -w 1 --config jest.config.json",
     "test": "yarn run jest",
-    "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.build.json --target ES5 --outDir target/es5 -m CommonJS",
-    "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.build.json --target ES6 --outDir target/es6",
+    "build:es5": "mkdir -p target/es5 && run -T tsc -p tsconfig.build.json --target ES5 --outDir target/es5 -m CommonJS",
+    "build:es6": "mkdir -p target/es6 && run -T tsc -p tsconfig.build.json --target ES6 --outDir target/es6",
     "build": "yarn build:es6 && yarn build:es5"
   },
   "repository": {
@@ -39,10 +39,6 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@types/jest": "^28.0.0",
-    "@types/node": "^16.9.6",
-    "jest": "^28.0.0",
-    "ts-jest": "^28.0.0",
-    "typescript": "4.7.4"
+    "@types/node": "^16.9.6"
   }
 }

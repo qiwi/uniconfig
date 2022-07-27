@@ -29,7 +29,8 @@
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
     "sync-request": "^6.1.0",
-    "then-request": "^6.0.2"
+    "then-request": "^6.0.2",
+    "tslib": "^2.4.0"
   },
   "files": [
     "README.md",

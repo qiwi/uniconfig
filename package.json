@@ -31,8 +31,7 @@
     "postupdate": "yarn && npx yarn-audit-fix && yarn build && yarn test"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "tslib": "^2.4.0"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@qiwi/docma": "^3.3.10",

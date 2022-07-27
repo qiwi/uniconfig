@@ -129,6 +129,8 @@ jobs:
         run: yarn
 
       - name: Test
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
         run: yarn test
 
       - name: Push coverage
@@ -192,12 +194,10 @@ jobs:
       - name: Install deps
         run: yarn
 
-      - name: Unit test only
-        if: matrix.node-version != '16' || matrix.os != 'ubuntu-20.04'
-        run: yarn test:unit
-
       - name: Full test
         if: matrix.node-version == '16' && matrix.os == 'ubuntu-20.04'
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
         run: yarn test
 
   release:

@@ -28,7 +28,8 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "tslib": "^2.4.0"
   },
   "files": [
     "README.md",

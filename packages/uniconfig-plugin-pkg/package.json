@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-pkg",
-  "version": "3.5.1",
+  "version": "0.0.0",
   "description": "Uniconfig package.json reader plugin",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",

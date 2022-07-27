@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-path",
-  "version": "3.5.1",
+  "version": "0.0.0",
   "description": "Uniconfig path resolver plugin",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",

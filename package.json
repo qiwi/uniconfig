@@ -3,7 +3,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "version": "1.7.0",
+  "version": "0.0.0",
   "private": true,
   "esm": {
     "mode": "all",

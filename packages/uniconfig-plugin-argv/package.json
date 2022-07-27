@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/uniconfig-plugin-argv",
-  "version": "3.5.1",
+  "version": "0.0.0",
   "description": "Uniconfig argv reader plugin",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",
@@ -28,8 +28,8 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
-    "yargs": "^17.2.0",
-    "tslib": "^2.4.0"
+    "tslib": "^2.4.0",
+    "yargs": "^17.2.0"
   },
   "files": [
     "README.md",

@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^3.5.1",
+    "@qiwi/uniconfig-core": "workspace:*",
     "ajv": "^8.6.3",
     "ajv-formats": "^2.1.1",
     "tslib": "^2.3.1"

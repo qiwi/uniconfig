@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^3.5.1",
+    "@qiwi/uniconfig-core": "workspace:*",
     "read-pkg": "^5.2.0"
   },
   "files": [

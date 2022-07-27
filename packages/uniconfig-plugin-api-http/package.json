@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^3.5.1",
+    "@qiwi/uniconfig-core": "workspace:*",
     "sync-request": "^6.1.0",
     "then-request": "^6.0.2",
     "tslib": "^2.3.1"

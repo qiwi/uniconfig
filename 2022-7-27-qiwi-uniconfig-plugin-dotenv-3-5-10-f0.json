@@ -1,0 +1,9 @@
+{
+  "META_VERSION": "1",
+  "name": "@qiwi/uniconfig-plugin-dotenv",
+  "hash": "e780126a377205dc259a9a5bd5a106dba0cc7bd7",
+  "version": "3.5.10",
+  "dependencies": {
+    "@qiwi/uniconfig-core": "3.5.3"
+  }
+}

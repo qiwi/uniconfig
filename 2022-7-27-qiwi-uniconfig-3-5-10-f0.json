@@ -1,0 +1,24 @@
+{
+  "META_VERSION": "1",
+  "name": "@qiwi/uniconfig",
+  "hash": "e780126a377205dc259a9a5bd5a106dba0cc7bd7",
+  "version": "3.5.10",
+  "dependencies": {
+    "@qiwi/uniconfig-core": "3.5.3",
+    "@qiwi/uniconfig-plugin-ajv": "3.5.4",
+    "@qiwi/uniconfig-plugin-api-file": "3.5.4",
+    "@qiwi/uniconfig-plugin-api-http": "3.5.4",
+    "@qiwi/uniconfig-plugin-argv": "3.5.4",
+    "@qiwi/uniconfig-plugin-datatree": "3.5.4",
+    "@qiwi/uniconfig-plugin-dot": "3.5.4",
+    "@qiwi/uniconfig-plugin-dotenv": "3.5.10",
+    "@qiwi/uniconfig-plugin-env": "3.5.4",
+    "@qiwi/uniconfig-plugin-global": "3.5.4",
+    "@qiwi/uniconfig-plugin-ip": "3.5.4",
+    "@qiwi/uniconfig-plugin-json": "3.5.4",
+    "@qiwi/uniconfig-plugin-path": "3.5.4",
+    "@qiwi/uniconfig-plugin-pkg": "3.5.4",
+    "@qiwi/uniconfig-plugin-root": "3.5.4",
+    "@qiwi/uniconfig-plugin-yaml": "3.5.4"
+  }
+}

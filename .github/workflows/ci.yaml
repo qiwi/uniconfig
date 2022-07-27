@@ -141,7 +141,7 @@ jobs:
           path: |
             coverage
             package.json
-            key: coverage-${{ needs.init.outputs.checksum }}
+          key: coverage-${{ needs.init.outputs.checksum }}
 
   test_pr:
     if: github.event_name == 'pull_request'

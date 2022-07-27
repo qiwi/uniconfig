@@ -29,15 +29,11 @@
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
     "sync-request": "^6.1.0",
-    "then-request": "^6.0.2",
-    "tslib": "^2.3.1"
+    "then-request": "^6.0.2"
   },
   "files": [
     "README.md",
     "CHANGELOG.md",
     "target/"
-  ],
-  "devDependencies": {
-    "@types/node": "^16.9.6"
-  }
+  ]
 }

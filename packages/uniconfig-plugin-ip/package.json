@@ -28,8 +28,7 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
-    "ip": "^2.0.0",
-    "tslib": "^2.3.1"
+    "ip": "^2.0.0"
   },
   "files": [
     "README.md",
@@ -37,7 +36,6 @@
     "target"
   ],
   "devDependencies": {
-    "@types/ip": "^1.1.0",
-    "@types/node": "^16.9.6"
+    "@types/ip": "^1.1.0"
   }
 }

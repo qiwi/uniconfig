@@ -28,8 +28,7 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
-    "js-yaml": "^4.1.0",
-    "tslib": "^2.3.1"
+    "js-yaml": "^4.1.0"
   },
   "files": [
     "README.md",
@@ -39,7 +38,6 @@
   "devDependencies": {
     "@qiwi/uniconfig-plugin-api-file": "workspace:*",
     "@qiwi/uniconfig-plugin-datatree": "workspace:*",
-    "@types/js-yaml": "^4.0.3",
-    "@types/node": "^16.9.6"
+    "@types/js-yaml": "^4.0.3"
   }
 }

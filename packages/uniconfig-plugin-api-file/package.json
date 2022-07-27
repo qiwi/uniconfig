@@ -27,15 +27,11 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "workspace:*",
-    "tslib": "^2.3.1"
+    "@qiwi/uniconfig-core": "workspace:*"
   },
   "files": [
     "README.md",
     "CHANGELOG.md",
     "target/"
-  ],
-  "devDependencies": {
-    "@types/node": "^16.9.6"
-  }
+  ]
 }

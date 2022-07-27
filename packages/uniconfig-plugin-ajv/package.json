@@ -29,15 +29,11 @@
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
     "ajv": "^8.6.3",
-    "ajv-formats": "^2.1.1",
-    "tslib": "^2.3.1"
+    "ajv-formats": "^2.1.1"
   },
   "files": [
     "README.md",
     "CHANGELOG.md",
     "target/"
-  ],
-  "devDependencies": {
-    "@types/node": "^16.9.6"
-  }
+  ]
 }

@@ -33,12 +33,6 @@
     "target"
   ],
   "dependencies": {
-    "@qiwi/uniconfig-core": "workspace:*",
-    "@types/lodash": "^4.14.173",
-    "lodash": "^4.17.21",
-    "tslib": "^2.3.1"
-  },
-  "devDependencies": {
-    "@types/node": "^16.9.6"
+    "@qiwi/uniconfig-core": "workspace:*"
   }
 }

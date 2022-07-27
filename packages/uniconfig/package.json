@@ -50,9 +50,5 @@
     "README.md",
     "CHANGELOG.md",
     "target"
-  ],
-  "devDependencies": {
-    "@types/lodash": "^4.14.173",
-    "@types/node": "^16.9.6"
-  }
+  ]
 }

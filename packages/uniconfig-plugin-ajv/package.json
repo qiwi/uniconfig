@@ -32,6 +32,9 @@
     "ajv-formats": "^2.1.1",
     "tslib": "^2.4.0"
   },
+  "devDependencies": {
+    "@types/node": "16.11.7"
+  },
   "files": [
     "README.md",
     "CHANGELOG.md",

@@ -30,14 +30,9 @@
     "show:docs": "node scripts/js/docsapp.js",
     "postupdate": "yarn && npx yarn-audit-fix && yarn build && yarn test"
   },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
   "devDependencies": {
     "@qiwi/docma": "^3.3.10",
     "@types/jest": "^28.1.6",
-    "@types/lodash": "^4.14.182",
-    "@types/node": "16.11.7",
     "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.1.1",
     "jest": "^28.1.3",

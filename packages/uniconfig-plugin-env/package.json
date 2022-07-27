@@ -30,6 +30,9 @@
     "@qiwi/uniconfig-core": "workspace:*",
     "tslib": "^2.4.0"
   },
+  "devDependencies": {
+    "@types/node": "16.11.7"
+  },
   "files": [
     "README.md",
     "CHANGELOG.md",

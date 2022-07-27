@@ -37,6 +37,7 @@
     "target"
   ],
   "devDependencies": {
-    "@types/app-root-path": "^1.2.4"
+    "@types/app-root-path": "^1.2.4",
+    "@types/node": "16.11.7"
   }
 }

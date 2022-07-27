@@ -29,7 +29,12 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "browser-or-node": "^2.0.0",
+    "lodash": "^4.17.21",
     "tslib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.182",
+    "@types/node": "16.11.7"
   },
   "files": [
     "README.md",

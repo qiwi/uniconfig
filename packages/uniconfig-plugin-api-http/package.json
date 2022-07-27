@@ -32,6 +32,9 @@
     "then-request": "^6.0.2",
     "tslib": "^2.4.0"
   },
+  "devDependencies": {
+    "@types/node": "16.11.7"
+  },
   "files": [
     "README.md",
     "CHANGELOG.md",

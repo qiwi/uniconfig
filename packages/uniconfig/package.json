@@ -46,6 +46,10 @@
     "@qiwi/uniconfig-plugin-root": "workspace:*",
     "@qiwi/uniconfig-plugin-yaml": "workspace:*"
   },
+  "devDependencies": {
+    "@types/lodash": "^4.14.182",
+    "@types/node": "16.11.7"
+  },
   "files": [
     "README.md",
     "CHANGELOG.md",

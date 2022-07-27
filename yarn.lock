@@ -1068,12 +1068,12 @@ __metadata:
     "@types/node": "npm:^16.9.6"
     codeclimate-test-reporter: "npm:^0.5.1"
     coveralls: "npm:^3.1.1"
-    jest: "npm:28.1.3"
+    jest: "npm:^28.1.3"
     lcov-parse: "npm:^1.0.0"
-    ts-jest: "npm:^28.0.0"
+    ts-jest: "npm:^28.0.7"
     tslint: "npm:^6.1.2"
     tslint-config-qiwi: "npm:^1.8.1"
-    typescript: "npm:4.7.4"
+    typescript: "npm:^4.7.4"
   languageName: unknown
   linkType: soft
 
@@ -4708,7 +4708,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:28.1.3":
+"jest@npm:^28.1.3":
   version: 28.1.3
   resolution: "jest@npm:28.1.3"
   dependencies:
@@ -4903,7 +4903,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json5@npm:2.x, json5@npm:^2.1.2":
+"json5@npm:^2.1.2":
   version: 2.2.0
   resolution: "json5@npm:2.2.0"
   dependencies:
@@ -7209,28 +7209,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^28.0.0":
-  version: 28.0.0
-  resolution: "ts-jest@npm:28.0.0"
+"ts-jest@npm:^28.0.7":
+  version: 28.0.7
+  resolution: "ts-jest@npm:28.0.7"
   dependencies:
     bs-logger: "npm:0.x"
     fast-json-stable-stringify: "npm:2.x"
     jest-util: "npm:^28.0.0"
-    json5: "npm:2.x"
+    json5: "npm:^2.2.1"
     lodash.memoize: "npm:4.x"
     make-error: "npm:1.x"
     semver: "npm:7.x"
-    yargs-parser: "npm:^20.x"
+    yargs-parser: "npm:^21.0.1"
   peerDependencies:
     "@babel/core": ">=7.0.0-beta.0 <8"
-    "@types/jest": ^27.0.0
+    "@jest/types": ^28.0.0
     babel-jest: ^28.0.0
     jest: ^28.0.0
     typescript: ">=4.3"
   peerDependenciesMeta:
     "@babel/core":
       optional: true
-    "@types/jest":
+    "@jest/types":
       optional: true
     babel-jest:
       optional: true
@@ -7238,7 +7238,7 @@ __metadata:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: cf35f3cf884cd680d42544d35f7dbf44175da673c7a2e46cc3763f44f078ffb8e58dab5d319a7281e5ca03b43d68421b6687a785bedd8bcb4a0a0cff258a070d
+  checksum: dc5a074b1364380308a9ea9d2e91c7a8b134f23378e0cc6ab4ee21e77cee1d17e14acd1cd23a828e08992c5db2c86c0c3b94e1633842612872d18bc9656724b8
   languageName: node
   linkType: hard
 
@@ -7439,7 +7439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.7.4":
+"typescript@npm:^4.7.4":
   version: 4.7.4
   resolution: "typescript@npm:4.7.4"
   bin:
@@ -7449,7 +7449,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A4.7.4#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^4.7.4#optional!builtin<compat/typescript>":
   version: 4.7.4
   resolution: "typescript@patch:typescript@npm%3A4.7.4#optional!builtin<compat/typescript>::version=4.7.4&hash=f456af"
   bin:
@@ -7827,14 +7827,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^20.2.2, yargs-parser@npm:^20.x":
+"yargs-parser@npm:^20.2.2":
   version: 20.2.9
   resolution: "yargs-parser@npm:20.2.9"
   checksum: fd739a429b7cde755b8e9d28520619fb8adb94c686b2d75d3c93a6ec199fbc8bf120af6d2be144f8d3075f3d675b09893f8894a362548107aa90bb97ad662c7a
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^21.0.0":
+"yargs-parser@npm:^21.0.0, yargs-parser@npm:^21.0.1":
   version: 21.0.1
   resolution: "yargs-parser@npm:21.0.1"
   checksum: acaedd6c21306da55dfabb5ea5967012a322bb103eab6034cee3ace61cefda1faaac89ea10bdee3bdfed2904f43cf71f346ccecf72e85b5005e6b2b2d17201d5

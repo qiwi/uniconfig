@@ -1,16 +1,15 @@
 {
   "name": "@qiwi/uniconfig",
-  "version": "3.5.1",
+  "version": "0.0.0",
   "description": "All-in-one uniconfig pack",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",
   "scripts": {
     "clean": "rm -rf target",
-    "jest": "NODE_ENV=test BAZ=baz jest -w 1 --config jest.config.json",
+    "jest": "NODE_ENV=test BAZ=baz run -T jest -w 1 --config jest.config.json",
     "test": "yarn run jest",
-    "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.build.json --target ES5 --outDir target/es5 -m CommonJS",
-    "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.build.json --target ES6 --outDir target/es6",
-    "build:bundle": "parcel build target/es6/index.js --out-dir target/bundle --experimental-scope-hoisting",
+    "build:es5": "mkdir -p target/es5 && run -T tsc -p tsconfig.build.json --target ES5 --outDir target/es5 -m CommonJS",
+    "build:es6": "mkdir -p target/es6 && run -T tsc -p tsconfig.build.json --target ES6 --outDir target/es6",
     "build": "yarn build:es6 && yarn build:es5"
   },
   "repository": {
@@ -30,34 +29,30 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "@qiwi/uniconfig-core": "^3.5.1",
-    "@qiwi/uniconfig-plugin-ajv": "^3.5.1",
-    "@qiwi/uniconfig-plugin-api-file": "^3.5.1",
-    "@qiwi/uniconfig-plugin-api-http": "^3.5.1",
-    "@qiwi/uniconfig-plugin-argv": "^3.5.1",
-    "@qiwi/uniconfig-plugin-datatree": "^3.5.1",
-    "@qiwi/uniconfig-plugin-dot": "^3.5.1",
-    "@qiwi/uniconfig-plugin-dotenv": "^3.5.1",
-    "@qiwi/uniconfig-plugin-env": "^3.5.1",
-    "@qiwi/uniconfig-plugin-global": "^3.5.1",
-    "@qiwi/uniconfig-plugin-ip": "^3.5.1",
-    "@qiwi/uniconfig-plugin-json": "^3.5.1",
-    "@qiwi/uniconfig-plugin-path": "^3.5.1",
-    "@qiwi/uniconfig-plugin-pkg": "^3.5.1",
-    "@qiwi/uniconfig-plugin-root": "^3.5.1",
-    "@qiwi/uniconfig-plugin-yaml": "^3.5.1"
+    "@qiwi/uniconfig-core": "workspace:*",
+    "@qiwi/uniconfig-plugin-ajv": "workspace:*",
+    "@qiwi/uniconfig-plugin-api-file": "workspace:*",
+    "@qiwi/uniconfig-plugin-api-http": "workspace:*",
+    "@qiwi/uniconfig-plugin-argv": "workspace:*",
+    "@qiwi/uniconfig-plugin-datatree": "workspace:*",
+    "@qiwi/uniconfig-plugin-dot": "workspace:*",
+    "@qiwi/uniconfig-plugin-dotenv": "workspace:*",
+    "@qiwi/uniconfig-plugin-env": "workspace:*",
+    "@qiwi/uniconfig-plugin-global": "workspace:*",
+    "@qiwi/uniconfig-plugin-ip": "workspace:*",
+    "@qiwi/uniconfig-plugin-json": "workspace:*",
+    "@qiwi/uniconfig-plugin-path": "workspace:*",
+    "@qiwi/uniconfig-plugin-pkg": "workspace:*",
+    "@qiwi/uniconfig-plugin-root": "workspace:*",
+    "@qiwi/uniconfig-plugin-yaml": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.182",
+    "@types/node": "16.11.7"
   },
   "files": [
     "README.md",
     "CHANGELOG.md",
     "target"
-  ],
-  "devDependencies": {
-    "typescript": "4.7.4",
-    "@types/node": "^16.9.6",
-    "@types/lodash": "^4.14.173",
-    "ts-jest": "^28.0.0",
-    "@types/jest": "^28.0.0",
-    "jest": "^28.0.0"
-  }
+  ]
 }

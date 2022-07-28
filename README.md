@@ -1,12 +1,9 @@
 # uniconfig
 
-![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)
-[![Build Status](https://travis-ci.com/qiwi/uniconfig.svg?branch=master)](https://travis-ci.com/qiwi/uniconfig)
-[![devDependencyStatus](https://img.shields.io/david/dev/qiwi/uniconfig.svg?maxAge=3600)](https://david-dm.org/qiwi/uniconfig)
+[![CI](https://github.com/qiwi/uniconfig/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/qiwi/uniconfig/actions/workflows/ci.yaml)
+[![Known Vulnerabilities](https://snyk.io/test/github/qiwi/uniconfig/badge.svg)](https://snyk.io/test/github/qiwi/uniconfig)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2b7e955e5e675161fc56/maintainability)](https://codeclimate.com/github/qiwi/uniconfig/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2b7e955e5e675161fc56/test_coverage)](https://codeclimate.com/github/qiwi/uniconfig/test_coverage)
-[![Greenkeeper badge](https://badges.greenkeeper.io/qiwi/uniconfig.svg)](https://greenkeeper.io/)
-[![CodeStyle](https://img.shields.io/badge/code%20style-tslint--config--qiwi-brightgreen.svg)](https://github.com/qiwi/tslint-config-qiwi)
 
 Yet another one config processor. Weird. Slow. Our own.
 

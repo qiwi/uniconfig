@@ -3,7 +3,6 @@ import {
   INamedPipe,
 } from '@qiwi/uniconfig-core'
 
-import requestSync from 'sync-request'
 import requestAsync from 'then-request'
 
 export type IMethod = 'GET' | 'POST' | 'HEAD' | 'PUT' | 'DELETE' | 'OPTIONS' | 'TRACE' | 'PATCH'
@@ -34,6 +33,7 @@ export const pipe: INamedPipe = {
   name,
   handleSync(_context: IContext, target: string | IRequestOpts) {
     const {method, url, opts} = parseTarget(target)
+    const requestSync = require('sync-request')
 
     return requestSync(method, url, opts).getBody('utf8')
   },

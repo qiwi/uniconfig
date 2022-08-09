@@ -1,0 +1,9 @@
+{
+  "META_VERSION": "1",
+  "name": "@qiwi/uniconfig-plugin-ajv",
+  "hash": "bc81d261273ce3976f71db5e7e6dcea3584ad483",
+  "version": "3.5.5",
+  "dependencies": {
+    "@qiwi/uniconfig-core": "3.5.4"
+  }
+}

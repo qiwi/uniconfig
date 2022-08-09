@@ -33,9 +33,11 @@ export const pipe: INamedPipe = {
   name,
   handleSync(_context: IContext, target: string | IRequestOpts) {
     const {method, url, opts} = parseTarget(target)
-    const requestSync = require('sync-request')
 
-    return requestSync(method, url, opts).getBody('utf8')
+    // sync-request calls sync-rpc on top level which spawns unnecessary process in ASYNC mode
+    // https://github.com/ForbesLindesay/sync-request/blob/master/src/index.ts#L8
+    // https://github.com/ForbesLindesay/sync-rpc/blob/f500876453721b37376419ad855388aae0579ccf/lib/index.js#L173
+    return require('sync-request')(method, url, opts).getBody('utf8')
   },
   handle(_context: IContext, target: string | IRequestOpts) {
     const {method, url, opts} = parseTarget(target)

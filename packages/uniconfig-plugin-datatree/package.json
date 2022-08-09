@@ -39,6 +39,6 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.182",
-    "@types/node": "16.11.47"
+    "@types/node": "18.6.5"
   }
 }

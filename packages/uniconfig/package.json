@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.182",
-    "@types/node": "18.11.13"
+    "@types/node": "18.11.14"
   },
   "files": [
     "README.md",

@@ -1057,7 +1057,7 @@ __metadata:
   resolution: "@qiwi/uniconfig-core@workspace:packages/uniconfig-core"
   dependencies:
     "@types/lodash": "npm:^4.14.182"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     browser-or-node: "npm:^2.0.0"
     lodash: "npm:^4.17.21"
     tslib: "npm:^2.4.0"
@@ -1086,7 +1086,7 @@ __metadata:
   resolution: "@qiwi/uniconfig-plugin-ajv@workspace:packages/uniconfig-plugin-ajv"
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     ajv: "npm:^8.11.0"
     ajv-formats: "npm:^2.1.1"
     tslib: "npm:^2.4.0"
@@ -1098,7 +1098,7 @@ __metadata:
   resolution: "@qiwi/uniconfig-plugin-api-file@workspace:packages/uniconfig-plugin-api-file"
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     tslib: "npm:^2.4.0"
   languageName: unknown
   linkType: soft
@@ -1108,7 +1108,7 @@ __metadata:
   resolution: "@qiwi/uniconfig-plugin-api-http@workspace:packages/uniconfig-plugin-api-http"
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     sync-request: "npm:^6.1.0"
     then-request: "npm:^6.0.2"
     tslib: "npm:^2.4.0"
@@ -1120,7 +1120,7 @@ __metadata:
   resolution: "@qiwi/uniconfig-plugin-argv@workspace:packages/uniconfig-plugin-argv"
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     tslib: "npm:^2.4.0"
     yargs: "npm:^17.5.1"
   languageName: unknown
@@ -1132,7 +1132,7 @@ __metadata:
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
     "@types/lodash": "npm:^4.14.182"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     lodash: "npm:^4.17.21"
     tslib: "npm:^2.4.0"
   languageName: unknown
@@ -1144,7 +1144,7 @@ __metadata:
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
     "@types/dot": "npm:^1.1.5"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     dot: "npm:1.1.3"
     tslib: "npm:^2.4.0"
   languageName: unknown
@@ -1156,7 +1156,7 @@ __metadata:
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
     "@types/dotenv": "npm:^8.2.0"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     dotenv: "npm:^16.0.1"
     tslib: "npm:^2.4.0"
   languageName: unknown
@@ -1167,7 +1167,7 @@ __metadata:
   resolution: "@qiwi/uniconfig-plugin-env@workspace:packages/uniconfig-plugin-env"
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     tslib: "npm:^2.4.0"
   languageName: unknown
   linkType: soft
@@ -1177,7 +1177,7 @@ __metadata:
   resolution: "@qiwi/uniconfig-plugin-global@workspace:packages/uniconfig-plugin-global"
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     tslib: "npm:^2.4.0"
   languageName: unknown
   linkType: soft
@@ -1188,7 +1188,7 @@ __metadata:
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
     "@types/ip": "npm:^1.1.0"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     ip: "npm:^2.0.0"
     tslib: "npm:^2.4.0"
   languageName: unknown
@@ -1201,7 +1201,7 @@ __metadata:
     "@qiwi/uniconfig-core": "workspace:*"
     "@qiwi/uniconfig-plugin-api-file": "workspace:*"
     "@qiwi/uniconfig-plugin-datatree": "workspace:*"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     tslib: "npm:^2.4.0"
   languageName: unknown
   linkType: soft
@@ -1212,7 +1212,7 @@ __metadata:
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
     "@qiwi/uniconfig-plugin-root": "workspace:*"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     tslib: "npm:^2.4.0"
   languageName: unknown
   linkType: soft
@@ -1222,7 +1222,7 @@ __metadata:
   resolution: "@qiwi/uniconfig-plugin-pkg@workspace:packages/uniconfig-plugin-pkg"
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     "@types/read-pkg": "npm:^5.1.0"
     read-pkg: "npm:^5.2.0"
   languageName: unknown
@@ -1234,7 +1234,7 @@ __metadata:
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
     "@types/app-root-path": "npm:^1.2.4"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     app-root-path: "npm:^3.0.0"
     tslib: "npm:^2.4.0"
   languageName: unknown
@@ -1248,7 +1248,7 @@ __metadata:
     "@qiwi/uniconfig-plugin-api-file": "workspace:*"
     "@qiwi/uniconfig-plugin-datatree": "workspace:*"
     "@types/js-yaml": "npm:^4.0.5"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
     js-yaml: "npm:^4.1.0"
     tslib: "npm:^2.4.0"
   languageName: unknown
@@ -1275,7 +1275,7 @@ __metadata:
     "@qiwi/uniconfig-plugin-root": "workspace:*"
     "@qiwi/uniconfig-plugin-yaml": "workspace:*"
     "@types/lodash": "npm:^4.14.182"
-    "@types/node": "npm:18.11.17"
+    "@types/node": "npm:18.11.18"
   languageName: unknown
   linkType: soft
 
@@ -1518,10 +1518,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.11.17":
-  version: 18.11.17
-  resolution: "@types/node@npm:18.11.17"
-  checksum: c344af96ffdcc429d8d79576de72061553cd083d06cde8209a82b3d927c62ecf2211f24c3b970194636833f9dcfd94228f2b019f2d796f1f20dfc0d12e6dcc2b
+"@types/node@npm:18.11.18":
+  version: 18.11.18
+  resolution: "@types/node@npm:18.11.18"
+  checksum: bd39552701928d4a1613bc46adf8b65f8212064c2b5475a67161b6c4cef21ddb0a5c2ba062673213f8f5301ef6e171241a9e274a9b59c9fc1f5e2b69764740eb
   languageName: node
   linkType: hard
 

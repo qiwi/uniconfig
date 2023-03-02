@@ -31,7 +31,7 @@
     "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "@types/node": "18.14.2"
+    "@types/node": "18.14.4"
   },
   "files": [
     "README.md",

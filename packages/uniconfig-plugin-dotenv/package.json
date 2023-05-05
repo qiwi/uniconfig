@@ -38,6 +38,6 @@
   ],
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
-    "@types/node": "18.16.3"
+    "@types/node": "18.16.4"
   }
 }

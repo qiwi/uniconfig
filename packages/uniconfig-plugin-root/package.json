@@ -38,6 +38,6 @@
   ],
   "devDependencies": {
     "@types/app-root-path": "^1.2.4",
-    "@types/node": "18.16.13"
+    "@types/node": "18.16.14"
   }
 }

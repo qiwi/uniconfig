@@ -36,7 +36,7 @@
     "target"
   ],
   "devDependencies": {
-    "@types/node": "18.16.17",
+    "@types/node": "18.16.18",
     "@types/read-pkg": "^5.1.0"
   }
 }

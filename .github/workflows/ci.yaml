@@ -24,7 +24,7 @@ jobs:
   build:
     name: build
     needs: init
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -85,7 +85,7 @@ jobs:
   test_push:
     needs: [build, init]
     if: github.event_name == 'push'
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -204,7 +204,7 @@ jobs:
     name: Release
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: [test_push, init]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3

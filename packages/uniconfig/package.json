@@ -44,7 +44,8 @@
     "@qiwi/uniconfig-plugin-path": "workspace:*",
     "@qiwi/uniconfig-plugin-pkg": "workspace:*",
     "@qiwi/uniconfig-plugin-root": "workspace:*",
-    "@qiwi/uniconfig-plugin-yaml": "workspace:*"
+    "@qiwi/uniconfig-plugin-yaml": "workspace:*",
+    "@qiwi/uniconfig-plugin-pkg-path": "workspace:*"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.182",

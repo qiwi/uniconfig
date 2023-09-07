@@ -20,7 +20,8 @@
     "packages/uniconfig-plugin-path/jest.config.json",
     "packages/uniconfig-plugin-pkg/jest.config.json",
     "packages/uniconfig-plugin-root/jest.config.json",
-    "packages/uniconfig-plugin-yaml/jest.config.json"
+    "packages/uniconfig-plugin-yaml/jest.config.json",
+    "packages/uniconfig-plugin-pkg-path/jest.config.json"
   ],
   "collectCoverageFrom": [
     "src/main/**/*.ts"

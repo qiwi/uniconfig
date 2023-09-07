@@ -19,6 +19,7 @@ const config = uniconfig({data: ['<root>', 'config/default.json']}, {pipeline: '
 config.get() // '/Users/antongolub/projects/uniconfig/config/default.json'  
 ```
 
-## `root` reference
-As practice shows, it's quite useful to build paths from the app root. So the `path` plugin works as preset, and adds [root plugin](../uniconfig-plugin-root/README.md) along with it.
+## `root` and `pkg-path` reference
+As practice shows, it's quite useful to build paths from the app root. So the `path` plugin works as preset, and adds [root plugin](../uniconfig-plugin-root/README.md) and [pkg-path plugin](../uniconfig-plugin-pkg-path/README.md) along with it.
 Root aliases: `<root>`, `$root` and `APP_ROOT`.
+Pkg-path aliases: `<pkg-path>`, `$pkg-path` and `APP_PKG`.

@@ -19,7 +19,8 @@
       "@qiwi/uniconfig-plugin-path": ["./uniconfig-plugin-path/src/main/ts"],
       "@qiwi/uniconfig-plugin-pkg": ["./uniconfig-plugin-pkg/src/main/ts"],
       "@qiwi/uniconfig-plugin-root": ["./uniconfig-plugin-root/src/main/ts"],
-      "@qiwi/uniconfig-plugin-yaml": ["./uniconfig-plugin-yaml/src/main/ts"]
+      "@qiwi/uniconfig-plugin-yaml": ["./uniconfig-plugin-yaml/src/main/ts"],
+      "@qiwi/uniconfig-plugin-pkg-path": ["./uniconfig-plugin-pkg-path/src/main/ts"]
     }
   }
 }

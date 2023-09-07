@@ -27,6 +27,7 @@ describe('legacy-facade', () => {
       'json',
       'path',
       'root',
+      'pkg-path',
       'pkg',
       'yaml',
     ])

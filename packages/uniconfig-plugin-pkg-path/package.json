@@ -1,7 +1,7 @@
 {
-  "name": "@qiwi/uniconfig-plugin-path",
+  "name": "@qiwi/uniconfig-plugin-pkg-path",
   "version": "0.0.0",
-  "description": "Uniconfig path resolver plugin",
+  "description": "Uniconfig pkg-path resolver plugin",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",
   "scripts": {
@@ -28,16 +28,14 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
-    "@qiwi/uniconfig-plugin-pkg-path": "workspace:*",
-    "@qiwi/uniconfig-plugin-root": "workspace:*",
     "tslib": "^2.4.0"
-  },
-  "devDependencies": {
-    "@types/node": "18.16.18"
   },
   "files": [
     "README.md",
     "CHANGELOG.md",
     "target"
-  ]
+  ],
+  "devDependencies": {
+    "@types/node": "18.16.18"
+  }
 }

@@ -1,9 +1,10 @@
 import {context, Config, rollupPlugin, rollbackPlugin, SYNC, ASYNC} from '@qiwi/uniconfig-core'
-import pathPlugin, {resolveRoots, pipe} from '../../main/ts'
+import pathPlugin, {resolveAliases, pipe} from '../../main/ts'
 import * as path from 'path'
 
 describe('plugin-path', () => {
   const root = path.resolve(__dirname, '../../../../../')
+  const cwd = process.cwd()
 
   afterAll(() => context.pipe.flush())
 
@@ -15,7 +16,8 @@ describe('plugin-path', () => {
   })
 
   describe('resolves paths', () => {
-    const expected = `${root}/config/default.json`
+    const expectedRoot = `${root}/config/default.json`
+    const expectedCwd = `${cwd}/config/default.json`
 
     it('sync', () => {
       const config = new Config({
@@ -24,26 +26,43 @@ describe('plugin-path', () => {
         mode: SYNC,
         pipeline: 'path',
       })
-      expect(config.get()).toBe(expected)
+      expect(config.get()).toBe(expectedRoot)
 
       expect(new Config({
         data: ['$root', 'config/default.json'],
         mode: SYNC,
         pipeline: 'path'},
-      ).get()).toBe(expected)
+      ).get()).toBe(expectedRoot)
+
+      expect(new Config({
+        data: ['$cwd', 'config/default.json'],
+        mode: SYNC,
+        pipeline: 'path'},
+      ).get()).toBe(expectedCwd)
     })
 
     it('async', async() => {
       const config = new Config({data: ['<root>', 'config/default.json']}, {mode: ASYNC, pipeline: 'path'})
-      return expect(config.ready.then((config: Config) => config.get())).resolves.toBe(expected)
+      await expect(config.ready.then((config: Config) => config.get())).resolves.toBe(expectedRoot)
+
+      const cwdConfig = new Config({data: ['<cwd>', 'config/default.json']}, {mode: ASYNC, pipeline: 'path'})
+      await expect(cwdConfig.ready.then((config: Config) => config.get())).resolves.toBe(expectedCwd)
     })
 
     it('processes root aliases', () => {
-      expect(resolveRoots(context,['<root>', '$root', 'APP_ROOT'])).toEqual([root, root, root])
+      expect(resolveAliases(context,['<root>', '$root', 'APP_ROOT'])).toEqual([root, root, root])
+    })
+
+    it('processes cwd aliases', () => {
+      expect(resolveAliases(context,['<cwd>', '$cwd', 'CWD'])).toEqual([cwd, cwd, cwd])
     })
 
     it('handles root aliases as a part of strings', () => {
-      expect(pipe.handleSync(context,'<root>/config/default.json')).toBe(expected)
+      expect(pipe.handleSync(context,'<root>/config/default.json')).toBe(expectedRoot)
+    })
+
+    it('handles cwd aliases as a part of strings', () => {
+      expect(pipe.handleSync(context,'<cwd>/config/default.json')).toBe(expectedCwd)
     })
   })
 

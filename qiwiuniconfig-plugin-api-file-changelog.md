@@ -1,3 +1,8 @@
+## [@qiwi/uniconfig-plugin-api-file@3.6.0](https://github.com/qiwi/uniconfig/compare/2022.8.9-qiwi.uniconfig-plugin-api-file.3.5.5-f0...2023.9.13-qiwi.uniconfig-plugin-api-file.3.6.0-f0) (2023-09-13)
+
+### Features
+* feat: handle multiple targets in api-file (#475) [be62a84](https://github.com/qiwi/uniconfig/commit/be62a846d6c4d3bbeba88b069508f81066aa8560)
+
 ## [@qiwi/uniconfig-plugin-api-file@3.5.5](https://github.com/qiwi/uniconfig/compare/2022.7.27-qiwi.uniconfig-plugin-api-file.3.5.4-f0...2022.8.9-qiwi.uniconfig-plugin-api-file.3.5.5-f0) (2022-08-09)
 
 ### Fixes & improvements

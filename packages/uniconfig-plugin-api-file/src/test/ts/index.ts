@@ -55,7 +55,7 @@ describe('uniconfig-plugin-api-file', () => {
           context,
           missingTargets,
         ),
-      ).rejects.toMatchObject({ message: /^All targets are unreachable/ })
+      ).rejects.toMatchObject({message: /^All targets are unreachable/})
     })
 
     it('rejects promise with err', () => {

@@ -29,7 +29,6 @@ describe('legacy-facade', () => {
       'root',
       'pkg',
       'yaml',
-      'cwd',
     ])
   })
 

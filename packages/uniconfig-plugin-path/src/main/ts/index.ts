@@ -24,6 +24,7 @@ const getAliasValues = (context: IContext) => [
 const injectValue = (aliases: string[], value: string, str: string) => {
   const re = new RegExp(
     `(${aliases.map(alias => alias.replace('$', '\\$')).join('|')})`,
+    'g',
   )
   return str.replace(re, value)
 }

@@ -1126,15 +1126,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@qiwi/uniconfig-plugin-cwd@workspace:*, @qiwi/uniconfig-plugin-cwd@workspace:packages/uniconfig-plugin-cwd":
-  version: 0.0.0-use.local
-  resolution: "@qiwi/uniconfig-plugin-cwd@workspace:packages/uniconfig-plugin-cwd"
-  dependencies:
-    "@qiwi/uniconfig-core": "workspace:*"
-    "@types/node": "npm:18.16.18"
-  languageName: unknown
-  linkType: soft
-
 "@qiwi/uniconfig-plugin-datatree@workspace:*, @qiwi/uniconfig-plugin-datatree@workspace:packages/uniconfig-plugin-datatree":
   version: 0.0.0-use.local
   resolution: "@qiwi/uniconfig-plugin-datatree@workspace:packages/uniconfig-plugin-datatree"
@@ -1220,7 +1211,6 @@ __metadata:
   resolution: "@qiwi/uniconfig-plugin-path@workspace:packages/uniconfig-plugin-path"
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
-    "@qiwi/uniconfig-plugin-cwd": "workspace:*"
     "@qiwi/uniconfig-plugin-root": "workspace:*"
     "@types/node": "npm:18.16.18"
     tslib: "npm:^2.4.0"
@@ -1273,7 +1263,6 @@ __metadata:
     "@qiwi/uniconfig-plugin-api-file": "workspace:*"
     "@qiwi/uniconfig-plugin-api-http": "workspace:*"
     "@qiwi/uniconfig-plugin-argv": "workspace:*"
-    "@qiwi/uniconfig-plugin-cwd": "workspace:*"
     "@qiwi/uniconfig-plugin-datatree": "workspace:*"
     "@qiwi/uniconfig-plugin-dot": "workspace:*"
     "@qiwi/uniconfig-plugin-dotenv": "workspace:*"

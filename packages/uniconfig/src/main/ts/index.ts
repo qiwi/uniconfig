@@ -14,7 +14,6 @@ import pathPlugin from '@qiwi/uniconfig-plugin-path'
 import pkgPlugin from '@qiwi/uniconfig-plugin-pkg'
 import rootPlugin from '@qiwi/uniconfig-plugin-root'
 import yamlPlugin from '@qiwi/uniconfig-plugin-yaml'
-import cwdPlugin from '@qiwi/uniconfig-plugin-cwd'
 
 rollupPlugin(ajvPlugin)
 rollupPlugin(apiFilePlugin)
@@ -31,7 +30,6 @@ rollupPlugin(pathPlugin)
 rollupPlugin(pkgPlugin)
 rollupPlugin(rootPlugin)
 rollupPlugin(yamlPlugin)
-rollupPlugin(cwdPlugin)
 
 export * from '@qiwi/uniconfig-core'
 export default unicore

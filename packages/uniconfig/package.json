@@ -34,7 +34,6 @@
     "@qiwi/uniconfig-plugin-api-file": "workspace:*",
     "@qiwi/uniconfig-plugin-api-http": "workspace:*",
     "@qiwi/uniconfig-plugin-argv": "workspace:*",
-    "@qiwi/uniconfig-plugin-cwd": "workspace:*",
     "@qiwi/uniconfig-plugin-datatree": "workspace:*",
     "@qiwi/uniconfig-plugin-dot": "workspace:*",
     "@qiwi/uniconfig-plugin-dotenv": "workspace:*",

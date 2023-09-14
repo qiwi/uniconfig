@@ -28,7 +28,6 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
-    "@qiwi/uniconfig-plugin-cwd": "workspace:*",
     "@qiwi/uniconfig-plugin-root": "workspace:*",
     "tslib": "^2.4.0"
   },

@@ -1,5 +1,5 @@
 import {context, Config, rollupPlugin, rollbackPlugin, SYNC, ASYNC} from '@qiwi/uniconfig-core'
-import pathPlugin, {resolveAliases, pipe} from '../../main/ts'
+import pathPlugin, {pipe} from '../../main/ts'
 import * as path from 'path'
 
 describe('plugin-path', () => {
@@ -67,20 +67,16 @@ describe('plugin-path', () => {
       await expect(cwdConfig.ready.then((config: Config) => config.get())).resolves.toBe(expectedCwd)
     })
 
-    it('processes root aliases', () => {
-      expect(resolveAliases(context,['<root>', '$root', 'APP_ROOT'])).toEqual([root, root, root])
-    })
-
-    it('processes cwd aliases', () => {
-      expect(resolveAliases(context,['<cwd>', '$cwd', 'CWD'])).toEqual([cwd, cwd, cwd])
-    })
-
     it('handles root aliases as a part of strings', () => {
       expect(pipe.handleSync(context,'<root>/config/default.json')).toBe(expectedRoot)
     })
 
     it('handles cwd aliases as a part of strings', () => {
       expect(pipe.handleSync(context,'<cwd>/config/default.json')).toBe(expectedCwd)
+    })
+
+    it('throws an error when input is invalid', () => {
+      expect(() => pipe.handleSync(context,undefined)).toThrow(/^Invalid/)
     })
   })
 

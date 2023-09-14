@@ -10,33 +10,54 @@ import {
 export const ROOT_ALIASES = ['<root>', '$root', 'APP_ROOT']
 export const CWD_ALIASES = ['<cwd>', '$cwd', 'CWD']
 
-export const resolveAliases = (context: IContext, args: IAny[]): IAny[] => args.map(arg => ROOT_ALIASES.includes(arg)
-    ? rootPlugin.handleSync(context)
-    : CWD_ALIASES.includes(arg)
-      ? process.cwd()
-      : arg,
-)
+const getAliasValues = (context: IContext) => [
+  {
+    alias: ROOT_ALIASES,
+    value: rootPlugin.handleSync(context),
+  },
+  {
+    alias: CWD_ALIASES,
+    value: process.cwd(),
+  },
+]
+
+const injectValue = (aliases: string[], value: string, str: string) => {
+  const re = new RegExp(
+    `(${aliases.map(alias => alias.replace('$', '\\$')).join('|')})`,
+  )
+  return str.replace(re, value)
+}
+
+const injectAliasValues = (context: IContext, str: string) => {
+  return getAliasValues(context)
+    .reduce((acc, it) => {
+      return injectValue(it.alias, it.value, acc)
+    }, str)
+}
+
 export const name: string = 'path'
 
 export const pipe: INamedPipe = {
   name,
   handleSync(_context: IContext, input): IAny {
-    const handleData = (data: IAny) => {
-      let _data = data
+    if (typeof input === 'string') {
+      return path.resolve(injectAliasValues(_context, input))
+    }
 
-      if (typeof data === 'string') {
-        const re = new RegExp(`(${[...ROOT_ALIASES, ...CWD_ALIASES].join('|')})(?:/)?`, 'g')
-        _data = data.split(re)
+    if (Array.isArray(input)) {
+      if (input.every(it => typeof it === 'string')) {
+        return path.resolve(...input.map(it => injectAliasValues(_context, it)))
       }
-
-      return path.resolve(...resolveAliases(_context,_data && _data.data || _data))
+      if (input.every(it => Array.isArray(it))) {
+        return input.map(it => pipe.handleSync(_context, it))
+      }
     }
 
-    if (Array.isArray(input) && input.every(Array.isArray)) {
-      return input.map((it: string[]) => handleData(it))
+    if (input && input.data) {
+      return pipe.handleSync(_context, input.data)
     }
 
-    return handleData(input)
+    throw new Error(`Invalid input ${input}, should be string | string[] | string[][] | { data: string | string[] }`)
   },
   handle(_context: IContext, data): Promise<IAny> {
     return Promise.resolve(pipe.handleSync(_context, data))

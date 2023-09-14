@@ -48,6 +48,15 @@ describe('plugin-path', () => {
         mode: SYNC,
         pipeline: 'path'},
       ).get()).toStrictEqual([expectedCwd, `${cwd}/config/ci.json`])
+
+      expect(new Config({
+        data: [
+          ['$cwd/config/default.json'],
+          ['<cwd>/config/ci.json'],
+        ],
+        mode: SYNC,
+        pipeline: 'path'},
+      ).get()).toStrictEqual([expectedCwd, `${cwd}/config/ci.json`])
     })
 
     it('async', async() => {

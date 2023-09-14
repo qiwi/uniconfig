@@ -20,19 +20,23 @@ export const name: string = 'path'
 
 export const pipe: INamedPipe = {
   name,
-  handleSync(_context: IContext, data): IAny {
-    let _data = data
+  handleSync(_context: IContext, input): IAny {
+    const handleData = (data: IAny) => {
+      let _data = data
 
-    if (typeof data === 'string') {
-      const re = new RegExp(`(${[...ROOT_ALIASES, ...CWD_ALIASES].join('|')})(?:/)?`, 'g')
-      _data = data.split(re)
+      if (typeof data === 'string') {
+        const re = new RegExp(`(${[...ROOT_ALIASES, ...CWD_ALIASES].join('|')})(?:/)?`, 'g')
+        _data = data.split(re)
+      }
+
+      return path.resolve(...resolveAliases(_context,_data && _data.data || _data))
     }
 
-    if (Array.isArray(data) && data.every(Array.isArray)) {
-      return data.map((it: string[]) => path.resolve(...resolveAliases(_context, it)))
+    if (Array.isArray(input) && input.every(Array.isArray)) {
+      return input.map((it: string[]) => handleData(it))
     }
 
-    return path.resolve(...resolveAliases(_context,_data && _data.data || _data))
+    return handleData(input)
   },
   handle(_context: IContext, data): Promise<IAny> {
     return Promise.resolve(pipe.handleSync(_context, data))

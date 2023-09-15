@@ -1,3 +1,8 @@
+## [@qiwi/uniconfig-plugin-path@3.6.0](https://github.com/qiwi/uniconfig/compare/2022.8.9-qiwi.uniconfig-plugin-path.3.5.5-f0...2023.9.15-qiwi.uniconfig-plugin-path.3.6.0-f0) (2023-09-15)
+
+### Features
+* feat: add cwd support in path (#476) [c54f1dd](https://github.com/qiwi/uniconfig/commit/c54f1dd02f5274f0ae70fb4c79041ba42b841242)
+
 ## [@qiwi/uniconfig-plugin-path@3.5.5](https://github.com/qiwi/uniconfig/compare/2022.7.27-qiwi.uniconfig-plugin-path.3.5.4-f0...2022.8.9-qiwi.uniconfig-plugin-path.3.5.5-f0) (2022-08-09)
 
 ### Fixes & improvements

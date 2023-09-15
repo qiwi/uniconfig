@@ -8,23 +8,57 @@ import {
 } from '@qiwi/uniconfig-core'
 
 export const ROOT_ALIASES = ['<root>', '$root', 'APP_ROOT']
-export const resolveRoots = (context: IContext, args: IAny[]): IAny[] => args.map(arg => ROOT_ALIASES.includes(arg)
-  ? rootPlugin.handleSync(context)
-  : arg,
-)
+export const CWD_ALIASES = ['<cwd>', '$cwd', 'CWD']
+
+const getAliasValues = (context: IContext) => [
+  {
+    alias: ROOT_ALIASES,
+    value: rootPlugin.handleSync(context),
+  },
+  {
+    alias: CWD_ALIASES,
+    value: process.cwd(),
+  },
+]
+
+const injectValue = (aliases: string[], value: string, str: string) => {
+  const re = new RegExp(
+    `(${aliases.map(alias => alias.replaceAll('$', '\\$')).join('|')})`,
+    'g',
+  )
+  return str.replace(re, value)
+}
+
+const injectAliasValues = (context: IContext, str: string) => {
+  return getAliasValues(context)
+    .reduce((acc, it) => {
+      return injectValue(it.alias, it.value, acc)
+    }, str)
+}
+
 export const name: string = 'path'
 
 export const pipe: INamedPipe = {
   name,
-  handleSync(_context: IContext, data): IAny {
-    let _data = data
-
-    if (typeof data === 'string') {
-      const re = new RegExp(`(${ROOT_ALIASES.join('|')})(?:/)?`, 'g')
-      _data = data.split(re)
+  handleSync(_context: IContext, input): IAny {
+    if (typeof input === 'string') {
+      return path.resolve(injectAliasValues(_context, input))
     }
 
-    return path.resolve(...resolveRoots(_context,_data && _data.data || _data))
+    if (Array.isArray(input)) {
+      if (input.every(it => typeof it === 'string')) {
+        return path.resolve(...input.map(it => injectAliasValues(_context, it)))
+      }
+      if (input.every(it => Array.isArray(it))) {
+        return input.map(it => pipe.handleSync(_context, it))
+      }
+    }
+
+    if (input && input.data) {
+      return pipe.handleSync(_context, input.data)
+    }
+
+    throw new Error(`Invalid input ${input}, should be string | string[] | string[][] | { data: string | string[] }`)
   },
   handle(_context: IContext, data): Promise<IAny> {
     return Promise.resolve(pipe.handleSync(_context, data))

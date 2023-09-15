@@ -1,0 +1,10 @@
+{
+  "META_VERSION": "1",
+  "name": "@qiwi/uniconfig-plugin-path",
+  "hash": "c54f1dd02f5274f0ae70fb4c79041ba42b841242",
+  "version": "3.6.0",
+  "dependencies": {
+    "@qiwi/uniconfig-core": "3.5.4",
+    "@qiwi/uniconfig-plugin-root": "3.5.5"
+  }
+}

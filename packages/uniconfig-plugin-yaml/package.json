@@ -40,6 +40,6 @@
     "@qiwi/uniconfig-plugin-api-file": "workspace:*",
     "@qiwi/uniconfig-plugin-datatree": "workspace:*",
     "@types/js-yaml": "^4.0.5",
-    "@types/node": "18.17.16"
+    "@types/node": "18.17.17"
   }
 }

@@ -7,7 +7,7 @@ import {
 } from '@qiwi/uniconfig-core'
 
 export type IFsOpts = {
-  encoding: string,
+  encoding: BufferEncoding,
   flag?: string
 }
 
@@ -38,7 +38,7 @@ export const pipe: INamedPipe = {
       if (Array.isArray(target)) {
         for (const path of target) {
           try {
-            resolve(await require('fs/promises').readFile(path, processOpts(opts)))
+            resolve(await require('fs').promises.readFile(path, processOpts(opts)))
             return
           }
           catch (e) { /* noop */ }

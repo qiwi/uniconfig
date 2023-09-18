@@ -1,3 +1,11 @@
+## [@qiwi/uniconfig-plugin-api-file@4.0.0](https://github.com/qiwi/uniconfig/compare/2023.9.13-qiwi.uniconfig-plugin-api-file.3.6.0-f0...2023.9.18-qiwi.uniconfig-plugin-api-file.4.0.0-f0) (2023-09-18)
+
+### Features
+* feat(uniconfig-plugin-api-file): check error, use static import for fs (#478) [bcdd30a](https://github.com/qiwi/uniconfig/commit/bcdd30a75fe6bb7f52df3715e3a98206375a63d1)
+
+### BREAKING CHANGES
+* feat(uniconfig-plugin-api-file): check error, use static import for fs (#478) [bcdd30a](https://github.com/qiwi/uniconfig/commit/bcdd30a75fe6bb7f52df3715e3a98206375a63d1)
+
 ## [@qiwi/uniconfig-plugin-api-file@3.6.0](https://github.com/qiwi/uniconfig/compare/2022.8.9-qiwi.uniconfig-plugin-api-file.3.5.5-f0...2023.9.13-qiwi.uniconfig-plugin-api-file.3.6.0-f0) (2023-09-13)
 
 ### Features

@@ -1,3 +1,8 @@
+## [@qiwi/uniconfig-plugin-json@3.5.7](https://github.com/qiwi/uniconfig/compare/2023.9.13-qiwi.uniconfig-plugin-json.3.5.6-f0...2023.9.18-qiwi.uniconfig-plugin-json.3.5.7-f0) (2023-09-18)
+
+### Dependencies
+* perf: devDependencies @qiwi/uniconfig-plugin-api-file updated to 4.0.0
+
 ## [@qiwi/uniconfig-plugin-json@3.5.6](https://github.com/qiwi/uniconfig/compare/2022.8.9-qiwi.uniconfig-plugin-json.3.5.5-f0...2023.9.13-qiwi.uniconfig-plugin-json.3.5.6-f0) (2023-09-13)
 
 ### Dependencies

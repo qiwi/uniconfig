@@ -5,9 +5,10 @@ import {
   INamedPipe,
   IContext,
 } from '@qiwi/uniconfig-core'
+import {readFile, readFileSync, promises} from 'node:fs'
 
 export type IFsOpts = {
-  encoding: string,
+  encoding: BufferEncoding,
   flag?: string
 }
 
@@ -25,9 +26,13 @@ export const pipe: INamedPipe = {
     if (Array.isArray(target)) {
       for (const path of target) {
         try {
-          return require('fs').readFileSync(path, processOpts(opts))
+          return readFileSync(path, processOpts(opts))
         }
-        catch { /* noop */ }
+        catch (e: any) {
+          if (e.code !== 'ENOENT') {
+            throw e
+          }
+        }
       }
       throw new Error(`All targets are unreachable (${target})`)
     }
@@ -38,15 +43,19 @@ export const pipe: INamedPipe = {
       if (Array.isArray(target)) {
         for (const path of target) {
           try {
-            resolve(await require('fs/promises').readFile(path, processOpts(opts)))
+            resolve(await promises.readFile(path, processOpts(opts)))
             return
           }
-          catch (e) { /* noop */ }
+          catch (e: any) {
+            if (e.code !== 'ENOENT') {
+              throw e
+            }
+          }
         }
         reject(new Error(`All targets are unreachable (${target})`))
         return
       }
-      require('fs').readFile(target, processOpts(opts), (err: IAny | null, data: IAny) => {
+      readFile(target, processOpts(opts), (err: IAny | null, data: IAny) => {
         if (err) {
           reject(err)
         }

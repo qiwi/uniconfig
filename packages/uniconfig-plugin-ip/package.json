@@ -29,7 +29,7 @@
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
     "ip": "^2.0.0",
-    "tslib": "^2.4.0"
+    "tslib": "^2.6.2"
   },
   "files": [
     "README.md",
@@ -37,7 +37,7 @@
     "target"
   ],
   "devDependencies": {
-    "@types/ip": "^1.1.0",
-    "@types/node": "18.18.4"
+    "@types/ip": "^1.1.1",
+    "@types/node": "20.8.3"
   }
 }

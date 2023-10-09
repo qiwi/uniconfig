@@ -17,6 +17,8 @@ Yet another one config processor. Weird. Slow. Our own.
 Config is just a piece of `data` with getters. The `data` is obtained from `ISource` in some way and processed by registered `IPipe` handlers.
 These operations form the `pipeline`.
 
+> Btw, here's the next step in config evolution: [**topoconfig** 🚀](https://github.com/antongolub/misc/tree/master/packages/topoconfig/core)
+
 ## Features
 * Declarative definitions
 * Multiple source composition

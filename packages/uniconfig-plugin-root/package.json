@@ -28,8 +28,8 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
-    "app-root-path": "^3.0.0",
-    "tslib": "^2.4.0"
+    "app-root-path": "^3.1.0",
+    "tslib": "^2.6.2"
   },
   "files": [
     "README.md",
@@ -37,7 +37,7 @@
     "target"
   ],
   "devDependencies": {
-    "@types/app-root-path": "^1.2.4",
-    "@types/node": "18.18.4"
+    "@types/app-root-path": "^1.2.6",
+    "@types/node": "20.8.3"
   }
 }

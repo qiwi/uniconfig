@@ -47,8 +47,8 @@
     "@qiwi/uniconfig-plugin-yaml": "workspace:*"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.182",
-    "@types/node": "18.18.4"
+    "@types/lodash": "^4.14.199",
+    "@types/node": "20.8.3"
   },
   "files": [
     "README.md",

@@ -30,10 +30,10 @@
     "@qiwi/uniconfig-core": "workspace:*",
     "sync-request": "^6.1.0",
     "then-request": "^6.0.2",
-    "tslib": "^2.4.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@types/node": "18.18.4"
+    "@types/node": "20.8.3"
   },
   "files": [
     "README.md",

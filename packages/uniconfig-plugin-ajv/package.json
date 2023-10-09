@@ -28,12 +28,12 @@
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
-    "ajv": "^8.11.0",
+    "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
-    "tslib": "^2.4.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@types/node": "18.18.4"
+    "@types/node": "20.8.3"
   },
   "files": [
     "README.md",

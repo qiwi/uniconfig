@@ -28,13 +28,13 @@
   },
   "homepage": "https://github.com/qiwi/uniconfig#readme",
   "dependencies": {
-    "browser-or-node": "^2.0.0",
+    "browser-or-node": "^2.1.1",
     "lodash": "^4.17.21",
-    "tslib": "^2.4.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.182",
-    "@types/node": "18.18.4"
+    "@types/lodash": "^4.14.199",
+    "@types/node": "20.8.3"
   },
   "files": [
     "README.md",

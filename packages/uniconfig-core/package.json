@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.199",
-    "@types/node": "20.8.9"
+    "@types/node": "20.9.0"
   },
   "files": [
     "README.md",

@@ -31,7 +31,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@types/node": "20.9.2"
+    "@types/node": "20.9.3"
   },
   "files": [
     "README.md",

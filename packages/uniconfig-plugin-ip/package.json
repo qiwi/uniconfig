@@ -38,6 +38,6 @@
   ],
   "devDependencies": {
     "@types/ip": "^1.1.1",
-    "@types/node": "20.9.5"
+    "@types/node": "20.10.0"
   }
 }

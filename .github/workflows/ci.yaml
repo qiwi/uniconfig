@@ -48,7 +48,7 @@ jobs:
         id: check-artifact
         run: echo "::set-output name=exists::$([ -e "artifact.tar" ] && echo true || echo false)"
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         if: ${{ steps.check-artifact.outputs.exists == 'false' }}
         id: yarn-cache
         with:
@@ -75,7 +75,7 @@ jobs:
 
       # https://github.com/actions/upload-artifact/issues/53
       - name: Cache artifact
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: artifact
         with:
           path: artifact.tar
@@ -95,7 +95,7 @@ jobs:
           node-version: 20
 
       - name: Restore artifact from cache (if exists)
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: artifact.tar
           key: artifact-${{ needs.init.outputs.checksum }}
@@ -118,7 +118,7 @@ jobs:
       - name: Unpack artifact
         run: tar -xvf artifact.tar
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: ${{ needs.init.outputs.yarn-cache-dir }}
@@ -136,7 +136,7 @@ jobs:
       - name: Cache coverage
         if: github.ref == 'refs/heads/master'
         id: cache-coverage
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             coverage
@@ -160,7 +160,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: ${{ needs.init.outputs.yarn-cache-dir }}
@@ -168,7 +168,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Restore artifact from cache (if exists)
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: artifact.tar
           key: artifact-${{ needs.init.outputs.checksum }}
@@ -213,7 +213,7 @@ jobs:
           ref: master
 
       - name: Restore artifact from cache (if exists)
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: artifact.tar
           key: artifact-${{ needs.init.outputs.checksum }}
@@ -234,7 +234,7 @@ jobs:
           search_depth: 10
 
       - name: Restore coverage
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             coverage
@@ -256,7 +256,7 @@ jobs:
           coverageLocations: |
             ${{github.workspace}}/coverage/*.lcov:lcov
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: ${{ needs.init.outputs.yarn-cache-dir }}

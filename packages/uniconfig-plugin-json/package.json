@@ -38,6 +38,6 @@
   "devDependencies": {
     "@qiwi/uniconfig-plugin-api-file": "workspace:*",
     "@qiwi/uniconfig-plugin-datatree": "workspace:*",
-    "@types/node": "20.11.5"
+    "@types/node": "20.11.6"
   }
 }

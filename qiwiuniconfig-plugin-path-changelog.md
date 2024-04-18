@@ -1,3 +1,9 @@
+## [@qiwi/uniconfig-plugin-path@3.6.1](https://github.com/qiwi/uniconfig/compare/2023.9.15-qiwi.uniconfig-plugin-path.3.6.0-f0...2024.4.18-qiwi.uniconfig-plugin-path.3.6.1-f0) (2024-04-18)
+
+### Dependencies
+* perf: dependencies @qiwi/uniconfig-core updated to 3.5.5
+* perf: dependencies @qiwi/uniconfig-plugin-root updated to 3.5.6
+
 ## [@qiwi/uniconfig-plugin-path@3.6.0](https://github.com/qiwi/uniconfig/compare/2022.8.9-qiwi.uniconfig-plugin-path.3.5.5-f0...2023.9.15-qiwi.uniconfig-plugin-path.3.6.0-f0) (2023-09-15)
 
 ### Features

@@ -1,3 +1,8 @@
+## [@qiwi/uniconfig-plugin-datatree@3.5.6](https://github.com/qiwi/uniconfig/compare/2022.8.9-qiwi.uniconfig-plugin-datatree.3.5.5-f0...2024.4.18-qiwi.uniconfig-plugin-datatree.3.5.6-f0) (2024-04-18)
+
+### Dependencies
+* perf: dependencies @qiwi/uniconfig-core updated to 3.5.5
+
 ## [@qiwi/uniconfig-plugin-datatree@3.5.5](https://github.com/qiwi/uniconfig/compare/2022.7.27-qiwi.uniconfig-plugin-datatree.3.5.4-f0...2022.8.9-qiwi.uniconfig-plugin-datatree.3.5.5-f0) (2022-08-09)
 
 ### Fixes & improvements

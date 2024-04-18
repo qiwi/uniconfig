@@ -1,3 +1,8 @@
+## [@qiwi/uniconfig-plugin-api-file@4.0.1](https://github.com/qiwi/uniconfig/compare/2023.9.18-qiwi.uniconfig-plugin-api-file.4.0.0-f0...2024.4.18-qiwi.uniconfig-plugin-api-file.4.0.1-f0) (2024-04-18)
+
+### Dependencies
+* perf: dependencies @qiwi/uniconfig-core updated to 3.5.5
+
 ## [@qiwi/uniconfig-plugin-api-file@4.0.0](https://github.com/qiwi/uniconfig/compare/2023.9.13-qiwi.uniconfig-plugin-api-file.3.6.0-f0...2023.9.18-qiwi.uniconfig-plugin-api-file.4.0.0-f0) (2023-09-18)
 
 ### Features

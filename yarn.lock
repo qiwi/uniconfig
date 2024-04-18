@@ -1122,7 +1122,7 @@ __metadata:
   dependencies:
     "@types/lodash": "npm:^4.14.199"
     "@types/node": "npm:20.12.7"
-    browser-or-node: "npm:^2.1.1"
+    browser-or-node: "npm:^3.0.0"
     lodash: "npm:^4.17.21"
     tslib: "npm:^2.6.2"
   languageName: unknown
@@ -2162,10 +2162,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browser-or-node@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "browser-or-node@npm:2.1.1"
-  checksum: b1650b579345574d2c1905c73d385915a032523066ef9589036cf129b23b27b85096b6713476dffb88feb83cda798ed0774363e699117aa2724a0409adea25aa
+"browser-or-node@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "browser-or-node@npm:3.0.0"
+  checksum: 51d74cc5d0139da3d37e83ff3906fcca20d02c42aa8b81a48d9ea01806f36df1a4b55006670071b1d7423967777275920054ec8b723410534b580b0232c5093d
   languageName: node
   linkType: hard
 

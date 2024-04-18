@@ -1,0 +1,13 @@
+{
+  "META_VERSION": "1",
+  "hash": "4f5e08cce01daf8004dba237e24cc9956d5bc4a6",
+  "name": "@qiwi/uniconfig-plugin-yaml",
+  "version": "3.5.8",
+  "dependencies": {
+    "@qiwi/uniconfig-core": "3.5.5"
+  },
+  "devDependencies": {
+    "@qiwi/uniconfig-plugin-api-file": "4.0.1",
+    "@qiwi/uniconfig-plugin-datatree": "3.5.6"
+  }
+}

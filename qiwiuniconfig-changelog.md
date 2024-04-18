@@ -1,3 +1,23 @@
+## [@qiwi/uniconfig@3.5.16](https://github.com/qiwi/uniconfig/compare/2024.3.31-qiwi.uniconfig.3.5.15-f0...2024.4.18-qiwi.uniconfig.3.5.16-f0) (2024-04-18)
+
+### Dependencies
+* perf: dependencies @qiwi/uniconfig-core updated to 3.5.5
+* perf: dependencies @qiwi/uniconfig-plugin-ajv updated to 3.5.7
+* perf: dependencies @qiwi/uniconfig-plugin-api-file updated to 4.0.1
+* perf: dependencies @qiwi/uniconfig-plugin-api-http updated to 3.5.6
+* perf: dependencies @qiwi/uniconfig-plugin-argv updated to 3.5.6
+* perf: dependencies @qiwi/uniconfig-plugin-datatree updated to 3.5.6
+* perf: dependencies @qiwi/uniconfig-plugin-dot updated to 3.5.6
+* perf: dependencies @qiwi/uniconfig-plugin-dotenv updated to 3.5.12
+* perf: dependencies @qiwi/uniconfig-plugin-env updated to 3.5.6
+* perf: dependencies @qiwi/uniconfig-plugin-global updated to 3.5.6
+* perf: dependencies @qiwi/uniconfig-plugin-ip updated to 3.5.6
+* perf: dependencies @qiwi/uniconfig-plugin-json updated to 3.5.8
+* perf: dependencies @qiwi/uniconfig-plugin-path updated to 3.6.1
+* perf: dependencies @qiwi/uniconfig-plugin-pkg updated to 3.5.6
+* perf: dependencies @qiwi/uniconfig-plugin-root updated to 3.5.6
+* perf: dependencies @qiwi/uniconfig-plugin-yaml updated to 3.5.8
+
 ## [@qiwi/uniconfig@3.5.15](https://github.com/qiwi/uniconfig/compare/2023.9.18-qiwi.uniconfig.3.5.14-f0...2024.3.31-qiwi.uniconfig.3.5.15-f0) (2024-03-31)
 
 ### Dependencies

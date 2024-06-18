@@ -32,7 +32,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@types/node": "20.14.3"
+    "@types/node": "20.14.4"
   },
   "files": [
     "README.md",

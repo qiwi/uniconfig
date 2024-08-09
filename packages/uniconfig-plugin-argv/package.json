@@ -32,7 +32,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@types/node": "20.14.14"
+    "@types/node": "20.14.15"
   },
   "files": [
     "README.md",

@@ -1297,7 +1297,7 @@ __metadata:
   resolution: "@qiwi/uniconfig-plugin-root@workspace:packages/uniconfig-plugin-root"
   dependencies:
     "@qiwi/uniconfig-core": "workspace:*"
-    "@types/app-root-path": "npm:^1.2.6"
+    "@types/app-root-path": "npm:^3.0.0"
     "@types/node": "npm:20.16.1"
     app-root-path: "npm:^3.1.0"
     tslib: "npm:^2.6.2"
@@ -1398,10 +1398,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/app-root-path@npm:^1.2.6":
-  version: 1.2.6
-  resolution: "@types/app-root-path@npm:1.2.6"
-  checksum: ec1d08fe4df3cadc23dfe5c40e93a4d4d1a3ec4670d56144aca561a8fb918f62e9eab73e273e3d9d997860a1a2170fb46b64e95268e11c5f3d8b09f693128ca4
+"@types/app-root-path@npm:^3.0.0":
+  version: 3.1.0
+  resolution: "@types/app-root-path@npm:3.1.0"
+  dependencies:
+    app-root-path: "npm:*"
+  checksum: e62ce16359e91a708d8acefa2a05dd5e6c723dd7789c8914e884b13a032e0e84a5c92bf826728fa63bbb9d96b3647c2ef40fced36f2d8a8210b44a1f6f30dd29
   languageName: node
   linkType: hard
 
@@ -1885,7 +1887,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"app-root-path@npm:^3.1.0":
+"app-root-path@npm:*, app-root-path@npm:^3.1.0":
   version: 3.1.0
   resolution: "app-root-path@npm:3.1.0"
   checksum: b4cdab5f7e51ec43fa04c97eca2adedf8e18d6c3dd21cd775b70457c5e71f0441c692a49dcceb426f192640b7393dcd41d85c36ef98ecb7c785a53159c912def

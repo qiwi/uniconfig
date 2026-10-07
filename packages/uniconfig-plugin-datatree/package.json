@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "@qiwi/uniconfig-core": "workspace:*",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
